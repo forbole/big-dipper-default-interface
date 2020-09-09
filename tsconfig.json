@@ -4,7 +4,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,9 +16,29 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@components": [
+        "src/components"
+      ],
+      "@screens/*": [
+        "src/screens/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@styles": [
+        "src/styles"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ]
+    },
   },
-  "baseUrl": ".",
   "include": [
     "next-env.d.ts",
     "**/*.ts",

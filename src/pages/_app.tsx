@@ -1,7 +1,11 @@
-import '../styles/globals.css';
+import { AppProps } from 'next/app';
+import { appWithTranslation } from '../../i18n';
 
-function MyApp({ Component, pageProps }: any) {
-  return <Component {...pageProps} />;
+// This default export is required in a new `pages/_app.js` file.
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <Component {...pageProps} />
+  );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
