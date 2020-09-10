@@ -1,13 +1,13 @@
+/* eslint-disable */
 import 'dotenv-defaults/config';
 import express, { Request, Response } from 'express';
 import next from 'next';
 import cors from 'cors';
 
-// const nextI18NextMiddleware = require('next-i18next/middleware').default;
-// const nextI18next = require('../i18n');
-
 const dev = process.env.ENV !== 'production';
-const app = next({ dev });
+const app = next({
+  dev,
+});
 const handle = app.getRequestHandler();
 const port = process.env.PORT;
 
@@ -16,9 +16,7 @@ const port = process.env.PORT;
     await app.prepare();
     const server = express();
 
-    // await nextI18next.initPromise;
     server.use(cors());
-    // server.use(nextI18NextMiddleware(nextI18next));
 
     server.all('*', (req: Request, res: Response) => {
       return handle(req, res);
