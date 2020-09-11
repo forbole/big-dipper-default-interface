@@ -36,13 +36,27 @@
       ],
       "@utils/*": [
         "src/utils/*"
+      ],
+      "@graphql": [
+        "src/graphql"
+      ],
+      "@graphql/queries": [
+        "src/graphql/queries"
+      ],
+      "@graphql/mutations": [
+        "src/graphql/mutations"
+      ],
+      "@tests/utils/*": [
+        "tests/utils/*"
       ]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "tests/utils/mock_react_i18next.js",
+    "tests/utils/mock_apollo_provider.tss"
   ],
   "exclude": [
     "node_modules"

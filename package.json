@@ -5,17 +5,21 @@
   "scripts": {
     "dev": "nodemon",
     "build": "npm run build:next && npm run build:server",
+    "build:server": "tsc --project tsconfig.server.json",
+    "build:next": "next build",
     "start": "ENV=production node dist/index.js",
     "type-check": "tsc",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.1.5",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "dotenv-defaults": "^2.0.1",
     "express": "^4.17.1",
+    "graphql": "^15.3.0",
     "next": "9.5.3",
     "next-i18next": "^6.0.2",
     "ramda": "^0.27.1",
@@ -25,6 +29,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.0.2",
+    "@testing-library/react-hooks": "^3.4.1",
     "@types/jest": "^26.0.13",
     "@types/node": "^14.6.4",
     "@types/react": "^16.9.49",

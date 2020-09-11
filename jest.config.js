@@ -20,7 +20,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-    // '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+    i18n: '<rootDir>/tests/utils/mock_react_i18next.js',
     ...pathsToModuleNameMapper(compilerOptions.paths, {
       prefix: '<rootDir>/',
     }),

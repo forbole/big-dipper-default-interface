@@ -1,5 +1,5 @@
 const NextI18Next = require('next-i18next').default;
-const { localeSubpaths, use } = require('next/config').default().publicRuntimeConfig;
+const { localeSubpaths, use = [] } = require('next/config').default().publicRuntimeConfig;
 
 const path = require('path');
 
