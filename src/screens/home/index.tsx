@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
 import { Example } from '@components';
+import Button from '@material-ui/core/Button';
 import { useHomeHook } from './hooks';
 
 const Home = () => {
@@ -17,6 +18,9 @@ const Home = () => {
 
   return (
     <div>
+      <Button variant="contained" color="primary">
+        Hello World
+      </Button>
       <h1>{t('bigDipper')}</h1>
       <h1>{t('forbole')}</h1>
       <p>
