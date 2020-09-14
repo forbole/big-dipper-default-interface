@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import { Example } from '@components';
+import { Example, Layout } from '@components';
 import Button from '@material-ui/core/Button';
 import { useHomeHook } from './hooks';
 
@@ -17,7 +17,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <Layout>
       <Button variant="contained" color="primary">
         Hello World
       </Button>
@@ -31,7 +31,7 @@ const Home = () => {
         <p key={x.currency}>{x.currency}</p>
       ))}
       <Example />
-    </div>
+    </Layout>
   );
 };
 
