@@ -1,29 +1,54 @@
-export const lightTheme = {
+import * as R from 'ramda';
+
+/** Common themes that don't change across light and dark theme */
+export const common = {
   palette: {
-    type: 'light',
     primary: {
-      main: 'rgba(46, 51, 56, 1)',
+      main: 'rgba(253, 59, 76, 1)',
     },
     secondary: {
       main: 'rgba(58, 211, 158, 1)',
-    },
-    customExample: {
-      main: 'purple',
     },
   },
 };
 
-export const darkTheme = {
+/** Custom theme overrides for light mode */
+const lightThemeOverride = {
+  type: 'light',
   palette: {
-    type: 'light',
-    primary: {
-      main: 'rgba(58, 211, 158, 1)',
+    homeGridOne: {
+      main: 'rgba(250, 58, 57, 1)',
     },
-    secondary: {
-      main: 'rgba(46, 51, 56, 1)',
+    homeGridTwo: {
+      main: 'rgba(253, 94, 31, 1)',
     },
-    customExample: {
-      main: 'purple',
+    homeGridThree: {
+      main: 'rgba(253, 93, 78, 1)',
+    },
+    homeGridFour: {
+      main: 'rgba(253, 149, 38, 1)',
     },
   },
 };
+
+/** Custom theme overrides for dark mode */
+const darkThemeOverride = {
+  type: 'dark',
+  palette: {
+    homeGridOne: {
+      main: 'rgba(250, 58, 57, 0.7)',
+    },
+    homeGridTwo: {
+      main: 'rgba(253, 94, 31, 0.7)',
+    },
+    homeGridThree: {
+      main: 'rgba(253, 93, 78, 0.7)',
+    },
+    homeGridFour: {
+      main: 'rgba(253, 149, 38, 0.7)',
+    },
+  },
+};
+
+export const lightTheme = R.mergeDeepLeft(lightThemeOverride, common);
+export const darkTheme = R.mergeDeepLeft(darkThemeOverride, common);
