@@ -1,6 +1,14 @@
 name: Test
 on: push
 jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: npm install
+    - name: Run lint check
+      run: npm run lint
   Unit-tests:
     runs-on: ubuntu-latest
     steps:
