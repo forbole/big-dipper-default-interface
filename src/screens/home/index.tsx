@@ -27,7 +27,7 @@ const Home = () => {
         home page on port
       </p>
       {!loading && <h3>done loading!</h3>}
-      {!loading && data.rates.map((x) => (
+      {!loading && !error && data.rates.map((x) => (
         <p key={x.currency}>{x.currency}</p>
       ))}
       <Example />

@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import { ApolloProvider } from '@apollo/client';
 import client from '@graphql';
 import { appWithTranslation } from '../../i18n';
@@ -7,6 +8,7 @@ import { appWithTranslation } from '../../i18n';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
+      <CssBaseline />
       <Component {...pageProps} />
     </ApolloProvider>
   );

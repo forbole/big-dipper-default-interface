@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { Footer } from '@components';
 import { useLayoutHook } from './hooks';
 
 export const Layout = (props:any) => {
@@ -9,6 +10,7 @@ export const Layout = (props:any) => {
   return (
     <ThemeProvider theme={theme}>
       {children}
+      <Footer />
     </ThemeProvider>
   );
 };
