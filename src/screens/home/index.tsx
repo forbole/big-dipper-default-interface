@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import { Example, Layout } from '@components';
+import {
+  Example, Layout,
+} from '@components';
 import Button from '@material-ui/core/Button';
 import { useHomeHook } from './hooks';
 
@@ -18,7 +20,10 @@ const Home = () => {
 
   return (
     <Layout>
-      <Button variant="contained" color="primary">
+      <Button
+        variant="contained"
+        color="primary"
+      >
         Hello World
       </Button>
       <h1>{t('bigDipper')}</h1>
@@ -28,7 +33,11 @@ const Home = () => {
       </p>
       {!loading && <h3>done loading!</h3>}
       {!loading && !error && data.rates.map((x) => (
-        <p key={x.currency}>{x.currency}</p>
+        <p
+          key={x.currency}
+        >
+          {x.currency}
+        </p>
       ))}
       <Example />
     </Layout>

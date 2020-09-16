@@ -4,7 +4,6 @@ import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
   const theme: any = useTheme();
-  console.log(theme, 'theme');
   const useStyles = makeStyles({
     root: {
       background: theme.palette.footer.main,
