@@ -12,10 +12,6 @@ export const useGetStyles = () => {
       padding: '2rem 1rem',
       display: 'flex',
       flexDirection: 'column',
-    },
-    mainContent: {
-      display: 'flex',
-      flexDirection: 'column',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         flexDirection: 'row',
         alignItems: 'flex-start',
@@ -69,12 +65,25 @@ export const useGetStyles = () => {
     },
     socialMediaContainer: {
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
+        alignSelf: 'flex-end',
         display: 'flex',
+        '& svg': {
+          width: '22px',
+        },
       },
     },
     socialMediaContent: {
       alignSelf: 'flex-end',
-      marginRight: '1rem',
+      marginRight: '0.7rem',
+      '&:hover': {
+        cursor: 'pointer',
+      },
+    },
+    copyright: {
+      color: theme.palette.onDarkSurface.main,
+    },
+    logo: {
+      width: '150px',
     },
   });
 
