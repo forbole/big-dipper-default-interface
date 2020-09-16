@@ -50,6 +50,11 @@
     "react/jsx-props-no-spreading": "off",
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
+    "react/no-array-index-key": "warn",
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "always"
+    ],
     "quotes": [
       "error",
       "single"

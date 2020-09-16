@@ -21,6 +21,7 @@ export const useGetStyles = () => {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'flex-end',
+      flexWrap: 'wrap',
       color: theme.palette.white.main,
     },
     mobileOnly: {
@@ -64,17 +65,19 @@ export const useGetStyles = () => {
       },
     },
     socialMediaContainer: {
+      display: 'flex',
+      flexWrap: 'wrap',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         alignSelf: 'flex-end',
-        display: 'flex',
         '& svg': {
           width: '22px',
         },
       },
     },
     socialMediaContent: {
-      alignSelf: 'flex-end',
       marginRight: '0.7rem',
+      display: 'flex',
+      alignItems: 'center',
       '&:hover': {
         cursor: 'pointer',
       },
@@ -85,33 +88,20 @@ export const useGetStyles = () => {
     logo: {
       width: '150px',
     },
+    appleBadge: {
+      '& img': {
+        width: '100px',
+      },
+      marginRight: '0.5rem',
+    },
+    googleBadge: {
+      '& img': {
+        width: '110px',
+      },
+    },
   });
 
   return {
     classes: useStyles(),
   };
-
-  // const PlayStoreCSS = styled(Box)({
-  // display: 'none',
-  // [getMinMediaQuery(theme.breakpoints.tablet)]: {
-  //   display: 'flex',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // },
-  // });
-
-  // return {
-  //   FooterCSS,
-  //   LogoContainerCSS,
-  //   LinkItemCSS,
-  //   LinkListCSS,
-  //   LinkSpacingCSS,
-  //   MainFooterContentCSS,
-  //   MobileDonateButtonCSS,
-  //   DonateButtonCSS,
-  //   SocialMediaCSS,
-  //   SocialMediaContainerCSS,
-  //   LinkContainerCSS,
-  //   PlayStoreCSS,
-  // };
 };

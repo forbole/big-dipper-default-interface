@@ -1,4 +1,5 @@
 import React from 'react';
+import NextLink from 'next/link';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
@@ -6,25 +7,36 @@ import {
   Button,
   List,
   ListItem,
+  Link,
 } from '@material-ui/core';
 import { useGetStyles } from './styles';
 import {
-  footerLinks, socialMediaLinks,
+  footerLinks,
+  socialMediaLinks,
+  getStoreBadge,
 } from './utils';
 
 export const Footer = () => {
   const { t } = useTranslation(['footer', 'common']);
   const { classes } = useGetStyles();
+  const storeBadges = getStoreBadge(classes);
+
   return (
-    <div className={classes.root}>
-      <div className={classes.logoContainer}>
+    <div
+      className={classes.root}
+    >
+      <div
+        className={classes.logoContainer}
+      >
         <div>
           <img
             className={classes.logo}
             src="images/big-dipper-logo.png"
             alt="big dipper logo"
           />
-          <Typography variant="body2">
+          <Typography
+            variant="body2"
+          >
             {t('common:cosmosBlockExplorer')}
           </Typography>
           <Typography
@@ -44,12 +56,29 @@ export const Footer = () => {
         </Button>
       </div>
 
-      <div className={classes.listContainer}>
-        <List className={classes.list}>
+      <div
+        className={classes.listContainer}
+      >
+        <List
+          className={classes.list}
+        >
           {footerLinks.map((x, i) => {
             return (
-              <ListItem key={x.key} className={classes.listItem}>
-                {t(x.key)}
+              <ListItem
+                key={x.key}
+                className={classes.listItem}
+              >
+                <NextLink
+                  href={`${x.url}`}
+                >
+                  <Link
+                    href={`${x.url}`}
+                    color="inherit"
+                    underline="none"
+                  >
+                    {t(x.key)}
+                  </Link>
+                </NextLink>
                 {i !== footerLinks.length - 1 && (
                   <span>|</span>
                 )}
@@ -57,18 +86,36 @@ export const Footer = () => {
             );
           })}
         </List>
-        <div className={classes.playStore}>
-          play store icons
+        <div
+          className={classes.playStore}
+        >
+          {storeBadges.map((x) => (
+            <a
+              className={x.className}
+              href={x.url}
+              target="_blank"
+              rel="noreferrer"
+              key={x.alt}
+            >
+              <img
+                src={x.image}
+                alt={x.alt}
+                title={x.alt}
+              />
+            </a>
+          ))}
         </div>
       </div>
-      <div className={classes.socialMediaContainer}>
-        {socialMediaLinks.map((x) => (
+      <div
+        className={classes.socialMediaContainer}
+      >
+        {socialMediaLinks.map((x, i) => (
           <a
             href={x.url}
             target="_blank"
             rel="noreferrer"
             className={classes.socialMediaContent}
-            key={x.url}
+            key={i}
           >
             <x.component />
           </a>

@@ -47,3 +47,22 @@ export const socialMediaLinks = [
     url: '#',
   },
 ];
+
+export const getStoreBadge = (classes) => {
+  return (
+    [
+      {
+        image: 'images/apple-badge.svg',
+        url: '#',
+        className: classes.appleBadge,
+        alt: 'apple store',
+      },
+      {
+        image: 'images/google-play-badge.svg',
+        url: '#',
+        className: classes.googleBadge,
+        alt: 'google store',
+      },
+    ]
+  );
+};
