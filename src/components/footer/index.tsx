@@ -32,9 +32,7 @@ export const Footer = () => {
           <Link
             href="/"
           >
-            <a
-              href="/"
-            >
+            <a>
               <img
                 className={classes.logo}
                 src="images/big-dipper-logo.png"
@@ -84,7 +82,9 @@ export const Footer = () => {
                     color="inherit"
                     underline="none"
                   >
-                    {t(x.key)}
+                    <a>
+                      {t(x.key)}
+                    </a>
                   </Link>
                 </NextLink>
                 {i !== footerLinks.length - 1 && (

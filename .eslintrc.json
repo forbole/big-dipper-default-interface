@@ -51,6 +51,7 @@
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
     "react/no-array-index-key": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
     "react/jsx-first-prop-new-line": [
       "error",
       "always"
