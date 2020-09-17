@@ -29,11 +29,19 @@ export const Footer = () => {
         className={classes.logoContainer}
       >
         <div>
-          <img
-            className={classes.logo}
-            src="images/big-dipper-logo.png"
-            alt="big dipper logo"
-          />
+          <Link
+            href="/"
+          >
+            <a
+              href="/"
+            >
+              <img
+                className={classes.logo}
+                src="images/big-dipper-logo.png"
+                alt="big dipper logo"
+              />
+            </a>
+          </Link>
           <Typography
             variant="body2"
           >
