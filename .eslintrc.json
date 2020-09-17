@@ -50,6 +50,12 @@
     "react/jsx-props-no-spreading": "off",
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
+    "react/no-array-index-key": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
+    "react/jsx-first-prop-new-line": [
+      "error",
+      "always"
+    ],
     "quotes": [
       "error",
       "single"
@@ -89,11 +95,12 @@
       {
         "ObjectExpression": "always",
         "ObjectPattern": {
-          "multiline": true
+          "multiline": true,
+          "minProperties": 2
         },
         "ImportDeclaration": {
           "multiline": true,
-          "minProperties": 3
+          "minProperties": 2
         },
         "ExportDeclaration": "always"
       }

@@ -5,9 +5,14 @@ interface Iprops {
   component: React.ReactElement;
 }
 
-export const WithMockApolloProvider = ({ component, mocks = [] }: Iprops) => {
+export const WithMockApolloProvider = ({
+  component, mocks = [],
+}: Iprops) => {
   return (
-    <MockedProvider mocks={mocks} addTypename={false}>
+    <MockedProvider
+      mocks={mocks}
+      addTypename={false}
+    >
       {component}
     </MockedProvider>
   );

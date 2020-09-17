@@ -25,6 +25,9 @@
       "@components": [
         "src/components"
       ],
+      "@icons": [
+        "src/components/icons"
+      ],
       "@screens/*": [
         "src/screens/*"
       ],

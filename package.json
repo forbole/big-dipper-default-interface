@@ -16,6 +16,7 @@
     "@apollo/client": "^3.1.5",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -54,5 +55,8 @@
     "ts-jest": "^26.3.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
+  },
+  "resolutions": {
+    "babel-plugin-inline-react-svg/*/js-yaml": "3.13.1"
   }
 }

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
-import { darkTheme, lightTheme } from '@styles';
+import {
+  darkTheme, lightTheme,
+} from '@styles';
 
 export const useLayoutHook = () => {
   const [isDarkMode, setMode] = useState<boolean | undefined>(false);
