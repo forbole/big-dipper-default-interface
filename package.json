@@ -54,7 +54,7 @@
     "nodemon": "^2.0.4",
     "ts-jest": "^26.3.0",
     "ts-node": "^9.0.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.0.3"
   },
   "resolutions": {
     "babel-plugin-inline-react-svg/*/js-yaml": "3.13.1"
