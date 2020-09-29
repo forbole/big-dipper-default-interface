@@ -6,8 +6,8 @@ export const useGetStyles = () => {
   const theme: any = useTheme();
   const useStyles = makeStyles({
     root: {
-      background: theme.palette.footer.main,
-      color: theme.palette.onDarkSurface.main,
+      background: theme.palette.custom.footer,
+      color: theme.palette.custom.onDarkSurface,
       padding: '2rem 1rem',
       display: 'flex',
       flexDirection: 'column',
@@ -21,7 +21,7 @@ export const useGetStyles = () => {
       justifyContent: 'space-between',
       alignItems: 'flex-end',
       flexWrap: 'wrap',
-      color: theme.palette.white.main,
+      color: theme.palette.custom.white,
     },
     mobileOnly: {
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
@@ -82,7 +82,7 @@ export const useGetStyles = () => {
       },
     },
     copyright: {
-      color: theme.palette.onDarkSurface.main,
+      color: theme.palette.custom.onDarkSurface,
     },
     logo: {
       width: '150px',
