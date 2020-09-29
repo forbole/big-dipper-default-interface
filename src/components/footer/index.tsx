@@ -32,13 +32,11 @@ export const Footer = () => {
           <Link
             href="/"
           >
-            <a>
-              <img
-                className={classes.logo}
-                src="images/big-dipper-logo.png"
-                alt="big dipper logo"
-              />
-            </a>
+            <img
+              className={classes.logo}
+              src="images/big-dipper-logo.png"
+              alt="big dipper logo"
+            />
           </Link>
           <Typography
             variant="body2"
@@ -82,9 +80,7 @@ export const Footer = () => {
                     color="inherit"
                     underline="none"
                   >
-                    <a>
-                      {t(x.key)}
-                    </a>
+                    {t(x.key)}
                   </Link>
                 </NextLink>
                 {i !== footerLinks.length - 1 && (

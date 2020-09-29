@@ -5,6 +5,9 @@ import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { awaitActions } from '@tests/utils/await_actions';
 import { queryExample } from '@graphql/queries';
 import { Example } from '@components';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { lightTheme } from '@styles';
+import { WithMockMaterialTheme } from '@tests/utils/mock_material_theme';
 
 const mocks = [
   {
@@ -32,7 +35,10 @@ describe('Home', () => {
   it('it renders', () => {
     const wrapper = mount(
       WithMockApolloProvider({
-        component: <Home />,
+        component: WithMockMaterialTheme({
+          component: <Home />,
+          theme: createMuiTheme(lightTheme),
+        }),
         mocks,
       }),
     );
@@ -57,7 +63,10 @@ describe('Home', () => {
   it('correctly renders Home component with hooks', async () => {
     const wrapper = mount(
       WithMockApolloProvider({
-        component: <Home />,
+        component: WithMockMaterialTheme({
+          component: <Home />,
+          theme: createMuiTheme(lightTheme),
+        }),
         mocks,
       }),
     );
