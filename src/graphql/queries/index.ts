@@ -5,6 +5,7 @@ import {AVERAGE_BLOCK_LAST_HOUR} from './consensus';
 import {AVERAGE_BLOCK_LAST_MINUTE} from './consensus';
 import {AVERAGE_BLOCK_TIME_FROM_GENESIS} from './consensus';
 import { LATEST_BLOCK_HEIGHT } from './consensus';
+import { CONSENSUS_STATE } from './consensus';
 
 // staking
 import {VALIDATOR_DISCRIPTION} from './staking';
@@ -43,6 +44,7 @@ export {
   AVERAGE_BLOCK_LAST_MINUTE,
   AVERAGE_BLOCK_TIME_FROM_GENESIS,
   LATEST_BLOCK_HEIGHT,
+  CONSENSUS_STATE,
 
   //staking
   VALIDATOR_DISCRIPTION,

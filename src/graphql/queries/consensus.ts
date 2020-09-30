@@ -53,7 +53,7 @@ subscription LatestBlocks {
 }`;
 
 // blockInfoFromLimit return the last n block info 
-const BLOCK_INFO_LIMIT= gql`
+export const BLOCK_INFO_LIMIT= gql`
 subscription LatestBlocks($limit: Int!) {
   block(limit: $limit, order_by: {height: desc}) {
     hash
@@ -69,3 +69,13 @@ subscription LatestBlocks($limit: Int!) {
     timestamp
   }
 }`;
+
+export const CONSENSUS_STATE = gql`
+  subscription consensus_state{
+    consensus{
+      height
+      round
+      step
+    }
+  }
+`;

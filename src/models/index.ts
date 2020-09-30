@@ -1,8 +1,6 @@
-import { Block } from './block';
-import { Validator } from './validator';
+import { BlockTime } from './consensus/blocktime';
 
 
 export {
-  Block,
-  Validator,
+  BlockTime,
 }
