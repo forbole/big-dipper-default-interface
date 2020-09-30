@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const LATEST_BLOCK_HEIGHT = gql`
-      subscription LatestBlockHeight {
+      query LatestBlockHeight {
   block(limit: 1, order_by: {height: desc}) {
     height
   }
@@ -53,21 +53,19 @@ subscription LatestBlocks {
 }`;
 
 // blockInfoFromLimit return the last n block info 
-export function blockInfoFromLimit(numLimit: number) {
-  return gql`
-  subscription LatestBlocks {
-    block(limit: numLimit, order_by: {height: desc}) {
-      hash
-      proposer {
-        validator_infos {
-          validator_descriptions(order_by: {timestamp: desc}) {
-            moniker
-          }
+const BLOCK_INFO_LIMIT= gql`
+subscription LatestBlocks($limit: Int!) {
+  block(limit: $limit, order_by: {height: desc}) {
+    hash
+    proposer {
+      validator_infos {
+        validator_descriptions(order_by: {timestamp: desc}) {
+          moniker
         }
       }
-      height
-      num_txs
-      timestamp
     }
-  }`;
-}
+    height
+    num_txs
+    timestamp
+  }
+}`;
