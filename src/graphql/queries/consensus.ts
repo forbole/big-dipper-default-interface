@@ -35,23 +35,6 @@ subscription AverageBlockTimeLastDay{
   }
 }`;
 
-export const BLOCK_INFO = gql`
-subscription LatestBlocks {
-  block(limit: 9, order_by: {height: desc}) {
-    hash
-    proposer {
-      validator_infos {
-        validator_descriptions(order_by: {timestamp: desc}) {
-          moniker
-        }
-      }
-    }
-    height
-    num_txs
-    timestamp
-  }
-}`;
-
 // blockInfoFromLimit return the last n block info 
 export const BLOCK_INFO_LIMIT= gql`
 subscription LatestBlocks($limit: Int!) {
@@ -61,6 +44,7 @@ subscription LatestBlocks($limit: Int!) {
       validator_infos {
         validator_descriptions(order_by: {timestamp: desc}) {
           moniker
+          operator_address
         }
       }
     }
