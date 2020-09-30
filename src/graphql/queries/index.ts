@@ -1,30 +1,50 @@
-import { AVERAGE_BLOCK_LAST_DAY } from './block';
-import {BLOCK_INFO} from './block';
-import {AVERAGE_BLOCK_LAST_HOUR} from './block';
-import {AVERAGE_BLOCK_LAST_MINUTE} from './block';
-import {AVERAGE_BLOCK_TIME_FROM_GENESIS} from './block';
-import {LATEST_BLOCK_HEIGHT} from './block';
-import {VALIDATOR_DISCRIPTION} from './validator';
-import {VALIDATOR_INFO} from './validator';
-import {POTENTIAL} from './validator';
-import {VOTING_POWER} from './validator';
-import {DELEGATION} from './validator';
-import {REDELEGATION} from './validator';
-import {UNDELEGATION} from './validator';
-import {VALIDATOR_LIST} from './validator';
-import {PRICE} from './pricefeed';
-import {MARKET_CAP} from './pricefeed';
-import {INFLATION} from './pricefeed';
-import {COMMUNITY_POOL} from './pricefeed';
+// consensus
+import { AVERAGE_BLOCK_LAST_DAY } from './consensus';
+import {BLOCK_INFO} from './consensus';
+import {AVERAGE_BLOCK_LAST_HOUR} from './consensus';
+import {AVERAGE_BLOCK_LAST_MINUTE} from './consensus';
+import {AVERAGE_BLOCK_TIME_FROM_GENESIS} from './consensus';
+import { LATEST_BLOCK_HEIGHT } from './consensus';
+
+// staking
+import {VALIDATOR_DISCRIPTION} from './staking';
+import {VALIDATOR_INFO} from './staking';
+import {POTENTIAL} from './staking';
+import {VOTING_POWER} from './staking';
+import {DELEGATION} from './staking';
+import {REDELEGATION} from './staking';
+import {UNDELEGATION} from './staking';
+import { VALIDATOR_LIST } from './staking';
+
+// pricefeed 
+import { PRICE } from './pricefeed';
+import { MARKET_CAP } from './pricefeed';
+import { INFLATION } from './mint';
+import { COMMUNITY_POOL } from './distribution';
+
+// gov
+import { PROPOSALS_LIST } from './gov';
+import { PROPOSAL } from './gov';
+import { DEPOSITS } from './gov';
+import { ALL_VOTE } from './gov';
+import { YES_VOTE } from './gov';
+import { NO_VOTE } from './gov';
+import { ABSTAIN_VOTE } from './gov';
+import { NO_WITH_VETO_VOTE } from './gov';
+import { TALLY_STATE } from './gov';
+
 
 
 export {
+  //consensus
   AVERAGE_BLOCK_LAST_DAY,
   BLOCK_INFO,
   AVERAGE_BLOCK_LAST_HOUR,
   AVERAGE_BLOCK_LAST_MINUTE,
   AVERAGE_BLOCK_TIME_FROM_GENESIS,
   LATEST_BLOCK_HEIGHT,
+
+  //staking
   VALIDATOR_DISCRIPTION,
   VALIDATOR_INFO,
   POTENTIAL,
@@ -33,8 +53,25 @@ export {
   REDELEGATION,
   UNDELEGATION,
   VALIDATOR_LIST,
+
+  //pricefeed
   PRICE,
-  COMMUNITY_POOL,
-  INFLATION,
   MARKET_CAP,
+
+  // distribution
+  COMMUNITY_POOL,
+
+  //mint
+  INFLATION,
+
+  // gov
+  PROPOSALS_LIST,
+  PROPOSAL,
+  DEPOSITS,
+  ALL_VOTE,
+  YES_VOTE,
+  NO_VOTE,
+  ABSTAIN_VOTE,
+  NO_WITH_VETO_VOTE,
+  TALLY_STATE,
 };

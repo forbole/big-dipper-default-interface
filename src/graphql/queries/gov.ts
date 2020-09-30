@@ -49,6 +49,15 @@ query AllVote($id: Int!) {
     proposal_id
     timestamp
     voter
+    account {
+      validator_infos {
+        validator {
+          validator_voting_powers(limit: 1, order_by: {height: desc}) {
+            voting_power
+          }
+        }
+      }
+    }
   }
 }
 `;
@@ -61,9 +70,17 @@ export const YES_VOTE = gql`
     proposal_id
     timestamp
     voter
+    account {
+      validator_infos {
+        validator {
+          validator_voting_powers(limit: 1, order_by: {height: desc}) {
+            voting_power
+          }
+        }
+      }
+    }
   }
-}
-`;
+  }`;
 
 export const NO_VOTE = gql`
   query Vote($id: Int!) {
@@ -73,9 +90,17 @@ export const NO_VOTE = gql`
     proposal_id
     timestamp
     voter
+    account {
+      validator_infos {
+        validator {
+          validator_voting_powers(limit: 1, order_by: {height: desc}) {
+            voting_power
+          }
+        }
+      }
+    }
   }
-}
-`;
+  }`;
 
 export const ABSTAIN_VOTE = gql`
   query Vote($id: Int!) {
@@ -85,9 +110,17 @@ export const ABSTAIN_VOTE = gql`
     proposal_id
     timestamp
     voter
+    account {
+      validator_infos {
+        validator {
+          validator_voting_powers(limit: 1, order_by: {height: desc}) {
+            voting_power
+          }
+        }
+      }
+    }
   }
-}
-`;
+}`;
 export const NO_WITH_VETO_VOTE = gql`
   query Vote($id: Int!) {
   vote(where: {proposal_id: {_eq: $id}, option: {_eq: "NoWithVeto"}}) {
@@ -96,6 +129,28 @@ export const NO_WITH_VETO_VOTE = gql`
     proposal_id
     timestamp
     voter
+    account {
+      validator_infos {
+        validator {
+          validator_voting_powers(limit: 1, order_by: {height: desc}) {
+            voting_power
+          }
+        }
+      }
+    }
+  }
+}`;
+
+export const TALLY_STATE = gql`
+query tally($id: Int!) {
+  tally_result(where: {proposal_id: {_eq: $id}}, limit: 1, order_by: {height: desc}) {
+    abstain
+    height
+    no
+    no_with_veto
+    proposal_id
+    yes
   }
 }
 `;
+

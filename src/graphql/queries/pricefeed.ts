@@ -17,17 +17,3 @@ export const MARKET_CAP = gql`
   }
 }`;
 
-export const INFLATION = gql`
- subscription inflat{
-   inflation(limit: 1, order_by: {height: desc}) {
-    value
-  }  
-}`;
-
-export const COMMUNITY_POOL = gql`
- subscription community_pool{
-   community_pool(limit: 1, order_by: {height: desc}) {
-    coins
-  }
- }
-`;
