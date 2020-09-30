@@ -52,6 +52,7 @@ subscription LatestBlocks {
   }
 }`;
 
+// blockInfoFromLimit return the last n block info 
 export function blockInfoFromLimit(numLimit: number) {
   return gql`
   subscription LatestBlocks {
