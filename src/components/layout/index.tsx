@@ -7,7 +7,7 @@ export const Layout = (props: any) => {
   return (
     <div>
       {children}
-      <Footer />
+      <Footer/>
     </div>
   );
 };

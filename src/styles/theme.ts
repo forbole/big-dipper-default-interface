@@ -21,6 +21,25 @@ export const common = {
     custom: {
       white: 'rgba(255, 255, 255, 1)',
     },
+    about: {
+      main: 'rgba(25, 55, 81, 1)',
+    },
+  },
+};
+
+export const layout = {
+  breakpoints: {
+    tablet: 769,
+    desktop: 1024,
+  },
+  typography: {
+    body3: {
+      fontSize: 12,
+    },
+  },
+  margin: {
+    paddingbig: '20px',
+    paddingmidium: '10px',
   },
 };
 

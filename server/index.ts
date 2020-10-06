@@ -4,6 +4,7 @@ import express, { Request, Response } from 'express';
 import next from 'next';
 import cors from 'cors';
 
+
 const dev = process.env.ENV !== 'production';
 const app = next({
   dev,
