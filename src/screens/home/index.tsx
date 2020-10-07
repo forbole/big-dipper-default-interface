@@ -29,7 +29,6 @@ const Home = () => {
       <h1>{t('bigDipper')}</h1>
       <h1>{t('forbole')}</h1>
 
-
       <p>
         home page on port
       </p>

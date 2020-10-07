@@ -21,9 +21,6 @@ export const common = {
     custom: {
       white: 'rgba(255, 255, 255, 1)',
     },
-    about: {
-      main: 'rgba(25, 55, 81, 1)',
-    },
   },
 };
 
