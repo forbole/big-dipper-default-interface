@@ -54,7 +54,7 @@
     "jsx-a11y/anchor-is-valid": "warn",
     "react/jsx-first-prop-new-line": [
       "error",
-      "always"
+      "multiline"
     ],
     "quotes": [
       "error",
