@@ -13,19 +13,19 @@ const About = () => {
     <Layout>
 
       <div
-
         className={classes.title}
       >
         <span>
           {t('aboutbigDipper')}
         </span>
-
       </div>
 
       <div
         className={classes.text}
       >
-        <span>{t('paragraph')}</span>
+        <span>
+          {t('paragraph')}
+        </span>
       </div>
       <Example />
 
