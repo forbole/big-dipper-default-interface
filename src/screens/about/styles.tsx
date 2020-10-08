@@ -15,6 +15,9 @@ export const useGetStyles = () => {
         flexDirection: 'row',
         alignItems: 'flex-start',
       },
+      [getMinMediaQuery(theme.breakpoints.maxWidth)]: {
+        flexDirection: 'row',
+      },
     },
     title: {
       margin: '16px 0px 0px 16px',
@@ -29,6 +32,9 @@ export const useGetStyles = () => {
         margin: '40px 0px 0px 278px',
         fontSize: '28px',
       },
+      [getMinMediaQuery(theme.breakpoints.maxWidth)]: {
+        margin: '40px 0px 0px 278px',
+      },
     },
     text: {
       margin: '16px 16px 29px 16px',
@@ -42,6 +48,9 @@ export const useGetStyles = () => {
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         margin: '32px 278px 281px 278px',
         fontSize: '18px',
+      },
+      [getMinMediaQuery(theme.breakpoints.maxWidth)]: {
+        maxWidth: `calc(${theme.breakpoints.maxWidth} - 556px)`,
       },
     },
 

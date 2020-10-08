@@ -1,8 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import {
-  Example, Layout,
-} from '@components';
+import { Layout } from '@components';
 import { useGetStyles } from './styles';
 
 // Starting point for you
@@ -23,6 +21,7 @@ const About = () => {
         <span>
           {t('aboutbigDipper')}
         </span>
+
       </div>
 
       <div
@@ -37,10 +36,4 @@ const About = () => {
   );
 };
 
-
-
-
 export default About;
-
-
-
