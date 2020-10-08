@@ -13,7 +13,7 @@ import {
 import { appWithTranslation } from '../../i18n';
 
 export const useLayoutHook = () => {
-  const [isDarkMode, setMode] = useState<boolean | undefined>(false);
+  const [isDarkMode, setMode] = useState<boolean | undefined>(true);
 
   const theme:any = isDarkMode ? darkTheme : lightTheme;
 
