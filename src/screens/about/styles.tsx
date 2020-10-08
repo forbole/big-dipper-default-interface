@@ -22,8 +22,8 @@ export const useGetStyles = () => {
       fontSize: '22pt',
       font: 'Helvetica Neue',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
-        margin: '40px 0px 0px 278px',
-        fontSize: '28px',
+        margin: '24px 0px 0px px',
+        fontSize: '24pt',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         margin: '40px 0px 0px 278px',
@@ -36,8 +36,8 @@ export const useGetStyles = () => {
       fontSize: '16pt',
       font: 'Helvetica Neue',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
-        margin: '32px 278px 281px 278px',
-        fontSize: '18px',
+        margin: '15px 16px 165px 16px',
+        fontSize: '16pt',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         margin: '32px 278px 281px 278px',
