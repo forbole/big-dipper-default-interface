@@ -9,7 +9,7 @@ export const common = {
   },
   typography: {
     body3: {
-      fontSize: 12,
+      fontSize: '0.75rem',
     },
   },
   palette: {
