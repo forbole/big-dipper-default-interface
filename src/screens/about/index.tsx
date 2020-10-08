@@ -14,7 +14,6 @@ const About = () => {
 
   return (
     <Layout>
-
       <div
         className={classes.title}
       >
