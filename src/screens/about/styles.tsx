@@ -24,12 +24,10 @@ export const useGetStyles = () => {
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         margin: '40px 0px 0px 278px',
         fontSize: '28px',
-        color: 'red',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         margin: '40px 0px 0px 278px',
         fontSize: '28px',
-        color: 'yellow',
       },
     },
     text: {
