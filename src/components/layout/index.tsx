@@ -9,10 +9,8 @@ export const Layout = (props: LayoutProps) => {
   } = props;
 
   return (
-    <div>
-      <div className={className}>
-        {children}
-      </div>
+    <div className={className}>
+      {children}
       <Footer />
     </div>
   );
