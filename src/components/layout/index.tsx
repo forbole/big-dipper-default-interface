@@ -10,9 +10,9 @@ export const Layout = (props: LayoutProps) => {
 
   return (
     <div>
-      <span className={className}>
+      <div className={className}>
         {children}
-      </span>
+      </div>
       <Footer />
     </div>
   );
