@@ -9,7 +9,6 @@ const About = () => {
 
   return (
     <Layout>
-
       <div
         className={classes.about}
       >

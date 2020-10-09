@@ -2,10 +2,12 @@ import React from 'react';
 import { Footer } from '@components';
 
 export const Layout = (props: any) => {
-  const { children } = props;
+  const {
+    children, className,
+  } = props;
 
   return (
-    <div>
+    <div className={className}>
       {children}
       <Footer />
     </div>
