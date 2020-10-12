@@ -5,10 +5,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ApolloProvider } from '@apollo/client';
 import client from '@graphql';
 import {
-  createMuiTheme, ThemeProvider,
+  createMuiTheme,
+  ThemeProvider,
 } from '@material-ui/core/styles';
 import {
-  darkTheme, lightTheme,
+  darkTheme,
+  lightTheme,
 } from '@styles';
 import { appWithTranslation } from '../../i18n';
 

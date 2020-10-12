@@ -13,23 +13,13 @@ const About = () => {
     <Layout>
       <MaxWidthContainer>
         <MaxWidthContent>
-          <div>
-            <h1
-              style={{
-                fontWeight: 'normal',
-              }}
-            >
-              <span className={classes.title}>
-                {t('aboutbigDipper')}
-              </span>
+          <div className={classes.root}>
+            <h1 className={classes.title}>
+              {t('aboutbigDipper')}
             </h1>
-          </div>
-          <div
-            className={classes.text}
-          >
-            <span>
+            <p className={classes.text}>
               {t('paragraph')}
-            </span>
+            </p>
           </div>
         </MaxWidthContent>
       </MaxWidthContainer>
