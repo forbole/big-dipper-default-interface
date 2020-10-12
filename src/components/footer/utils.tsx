@@ -9,7 +9,7 @@ import {
 export const footerLinks = [
   {
     key: 'aboutBigDipper',
-    url: '#',
+    url: '/about',
   },
   {
     key: 'faq',

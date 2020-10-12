@@ -4,11 +4,12 @@ import * as R from 'ramda';
 export const common = {
   breakpoints: {
     tablet: 769,
-    desktop: 1024,
+    desktop: 1080,
+    maxWidth: 1100,
   },
   typography: {
     body3: {
-      fontSize: 12,
+      fontSize: '0.75rem',
     },
   },
   palette: {
