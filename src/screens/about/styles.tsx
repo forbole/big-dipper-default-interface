@@ -18,35 +18,27 @@ export const useGetStyles = () => {
     title: {
       margin: '1rem 0rem 0rem 1rem',
       'white-space': 'pre-wrap',
-      fontSize: '22pt',
-      font: 'Helvetica Neue',
+      fontSize: '1.8333 rem',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         margin: '1.5rem 0rem 0rem 1rem',
-        fontSize: '24pt',
+        fontSize: '2 rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
-        margin: '2.5rem 0rem 0rem 17.375rem',
-        fontSize: '28px',
-      },
-      [getMinMediaQuery(theme.breakpoints.maxWidth)]: {
-        margin: '2.5rem 0rem 0rem 17.375rem',
+        margin: '2.5rem 0rem 0rem 1rem',
+        fontSize: '1.75rem',
       },
     },
     text: {
-      margin: '1rem 1rem 29px 1rem',
+      margin: '1rem 1rem 2rem 1rem',
       'white-space': 'pre-wrap',
-      fontSize: '16pt',
-      font: 'Helvetica Neue',
+      fontSize: '1.3333 rem',
+      alignItems: 'center',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
-        margin: '15px 1rem 165px 1rem',
-        fontSize: '16pt',
+        margin: '0.9375rem 1rem 10.3125rem 1rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
-        margin: '32px 17.375rem 281px 17.375rem',
+        margin: '2rem 1rem 17.5625rem 1rem',
         fontSize: '1.125rem',
-      },
-      [getMinMediaQuery(theme.breakpoints.maxWidth)]: {
-        maxWidth: `calc(${theme.breakpoints.maxWidth} - 34.75rem)`,
       },
     },
 
@@ -56,3 +48,4 @@ export const useGetStyles = () => {
     classes: useStyles(),
   };
 };
+
