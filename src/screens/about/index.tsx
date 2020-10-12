@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import { Layout, MaxWidthContainer, MaxWidthContent } from '@components';
+import {
+  Layout, MaxWidthContainer, MaxWidthContent,
+} from '@components';
 import { useGetStyles } from './styles';
 
 const About = () => {
@@ -12,7 +14,11 @@ const About = () => {
       <MaxWidthContainer>
         <MaxWidthContent>
           <div>
-            <h1 style={{ fontWeight: 'normal' }}>
+            <h1
+              style={{
+                fontWeight: 'normal',
+              }}
+            >
               <span className={classes.title}>
                 {t('aboutbigDipper')}
               </span>

@@ -18,7 +18,7 @@ export const useGetStyles = () => {
     title: {
       margin: '1rem 0rem 0rem 1rem',
       'white-space': 'pre-wrap',
-      fontSize: '1.8333 rem',
+      fontSize: '1.8333rem',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         margin: '1.5rem 0rem 0rem 1rem',
         fontSize: '2 rem',
@@ -48,4 +48,3 @@ export const useGetStyles = () => {
     classes: useStyles(),
   };
 };
-
