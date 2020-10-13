@@ -1,4 +1,5 @@
 import * as R from 'ramda';
+import { createMuiTheme } from '@material-ui/core/styles';
 
 /** Common themes that don't change across light and dark theme */
 export const common = {
@@ -57,5 +58,5 @@ const darkThemeOverride = {
   },
 };
 
-export const lightTheme = R.mergeDeepLeft(lightThemeOverride, common);
-export const darkTheme = R.mergeDeepLeft(darkThemeOverride, common);
+export const lightTheme = createMuiTheme(R.mergeDeepLeft(lightThemeOverride, common));
+export const darkTheme = createMuiTheme(R.mergeDeepLeft(darkThemeOverride, common));
