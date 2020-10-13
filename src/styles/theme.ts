@@ -9,6 +9,7 @@ export const common = {
     maxWidth: 1100,
   },
   typography: {
+    fontFamily: 'Open Sans, sans-serif',
     body3: {
       fontSize: '0.75rem',
     },
