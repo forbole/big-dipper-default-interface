@@ -4,11 +4,10 @@ import { AppProps } from 'next/app';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ApolloProvider } from '@apollo/client';
 import client from '@graphql';
+import { ThemeProvider } from '@material-ui/core/styles';
 import {
-  createMuiTheme, ThemeProvider,
-} from '@material-ui/core/styles';
-import {
-  darkTheme, lightTheme,
+  darkTheme,
+  lightTheme,
 } from '@styles';
 import { appWithTranslation } from '../../i18n';
 
@@ -20,7 +19,7 @@ export const useLayoutHook = () => {
   return {
     isDarkMode,
     setMode,
-    theme: createMuiTheme(theme),
+    theme,
   };
 };
 
