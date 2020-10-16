@@ -58,16 +58,16 @@ export const useGetStyles = () => {
       fontSize: '1rem',
       margin: '0',
       marginBottom: '0.5rem',
-      marginTop: '1rem',
+      // marginTop: '1rem',
       fontWeight: 550,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.25rem',
-        marginTop: '1.5rem',
+        // marginTop: '1.5rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         fontSize: '1.375rem',
         marginBottom: '1rem',
-        marginTop: '2.625rem',
+        // marginTop: '2.625rem',
       },
     },
     paragraph: {
