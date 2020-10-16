@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "big-dipper-internal-ui": {
+      "signature": "a356f6354e155672fbc1dacca9a5b295",
+      "file": true
+    }
+  }
+}

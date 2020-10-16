@@ -1,0 +1,37 @@
+{
+  "name": "big-dipper-internal-ui",
+  "version": "1.0.0+a356f635",
+  "description": "Component library for big dipper default interface",
+  "author": "ryuash",
+  "license": "MIT",
+  "repository": "ryuash/big-dipper-internal-ui",
+  "main": "dist/index.js",
+  "module": "dist/index.modern.js",
+  "source": "src/index.tsx",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build-watch": "rollup -c -w",
+    "prepare": "run-s build",
+    "test": "run-s test:unit test:lint test:build",
+    "test:build": "run-s build",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env NODE_ENV=test jest",
+    "storybook": "start-storybook -s ./ -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {},
+  "yalcSig": "a356f6354e155672fbc1dacca9a5b295"
+}
