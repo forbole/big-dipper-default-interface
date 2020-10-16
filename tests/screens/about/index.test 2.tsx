@@ -13,10 +13,10 @@ describe('About', () => {
     }));
 
     expect(
-      wrapper.find('h1').first().text(),
+      wrapper.find('span').first().text(),
     ).toBe('aboutbigDipper');
     expect(
-      wrapper.find('p').first().text(),
+      wrapper.find('span').at(1).text(),
     ).toBe('paragraph');
   });
 });

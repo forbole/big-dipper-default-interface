@@ -13,7 +13,7 @@ export const footerLinks = [
   },
   {
     key: 'faq',
-    url: '#',
+    url: '/faq',
   },
   {
     key: 'termsAndConditions',
