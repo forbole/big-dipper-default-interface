@@ -91,11 +91,6 @@ export const useGetStyles = () => {
         lineHeight: '2.25rem',
       },
     },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
 
   });
 
