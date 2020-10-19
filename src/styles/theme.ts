@@ -9,18 +9,11 @@ export const common = {
     maxWidth: 1100,
   },
   typography: {
-    fontFamily: 'Open Sans, sans-serif',
-    body3: {
+    paragraph: {
       fontSize: '0.75rem',
     },
   },
   palette: {
-    primary: {
-      main: 'rgba(253, 59, 76, 1)',
-    },
-    secondary: {
-      main: 'rgba(58, 211, 158, 1)',
-    },
     custom: {
       white: 'rgba(255, 255, 255, 1)',
     },
@@ -31,14 +24,50 @@ export const common = {
 const lightThemeOverride = {
   palette: {
     type: 'light',
+    primary: {
+      main: 'rgba(253, 59, 76, 1)',
+    },
+    secondary: {
+      main: 'rgba(30, 196, 144, 1)',
+    },
+    divider: 'rgba(232, 232, 232, 1)',
+    background: {
+      default: 'rgba(248, 248, 248, 1)',
+      paper: 'rgba(255, 255, 255, 1)',
+    },
     custom: {
-      background: 'rgba(246, 247, 249, 1)',
-      homeGridOne: 'rgba(250, 58, 57, 1)',
-      homeGridTwo: 'rgba(253, 94, 31, 1)',
-      homeGridThree: 'rgba(253, 93, 78, 1)',
-      homeGridFour: 'rgba(253, 149, 38, 1)',
-      footer: 'rgba(0, 0, 0, 1)',
-      onDarkSurface: 'rgba(255, 255, 255, 0.8)',
+      icon: 'rgba(153, 153, 153, 1)',
+      fonts: {
+        fontOne: 'rgba(0, 0, 0, 1)', // header
+        fontTwo: 'rgba(65, 65, 65, 1)', // body and paragraph
+        fontThree: 'rgba(119, 119, 119, 1)', // subfonts
+        fontFour: 'rgba(153, 153, 153, 1)', // placeholders
+        fontFive: 'rgba(29, 134, 255, 1)', // names and address (links)
+      },
+      dashboardData: {
+        dashOne: 'rgba(250, 58, 57, 1)',
+        dashTwo: 'rgba(253, 94, 31, 1)',
+        dashThree: 'rgba(253, 93, 78, 1)',
+        dashFour: 'rgba(253, 149, 38, 1)',
+      },
+      transactionType: {
+        delegate: 'rgba(30, 196, 144, 1)', // delegate, edt, account
+        redelegate: 'rgba(253, 59, 76, 1)', // redelegate, unjail
+        undelegate: 'rgba(255, 177, 0, 1)', // undelegate
+        withdraw: 'rgba(82, 126, 255, 1)', // withdraw
+        deposit: 'rgba(253, 117, 34, 1)', // deposit, proposal
+        send: 'rgba(157, 44, 252, 1)', // send, multisend
+      },
+      gutters: {
+        large: '24px',
+        medium: '16px',
+        small: '8px',
+      },
+      margins: {
+        large: '24px',
+        medium: '16px',
+        small: '16px',
+      },
     },
   },
 };
@@ -47,14 +76,50 @@ const lightThemeOverride = {
 const darkThemeOverride = {
   palette: {
     type: 'dark',
+    primary: {
+      main: 'rgba(253, 59, 76, 0.7)',
+    },
+    secondary: {
+      main: 'rgba(30, 196, 144, 0.7)',
+    },
+    divider: 'rgba(61, 61, 67, 1)',
+    background: {
+      default: 'rgba(10, 10, 10, 1)',
+      paper: 'rgba(19, 19, 22, 1)',
+    },
     custom: {
-      background: 'rgba(10, 10, 10, 1)',
-      homeGridOne: 'rgba(250, 58, 57, 0.7)',
-      homeGridTwo: 'rgba(253, 94, 31, 0.7)',
-      homeGridThree: 'rgba(253, 93, 78, 0.7)',
-      homeGridFour: 'rgba(253, 149, 38, 0.7)',
-      footer: 'rgba(19, 19, 22, 1)',
-      onDarkSurface: 'rgba(207, 207, 208, 1)',
+      icon: 'rgba(153, 153, 153, 1)',
+      fonts: {
+        fontOne: 'rgba(230, 230, 230, 1)', // header
+        fontTwo: 'rgba(170, 170, 171, 1)', // body and paragraph
+        fontThree: 'rgba(129, 129, 129, 1)', // subfonts
+        fontFour: 'rgba(153, 153, 153, 1) ', // placeholders
+        fontFive: 'rgba(39, 140, 255, 1)', // names and address (links)
+      },
+      dashboardData: {
+        dashOne: 'rgba(250, 58, 57, 0.7)',
+        dashTwo: 'rgba(253, 94, 31, 0.7)',
+        dashThree: 'rgba(253, 93, 78, 0.7)',
+        dashFour: 'rgba(253, 149, 38, 0.7)',
+      },
+      transactionType: {
+        delegate: 'rgba(30, 196, 144, 0.7)', // delegate, edt, account
+        redelegate: 'rgba(253, 59, 76, 0.7)', // redelegate, unjail
+        undelegate: 'rgba(255, 177, 0, 0.7)', // undelegate
+        withdraw: 'rgba(82, 126, 255, 0.7)', // withdraw
+        deposit: 'rgba(253, 117, 34, 0.7)', // deposit, proposal
+        send: 'rgba(157, 44, 252, 0.7)', // send, multisend
+      },
+      gutters: {
+        large: '24px',
+        medium: '16px',
+        small: '8px',
+      },
+      margins: {
+        large: '24px',
+        medium: '16px',
+        small: '16px',
+      },
     },
   },
 };
