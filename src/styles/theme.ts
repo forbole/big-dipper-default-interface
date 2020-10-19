@@ -10,7 +10,7 @@ export const common = {
   },
   typography: {
     paragraph: {
-      fontSize: '0.75rem',
+      fontSize: '0.875rem', // 14px
     },
   },
   palette: {
@@ -34,6 +34,7 @@ const lightThemeOverride = {
     background: {
       default: 'rgba(248, 248, 248, 1)',
       paper: 'rgba(255, 255, 255, 1)',
+      footer: 'rgba(0, 0, 0, 1)',
     },
     custom: {
       icon: 'rgba(153, 153, 153, 1)',
@@ -86,6 +87,7 @@ const darkThemeOverride = {
     background: {
       default: 'rgba(10, 10, 10, 1)',
       paper: 'rgba(19, 19, 22, 1)',
+      footer: 'rgba(19, 19, 22, 1)',
     },
     custom: {
       icon: 'rgba(153, 153, 153, 1)',
