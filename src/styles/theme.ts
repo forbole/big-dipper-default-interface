@@ -9,8 +9,7 @@ export const common = {
     maxWidth: 1100,
   },
   typography: {
-    fontFamily: 'Open Sans, sans-serif',
-    body3: {
+    paragraph: {
       fontSize: '0.75rem',
     },
   },
@@ -39,6 +38,8 @@ const lightThemeOverride = {
       homeGridFour: 'rgba(253, 149, 38, 1)',
       footer: 'rgba(0, 0, 0, 1)',
       onDarkSurface: 'rgba(255, 255, 255, 0.8)',
+      bodyFont: 'rgba(65, 65, 65, 1)',
+      headerFont: 'rgba(0, 0, 0, 1)',
     },
   },
 };
@@ -55,9 +56,11 @@ const darkThemeOverride = {
       homeGridFour: 'rgba(253, 149, 38, 0.7)',
       footer: 'rgba(19, 19, 22, 1)',
       onDarkSurface: 'rgba(207, 207, 208, 1)',
+      bodyFont: 'rgba(170, 170, 171, 1)',
+      headerFont: 'rgba(230, 230, 230, 1)',
     },
   },
 };
 
-export const lightTheme = createMuiTheme(R.mergeDeepLeft(lightThemeOverride, common));
-export const darkTheme = createMuiTheme(R.mergeDeepLeft(darkThemeOverride, common));
+export const light = createMuiTheme(R.mergeDeepLeft(lightThemeOverride, common));
+export const dark = createMuiTheme(R.mergeDeepLeft(darkThemeOverride, common));
