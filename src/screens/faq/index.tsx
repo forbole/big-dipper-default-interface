@@ -4,16 +4,18 @@ import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
 import Grid from '@material-ui/core/Grid';
-import { createMuiTheme, MuiThemeProvider, useTheme } from '@material-ui/core/styles';
+import {
+  createMuiTheme, MuiThemeProvider,
+} from '@material-ui/core/styles';
 import { useGetStyles } from './styles';
-
-console.log('themeNew');
 
 const themeLocal = createMuiTheme({
   breakpoints: {
     keys: ['xs', 'sm', 'md', 'lg', 'xl'],
-    values: { xs: 0, sm: 568, md: 760, lg: 1080, xl: 1200 }
-  }
+    values: {
+      xs: 0, sm: 568, md: 760, lg: 1080, xl: 1200,
+    },
+  },
 });
 
 const Faq = () => {
@@ -36,12 +38,14 @@ const Faq = () => {
               {t('email')}
             </a>
           </p>
-          <a
-            href="mailto:support@forbole.com"
-            className={classes.link}
-          >
-            {t('email')}
-          </a>
+          <div className={classes.linkContainer}>
+            <a
+              href="mailto:support@forbole.com"
+              Style="Color:#1D86FF"
+            >
+              {t('email')}
+            </a>
+          </div>
           <MuiThemeProvider theme={themeLocal}>
             <Grid container spacing={2}>
               <Grid item xs={12} lg={6}>
@@ -94,24 +98,6 @@ const Faq = () => {
               </Grid>
             </Grid>
           </MuiThemeProvider>
-          <h2 className={classes.subTitle}>
-            {t('subTitle1')}
-          </h2>
-          <p className={classes.paragraph}>
-            {t('p1')}
-          </p>
-          <h2 className={classes.subTitle}>
-            {t('subTitle2')}
-          </h2>
-          <p className={classes.paragraph}>
-            {t('p2')}
-          </p>
-          <h2 className={classes.subTitle}>
-            {t('subTitle3')}
-          </h2>
-          <p className={classes.paragraph}>
-            {t('p3')}
-          </p>
         </MaxWidthContent>
       </MaxWidthContainer>
     </Layout>

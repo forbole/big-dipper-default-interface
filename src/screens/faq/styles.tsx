@@ -13,31 +13,38 @@ export const useGetStyles = () => {
       fontWeight: 500,
       margin: '0',
       marginBottom: '0.5rem',
+      marginTop: '1rem',
+      lineHeight: '1.375rem',
+      color: '#000000',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.5rem',
         marginBottom: '1rem',
+        marginTop: '1.5rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         fontSize: '1.75rem',
         marginBottom: '1.125rem',
+        marginTop: '2.5rem',
       },
     },
     context: {
       fontSize: '0.875rem',
       margin: '0',
-      marginBottom: '0.25rem',
+      lineHeight: '1.375rem',
+      color: '#414141',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         fontSize: '1rem',
-        marginBottom: '2.625rem',
+        marginBottom: '2.125rem',
       },
     },
-    link: {
-      fontSize: '0.875rem',
+    linkContainer: {
       margin: '0',
-      color: '#1D86FF',
+      fontSize: '0.875rem',
+      marginBottom: '1rem',
+      lineHeight: '1.375rem',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1rem',
       },
@@ -58,28 +65,30 @@ export const useGetStyles = () => {
       fontSize: '1rem',
       margin: '0',
       marginBottom: '0.5rem',
-      // marginTop: '1rem',
       fontWeight: 550,
+      lineHeight: '1.375rem',
+      color: '#000000',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.25rem',
-        // marginTop: '1.5rem',
+        fontWeight: 500,
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         fontSize: '1.375rem',
         marginBottom: '1rem',
-        // marginTop: '2.625rem',
       },
     },
     paragraph: {
       fontSize: '1rem',
       margin: '0',
-      marginBottom: '1.5rem',
-      fontWeight: 400,
+      marginBottom: '0.5rem',
+      lineHeight: '1.5rem',
+      color: '#414141',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
-        marginBottom: '2.5rem',
+        marginBottom: '1.5rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
-        marginBottom: '3.75rem',
+        marginBottom: '2.75rem',
+        lineHeight: '2.25rem',
       },
     },
     paper: {
