@@ -41,7 +41,10 @@ const Faq = () => {
           <div className={classes.linkContainer}>
             <a
               href="mailto:support@forbole.com"
-              Style="Color:#1D86FF"
+              // style="Color:#1D86FF"
+              style={{
+                color: '#1D86FF',
+              }}
             >
               {t('email')}
             </a>
