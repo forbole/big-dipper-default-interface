@@ -1,123 +1,123 @@
 import { count } from "console";
 
-export class ValidatorDiscription{
-  public     details: string;
-  public     identity: string;
-  public     moniker: string;
-  public     operatorAddress: string;
-  public     height: number;
+export class ValidatorDiscription {
+  public details: string;
+  public identity: string;
+  public moniker: string;
+  public operatorAddress: string;
+  public height: number;
 
   constructor(payload: any) {
-    this.    details = payload.    details;
-    this.    identity = payload.    identity;
-    this.    moniker = payload.    moniker;
-    this.    operatorAddress = payload.    operatorAddress;
-    this.    height = payload.    height;
+    this.details = payload.details;
+    this.identity = payload.identity;
+    this.moniker = payload.moniker;
+    this.operatorAddress = payload.operatorAddress;
+    this.height = payload.height;
 
   }
   static fromJson(json: any) {
     return new ValidatorDiscription({
-          details:json.details,
-          identity:json.    identity,
-          moniker:json.    moniker,
-          operatorAddress:json.    operator_address,
-          height:json.    height,
+      details: json.details,
+      identity: json.identity,
+      moniker: json.moniker,
+      operatorAddress: json.operator_address,
+      height: json.height,
 
     });
   }
 }
 
-export class VALIDATOR_INFO{
-  public   selfDelegateAddress: string;
-  public   operatorAddress: string;
-  public   commission: string;
-  public   maxChangeRate: string;
-  public   maxRate: string;
+export class VALIDATOR_INFO {
+  public selfDelegateAddress: string;
+  public operatorAddress: string;
+  public commission: string;
+  public maxChangeRate: string;
+  public maxRate: string;
   constructor(payload: any) {
-    this.  selfDelegateAddress = payload.  selfDelegateAddress;
-    this.  operatorAddress = payload.  operatorAddress;
-    this.  commission = payload.  commission;
-    this.  maxChangeRate = payload.  maxChangeRate;
-    this.  maxRate = payload.  maxRate;
+    this.selfDelegateAddress = payload.selfDelegateAddress;
+    this.operatorAddress = payload.operatorAddress;
+    this.commission = payload.commission;
+    this.maxChangeRate = payload.maxChangeRate;
+    this.maxRate = payload.maxRate;
 
   }
   static fromJson(json: any) {
     return new VALIDATOR_INFO({
-        selfDelegateAddress:json.  self_delegate_address,
-        operatorAddress:json.  operator_address,
-        commission:json.  commission,
-        maxChangeRate:json.  max_change_rate,
-        maxRate:json.  max_rate,
+      selfDelegateAddress: json.self_delegate_address,
+      operatorAddress: json.operator_address,
+      commission: json.commission,
+      maxChangeRate: json.max_change_rate,
+      maxRate: json.max_rate,
     });
   }
 }
 
 //!!TWO COUNTER SO LOOK UP HOW JSON PARSE
-export class POTENTIAL{
-  public   selfDelegateAddress: string;
-  public   operatorAddress: string;
-  public   maxChangeRate: string;
-  public   maxRate: string;
-  public   commission: string;
-  public   count: number;
-  public   count: string;
-  public   signedBlocksWindow: number;
-  public   missedBlocksCounter: number;
+export class POTENTIAL {
+  public selfDelegateAddress: string;
+  public operatorAddress: string;
+  public maxChangeRate: string;
+  public maxRate: string;
+  public commission: string;
+  public count: number;
+  public count: string;
+  public signedBlocksWindow: number;
+  public missedBlocksCounter: number;
   constructor(payload: any) {
-    this.  selfDelegateAddress = payload.  selfDelegate_address;
-    this.  operatorAddress = payload.  operatorAddress;
-    this.  maxChangeRate = payload.  maxChangeRate;
-    this.  maxRate = payload.  maxRate;
-    this.  commission = payload.  commission;
-    this.  count = payload.  count;
-    this.  count = payload.  count;
-    this.  signedBlocksWindow = payload.  signedBlocksWindow;
-    this.  missedBlocksCounter = payload.  missedBlocksCounter;
+    this.selfDelegateAddress = payload.selfDelegate_address;
+    this.operatorAddress = payload.operatorAddress;
+    this.maxChangeRate = payload.maxChangeRate;
+    this.maxRate = payload.maxRate;
+    this.commission = payload.commission;
+    this.count = payload.count;
+    this.count = payload.count;
+    this.signedBlocksWindow = payload.signedBlocksWindow;
+    this.missedBlocksCounter = payload.missedBlocksCounter;
 
   }
   static fromJson(json: any) {
     return new POTENTIAL({
-        selfDelegateAddress:json.  self_delegate_address,
-        operatorAddress:json.  operator_address,
-        maxChangeRate:json.  max_change_rate,
-        maxRate:json.  max_rate,
-        commission:json.  commission,
-        count:json.  count,
-        count:json.  count,
-        signedBlocksWindow:json.  signed_blocks_window,
-        missedBlocksCounter:json.  missed_blocks_counter,
+      selfDelegateAddress: json.self_delegate_address,
+      operatorAddress: json.operator_address,
+      maxChangeRate: json.max_change_rate,
+      maxRate: json.max_rate,
+      commission: json.commission,
+      count: json.count,
+      count: json.count,
+      signedBlocksWindow: json.signed_blocks_window,
+      missedBlocksCounter: json.missed_blocks_counter,
 
     });
   }
 }
 
-export class VotingPower{
-  public   votingPower: number;
-  public   height: number;
-  public   shares: number;
-  public   timestamp: string;
-  public   selfDelegateAddress: string;
+export class VotingPower {
+  public votingPower: number;
+  public height: number;
+  public shares: number;
+  public timestamp: string;
+  public selfDelegateAddress: string;
 
 
   constructor(payload: any) {
-    this.  votingPower = payload.  votingPower;
-    this.  height = payload.  height;
-    this.  shares = payload.  shares;
-    this.  timestamp = payload.  timestamp;
-    this.  selfDelegateAddress = payload.  selfDelegateAddress;
+    this.votingPower = payload.votingPower;
+    this.height = payload.height;
+    this.shares = payload.shares;
+    this.timestamp = payload.timestamp;
+    this.selfDelegateAddress = payload.selfDelegateAddress;
 
   }
   static fromJson(json: any) {
     return new VotingPower({
-        votingPower:json.  voting_power,
-        height:json.  height,
-        shares:json.  shares,
-        timestamp:json.  timestamp,
-        selfDelegateAddress:json.  self_delegate_address,
+      votingPower: json.voting_power,
+      height: json.height,
+      shares: json.shares,
+      timestamp: json.timestamp,
+      selfDelegateAddress: json.self_delegate_address,
     });
   }
 }
-export class Delegation{
+export class Delegation {
   public shares: string;
   public delegatorAddress: string;
 
@@ -128,14 +128,14 @@ export class Delegation{
   }
   static fromJson(json: any) {
     return new Delegation({
-      shares:json.shares,
-      delegatorAddress:json.delegator_address,
+      shares: json.shares,
+      delegatorAddress: json.delegator_address,
 
     });
   }
 }
 
-export class Redelegation{
+export class Redelegation {
   public amount: number;
   public srcValidatorAddress: string;
   public dstValidatorAddress: string;
@@ -150,15 +150,15 @@ export class Redelegation{
   }
   static fromJson(json: any) {
     return new Redelegation({
-      amount:json.amount,
-      srcValidatorAddress:json.src_validator_address,
-      dstValidatorAddress:json.dst_validator_address,
-      count:json.count,
+      amount: json.amount,
+      srcValidatorAddress: json.src_validator_address,
+      dstValidatorAddress: json.dst_validator_address,
+      count: json.count,
     });
   }
 }
 
-export class Undelegation{
+export class Undelegation {
   public count: number;
   public amount: number;
   public delegatorAddress: number;
@@ -171,15 +171,15 @@ export class Undelegation{
   }
   static fromJson(json: any) {
     return new Undelegation({
-      count:json.count,
-      amount:json.amount,
-      delegatorAddress:json.delegator_address,
+      count: json.count,
+      amount: json.amount,
+      delegatorAddress: json.delegator_address,
 
     });
   }
 }
 
-export class ValidatorList{
+export class ValidatorList {
   public moniker: string;
   public selfDelegateAddress: string;
   public delegatorAddress: string;
@@ -204,15 +204,15 @@ export class ValidatorList{
   }
   static fromJson(json: any) {
     return new ValidatorList({
-      moniker:json.moniker,
-      selfDelegateAddress:json.self_delegate_address,
-      delegatorAddress:json.delegator_address,
-      operatorAddress:json.operator_address,
-      shares:json.shares,
-      commission:json.commission,
-      votingPower:json.voting_power,
-      missedBlocksCounte:json.missed_blocks_counte,
-      signedBlocksWindow:json.signed_blocks_window,
+      moniker: json.moniker,
+      selfDelegateAddress: json.self_delegate_address,
+      delegatorAddress: json.delegator_address,
+      operatorAddress: json.operator_address,
+      shares: json.shares,
+      commission: json.commission,
+      votingPower: json.voting_power,
+      missedBlocksCounte: json.missed_blocks_counte,
+      signedBlocksWindow: json.signed_blocks_window,
 
     });
   }
