@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 // descriptionHistory return all description history as the validator modified their description
-export const VALIDATOR_DISCRIPTION= gql`
+export const VALIDATOR_DISCRIPTION = gql`
   query DescriptionHistory($address: String!) {
   validator_description(where: {operator_address: {_eq: $address}}, order_by: {height: desc}) {
     details
@@ -110,7 +110,7 @@ export const UNDELEGATION = gql`
 
 `;
 
-// VALIDATOR_LIST return a list of validator as "Active validators" on big 
+// VALIDATOR_LIST return a list of validator as "Active validators" on big
 // !!!!NO VOTING POWER% CALCULATION
 export const VALIDATOR_LIST = gql`
   query validators {
@@ -138,4 +138,3 @@ export const VALIDATOR_LIST = gql`
     }
   }
 }`;
-

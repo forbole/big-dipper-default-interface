@@ -1,10 +1,14 @@
-import { count } from "console";
+import { count } from 'console';
 
 export class ValidatorDiscription {
   public details: string;
+
   public identity: string;
+
   public moniker: string;
+
   public operatorAddress: string;
+
   public height: number;
 
   constructor(payload: any) {
@@ -13,8 +17,8 @@ export class ValidatorDiscription {
     this.moniker = payload.moniker;
     this.operatorAddress = payload.operatorAddress;
     this.height = payload.height;
-
   }
+
   static fromJson(json: any) {
     return new ValidatorDiscription({
       details: json.details,
@@ -29,18 +33,23 @@ export class ValidatorDiscription {
 
 export class VALIDATOR_INFO {
   public selfDelegateAddress: string;
+
   public operatorAddress: string;
+
   public commission: string;
+
   public maxChangeRate: string;
+
   public maxRate: string;
+
   constructor(payload: any) {
     this.selfDelegateAddress = payload.selfDelegateAddress;
     this.operatorAddress = payload.operatorAddress;
     this.commission = payload.commission;
     this.maxChangeRate = payload.maxChangeRate;
     this.maxRate = payload.maxRate;
-
   }
+
   static fromJson(json: any) {
     return new VALIDATOR_INFO({
       selfDelegateAddress: json.self_delegate_address,
@@ -52,17 +61,26 @@ export class VALIDATOR_INFO {
   }
 }
 
-//!!TWO COUNTER SO LOOK UP HOW JSON PARSE
+//! !TWO COUNTER SO LOOK UP HOW JSON PARSE
 export class POTENTIAL {
   public selfDelegateAddress: string;
+
   public operatorAddress: string;
+
   public maxChangeRate: string;
+
   public maxRate: string;
+
   public commission: string;
+
   public proposalCount: number;
+
   public delegationShareCount: number;
+
   public signedBlocksWindow: number;
+
   public missedBlocksCounter: number;
+
   constructor(payload: any) {
     this.selfDelegateAddress = payload.selfDelegate_address;
     this.operatorAddress = payload.operatorAddress;
@@ -73,8 +91,8 @@ export class POTENTIAL {
     this.delegationShareCount = payload.delegationShareCount;
     this.signedBlocksWindow = payload.signedBlocksWindow;
     this.missedBlocksCounter = payload.missedBlocksCounter;
-
   }
+
   static fromJson(json: any) {
     return new POTENTIAL({
       selfDelegateAddress: json.self_delegate_address,
@@ -93,11 +111,14 @@ export class POTENTIAL {
 
 export class VotingPower {
   public votingPower: number;
-  public height: number;
-  public shares: number;
-  public timestamp: string;
-  public selfDelegateAddress: string;
 
+  public height: number;
+
+  public shares: number;
+
+  public timestamp: string;
+
+  public selfDelegateAddress: string;
 
   constructor(payload: any) {
     this.votingPower = payload.votingPower;
@@ -105,8 +126,8 @@ export class VotingPower {
     this.shares = payload.shares;
     this.timestamp = payload.timestamp;
     this.selfDelegateAddress = payload.selfDelegateAddress;
-
   }
+
   static fromJson(json: any) {
     return new VotingPower({
       votingPower: json.voting_power,
@@ -119,13 +140,14 @@ export class VotingPower {
 }
 export class Delegation {
   public shares: string;
+
   public delegatorAddress: string;
 
   constructor(payload: any) {
     this.shares = payload.shares;
     this.delegatorAddress = payload.delegatorAddress;
-
   }
+
   static fromJson(json: any) {
     return new Delegation({
       shares: json.shares,
@@ -137,8 +159,11 @@ export class Delegation {
 
 export class Redelegation {
   public amount: number;
+
   public srcValidatorAddress: string;
+
   public dstValidatorAddress: string;
+
   public count: number;
 
   constructor(payload: any) {
@@ -146,8 +171,8 @@ export class Redelegation {
     this.srcValidatorAddress = payload.srcValidatorAddress;
     this.dstValidatorAddress = payload.dstValidatorAddress;
     this.count = payload.count;
-
   }
+
   static fromJson(json: any) {
     return new Redelegation({
       amount: json.amount,
@@ -160,15 +185,17 @@ export class Redelegation {
 
 export class Undelegation {
   public count: number;
+
   public amount: number;
+
   public delegatorAddress: number;
 
   constructor(payload: any) {
     this.count = payload.count;
     this.amount = payload.amount;
     this.delegatorAddress = payload.delegatorAddress;
-
   }
+
   static fromJson(json: any) {
     return new Undelegation({
       count: json.count,
@@ -181,13 +208,21 @@ export class Undelegation {
 
 export class ValidatorList {
   public moniker: string;
+
   public selfDelegateAddress: string;
+
   public delegatorAddress: string;
+
   public operatorAddress: string;
+
   public shares: string;
+
   public commission: number;
+
   public votingPower: number;
+
   public missedBlocksCounte: number;
+
   public signedBlocksWindow: number;
 
   constructor(payload: any) {
@@ -200,8 +235,8 @@ export class ValidatorList {
     this.votingPower = payload.votingPower;
     this.missedBlocksCounte = payload.missedBlocksCounte;
     this.signedBlocksWindow = payload.signedBlocksWindow;
-
   }
+
   static fromJson(json: any) {
     return new ValidatorList({
       moniker: json.moniker,

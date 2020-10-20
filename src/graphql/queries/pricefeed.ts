@@ -16,4 +16,3 @@ export const MARKET_CAP = gql`
     denom
   }
 }`;
-

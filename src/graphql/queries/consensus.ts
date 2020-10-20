@@ -35,8 +35,8 @@ subscription AverageBlockTimeLastDay{
   }
 }`;
 
-// blockInfoFromLimit return the last n block info 
-export const BLOCK_INFO_LIMIT= gql`
+// blockInfoFromLimit return the last n block info
+export const BLOCK_INFO_LIMIT = gql`
 subscription LatestBlocks($limit: Int!) {
   block(limit: $limit, order_by: {height: desc}) {
     hash

@@ -1,4 +1,4 @@
-//consensus
+// consensus
 import { BlockTimeLastMinute } from './consensus';
 import { BlockTimeLastHour } from './consensus';
 import { BlockTimeLastDay } from './consensus';
@@ -6,38 +6,38 @@ import { BlockTimeGenesis } from './consensus';
 import { BlockInfo } from './consensus';
 import { ConsensusState } from './consensus';
 
-//distribution
-import {CommunityPool} from './distribution'
+// distribution
+import { CommunityPool } from './distribution';
 
-//gov
-import { Proposal } from './gov'
-import {Deposit} from './gov'
-import { AllVote } from './gov'
-import {YesVote} from './gov'
-import {NoVote} from './gov'
-import {AbstainVote} from './gov'
-import {NoWithVetoVote} from './gov'
-import {TallyState} from './gov'
+// gov
+import { Proposal } from './gov';
+import { Deposit } from './gov';
+import { AllVote } from './gov';
+import { YesVote } from './gov';
+import { NoVote } from './gov';
+import { AbstainVote } from './gov';
+import { NoWithVetoVote } from './gov';
+import { TallyState } from './gov';
 
-//mint
-import { Inflation } from './mint'
+// mint
+import { Inflation } from './mint';
 
-//pricefeed
-import { Price } from './pricefeed'
-import { MarketCap } from './pricefeed'
+// pricefeed
+import { Price } from './pricefeed';
+import { MarketCap } from './pricefeed';
 
-//staking
-import { ValidatorDiscription } from './staking'
-import {VALIDATOR_INFO} from './staking'
-import {POTENTIAL} from './staking'
-import {VotingPower} from './staking'
-import {Delegation} from './staking'
-import {Redelegation} from './staking'
-import {Undelegation} from './staking'
-import {ValidatorList} from './staking'
+// staking
+import { ValidatorDiscription } from './staking';
+import { VALIDATOR_INFO } from './staking';
+import { POTENTIAL } from './staking';
+import { VotingPower } from './staking';
+import { Delegation } from './staking';
+import { Redelegation } from './staking';
+import { Undelegation } from './staking';
+import { ValidatorList } from './staking';
 
 export {
-  //consensus
+  // consensus
   BlockTimeLastMinute,
   BlockTimeLastHour,
   BlockTimeLastDay,
@@ -45,10 +45,10 @@ export {
   BlockInfo,
   ConsensusState,
 
-  //distribution
+  // distribution
   CommunityPool,
 
-  //gov 
+  // gov
   Proposal,
   Deposit,
   AllVote,
@@ -58,14 +58,14 @@ export {
   NoWithVetoVote,
   TallyState,
 
-  //mint
+  // mint
   Inflation,
 
-  //pricefeed
+  // pricefeed
   MarketCap,
   Price,
- 
-  //staking
+
+  // staking
   ValidatorDiscription,
   VALIDATOR_INFO,
   POTENTIAL,
@@ -74,4 +74,4 @@ export {
   Redelegation,
   Undelegation,
   ValidatorList,
-}
+};

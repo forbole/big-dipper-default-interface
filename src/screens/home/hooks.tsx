@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import {  LATEST_BLOCK_HEIGHT } from '@graphql/queries';
+import { LATEST_BLOCK_HEIGHT } from '@graphql/queries';
 
 export const useHomeHook = () => {
   const {

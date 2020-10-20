@@ -153,4 +153,3 @@ query tally($id: Int!) {
   }
 }
 `;
-
