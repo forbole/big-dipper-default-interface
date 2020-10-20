@@ -60,7 +60,6 @@ export const useGetStyles = () => {
         color: '#1D86FF',
       },
     },
-
     subTitle: {
       fontSize: '1rem',
       margin: '0',

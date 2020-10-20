@@ -22,14 +22,9 @@ export const socialMediaLinks:SocialMediaProps[] = [
     url: '#',
   },
   {
-<<<<<<< HEAD
-    key: 'faq',
-    url: '/faq',
-=======
     component: FacebookIcon,
     className: 'facebook',
     url: '#',
->>>>>>> 520d01e084d0f1b1e01ddb056a5890048f1cc0b2
   },
   {
     component: MediumIcon,
@@ -104,7 +99,7 @@ export const footerLinks = [
   },
   {
     key: 'faq',
-    url: '#',
+    url: '/faq',
   },
   {
     key: 'termsAndConditions',
