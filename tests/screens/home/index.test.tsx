@@ -4,7 +4,6 @@ import Home from '@screens/home';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { awaitActions } from '@tests/utils/await_actions';
 import { queryExample } from '@graphql/queries';
-import { Example } from '@components';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import { WithMockMaterialTheme } from '@tests/utils/mock_material_theme';
@@ -42,11 +41,6 @@ describe('Home', () => {
         mocks,
       }),
     );
-
-    expect(
-      wrapper.find(Example),
-    ).not.toBeNull();
-
     expect(
       wrapper.find('h1'),
     ).toHaveLength(2);

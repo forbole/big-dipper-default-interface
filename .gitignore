@@ -34,3 +34,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+#yalc
+# .yalc
+# yalc.lock
+**/.yalc/**/*.md

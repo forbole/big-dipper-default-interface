@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
 import {
-  Example, Layout,
+  Layout, MaxWidthContent,
 } from '@components';
 import Button from '@material-ui/core/Button';
 import { useHomeHook } from './hooks';
@@ -28,12 +28,19 @@ const Home = () => {
       </Button>
       <h1>{t('bigDipper')}</h1>
       <h1>{t('forbole')}</h1>
-      <p>
-        home page on port
-      </p>
+      <MaxWidthContent>
+        <p>
+          home page on port
+        </p>
+      </MaxWidthContent>
       {!loading && <h3>done loading!</h3>}
-     
-      <Example />
+      {!loading && !error && data.rates.map((x) => (
+        <p
+          key={x.currency}
+        >
+          {x.currency}
+        </p>
+      ))}
     </Layout>
   );
 };
