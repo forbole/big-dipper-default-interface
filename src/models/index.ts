@@ -24,7 +24,18 @@ import { Inflation } from './mint'
 
 //pricefeed
 import { Price } from './pricefeed'
-import { MarketCap} from './pricefeed'
+import { MarketCap } from './pricefeed'
+
+//staking
+import { ValidatorDiscription } from './staking'
+import {VALIDATOR_INFO} from './staking'
+import {POTENTIAL} from './staking'
+import {VotingPower} from './staking'
+import {Delegation} from './staking'
+import {Redelegation} from './staking'
+import {Undelegation} from './staking'
+import {ValidatorList} from './staking'
+
 export {
   //consensus
   BlockTimeLastMinute,
@@ -53,4 +64,14 @@ export {
   //pricefeed
   MarketCap,
   Price,
+ 
+  //staking
+  ValidatorDiscription,
+  VALIDATOR_INFO,
+  POTENTIAL,
+  VotingPower,
+  Delegation,
+  Redelegation,
+  Undelegation,
+  ValidatorList,
 }

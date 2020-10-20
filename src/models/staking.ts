@@ -54,13 +54,13 @@ export class VALIDATOR_INFO{
 
 //!!TWO COUNTER SO LOOK UP HOW JSON PARSE
 export class POTENTIAL{
-  public   selfDelegateAddress: number;
-  public   operatorAddress: number;
-  public   maxChangeRate: number;
-  public   maxRate: number;
-  public   commission: number;
+  public   selfDelegateAddress: string;
+  public   operatorAddress: string;
+  public   maxChangeRate: string;
+  public   maxRate: string;
+  public   commission: string;
   public   count: number;
-  public   count: number;
+  public   count: string;
   public   signedBlocksWindow: number;
   public   missedBlocksCounter: number;
   constructor(payload: any) {
@@ -180,11 +180,11 @@ export class Undelegation{
 }
 
 export class ValidatorList{
-  public moniker: number;
-  public selfDelegateAddress: number;
-  public delegatorAddress: number;
-  public operatorAddress: number;
-  public shares: number;
+  public moniker: string;
+  public selfDelegateAddress: string;
+  public delegatorAddress: string;
+  public operatorAddress: string;
+  public shares: string;
   public commission: number;
   public votingPower: number;
   public missedBlocksCounte: number;
