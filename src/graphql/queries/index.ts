@@ -1,6 +1,6 @@
 // consensus
 import { AVERAGE_BLOCK_LAST_DAY } from './consensus';
-import {BLOCK_INFO} from './consensus';
+import {BLOCK_INFO_LIMIT} from './consensus';
 import {AVERAGE_BLOCK_LAST_HOUR} from './consensus';
 import {AVERAGE_BLOCK_LAST_MINUTE} from './consensus';
 import {AVERAGE_BLOCK_TIME_FROM_GENESIS} from './consensus';
@@ -39,7 +39,7 @@ import { TALLY_STATE } from './gov';
 export {
   //consensus
   AVERAGE_BLOCK_LAST_DAY,
-  BLOCK_INFO,
+  BLOCK_INFO_LIMIT,
   AVERAGE_BLOCK_LAST_HOUR,
   AVERAGE_BLOCK_LAST_MINUTE,
   AVERAGE_BLOCK_TIME_FROM_GENESIS,

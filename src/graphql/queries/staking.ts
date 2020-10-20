@@ -12,7 +12,6 @@ export const VALIDATOR_DISCRIPTION= gql`
   }
 }`;
 
-// !! NO MAX CHANGE RATE/ MAX RATE (not implenmented in bdjuno yet)
 export const VALIDATOR_INFO = gql`
 query DescriptionHistory($address: String!) {
   validator_info(where: {operator_address: {_eq: $address}}) {
@@ -20,17 +19,21 @@ query DescriptionHistory($address: String!) {
     operator_address
     validator_commission {
       commission
-      min_self_delegation
+    }
+    validator_info {
+      max_change_rate
+      max_rate
     }
   }
 }`;
 
-// !! MISSING MAX CHANGE RATE
 export const POTENTIAL = gql`
 query DescriptionHistory($address: String!) {
   validator_info(where: {operator_address: {_eq: $address}}) {
     self_delegate_address
     operator_address
+    max_change_rate
+    max_rate
     validator_commission {
       commission
     }
@@ -109,7 +112,7 @@ export const UNDELEGATION = gql`
 `;
 
 // VALIDATOR_LIST return a list of validator as "Active validators" on big 
-// !!!!NO VOTING POWER CALCULATION
+// !!!!NO VOTING POWER% CALCULATION
 export const VALIDATOR_LIST = gql`
   query validators {
   validator {
