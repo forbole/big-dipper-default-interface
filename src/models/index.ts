@@ -22,7 +22,9 @@ import {TallyState} from './gov'
 //mint
 import { Inflation } from './mint'
 
-
+//pricefeed
+import { Price } from './pricefeed'
+import { MarketCap} from './pricefeed'
 export {
   //consensus
   BlockTimeLastMinute,
@@ -46,6 +48,9 @@ export {
   TallyState,
 
   //mint
-  Inflation
+  Inflation,
 
+  //pricefeed
+  MarketCap,
+  Price,
 }
