@@ -59,8 +59,8 @@ export class POTENTIAL {
   public maxChangeRate: string;
   public maxRate: string;
   public commission: string;
-  public count: number;
-  public count: string;
+  public proposalCount: number;
+  public delegationShareCount: number;
   public signedBlocksWindow: number;
   public missedBlocksCounter: number;
   constructor(payload: any) {
@@ -69,8 +69,8 @@ export class POTENTIAL {
     this.maxChangeRate = payload.maxChangeRate;
     this.maxRate = payload.maxRate;
     this.commission = payload.commission;
-    this.count = payload.count;
-    this.count = payload.count;
+    this.proposalCount = payload.proposalCount;
+    this.delegationShareCount = payload.delegationShareCount;
     this.signedBlocksWindow = payload.signedBlocksWindow;
     this.missedBlocksCounter = payload.missedBlocksCounter;
 
@@ -82,8 +82,8 @@ export class POTENTIAL {
       maxChangeRate: json.max_change_rate,
       maxRate: json.max_rate,
       commission: json.commission,
-      count: json.count,
-      count: json.count,
+      proposalCount: json.proposal_aggregate.aggregate.count,
+      delegationShareCount: json.validator_delegation_shares_aggregate.aggregate.count,
       signedBlocksWindow: json.signed_blocks_window,
       missedBlocksCounter: json.missed_blocks_counter,
 
