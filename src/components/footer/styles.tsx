@@ -50,7 +50,7 @@ export const useGetStyles = () => {
       whiteSpace: 'nowrap',
       width: 'auto',
       padding: '0',
-      fontSize: theme.typography.body3.fontSize,
+      // fontSize: theme.typography.body3.fontSize,
       '& span': {
         margin: '0 1rem',
       },

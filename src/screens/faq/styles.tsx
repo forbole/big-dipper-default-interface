@@ -14,8 +14,8 @@ export const useGetStyles = () => {
       margin: '0',
       marginBottom: '0.5rem',
       marginTop: '1rem',
-      lineHeight: '1.375rem',
-      color: '#000000',
+      // lineHeight: '1.375rem',
+      color: theme.palette.custom.fonts.fontOne,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.5rem',
         marginBottom: '1rem',
@@ -28,10 +28,10 @@ export const useGetStyles = () => {
       },
     },
     context: {
-      fontSize: '0.875rem',
+      fontSize: theme.typography.paragraph.fontSize,
       margin: '0',
-      lineHeight: '1.375rem',
-      color: '#414141',
+      // lineHeight: '1.375rem',
+      color: theme.palette.custom.fonts.fontTwo,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1rem',
       },
@@ -44,7 +44,7 @@ export const useGetStyles = () => {
       margin: '0',
       fontSize: '0.875rem',
       marginBottom: '1rem',
-      lineHeight: '1.375rem',
+      // lineHeight: '1.375rem',
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1rem',
       },
@@ -66,8 +66,8 @@ export const useGetStyles = () => {
       margin: '0',
       marginBottom: '0.5rem',
       fontWeight: 550,
-      lineHeight: '1.375rem',
-      color: '#000000',
+      // lineHeight: '1.375rem',
+      color: theme.palette.custom.fonts.fontTwo,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.25rem',
         fontWeight: 500,
@@ -81,14 +81,14 @@ export const useGetStyles = () => {
       fontSize: '1rem',
       margin: '0',
       marginBottom: '0.5rem',
-      lineHeight: '1.5rem',
-      color: '#414141',
+      // lineHeight: '1.5rem',
+      color: theme.palette.custom.fonts.fontThree,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         marginBottom: '1.5rem',
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         marginBottom: '2.75rem',
-        lineHeight: '2.25rem',
+        // lineHeight: '2.25rem',
       },
     },
 
