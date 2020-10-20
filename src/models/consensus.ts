@@ -1,5 +1,4 @@
-import { Address } from 'cluster';
-
+/* eslint-disable */
 class BlockTime {
   public averageTime: number;
 

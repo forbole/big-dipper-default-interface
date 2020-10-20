@@ -1,4 +1,4 @@
-import { count } from 'console';
+/* eslint-disable */
 
 export class ValidatorDiscription {
   public details: string;

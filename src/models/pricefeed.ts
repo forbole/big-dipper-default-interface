@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 export class Price {
   public price: number
 

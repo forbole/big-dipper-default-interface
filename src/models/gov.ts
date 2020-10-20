@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export class Proposal {
   public description: string
 
