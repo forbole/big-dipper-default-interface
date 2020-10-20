@@ -19,6 +19,10 @@ import {AbstainVote} from './gov'
 import {NoWithVetoVote} from './gov'
 import {TallyState} from './gov'
 
+//mint
+import { Inflation } from './mint'
+
+
 export {
   //consensus
   BlockTimeLastMinute,
@@ -40,5 +44,8 @@ export {
   AbstainVote,
   NoWithVetoVote,
   TallyState,
+
+  //mint
+  Inflation
 
 }
