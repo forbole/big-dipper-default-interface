@@ -1,3 +1,5 @@
+import { queryExample } from './query_example';
+
 // consensus
 import {
   AVERAGE_BLOCK_LAST_DAY,
@@ -34,6 +36,7 @@ import {
 } from './gov';
 
 export {
+  queryExample,
   // consensus
   AVERAGE_BLOCK_LAST_DAY,
   BLOCK_INFO_LIMIT,

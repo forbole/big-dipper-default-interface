@@ -1,10 +1,10 @@
 import { useQuery } from '@apollo/client';
-import { LATEST_BLOCK_HEIGHT } from '@graphql/queries';
+import { queryExample } from '@graphql/queries';
 
 export const useHomeHook = () => {
   const {
     loading, error, data,
-  } = useQuery(LATEST_BLOCK_HEIGHT);
+  } = useQuery(queryExample);
   console.log(data, 'tesdtgdfhg');
   return {
     loading,
