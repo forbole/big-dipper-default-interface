@@ -1,20 +1,12 @@
 import { makeStyles } from '@material-ui/styles';
-import { useTheme } from '@material-ui/core/styles';
-import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
-  const theme: any = useTheme();
   const useStyles = makeStyles({
     root: {
-      background: theme.palette.custom.footer,
-      color: theme.palette.custom.onDarkSurface,
-      padding: '2rem 1rem',
-      display: 'flex',
-      flexDirection: 'column',
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
-        flexDirection: 'row',
-        alignItems: 'flex-start',
+      '& a': {
+        color: 'inherit',
       },
+<<<<<<< HEAD
     },
     logoContainer: {
       display: 'flex',
@@ -70,32 +62,17 @@ export const useGetStyles = () => {
         alignSelf: 'flex-end',
         '& svg': {
           width: '22px',
+=======
+      '& .apple': {
+        '& img': {
+          width: '100px',
+>>>>>>> 520d01e084d0f1b1e01ddb056a5890048f1cc0b2
         },
       },
-    },
-    socialMediaContent: {
-      marginRight: '0.7rem',
-      display: 'flex',
-      alignItems: 'center',
-      '&:hover': {
-        cursor: 'pointer',
-      },
-    },
-    copyright: {
-      color: theme.palette.custom.onDarkSurface,
-    },
-    logo: {
-      width: '150px',
-    },
-    appleBadge: {
-      '& img': {
-        width: '100px',
-      },
-      marginRight: '0.5rem',
-    },
-    googleBadge: {
-      '& img': {
-        width: '110px',
+      '& .google': {
+        '& img': {
+          width: '110px',
+        },
       },
     },
   });

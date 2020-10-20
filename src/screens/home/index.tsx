@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
 import {
-  Example, Layout, MaxWidthContent,
+  Layout, MaxWidthContent,
 } from '@components';
 import Button from '@material-ui/core/Button';
 import { useHomeHook } from './hooks';
@@ -41,7 +41,6 @@ const Home = () => {
           {x.currency}
         </p>
       ))}
-      <Example />
     </Layout>
   );
 };
