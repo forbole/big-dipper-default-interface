@@ -64,7 +64,6 @@ export const VOTING_POWER = gql`
     validator_delegation_shares(where: {validator_info: {consensus_address: {_eq: $consAddress}}}, limit: $limit) {
       shares
       timestamp
-      height
     }
     validator_info(where: {consensus_address: {_eq: $consAddress}}) {
       self_delegate_address
