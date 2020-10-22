@@ -2893,7 +2893,8 @@ var Footer = function (props) {
 
 // import classnames from 'classnames';
 // import { useGetStyles } from './styles';
-var CustomGrid = function (props) {
+var CustomTheme = function (props) {
+    var _a = props.putGird, putGird = _a === void 0 ? [] : _a;
     var themeLocal = createMuiTheme$1({
         breakpoints: {
             keys: ['xs', 'sm', 'md', 'lg', 'xl'],
@@ -2902,9 +2903,11 @@ var CustomGrid = function (props) {
             },
         },
     });
-    var _a = props.GridTheme, GridTheme = _a === void 0 ? themeLocal : _a;
+    // const {
+    //   GridTheme = themeLocal,
+    // } = props;
     // const { classes } = useGetStyles();
-    return (React.createElement(MuiThemeProvider, { theme: GridTheme }));
+    return (React.createElement(MuiThemeProvider, { theme: themeLocal }, putGird));
 };
 
 var index = /*#__PURE__*/Object.freeze({
@@ -2912,4 +2915,4 @@ var index = /*#__PURE__*/Object.freeze({
   logo: img
 });
 
-export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, CustomGrid as GridTest, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
+export { ButtonExample, CustomTheme, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };

@@ -4,6 +4,7 @@ import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
 import Grid from '@material-ui/core/Grid';
+import { CustomTheme } from 'big-dipper-internal-ui';
 import { useGetStyles } from './styles';
 import getFaqDetails from './utils';
 
@@ -37,20 +38,24 @@ const Faq = () => {
               {t('email')}
             </a>
           </div>
-          <Grid container spacing={2}>
-            {getFaqDetails().map((x, i) => {
-              return (
-                <Grid key={i} item xs={12} lg={6}>
-                  <h2 className={classes.subTitle}>
-                    {x.question}
-                  </h2>
-                  <p className={classes.paragraph}>
-                    {x.ans}
-                  </p>
-                </Grid>
-              );
-            })}
-          </Grid>
+          <CustomTheme
+            putGird={(
+              <Grid container spacing={2}>
+                {getFaqDetails().map((x, i) => {
+                  return (
+                    <Grid key={i} item xs={12} lg={6}>
+                      <h2 className={classes.subTitle}>
+                        {x.question}
+                      </h2>
+                      <p className={classes.paragraph}>
+                        {x.ans}
+                      </p>
+                    </Grid>
+                  );
+                })}
+              </Grid>
+            )}
+          />
         </MaxWidthContent>
       </MaxWidthContainer>
     </Layout>
