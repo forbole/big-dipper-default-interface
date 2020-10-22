@@ -15,5 +15,5 @@ coverage:
         only_pulls: false
         flags: null
         paths:
-          - ".yalc/*"
-          - "tests/*"       # wildcards accepted
+          - ".yalc/**/*"
+          - "tests/**/*"       # wildcards accepted
