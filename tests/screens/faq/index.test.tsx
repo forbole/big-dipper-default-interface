@@ -18,8 +18,5 @@ describe('Faq', () => {
     expect(
       wrapper.find('p').first().text(),
     ).toBe('contextemail');
-    expect(
-      wrapper.find('h2').first().text(),
-    ).toBe('subTitle1');
   });
 });

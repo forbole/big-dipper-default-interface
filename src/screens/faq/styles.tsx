@@ -13,13 +13,12 @@ export const useGetStyles = () => {
       fontWeight: 500,
       margin: '0',
       marginBottom: '0.5rem',
-      marginTop: '1rem',
-      // lineHeight: '1.375rem',
+      marginTop: theme.palette.custom.margins.medium,
       color: theme.palette.custom.fonts.fontOne,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.5rem',
-        marginBottom: '1rem',
-        marginTop: '1.5rem',
+        marginBottom: theme.palette.custom.margins.medium,
+        marginTop: theme.palette.custom.margins.large,
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         fontSize: '1.75rem',
@@ -30,7 +29,6 @@ export const useGetStyles = () => {
     context: {
       fontSize: theme.typography.paragraph.fontSize,
       margin: '0',
-      // lineHeight: '1.375rem',
       color: theme.palette.custom.fonts.fontTwo,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1rem',
@@ -43,8 +41,7 @@ export const useGetStyles = () => {
     linkContainer: {
       margin: '0',
       fontSize: '0.875rem',
-      marginBottom: '1rem',
-      // lineHeight: '1.375rem',
+      marginBottom: theme.palette.custom.margins.medium,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1rem',
       },
@@ -65,7 +62,6 @@ export const useGetStyles = () => {
       margin: '0',
       marginBottom: '0.5rem',
       fontWeight: 550,
-      // lineHeight: '1.375rem',
       color: theme.palette.custom.fonts.fontTwo,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
         fontSize: '1.25rem',
@@ -73,21 +69,19 @@ export const useGetStyles = () => {
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         fontSize: '1.375rem',
-        marginBottom: '1rem',
+        marginBottom: theme.palette.custom.margins.medium,
       },
     },
     paragraph: {
       fontSize: '1rem',
       margin: '0',
       marginBottom: '0.5rem',
-      // lineHeight: '1.5rem',
       color: theme.palette.custom.fonts.fontThree,
       [getMinMediaQuery(theme.breakpoints.tablet)]: {
-        marginBottom: '1.5rem',
+        marginBottom: theme.palette.custom.margins.large,
       },
       [getMinMediaQuery(theme.breakpoints.desktop)]: {
         marginBottom: '2.75rem',
-        // lineHeight: '2.25rem',
       },
     },
 

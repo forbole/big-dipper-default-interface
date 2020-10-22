@@ -1,10 +1,10 @@
 {
-  "name": "big-dipper-internal-ui",
-  "version": "1.0.0+c5324b8a",
+  "name": "big-dipper-default-ui",
+  "version": "1.0.0+b4c15030",
   "description": "Component library for big dipper default interface",
   "author": "ryuash",
   "license": "MIT",
-  "repository": "ryuash/big-dipper-internal-ui",
+  "repository": "ryuash/big-dipper-default-ui",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -19,7 +19,7 @@
     "test:build": "run-s build",
     "test:lint": "eslint .",
     "test:unit": "cross-env NODE_ENV=test jest",
-    "storybook": "start-storybook -s ./ -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
@@ -27,7 +27,8 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "recharts": "^1.8.5"
   },
   "files": [
     "dist"
@@ -35,5 +36,5 @@
   "dependencies": {
     "yalc": "^1.0.0-pre.45"
   },
-  "yalcSig": "c5324b8a2b5c0d8e30fe112883379375"
+  "yalcSig": "b4c15030745ebbb0a4a397e3b8cc2f81"
 }

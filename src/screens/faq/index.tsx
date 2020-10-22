@@ -23,42 +23,10 @@ const Faq = () => {
   const { t } = useTranslation('faq');
   const { classes } = useGetStyles();
 
-  const GridWithXXL = ({ 
-    theme={themeLocal}
-
-  }) => {
-    // const xxlClass = `MuiGrid-grid-xxl-${xxl}`;
-    return <Grid container spacing={2} />;
-  };
-
   return (
     <Layout>
       <MaxWidthContainer>
         <MaxWidthContent className={classes.root}>
-          <Grid container spacing={2}>
-            {faq.map((x, i) => {
-              return (
-                <GridWithXXL
-                  key={i}
-                  item
-                  xs={12}
-                  sm={6}
-                  md={4}
-                  lg={6}
-                  xl={2}
-                  xxl={1}
-                >
-                  <h2 className={classes.subTitle}>
-                    {x.question}
-                  </h2>
-                  <p className={classes.paragraph}>
-                    {x.ans}
-                  </p>
-                </GridWithXXL>
-              );
-            })}
-          </Grid>
-
           <h1 className={classes.title}>
             {t('FAQ')}
           </h1>

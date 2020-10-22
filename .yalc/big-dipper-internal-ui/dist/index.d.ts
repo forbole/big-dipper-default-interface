@@ -1,6 +1,7 @@
 import { TelegramIcon, MediumIcon, FacebookIcon, ForboleIcon, GithubIcon, TwitterIcon, YoutubeIcon } from './icons';
-import * as resources from './resources';
+import ButtonExample from './button_example';
+import DataBlock from './data_block';
 import Footer from './footer';
-import MobileNav from './moblie_nav';
-import DesktopNav from './desktop_navbar';
-export { resources, TelegramIcon, MediumIcon, FacebookIcon, ForboleIcon, GithubIcon, TwitterIcon, YoutubeIcon, Footer, MobileNav, DesktopNav, };
+import GridTest from './grid';
+import * as resources from './resources';
+export { ButtonExample, DataBlock, TelegramIcon, MediumIcon, FacebookIcon, ForboleIcon, GithubIcon, TwitterIcon, YoutubeIcon, Footer, GridTest, resources, };
