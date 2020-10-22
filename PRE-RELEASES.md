@@ -2,4 +2,5 @@
 ## Changes
 - Initial project setup
 - Added about page
+- Added faq page
 
