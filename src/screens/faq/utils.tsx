@@ -1,6 +1,6 @@
 import { useTranslation } from 'i18n';
 
-const Util = () => {
+const getFaqDetails = () => {
   const { t } = useTranslation('faq');
   const faq = [
     {
@@ -32,4 +32,4 @@ const Util = () => {
   return (faq);
 };
 
-export default Util;
+export default getFaqDetails;

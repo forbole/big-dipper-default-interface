@@ -8,7 +8,7 @@ import {
   createMuiTheme, MuiThemeProvider,
 } from '@material-ui/core/styles';
 import { useGetStyles } from './styles';
-import Util from './utils';
+import getFaqDetails from './utils';
 
 const themeLocal = createMuiTheme({
   breakpoints: {
@@ -51,7 +51,7 @@ const Faq = () => {
           </div>
           <MuiThemeProvider theme={themeLocal}>
             <Grid container spacing={2}>
-              {Util().map((x, i) => {
+              {getFaqDetails().map((x, i) => {
                 return (
                   <Grid key={i} item xs={12} lg={6}>
                     <h2 className={classes.subTitle}>
