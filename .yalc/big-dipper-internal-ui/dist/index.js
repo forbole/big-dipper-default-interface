@@ -2912,8 +2912,7 @@ var CustomGrid = function (props) {
     });
     var _a = props.GridTheme, GridTheme = _a === void 0 ? themeLocal : _a;
     // const { classes } = useGetStyles();
-    return (React__default['default'].createElement(core.MuiThemeProvider, { theme: GridTheme },
-        React__default['default'].createElement(core.Grid, { container: true, spacing: 2 })));
+    return (React__default['default'].createElement(core.MuiThemeProvider, { theme: GridTheme }));
 };
 
 var index = /*#__PURE__*/Object.freeze({

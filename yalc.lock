@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "big-dipper-internal-ui": {
-      "signature": "b62a102ba62ac9e6e68b1634d44c0a80",
+      "signature": "fcb72310ea177d51bc847f1980d3829e",
       "file": true
     },
     "big-dipper-default-ui": {

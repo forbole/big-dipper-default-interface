@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Select, MenuItem, Link, Typography, List, ListItem, createMuiTheme as createMuiTheme$1, MuiThemeProvider, Grid } from '@material-ui/core';
+import { Button, Select, MenuItem, Link, Typography, List, ListItem, createMuiTheme as createMuiTheme$1, MuiThemeProvider } from '@material-ui/core';
 import { useTheme as useTheme$1, makeStyles } from '@material-ui/styles';
 
 var Telegram = function (_a) {
@@ -2904,8 +2904,7 @@ var CustomGrid = function (props) {
     });
     var _a = props.GridTheme, GridTheme = _a === void 0 ? themeLocal : _a;
     // const { classes } = useGetStyles();
-    return (React.createElement(MuiThemeProvider, { theme: GridTheme },
-        React.createElement(Grid, { container: true, spacing: 2 })));
+    return (React.createElement(MuiThemeProvider, { theme: GridTheme }));
 };
 
 var index = /*#__PURE__*/Object.freeze({
