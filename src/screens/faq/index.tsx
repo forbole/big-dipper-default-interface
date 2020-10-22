@@ -7,7 +7,6 @@ import Grid from '@material-ui/core/Grid';
 import {
   createMuiTheme, MuiThemeProvider,
 } from '@material-ui/core/styles';
-import { GridTest } from 'big-dipper-internal-ui';
 import { useGetStyles } from './styles';
 import Util from './utils';
 
@@ -28,12 +27,6 @@ const Faq = () => {
     <Layout>
       <MaxWidthContainer>
         <MaxWidthContent className={classes.root}>
-
-          <GridTest
-            girdContentText={t('FAQ1111')}
-            girdContent = {Grid}
-          />
-
           <h1 className={classes.title}>
             {t('FAQ')}
           </h1>
