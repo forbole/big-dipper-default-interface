@@ -14,7 +14,10 @@ coverage:
         if_ci_failed: error
         only_pulls: false
         flags: null
-        paths: null
-        ignore:
-          - ".yalc/**/*"
-          - "tests/**/*"
+        paths:
+          - 'src/**/*'
+# ignore:
+#   - ".yalc/**/*"
+#   - "tests/**/*"
+#   - "./.yalc/**/*"
+#   - "./tests/**/*"
