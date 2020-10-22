@@ -2891,27 +2891,21 @@ var Footer = function (props) {
                 React.createElement(Button, { variant: "contained", color: "primary", size: "small" }, donateText))))));
 };
 
-var customTheme = createMuiTheme$1({
-    breakpoints: {
-        keys: ['xs', 'sm', 'md', 'lg', 'xl'],
-        values: {
-            xs: 0, sm: 568, md: 760, lg: 1080, xl: 1200,
+// import classnames from 'classnames';
+// import { useGetStyles } from './styles';
+var CustomGrid = function (props) {
+    var themeLocal = createMuiTheme$1({
+        breakpoints: {
+            keys: ['xs', 'sm', 'md', 'lg', 'xl'],
+            values: {
+                xs: 0, sm: 568, md: 760, lg: 1080, xl: 1200,
+            },
         },
-    },
-});
-var GridTest = function (_a) {
-    var text1 = _a.text1;
-    return (
-    // <Grid
-    //   color="primary"
-    //   variant="contained"
-    // >
-    //   {text}
-    // </Grid>
-    React.createElement(MuiThemeProvider, { theme: customTheme },
-        React.createElement(Grid, { container: true, spacing: 2 },
-            React.createElement(Grid, { item: true, xs: 12, lg: 6 }, text1),
-            ");")));
+    });
+    var _a = props.GridTheme, GridTheme = _a === void 0 ? themeLocal : _a;
+    // const { classes } = useGetStyles();
+    return (React.createElement(MuiThemeProvider, { theme: GridTheme },
+        React.createElement(Grid, { container: true, spacing: 2 })));
 };
 
 var index = /*#__PURE__*/Object.freeze({
@@ -2919,4 +2913,4 @@ var index = /*#__PURE__*/Object.freeze({
   logo: img
 });
 
-export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, GridTest, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
+export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, CustomGrid as GridTest, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };

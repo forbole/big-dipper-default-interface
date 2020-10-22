@@ -2899,27 +2899,21 @@ var Footer = function (props) {
                 React__default['default'].createElement(core.Button, { variant: "contained", color: "primary", size: "small" }, donateText))))));
 };
 
-var customTheme = core.createMuiTheme({
-    breakpoints: {
-        keys: ['xs', 'sm', 'md', 'lg', 'xl'],
-        values: {
-            xs: 0, sm: 568, md: 760, lg: 1080, xl: 1200,
+// import classnames from 'classnames';
+// import { useGetStyles } from './styles';
+var CustomGrid = function (props) {
+    var themeLocal = core.createMuiTheme({
+        breakpoints: {
+            keys: ['xs', 'sm', 'md', 'lg', 'xl'],
+            values: {
+                xs: 0, sm: 568, md: 760, lg: 1080, xl: 1200,
+            },
         },
-    },
-});
-var GridTest = function (_a) {
-    var text1 = _a.text1;
-    return (
-    // <Grid
-    //   color="primary"
-    //   variant="contained"
-    // >
-    //   {text}
-    // </Grid>
-    React__default['default'].createElement(core.MuiThemeProvider, { theme: customTheme },
-        React__default['default'].createElement(core.Grid, { container: true, spacing: 2 },
-            React__default['default'].createElement(core.Grid, { item: true, xs: 12, lg: 6 }, text1),
-            ");")));
+    });
+    var _a = props.GridTheme, GridTheme = _a === void 0 ? themeLocal : _a;
+    // const { classes } = useGetStyles();
+    return (React__default['default'].createElement(core.MuiThemeProvider, { theme: GridTheme },
+        React__default['default'].createElement(core.Grid, { container: true, spacing: 2 })));
 };
 
 var index = /*#__PURE__*/Object.freeze({
@@ -2933,7 +2927,7 @@ exports.FacebookIcon = Facebook;
 exports.Footer = Footer;
 exports.ForboleIcon = Forbole;
 exports.GithubIcon = Github;
-exports.GridTest = GridTest;
+exports.GridTest = CustomGrid;
 exports.MediumIcon = Medium;
 exports.TelegramIcon = Telegram;
 exports.TwitterIcon = Twitter;

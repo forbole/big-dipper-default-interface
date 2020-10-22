@@ -27,6 +27,9 @@ const Faq = () => {
     <Layout>
       <MaxWidthContainer>
         <MaxWidthContent className={classes.root}>
+
+
+
           <h1 className={classes.title}>
             {t('FAQ')}
           </h1>
