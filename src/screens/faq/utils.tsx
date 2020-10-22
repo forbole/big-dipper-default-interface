@@ -1,26 +1,35 @@
-export const faq = [
-  {
-    question: 'What is validator?',
-    ans: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-  },
-  {
-    question: 'Sed at nulla vel eros volutpat egestas?',
-    ans: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-  },
-  {
-    question: 'Sed at nulla vel eros volutpat egestas?',
-    ans: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-  },
-  {
-    question: 'Sed at nulla vel eros volutpat egestas?',
-    ans: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-  },
-  {
-    question: 'Sed at nulla vel eros volutpat egestas?',
-    ans: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-  },
-  {
-    question: 'Sed at nulla vel eros volutpat egestas?',
-    ans: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.',
-  },
-];
+import { useTranslation } from 'i18n';
+
+const Util = () => {
+  const { t } = useTranslation('faq');
+  const faq = [
+    {
+      question: t('question1'),
+      ans: t('ans1'),
+    },
+    {
+      question: t('question2'),
+      ans: t('ans2'),
+    },
+    {
+      question: t('question3'),
+      ans: t('ans3'),
+    },
+    {
+      question: t('question4'),
+      ans: t('ans4'),
+    },
+    {
+      question: t('question5'),
+      ans: t('ans5'),
+    },
+    {
+      question: t('question6'),
+      ans: t('ans6'),
+    },
+  ];
+
+  return (faq);
+};
+
+export default Util;

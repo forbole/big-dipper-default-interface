@@ -7,8 +7,9 @@ import Grid from '@material-ui/core/Grid';
 import {
   createMuiTheme, MuiThemeProvider,
 } from '@material-ui/core/styles';
+import { GridTest } from 'big-dipper-internal-ui';
 import { useGetStyles } from './styles';
-import { faq } from './utils';
+import Util from './utils';
 
 const themeLocal = createMuiTheme({
   breakpoints: {
@@ -28,7 +29,10 @@ const Faq = () => {
       <MaxWidthContainer>
         <MaxWidthContent className={classes.root}>
 
-
+          <GridTest
+            girdContentText={t('FAQ1111')}
+            girdContent = {Grid}
+          />
 
           <h1 className={classes.title}>
             {t('FAQ')}
@@ -54,7 +58,7 @@ const Faq = () => {
           </div>
           <MuiThemeProvider theme={themeLocal}>
             <Grid container spacing={2}>
-              {faq.map((x, i) => {
+              {Util().map((x, i) => {
                 return (
                   <Grid key={i} item xs={12} lg={6}>
                     <h2 className={classes.subTitle}>

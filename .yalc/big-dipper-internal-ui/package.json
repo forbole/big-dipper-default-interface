@@ -1,6 +1,6 @@
 {
   "name": "big-dipper-internal-ui",
-  "version": "1.0.0+c09f8970",
+  "version": "1.0.0+b62a102b",
   "description": "Component library for big dipper default interface",
   "author": "ryuash",
   "license": "MIT",
@@ -32,8 +32,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "yalc": "^1.0.0-pre.45"
-  },
-  "yalcSig": "c09f8970f0d4bb0f63cf853af9532eb6"
+  "dependencies": {},
+  "yalcSig": "b62a102ba62ac9e6e68b1634d44c0a80"
 }
