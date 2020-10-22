@@ -1,5 +1,8 @@
 # https://docs.codecov.io/docs/commit-status
 coverage:
+  ignore:
+    - ".yalc/**/*"
+    - "tests/utils/**/*"
   status:
     project:
       default:
@@ -14,8 +17,4 @@ coverage:
         if_ci_failed: error
         only_pulls: false
         flags: null
-        paths:
-          - ".yalc/**/*"
-          - "tests/**/*"
-          - "./.yalc/**/*"
-          - "./tests/**/*"
+        paths: null
