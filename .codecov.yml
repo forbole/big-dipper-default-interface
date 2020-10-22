@@ -16,4 +16,6 @@ coverage:
         flags: null
         paths:
           - ".yalc/**/*"
-          - "tests/**/*"       # wildcards accepted
+          - "tests/**/*"
+          - "./.yalc/**/*"
+          - "./tests/**/*"
