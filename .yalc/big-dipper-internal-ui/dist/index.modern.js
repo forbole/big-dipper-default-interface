@@ -2891,8 +2891,6 @@ var Footer = function (props) {
                 React.createElement(Button, { variant: "contained", color: "primary", size: "small" }, donateText))))));
 };
 
-// import classnames from 'classnames';
-// import { useGetStyles } from './styles';
 var CustomTheme = function (props) {
     var _a = props.putGird, putGird = _a === void 0 ? [] : _a;
     var themeLocal = createMuiTheme$1({
@@ -2903,10 +2901,6 @@ var CustomTheme = function (props) {
             },
         },
     });
-    // const {
-    //   GridTheme = themeLocal,
-    // } = props;
-    // const { classes } = useGetStyles();
     return (React.createElement(MuiThemeProvider, { theme: themeLocal }, putGird));
 };
 
