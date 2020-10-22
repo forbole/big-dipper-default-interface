@@ -14,4 +14,8 @@ coverage:
         if_ci_failed: error
         only_pulls: false
         flags: null
-        paths: null
+        paths:
+          - ".yalc/**/*"
+          - "tests/**/*"
+          - "./.yalc/**/*"
+          - "./tests/**/*"
