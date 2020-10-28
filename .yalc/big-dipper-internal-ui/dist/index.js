@@ -2636,6 +2636,7 @@ function useTheme() {
   return theme;
 }
 
+<<<<<<< HEAD
 function withStyles(stylesOrCreator, options) {
   return styles$1.withStyles(stylesOrCreator, _extends({
     defaultTheme: defaultTheme
@@ -2645,6 +2646,11 @@ function withStyles(stylesOrCreator, options) {
 var useGetStyles = function () {
     var theme = useTheme();
     var useStyles = styles$1.makeStyles({
+=======
+var useGetStyles = function () {
+    var theme = useTheme();
+    var useStyles = styles.makeStyles({
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
         root: {
             boxSizing: 'border-box',
             overflow: 'hidden',

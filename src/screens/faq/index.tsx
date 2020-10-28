@@ -3,7 +3,11 @@ import { useTranslation } from 'i18n';
 import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
+<<<<<<< HEAD
 import { StyledGrid } from 'big-dipper-internal-ui';
+=======
+import Grid from '@material-ui/core/Grid';
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
 import { useGetStyles } from './styles';
 import getFaqDetails from './utils';
 
@@ -37,21 +41,35 @@ const Faq = () => {
               {t('email')}
             </a>
           </div>
+<<<<<<< HEAD
 
           <StyledGrid container spacing={2}>
             {getFaqDetails().map((x, i) => {
               return (
                 <StyledGrid key={i} item xs={12} desktop={6}>
+=======
+          <Grid container spacing={2}>
+            {getFaqDetails().map((x, i) => {
+              return (
+                <Grid key={i} item xs={12} lg={6}>
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
                   <h2 className={classes.subTitle}>
                     {x.question}
                   </h2>
                   <p className={classes.paragraph}>
                     {x.ans}
                   </p>
+<<<<<<< HEAD
                 </StyledGrid>
               );
             })}
           </StyledGrid>
+=======
+                </Grid>
+              );
+            })}
+          </Grid>
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
         </MaxWidthContent>
       </MaxWidthContainer>
     </Layout>

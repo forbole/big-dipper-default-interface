@@ -4,28 +4,33 @@ Block Explorer Interface for Cosmos
 Currently a WIP please check back later for updates and launch
 
 ## Quick start for pre-release
-https://github.com/forbole/big-dipper-default-ui and https://github.com/forbole/big-dipper-internal-ui are required to run properly.
-
-```
-git clone https://github.com/forbole/big-dipper-internal-ui.git
-git clone https://github.com/forbole/big-dipper-default-ui.git
-```
-
-link local packages using [**yalc**](https://github.com/whitecolor/yalc)
-```
-npm i yalc -g
-```
-
-run yalc publish in `big-dipper-default-ui` and `big-dipper-internal-ui`
-```
-yalc publish
-```
-
-clone this repo
+Clone this repo
 ```
 git clone https://github.com/forbole/big-dipper-default-interface.git
 npm i
 npm run dev
+```
+
+## Update local packages to repo (pre-release)
+The following steps assume you updated pre-release versions of [big-dipper-internal-ui](https://github.com/forbole/big-dipper-internal-ui) or [big-dipper-default-ui](https://github.com/forbole/big-dipper-default-ui) during and need to update this repo accordingly
+
+<!-- ```
+git clone https://github.com/forbole/big-dipper-internal-ui.git
+git clone https://github.com/forbole/big-dipper-default-ui.git
+``` -->
+
+Link local packages using [**yalc**](https://github.com/whitecolor/yalc)
+```
+npm i yalc -g
+```
+
+run yalc publish in `big-dipper-default-ui` and/or `big-dipper-internal-ui`
+```
+yalc publish
+```
+
+Run the following(s) to update
+```
 yalc add big-dipper-default-ui
 yalc add big-dipper-internal-ui
 ```

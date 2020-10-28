@@ -2628,12 +2628,15 @@ function useTheme() {
   return theme;
 }
 
+<<<<<<< HEAD
 function withStyles(stylesOrCreator, options) {
   return withStyles$1(stylesOrCreator, _extends({
     defaultTheme: defaultTheme
   }, options));
 }
 
+=======
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
 var useGetStyles = function () {
     var theme = useTheme();
     var useStyles = makeStyles({
@@ -2897,6 +2900,7 @@ var Footer = function (props) {
                 React.createElement(Button, { variant: "contained", color: "primary", size: "small" }, donateText))))));
 };
 
+<<<<<<< HEAD
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -3290,9 +3294,15 @@ Grid.propTypes = {
 };
 var StyledGrid = withStyles(styles, { name: 'MuiGrid' })(Grid);
 
+=======
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
 var index = /*#__PURE__*/Object.freeze({
   __proto__: null,
   logo: img
 });
 
+<<<<<<< HEAD
 export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, Medium as MediumIcon, StyledGrid, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
+=======
+export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
+>>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
