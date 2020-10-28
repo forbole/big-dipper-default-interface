@@ -5,7 +5,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 export const common = {
   breakpoints: {
 
-    keys: ['xs', 'sm', 'md', 'lg', 'xl', 'mobile', 'tablet', 'desktop', 'maxWidth'],
+    keys: ['xs', 'sm', 'md', 'lg', 'xl', 'mobile', 'tablet', 'desktop'],
     values: {
       xs: 0,
       sm: 600,
