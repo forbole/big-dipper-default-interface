@@ -3,7 +3,6 @@ import { useTranslation } from 'i18n';
 import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
-import Grid from '@material-ui/core/Grid';
 import { StyledGrid } from 'big-dipper-internal-ui';
 import { useGetStyles } from './styles';
 import getFaqDetails from './utils';
@@ -39,10 +38,10 @@ const Faq = () => {
             </a>
           </div>
 
-          <Grid container spacing={2}>
+          <StyledGrid container spacing={2}>
             {getFaqDetails().map((x, i) => {
               return (
-                <StyledGrid key={i} item xs={12} lg={6}>
+                <StyledGrid key={i} item xs={12} desktop={6}>
                   <h2 className={classes.subTitle}>
                     {x.question}
                   </h2>
@@ -52,26 +51,7 @@ const Faq = () => {
                 </StyledGrid>
               );
             })}
-          </Grid>
-
-          {/* <CustomTheme
-            putGird={( */}
-          <Grid container spacing={2}>
-            {getFaqDetails().map((x, i) => {
-              return (
-                <Grid key={i} item xs={12} lg={6}>
-                  <h2 className={classes.subTitle}>
-                    {x.question}
-                  </h2>
-                  <p className={classes.paragraph}>
-                    {x.ans}
-                  </p>
-                </Grid>
-              );
-            })}
-          </Grid>
-          {/* )} */}
-          {/* /> */}
+          </StyledGrid>
         </MaxWidthContent>
       </MaxWidthContainer>
     </Layout>

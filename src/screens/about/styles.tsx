@@ -13,17 +13,17 @@ export const useGetStyles = () => {
       fontWeight: 400,
       margin: '0',
       marginBottom: '0.5rem',
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
+      [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         fontSize: '1.5rem',
       },
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         fontSize: '1.75rem',
       },
     },
     text: {
       fontSize: '1rem',
       margin: '0',
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         fontSize: '1.125rem',
       },
     },

@@ -15,14 +15,14 @@ export const useGetStyles = () => {
       marginBottom: '0.5rem',
       marginTop: theme.palette.custom.margins.medium,
       color: theme.palette.custom.fonts.fontOne,
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
+      [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         fontSize: '1.5rem',
         marginBottom: theme.palette.custom.margins.medium,
         marginTop: theme.palette.custom.margins.large,
       },
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         fontSize: '1.75rem',
-        marginBottom: '1.125rem',
+        marginBottom: '2.625',
         marginTop: '2.5rem',
       },
     },
@@ -30,10 +30,10 @@ export const useGetStyles = () => {
       fontSize: theme.typography.paragraph.fontSize,
       margin: '0',
       color: theme.palette.custom.fonts.fontTwo,
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
+      [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         fontSize: '1rem',
       },
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         fontSize: '1rem',
         marginBottom: '2.125rem',
       },
@@ -42,16 +42,17 @@ export const useGetStyles = () => {
       margin: '0',
       fontSize: '0.875rem',
       marginBottom: theme.palette.custom.margins.medium,
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
+      [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         fontSize: '1rem',
+        marginBottom: theme.palette.custom.margins.large,
       },
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         display: 'none',
       },
     },
     desktopOnly: {
       display: 'none',
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         display: 'inline',
         marginLeft: '0.5rem',
         color: '#1D86FF',
@@ -63,11 +64,11 @@ export const useGetStyles = () => {
       marginBottom: '0.5rem',
       fontWeight: 550,
       color: theme.palette.custom.fonts.fontTwo,
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
+      [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         fontSize: '1.25rem',
         fontWeight: 500,
       },
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         fontSize: '1.375rem',
         marginBottom: theme.palette.custom.margins.medium,
       },
@@ -77,10 +78,10 @@ export const useGetStyles = () => {
       margin: '0',
       marginBottom: '0.5rem',
       color: theme.palette.custom.fonts.fontThree,
-      [getMinMediaQuery(theme.breakpoints.tablet)]: {
+      [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         marginBottom: theme.palette.custom.margins.large,
       },
-      [getMinMediaQuery(theme.breakpoints.desktop)]: {
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         marginBottom: '2.75rem',
       },
     },
