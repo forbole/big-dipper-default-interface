@@ -1,5 +1,8 @@
 # https://docs.codecov.io/docs/commit-status
 coverage:
+  ignore:
+    - ".yalc/**/*"
+    - "tests/utils/**/*"
   status:
     project:
       default:

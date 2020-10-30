@@ -9,7 +9,7 @@
     "build:next": "next build",
     "start": "ENV=production node dist/index.js",
     "type-check": "tsc",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
@@ -29,7 +29,8 @@
     "ramda": "^0.27.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-i18next": "^11.7.2"
+    "react-i18next": "^11.7.2",
+    "recharts": "^1.8.5"
   },
   "devDependencies": {
     "@testing-library/react": "^11.0.2",
