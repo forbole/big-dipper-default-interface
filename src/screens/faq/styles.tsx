@@ -21,8 +21,8 @@ export const useGetStyles = () => {
         marginTop: theme.palette.custom.margins.large,
       },
       [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
+        marginBottom: '1.125rem',
         fontSize: '1.75rem',
-        marginBottom: '2.625',
         marginTop: '2.5rem',
       },
     },
