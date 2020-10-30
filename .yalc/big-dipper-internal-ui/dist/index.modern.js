@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, createElement } from 'react';
 import { Button, Select, MenuItem, Link, Typography, List, ListItem } from '@material-ui/core';
-import { useTheme as useTheme$1, makeStyles } from '@material-ui/styles';
+import { useTheme as useTheme$1, withStyles as withStyles$1, makeStyles } from '@material-ui/styles';
 
 var Telegram = function (_a) {
     var _b = _a.title, title = _b === void 0 ? 'Telegram' : _b;
@@ -2628,6 +2628,12 @@ function useTheme() {
   return theme;
 }
 
+function withStyles(stylesOrCreator, options) {
+  return withStyles$1(stylesOrCreator, _extends({
+    defaultTheme: defaultTheme
+  }, options));
+}
+
 var useGetStyles = function () {
     var theme = useTheme();
     var useStyles = makeStyles({
@@ -2891,9 +2897,404 @@ var Footer = function (props) {
                 React.createElement(Button, { variant: "contained", color: "primary", size: "small" }, donateText))))));
 };
 
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+function toVal(mix) {
+	var k, y, str='';
+
+	if (typeof mix === 'string' || typeof mix === 'number') {
+		str += mix;
+	} else if (typeof mix === 'object') {
+		if (Array.isArray(mix)) {
+			for (k=0; k < mix.length; k++) {
+				if (mix[k]) {
+					if (y = toVal(mix[k])) {
+						str && (str += ' ');
+						str += y;
+					}
+				}
+			}
+		} else {
+			for (k in mix) {
+				if (mix[k]) {
+					str && (str += ' ');
+					str += k;
+				}
+			}
+		}
+	}
+
+	return str;
+}
+
+function clsx () {
+	var i=0, tmp, x, str='';
+	while (i < arguments.length) {
+		if (tmp = arguments[i++]) {
+			if (x = toVal(tmp)) {
+				str && (str += ' ');
+				str += x;
+			}
+		}
+	}
+	return str;
+}
+
+/* eslint-disable react/require-default-props, no-param-reassign, react/forbid-prop-types */
+var SPACINGS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var GRID_SIZES = ['auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+function generateGrid(globalStyles, theme, breakpoint) {
+    var styles = {};
+    GRID_SIZES.forEach(function (size) {
+        var key = "grid-" + breakpoint + "-" + size;
+        if (size === true) {
+            // For the auto layouting
+            styles[key] = {
+                flexBasis: 0,
+                flexGrow: 1,
+                maxWidth: '100%',
+            };
+            return;
+        }
+        if (size === 'auto') {
+            styles[key] = {
+                flexBasis: 'auto',
+                flexGrow: 0,
+                maxWidth: 'none',
+            };
+            return;
+        }
+        // Keep 7 significant numbers.
+        var width = Math.round((size / 12) * 10e7) / 10e5 + "%";
+        // Close to the bootstrap implementation:
+        // https://github.com/twbs/bootstrap/blob/8fccaa2439e97ec72a4b7dc42ccc1f649790adb0/scss/mixins/_grid.scss#L41
+        styles[key] = {
+            flexBasis: width,
+            flexGrow: 0,
+            maxWidth: width,
+        };
+    });
+    // No need for a media query for the first size.
+    if (breakpoint === 'xs' || breakpoint === 'mobile') {
+        Object.assign(globalStyles, styles);
+    }
+    else {
+        globalStyles[theme.breakpoints.up(breakpoint)] = styles;
+    }
+}
+function getOffset(val, div) {
+    if (div === void 0) { div = 1; }
+    var parse = parseFloat(val);
+    return "" + parse / div + (String(val).replace(String(parse), '') || 'px');
+}
+function generateGutter(theme, breakpoint) {
+    var styles = {};
+    SPACINGS.forEach(function (spacing) {
+        var themeSpacing = theme.spacing(spacing);
+        if (themeSpacing === 0) {
+            return;
+        }
+        styles["spacing-" + breakpoint + "-" + spacing] = {
+            margin: "-" + getOffset(themeSpacing, 2),
+            width: "calc(100% + " + getOffset(themeSpacing) + ")",
+            '& > $item': {
+                padding: getOffset(themeSpacing, 2),
+            },
+        };
+    });
+    return styles;
+}
+// Default CSS values
+// flex: '0 1 auto',
+// flexDirection: 'row',
+// alignItems: 'flex-start',
+// flexWrap: 'nowrap',
+// justifyContent: 'flex-start',
+var styles = function (theme) { return (__assign(__assign({ 
+    /* Styles applied to the root element. */
+    root: {}, 
+    /* Styles applied to the root element if `container={true}`. */
+    container: {
+        boxSizing: 'border-box',
+        display: 'flex',
+        flexWrap: 'wrap',
+        width: '100%',
+    }, 
+    /* Styles applied to the root element if `item={true}`. */
+    item: {
+        boxSizing: 'border-box',
+        margin: '0',
+    }, 
+    /* Styles applied to the root element if `zeroMinWidth={true}`. */
+    zeroMinWidth: {
+        minWidth: 0,
+    }, 
+    /* Styles applied to the root element if `direction="column"`. */
+    'direction-xs-column': {
+        flexDirection: 'column',
+    }, 
+    /* Styles applied to the root element if `direction="column-reverse"`. */
+    'direction-xs-column-reverse': {
+        flexDirection: 'column-reverse',
+    }, 
+    /* Styles applied to the root element if `direction="row-reverse"`. */
+    'direction-xs-row-reverse': {
+        flexDirection: 'row-reverse',
+    }, 
+    /* Styles applied to the root element if `wrap="nowrap"`. */
+    'wrap-xs-nowrap': {
+        flexWrap: 'nowrap',
+    }, 
+    /* Styles applied to the root element if `wrap="reverse"`. */
+    'wrap-xs-wrap-reverse': {
+        flexWrap: 'wrap-reverse',
+    }, 
+    /* Styles applied to the root element if `alignItems="center"`. */
+    'align-items-xs-center': {
+        alignItems: 'center',
+    }, 
+    /* Styles applied to the root element if `alignItems="flex-start"`. */
+    'align-items-xs-flex-start': {
+        alignItems: 'flex-start',
+    }, 
+    /* Styles applied to the root element if `alignItems="flex-end"`. */
+    'align-items-xs-flex-end': {
+        alignItems: 'flex-end',
+    }, 
+    /* Styles applied to the root element if `alignItems="baseline"`. */
+    'align-items-xs-baseline': {
+        alignItems: 'baseline',
+    }, 
+    /* Styles applied to the root element if `alignContent="center"`. */
+    'align-content-xs-center': {
+        alignContent: 'center',
+    }, 
+    /* Styles applied to the root element if `alignContent="flex-start"`. */
+    'align-content-xs-flex-start': {
+        alignContent: 'flex-start',
+    }, 
+    /* Styles applied to the root element if `alignContent="flex-end"`. */
+    'align-content-xs-flex-end': {
+        alignContent: 'flex-end',
+    }, 
+    /* Styles applied to the root element if `alignContent="space-between"`. */
+    'align-content-xs-space-between': {
+        alignContent: 'space-between',
+    }, 
+    /* Styles applied to the root element if `alignContent="space-around"`. */
+    'align-content-xs-space-around': {
+        alignContent: 'space-around',
+    }, 
+    /* Styles applied to the root element if `justify="center"`. */
+    'justify-xs-center': {
+        justifyContent: 'center',
+    }, 
+    /* Styles applied to the root element if `justify="flex-end"`. */
+    'justify-xs-flex-end': {
+        justifyContent: 'flex-end',
+    }, 
+    /* Styles applied to the root element if `justify="space-between"`. */
+    'justify-xs-space-between': {
+        justifyContent: 'space-between',
+    }, 
+    /* Styles applied to the root element if `justify="space-around"`. */
+    'justify-xs-space-around': {
+        justifyContent: 'space-around',
+    }, 
+    /* Styles applied to the root element if `justify="space-evenly"`. */
+    'justify-xs-space-evenly': {
+        justifyContent: 'space-evenly',
+    } }, generateGutter(theme, 'xs')), theme.breakpoints.keys.reduce(function (accumulator, key) {
+    // Use side effect over immutability for better performance.
+    generateGrid(accumulator, theme, key);
+    return accumulator;
+}, {}))); };
+var Grid = forwardRef(function (props, ref) {
+    var _a;
+    var _b = props.alignContent, alignContent = _b === void 0 ? 'stretch' : _b, _c = props.alignItems, alignItems = _c === void 0 ? 'stretch' : _c, classes = props.classes, classNameProp = props.className, _d = props.component, Component = _d === void 0 ? 'div' : _d, _e = props.container, container = _e === void 0 ? false : _e, _f = props.direction, direction = _f === void 0 ? 'row' : _f, _g = props.item, item = _g === void 0 ? false : _g, _h = props.justify, justify = _h === void 0 ? 'flex-start' : _h, _j = props.lg, lg = _j === void 0 ? false : _j, _k = props.md, md = _k === void 0 ? false : _k, _l = props.sm, sm = _l === void 0 ? false : _l, _m = props.spacing, spacing = _m === void 0 ? 0 : _m, _o = props.wrap, wrap = _o === void 0 ? 'wrap' : _o, _p = props.xl, xl = _p === void 0 ? false : _p, _q = props.xs, xs = _q === void 0 ? false : _q, _r = props.mobile, mobile = _r === void 0 ? false : _r, _s = props.tablet, tablet = _s === void 0 ? false : _s, _t = props.desktop, desktop = _t === void 0 ? false : _t, _u = props.zeroMinWidth, zeroMinWidth = _u === void 0 ? false : _u, other = __rest(props, ["alignContent", "alignItems", "classes", "className", "component", "container", "direction", "item", "justify", "lg", "md", "sm", "spacing", "wrap", "xl", "xs", "mobile", "tablet", "desktop", "zeroMinWidth"]);
+    var className = clsx(classes.root, (_a = {},
+        _a[classes.container] = container,
+        _a[classes.item] = item,
+        _a[classes.zeroMinWidth] = zeroMinWidth,
+        _a[classes["spacing-xs-" + String(spacing)]] = container && spacing !== 0,
+        _a[classes["direction-xs-" + String(direction)]] = direction !== 'row',
+        _a[classes["wrap-xs-" + String(wrap)]] = wrap !== 'wrap',
+        _a[classes["align-items-xs-" + String(alignItems)]] = alignItems !== 'stretch',
+        _a[classes["align-content-xs-" + String(alignContent)]] = alignContent !== 'stretch',
+        _a[classes["justify-xs-" + String(justify)]] = justify !== 'flex-start',
+        _a[classes["grid-xs-" + String(xs)]] = xs !== false,
+        _a[classes["grid-sm-" + String(sm)]] = sm !== false,
+        _a[classes["grid-md-" + String(md)]] = md !== false,
+        _a[classes["grid-lg-" + String(lg)]] = lg !== false,
+        _a[classes["grid-xl-" + String(xl)]] = xl !== false,
+        _a[classes["grid-desktop-" + String(desktop)]] = desktop !== false,
+        _a[classes["grid-tablet-" + String(tablet)]] = tablet !== false,
+        _a[classes["grid-mobile-" + String(mobile)]] = mobile !== false,
+        _a), classNameProp);
+    return createElement(Component, __assign({ className: className, ref: ref }, other));
+});
+Grid.propTypes = {
+    /**
+     * Defines the `align-content` style property.
+     * It's applied for all screen sizes.
+     */
+    alignContent: propTypes.oneOf([
+        'stretch',
+        'center',
+        'flex-start',
+        'flex-end',
+        'space-between',
+        'space-around',
+    ]),
+    /**
+     * Defines the `align-items` style property.
+     * It's applied for all screen sizes.
+     */
+    alignItems: propTypes.oneOf(['flex-start', 'center', 'flex-end', 'stretch', 'baseline']),
+    /**
+     * The content of the component.
+     */
+    children: propTypes.node,
+    /**
+     * Override or extend the styles applied to the component.
+     * See [CSS API](#css) below for more details.
+     */
+    classes: propTypes.object.isRequired,
+    /**
+     * @ignore
+     */
+    className: propTypes.string,
+    /**
+     * The component used for the root node.
+     * Either a string to use a HTML element or a component.
+     */
+    component: propTypes /* @typescript-to-proptypes-ignore */.elementType,
+    /**
+     * If `true`, the component will have the flex *container* behavior.
+     * You should be wrapping *items* with a *container*.
+     */
+    container: propTypes.bool,
+    /**
+     * Defines the `flex-direction` style property.
+     * It is applied for all screen sizes.
+     */
+    direction: propTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse']),
+    /**
+     * If `true`, the component will have the flex *item* behavior.
+     * You should be wrapping *items* with a *container*.
+     */
+    item: propTypes.bool,
+    /**
+     * Defines the `justify-content` style property.
+     * It is applied for all screen sizes.
+     */
+    justify: propTypes.oneOf([
+        'flex-start',
+        'center',
+        'flex-end',
+        'space-between',
+        'space-around',
+        'space-evenly',
+    ]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `lg` breakpoint and wider screens if not overridden.
+     */
+    lg: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `md` breakpoint and wider screens if not overridden.
+     */
+    md: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `sm` breakpoint and wider screens if not overridden.
+     */
+    sm: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the space between the type `item` component.
+     * It can only be used on a type `container` component.
+     */
+    spacing: propTypes.oneOf(SPACINGS),
+    /**
+     * Defines the `flex-wrap` style property.
+     * It's applied for all screen sizes.
+     */
+    wrap: propTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `xl` breakpoint and wider screens.
+     */
+    xl: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for all the screen sizes with the lowest priority.
+     */
+    xs: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `desktop` breakpoint and wider screens if not overridden.
+     */
+    desktop: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `mobile` breakpoint and wider screens if not overridden.
+     */
+    mobile: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * Defines the number of grids the component is going to use.
+     * It's applied for the `tablet` breakpoint and wider screens if not overridden.
+     */
+    tablet: propTypes.oneOf([false, 'auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+    /**
+     * If `true`, it sets `min-width: 0` on the item.
+     * Refer to the limitations section of the documentation to better understand the use case.
+     */
+    zeroMinWidth: propTypes.bool,
+};
+var StyledGrid = withStyles(styles, {
+    name: 'MuiGrid',
+})(Grid);
+
 var index = /*#__PURE__*/Object.freeze({
   __proto__: null,
   logo: img
 });
 
-export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
+export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, StyledGrid as Grid, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };

@@ -4,9 +4,19 @@ import { createMuiTheme } from '@material-ui/core/styles';
 /** Common themes that don't change across light and dark theme */
 export const common = {
   breakpoints: {
-    tablet: 769,
-    desktop: 1080,
-    maxWidth: 1100,
+
+    keys: ['xs', 'sm', 'md', 'lg', 'xl', 'mobile', 'tablet', 'desktop'],
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+      mobile: 0,
+      tablet: 769,
+      desktop: 1080,
+      maxWidth: 1100,
+    },
   },
   typography: {
     fontFamily: [
