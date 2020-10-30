@@ -2628,15 +2628,12 @@ function useTheme() {
   return theme;
 }
 
-<<<<<<< HEAD
 function withStyles(stylesOrCreator, options) {
   return withStyles$1(stylesOrCreator, _extends({
     defaultTheme: defaultTheme
   }, options));
 }
 
-=======
->>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
 var useGetStyles = function () {
     var theme = useTheme();
     var useStyles = makeStyles({
@@ -2900,7 +2897,6 @@ var Footer = function (props) {
                 React.createElement(Button, { variant: "contained", color: "primary", size: "small" }, donateText))))));
 };
 
-<<<<<<< HEAD
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -2980,7 +2976,7 @@ function clsx () {
 	return str;
 }
 
-// A grid component using the following libs as inspiration.
+/* eslint-disable react/require-default-props, no-param-reassign, react/forbid-prop-types */
 var SPACINGS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var GRID_SIZES = ['auto', true, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 function generateGrid(globalStyles, theme, breakpoint) {
@@ -3149,7 +3145,7 @@ var styles = function (theme) { return (__assign(__assign({
     generateGrid(accumulator, theme, key);
     return accumulator;
 }, {}))); };
-var Grid = forwardRef(function Grid(props, ref) {
+var Grid = forwardRef(function (props, ref) {
     var _a;
     var _b = props.alignContent, alignContent = _b === void 0 ? 'stretch' : _b, _c = props.alignItems, alignItems = _c === void 0 ? 'stretch' : _c, classes = props.classes, classNameProp = props.className, _d = props.component, Component = _d === void 0 ? 'div' : _d, _e = props.container, container = _e === void 0 ? false : _e, _f = props.direction, direction = _f === void 0 ? 'row' : _f, _g = props.item, item = _g === void 0 ? false : _g, _h = props.justify, justify = _h === void 0 ? 'flex-start' : _h, _j = props.lg, lg = _j === void 0 ? false : _j, _k = props.md, md = _k === void 0 ? false : _k, _l = props.sm, sm = _l === void 0 ? false : _l, _m = props.spacing, spacing = _m === void 0 ? 0 : _m, _o = props.wrap, wrap = _o === void 0 ? 'wrap' : _o, _p = props.xl, xl = _p === void 0 ? false : _p, _q = props.xs, xs = _q === void 0 ? false : _q, _r = props.mobile, mobile = _r === void 0 ? false : _r, _s = props.tablet, tablet = _s === void 0 ? false : _s, _t = props.desktop, desktop = _t === void 0 ? false : _t, _u = props.zeroMinWidth, zeroMinWidth = _u === void 0 ? false : _u, other = __rest(props, ["alignContent", "alignItems", "classes", "className", "component", "container", "direction", "item", "justify", "lg", "md", "sm", "spacing", "wrap", "xl", "xs", "mobile", "tablet", "desktop", "zeroMinWidth"]);
     var className = clsx(classes.root, (_a = {},
@@ -3292,17 +3288,13 @@ Grid.propTypes = {
      */
     zeroMinWidth: propTypes.bool,
 };
-var StyledGrid = withStyles(styles, { name: 'MuiGrid' })(Grid);
+var StyledGrid = withStyles(styles, {
+    name: 'MuiGrid',
+})(Grid);
 
-=======
->>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
 var index = /*#__PURE__*/Object.freeze({
   __proto__: null,
   logo: img
 });
 
-<<<<<<< HEAD
-export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, Medium as MediumIcon, StyledGrid, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
-=======
-export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
->>>>>>> 9166446999c0047bcc61389abc4b66e4dd9253c9
+export { ButtonExample, DataBlock, Facebook as FacebookIcon, Footer, Forbole as ForboleIcon, Github as GithubIcon, StyledGrid as Grid, Medium as MediumIcon, Telegram as TelegramIcon, Twitter as TwitterIcon, YouTube as YoutubeIcon, index as resources };
