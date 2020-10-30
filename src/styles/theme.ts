@@ -9,6 +9,13 @@ export const common = {
     maxWidth: 1100,
   },
   typography: {
+    fontFamily: [
+      'Open Sans',
+      'Roboto',
+      '"Helvetica Neue"',
+      'sans-serif',
+      'Arial',
+    ].join(','),
     paragraph: {
       fontSize: '0.875rem', // 14px
     },
