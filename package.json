@@ -9,7 +9,7 @@
     "build:next": "next build",
     "start": "ENV=production node dist/index.js",
     "type-check": "tsc",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
@@ -25,7 +25,7 @@
     "dotenv-defaults": "^2.0.1",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
-    "next": "9.5.4",
+    "next": "^10.0.0",
     "next-i18next": "^6.0.2",
     "ramda": "^0.27.1",
     "react": "16.13.1",
@@ -59,7 +59,5 @@
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2"
   },
-  "resolutions": {
-    "babel-plugin-inline-react-svg/*/js-yaml": "3.13.1"
-  }
+  "resolutions": {}
 }
