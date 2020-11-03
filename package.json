@@ -11,6 +11,8 @@
     "type-check": "tsc",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "test": "NODE_ENV=test jest"
+    // "test2": "jest --coverage --coverageDirectory=output/coverage/jest"
+
   },
   "dependencies": {
     "@apollo/client": "^3.1.5",

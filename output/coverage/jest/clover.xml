@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1604372048901" clover="3.2.0">
+  <project timestamp="1604372048901" name="All files">
+    <metrics statements="173" coveredstatements="152" conditionals="34" coveredconditionals="11" methods="53" coveredmethods="39" elements="260" coveredelements="202" complexity="0" loc="173" ncloc="173" packages="26" files="46" classes="46"/>
+    <package name="big-dipper-default-interface">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="next.config.js" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/next.config.js">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/index.tsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.footer">
+      <metrics statements="22" coveredstatements="22" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/index.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+      </file>
+      <file name="styles.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/styles.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+      </file>
+      <file name="utils.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/utils.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="49" count="5" type="stmt"/>
+        <line num="50" count="7" type="stmt"/>
+        <line num="51" count="35" type="stmt"/>
+        <line num="64" count="5" type="stmt"/>
+        <line num="82" count="5" type="stmt"/>
+        <line num="83" count="7" type="stmt"/>
+        <line num="84" count="14" type="stmt"/>
+        <line num="95" count="5" type="stmt"/>
+        <line num="114" count="5" type="stmt"/>
+        <line num="115" count="7" type="stmt"/>
+        <line num="116" count="21" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.footer.components">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/components/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.footer.components.footer_link">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/components/footer_link/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="8" count="21" type="stmt"/>
+        <line num="9" count="21" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.footer.components.social_media">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/components/social_media/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="9" count="35" type="stmt"/>
+        <line num="10" count="35" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.footer.components.store_badge">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/footer/components/store_badge/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/index.tsx">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.facebook">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/facebook/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.forbole">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/forbole/index.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.github">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/github/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.linkedIn">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/linkedIn/index.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.medium">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/medium/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.telegram">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/telegram/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.twitter">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/twitter/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.icons.youtube">
+      <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/icons/youtube/index.tsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.layout">
+      <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/layout/index.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.max_width_container">
+      <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/max_width_container/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="styles.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/max_width_container/styles.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.components.max_width_content">
+      <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/max_width_content/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+      </file>
+      <file name="styles.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/components/max_width_content/styles.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.graphql.queries">
+      <metrics statements="29" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="consensus.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/consensus.ts">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+      </file>
+      <file name="distribution.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/distribution.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="gov.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/gov.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="65" count="2" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="124" count="2" type="stmt"/>
+        <line num="144" count="2" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="mint.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/mint.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="pricefeed.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/pricefeed.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+      </file>
+      <file name="query_example.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/query_example.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="staking.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/graphql/queries/staking.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.pages">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/pages/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.screens.about">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/about/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="styles.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/about/styles.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.screens.faq">
+      <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/faq/index.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="43" count="6" type="stmt"/>
+      </file>
+      <file name="styles.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/faq/styles.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+      </file>
+      <file name="utils.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/faq/utils.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.screens.home">
+      <metrics statements="10" coveredstatements="9" conditionals="7" coveredconditionals="6" methods="3" coveredmethods="3"/>
+      <file name="hooks.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/home/hooks.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+      </file>
+      <file name="index.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/screens/home/index.tsx">
+        <metrics statements="7" coveredstatements="6" conditionals="7" coveredconditionals="6" methods="2" coveredmethods="2"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="38" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.src.styles">
+      <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="index.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/styles/index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="theme.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/styles/theme.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="94" count="4" type="stmt"/>
+        <line num="146" count="4" type="stmt"/>
+        <line num="147" count="4" type="stmt"/>
+      </file>
+      <file name="utils.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/src/styles/utils.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="14" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="big-dipper-default-interface.tests.utils">
+      <metrics statements="33" coveredstatements="18" conditionals="22" coveredconditionals="0" methods="16" coveredmethods="7"/>
+      <file name="await_actions.ts" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/tests/utils/await_actions.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="mock_apollo_provider.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/tests/utils/mock_apollo_provider.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+      </file>
+      <file name="mock_material_theme.tsx" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/tests/utils/mock_material_theme.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+      </file>
+      <file name="mock_react_i18next.js" path="/Users/liaoyuhsin/Desktop/Forbole/big-dipper-default-interface/tests/utils/mock_react_i18next.js">
+        <metrics statements="25" coveredstatements="10" conditionals="20" coveredconditionals="0" methods="11" coveredmethods="2"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="5" count="5" type="cond" truecount="0" falsecount="4"/>
+        <line num="7" count="5" type="cond" truecount="0" falsecount="4"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="42" count="54" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="46" count="5" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="14" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

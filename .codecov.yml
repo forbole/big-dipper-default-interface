@@ -3,6 +3,28 @@ coverage:
   ignore:
     - ".yalc/**/*"
     - "tests/utils/**/*"
+    - ".github/**/*"
+    - ".next/**/*"
+    - ".vscode/**/*"
+    - "node_modules/**/*"
+    - ".env.defaults"
+    - ".eslintignore"
+    - ".eslintrc.json"
+    - ".gitignore"
+    - ".declarations.d"
+    - "i18n.js"
+    - "jest.config.js"
+    - "jest.setup.js"
+    - "next-env.d.ts"
+    - "next.config.js"
+    - "nodemon.json"
+    - ".package-lock.json"
+    - ".package.json"
+    - "PRE-RELEASES.md"
+    - "README.md"
+    - "tsconfid.json"
+    - "tsconfig.server.json"
+
   status:
     project:
       default:
