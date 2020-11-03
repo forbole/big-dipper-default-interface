@@ -11,8 +11,8 @@ npm i
 npm run dev
 ```
 
-## Update local packages to repo (pre-release)
-The following steps assume you updated pre-release versions of [big-dipper-internal-ui](https://github.com/forbole/big-dipper-internal-ui) or [big-dipper-default-ui](https://github.com/forbole/big-dipper-default-ui) during and need to update this repo accordingly
+## Update local packages to repo [Testing] (pre-release)
+The following steps assume you updated pre-release versions of [big-dipper-internal-ui](https://github.com/forbole/big-dipper-internal-ui) or [big-dipper-default-ui](https://github.com/forbole/big-dipper-default-ui) during and want to test the interrogation
 
 <!-- ```
 git clone https://github.com/forbole/big-dipper-internal-ui.git
