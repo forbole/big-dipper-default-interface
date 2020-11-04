@@ -18,7 +18,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "big-dipper-default-ui": "git+https://github.com/forbole/big-dipper-default-ui.git",
-    "big-dipper-internal-ui": "git+https://github.com/forbole/big-dipper-internal-ui.git",
+    "big-dipper-internal-ui": "file:.yalc/big-dipper-internal-ui",
     "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

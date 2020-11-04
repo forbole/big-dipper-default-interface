@@ -4,22 +4,63 @@ import { AppProps } from 'next/app';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ApolloProvider } from '@apollo/client';
 import client from '@graphql';
+import { ThemeModeContext } from '@contexts';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { getLanguageValue } from '@utils';
 import {
   darkTheme,
   lightTheme,
 } from '@styles';
-import { appWithTranslation } from '../../i18n';
+import {
+  appWithTranslation,
+  i18n,
+  useTranslation,
+} from '../../i18n';
 
-export const useLayoutHook = () => {
-  const [isDarkMode, setMode] = useState<boolean | undefined>(false);
+export const useAppHook = () => {
+  const { t } = useTranslation('common');
+  // =========================
+  // theme
+  // =========================
+  const [themeMode, setMode] = useState('light');
 
-  const theme:any = isDarkMode ? darkTheme : lightTheme;
+  const theme:any = themeMode === 'dark' ? darkTheme : lightTheme;
+
+  const toggleThemeMode = () => {
+    const value = themeMode === 'light' ? 'dark' : 'light';
+    setMode(value);
+  };
+
+  const getThemeMode = () => {
+    return ({
+      value: t(themeMode),
+      key: themeMode,
+    });
+  };
+
+  // =========================
+  // language
+  // =========================
+  const changeLanguage = (lang:string) => {
+    i18n.changeLanguage(lang);
+  };
+
+  const getCurrentLanguage = () => {
+    const lang = i18n.language;
+    return {
+      key: lang,
+      value: getLanguageValue(lang),
+    };
+  };
 
   return {
-    isDarkMode,
+    themeMode,
     setMode,
     theme,
+    toggleThemeMode,
+    changeLanguage,
+    getCurrentLanguage,
+    getThemeMode,
   };
 };
 
@@ -27,7 +68,8 @@ export const useLayoutHook = () => {
 function MyApp({
   Component, pageProps,
 }: AppProps) {
-  const { theme } = useLayoutHook();
+  const layoutProps = useAppHook();
+  const { theme } = layoutProps;
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -51,9 +93,11 @@ function MyApp({
           theme={theme}
         >
           <CssBaseline />
-          <Component
-            {...pageProps}
-          />
+          <ThemeModeContext.Provider value={layoutProps}>
+            <Component
+              {...pageProps}
+            />
+          </ThemeModeContext.Provider>
         </ThemeProvider>
       </ApolloProvider>
     </>

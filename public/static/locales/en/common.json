@@ -1,5 +1,7 @@
 {
   "bigDipper": "Big Dipper",
   "forbole": "Forbole",
-  "cosmosBlockExplorer": "Cosmos Block Explorer"
+  "cosmosBlockExplorer": "Cosmos Block Explorer",
+  "light": "Light Mode",
+  "dark": "Dark Mode"
 }
