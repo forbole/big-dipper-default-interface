@@ -46,7 +46,7 @@ export const useAppHook = () => {
   };
 
   const getCurrentLanguage = () => {
-    const lang = i18n.language;
+    const lang = i18n.language ?? 'en';
     return {
       key: lang,
       value: getLanguageValue(lang),

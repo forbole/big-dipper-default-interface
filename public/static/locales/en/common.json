@@ -3,5 +3,6 @@
   "forbole": "Forbole",
   "cosmosBlockExplorer": "Cosmos Block Explorer",
   "light": "Light Mode",
-  "dark": "Dark Mode"
+  "dark": "Dark Mode",
+  "searchbar": "Search by block height / address / tx hash"
 }

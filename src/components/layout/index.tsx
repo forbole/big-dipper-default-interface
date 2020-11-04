@@ -12,6 +12,7 @@ export const Layout = (props: LayoutProps) => {
   const {
     children,
     className = '',
+    searchBar,
   } = props;
 
   const {
@@ -65,7 +66,6 @@ export const Layout = (props: LayoutProps) => {
           ],
           openNetwork,
           selectedNetwork: {
-            // wingman gotta check
             online: true,
             value: 'cosmoshub3dfgdgfhghfgh',
           },

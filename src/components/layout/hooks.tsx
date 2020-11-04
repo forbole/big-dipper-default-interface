@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
 export const useLayoutHook = () => {
+  // =========================
+  // language
+  // =========================
   // wigman update later
   const setLanguage = ({
     key, value,
@@ -8,16 +11,8 @@ export const useLayoutHook = () => {
     console.log(`Click Value ${value} with key ${key}`);
   };
 
-  // ==========================
-  // search bar
-  // ==========================
-  const handleSearchbarSubmit = (value:string) => {
-    console.log('The value: ', value);
-  };
-
   return {
     setLanguage,
-    handleSearchbarSubmit,
   };
 };
 
