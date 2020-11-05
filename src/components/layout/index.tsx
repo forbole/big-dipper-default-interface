@@ -6,6 +6,7 @@ import {
 } from 'big-dipper-internal-ui';
 import { Footer } from '@components';
 import { ThemeModeContext } from '@contexts';
+import { useGetScreenSize } from '@utils';
 import { LayoutProps } from './types';
 import {
   useMobileNavHook,
@@ -27,16 +28,19 @@ export const Layout = (props: LayoutProps) => {
     className = '',
     searchBar,
   } = props;
-  // global theme helpers
+
+  // ============================
+  // Global props
+  // ============================
   const {
     getThemeMode,
     toggleThemeMode,
     getCurrentLanguage,
     changeLanguage,
   } = useContext(ThemeModeContext);
-
-  const mobileHook = useMobileNavHook();
-  const desktopHook = useDesktopNavHook();
+  const windowSize = useGetScreenSize();
+  const mobileHook = useMobileNavHook(windowSize);
+  const desktopHook = useDesktopNavHook(windowSize);
   // ============================
   // Languages
   // ============================
@@ -63,7 +67,14 @@ export const Layout = (props: LayoutProps) => {
     value: 'cosmoshub3dfgdgfhghfgh',
     iconSrc: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/8178b6bcce1d1563bac10f8a150c713724a742f1/cosmoshub.svg?sanitize=true',
   };
-
+  const networkItems = [
+    <NetworkItem />,
+    <NetworkItem />,
+  ];
+  // ============================
+  // Menu
+  // ============================
+  const menuItems = getNavComponents(t);
   return (
     <div className={classnames(classes.root, className)}>
       {/* desktop nav start */}
@@ -71,16 +82,13 @@ export const Layout = (props: LayoutProps) => {
         sideBar={{
           open: desktopHook.isMenuOpen,
           onClick: desktopHook.toggleMenu,
-          items: [],
+          items: menuItems,
         }}
         topBar={{
           network: {
             selectedNetwork,
             isNetworkOpen: desktopHook.isNetworkOpen,
-            items: [
-              <NetworkItem />,
-              <NetworkItem />,
-            ],
+            items: networkItems,
             openNetwork: desktopHook.toggleNetwork,
           },
           language,
@@ -102,21 +110,24 @@ export const Layout = (props: LayoutProps) => {
           themeMode,
           language,
           isMenuOpen: mobileHook.isMenuOpen,
-          items: getNavComponents(t),
+          items: menuItems,
         }}
         network={{
           isNetworkOpen: mobileHook.isNetworkOpen,
-          items: [
-            <NetworkItem />,
-            <NetworkItem />,
-          ],
+          items: networkItems,
           openNetwork: mobileHook.openNetwork,
           selectedNetwork,
         }}
         searchBar={searchBar}
       />
       {/* mobile nav end */}
-      {children}
+      <div
+        className={classnames('children-wrapper', {
+          desktopOpen: desktopHook.isMenuOpen,
+        })}
+      >
+        {children}
+      </div>
       <Footer />
     </div>
   );

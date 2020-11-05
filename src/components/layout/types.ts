@@ -9,3 +9,8 @@ export interface LayoutProps {
   className?: string;
   searchBar?: searchBar;
 }
+
+export interface UseNavHookProps {
+  width: number;
+  height: number;
+}

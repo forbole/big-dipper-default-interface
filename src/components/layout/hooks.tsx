@@ -1,5 +1,8 @@
-import { useState } from 'react';
-
+import {
+  useState, useEffect,
+} from 'react';
+import { useTheme } from '@material-ui/core/styles';
+import { UseNavHookProps } from './types';
 // export const useLayoutHook = () => {
 
 // };
@@ -7,11 +10,18 @@ import { useState } from 'react';
 /**
  * Handles mobile nav states
  */
-export const useMobileNavHook = () => {
+export const useMobileNavHook = (windowSize:UseNavHookProps) => {
   // animation for the hamburger menu
   const [isOpen, setOpen] = useState(false);
   const [isNetworkOpen, setNetwork] = useState(false);
   const [isMenuOpen, setMenu] = useState(false);
+  const theme:any = useTheme();
+
+  useEffect(() => {
+    if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
+      console.log('close all opened items in mobile');
+    }
+  }, [windowSize.width]);
 
   // toggles between nav and network menu
   const toggleNavMenus = () => {
@@ -48,9 +58,16 @@ export const useMobileNavHook = () => {
   };
 };
 
-export const useDesktopNavHook = () => {
+export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
   const [isMenuOpen, setMenu] = useState(false);
   const [isNetworkOpen, setNetwork] = useState(false);
+  const theme:any = useTheme();
+
+  useEffect(() => {
+    if (windowSize.width < theme?.breakpoints?.values?.desktop) {
+      console.log('close all opened items in desktop');
+    }
+  }, [windowSize.width]);
 
   const toggleMenu = () => {
     setMenu(!isMenuOpen);
