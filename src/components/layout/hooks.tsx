@@ -1,20 +1,8 @@
 import { useState } from 'react';
 
-export const useLayoutHook = () => {
-  // =========================
-  // language
-  // =========================
-  // wigman update later
-  const setLanguage = ({
-    key, value,
-  }: any) => {
-    console.log(`Click Value ${value} with key ${key}`);
-  };
+// export const useLayoutHook = () => {
 
-  return {
-    setLanguage,
-  };
-};
+// };
 
 /**
  * Handles mobile nav states

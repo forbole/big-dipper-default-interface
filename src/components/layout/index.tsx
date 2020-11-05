@@ -7,7 +7,7 @@ import { ThemeModeContext } from '@contexts';
 import { LayoutProps } from './types';
 import {
   useMobileNavHook,
-  useLayoutHook,
+  // useLayoutHook,
 } from './hooks';
 import {
   getLanguageList,
@@ -22,19 +22,16 @@ export const Layout = (props: LayoutProps) => {
   const {
     children,
     className = '',
-    searchBar: {
-      searchBarCallback,
-      searchBarPlaceholder,
-    },
+    searchBar,
   } = props;
 
+  // global theme helpers
   const {
     getThemeMode,
     toggleThemeMode,
     getCurrentLanguage,
+    changeLanguage,
   } = useContext(ThemeModeContext);
-
-  const { setLanguage } = useLayoutHook();
 
   const {
     isOpen,
@@ -43,7 +40,15 @@ export const Layout = (props: LayoutProps) => {
     toggleNavMenus,
     openNetwork,
   } = useMobileNavHook();
-
+  // ============================
+  // Languages
+  // ============================
+  const languagesList = getLanguageList();
+  const selectedLanguage = getCurrentLanguage();
+  // ============================
+  // Theme
+  // ============================
+  const currentTheme = getThemeMode();
   return (
     <div className={classnames(classes.root, className)}>
       <MobileNav
@@ -58,12 +63,12 @@ export const Layout = (props: LayoutProps) => {
           isMenuOpen,
           items: getNavComponents(t),
           language: {
-            languages: getLanguageList(),
-            onClick: setLanguage,
-            selected: getCurrentLanguage(),
+            languages: languagesList,
+            onClick: changeLanguage,
+            selected: selectedLanguage,
           },
           themeMode: {
-            mode: getThemeMode(),
+            mode: currentTheme,
             onClick: toggleThemeMode,
           },
         }}
@@ -79,10 +84,7 @@ export const Layout = (props: LayoutProps) => {
             value: 'cosmoshub3dfgdgfhghfgh',
           },
         }}
-        searchBar={{
-          searchBarCallback,
-          searchBarPlaceholder,
-        }}
+        searchBar={searchBar}
       />
       {children}
       <Footer />

@@ -41,8 +41,13 @@ export const useAppHook = () => {
   // =========================
   // language
   // =========================
-  const changeLanguage = (lang:string) => {
-    i18n.changeLanguage(lang);
+  const changeLanguage = ({
+    key, value,
+  }: any) => {
+    console.log(`Click Value ${value} with key ${key}`);
+    if (i18n.language !== key) {
+      i18n.changeLanguage(key);
+    }
   };
 
   const getCurrentLanguage = () => {

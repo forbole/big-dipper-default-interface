@@ -72,7 +72,7 @@ export const getNavComponents = (t:any) => {
     return (
       <Link href={x.url}>
         <a>
-          <NavbarItem active={i === 0} key={x.key} text={t(x.key)} icon={<x.icon />} />
+          <NavbarItem key={x.key} text={t(x.key)} icon={<x.icon />} />
         </a>
       </Link>
     );
