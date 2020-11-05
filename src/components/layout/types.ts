@@ -1,5 +1,6 @@
 export type searchBar = {
-  searchBarCallback: (value: string) => void;
+  // eslint-disable-next-line
+  searchBarCallback: (value:string) => void;
   searchBarPlaceholder: string;
 }
 

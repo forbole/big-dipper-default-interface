@@ -1,18 +1,31 @@
 import React, { useContext } from 'react';
+import classnames from 'classnames';
+import { useTranslation } from 'i18n';
 import { MobileNav } from 'big-dipper-internal-ui';
 import { Footer } from '@components';
 import { ThemeModeContext } from '@contexts';
 import { LayoutProps } from './types';
 import {
-  useMobileNavHook, useLayoutHook,
+  useMobileNavHook,
+  useLayoutHook,
 } from './hooks';
-import { getLanguageList } from './utils';
+import {
+  getLanguageList,
+  getNavComponents,
+} from './utils';
+import { NetworkItem } from './components';
+import { useGetStyles } from './styles';
 
 export const Layout = (props: LayoutProps) => {
+  const { t } = useTranslation('common');
+  const { classes } = useGetStyles();
   const {
     children,
     className = '',
-    searchBar,
+    searchBar: {
+      searchBarCallback,
+      searchBarPlaceholder,
+    },
   } = props;
 
   const {
@@ -21,10 +34,7 @@ export const Layout = (props: LayoutProps) => {
     getCurrentLanguage,
   } = useContext(ThemeModeContext);
 
-  const {
-    setLanguage,
-    handleSearchbarSubmit,
-  } = useLayoutHook();
+  const { setLanguage } = useLayoutHook();
 
   const {
     isOpen,
@@ -35,7 +45,7 @@ export const Layout = (props: LayoutProps) => {
   } = useMobileNavHook();
 
   return (
-    <div className={className}>
+    <div className={classnames(classes.root, className)}>
       <MobileNav
         hamburgerIcon={{
           isOpen,
@@ -46,9 +56,7 @@ export const Layout = (props: LayoutProps) => {
         }}
         menu={{
           isMenuOpen,
-          items: [
-            <div>hello menu</div>,
-          ],
+          items: getNavComponents(t),
           language: {
             languages: getLanguageList(),
             onClick: setLanguage,
@@ -62,7 +70,8 @@ export const Layout = (props: LayoutProps) => {
         network={{
           isNetworkOpen,
           items: [
-            <h1>hello network</h1>,
+            <NetworkItem />,
+            <NetworkItem />,
           ],
           openNetwork,
           selectedNetwork: {
@@ -71,8 +80,8 @@ export const Layout = (props: LayoutProps) => {
           },
         }}
         searchBar={{
-          searchBarCallback: handleSearchbarSubmit,
-          searchBarPlaceholder: 'Search by block height / address / tx hash',
+          searchBarCallback,
+          searchBarPlaceholder,
         }}
       />
       {children}
