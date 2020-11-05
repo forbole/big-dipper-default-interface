@@ -47,3 +47,33 @@ export const useMobileNavHook = () => {
     openNetwork,
   };
 };
+
+export const useDesktopNavHook = () => {
+  const [isMenuOpen, setMenu] = useState(false);
+  const [isNetworkOpen, setNetwork] = useState(false);
+
+  const toggleMenu = () => {
+    setMenu(!isMenuOpen);
+  };
+
+  const toggleNetwork = () => {
+    setNetwork(!isNetworkOpen);
+  };
+
+  // const handleClick = () => {
+  //   if (open) {
+  //     onClick();
+  //   }
+  //   if (isNetworkOpen) {
+  //     toggleNetwork();
+  //   }
+  // };
+
+  return {
+    isMenuOpen,
+    setMenu,
+    toggleMenu,
+    toggleNetwork,
+    isNetworkOpen,
+  };
+};

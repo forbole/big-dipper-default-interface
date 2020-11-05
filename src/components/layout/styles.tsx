@@ -1,6 +1,7 @@
 import {
   makeStyles, createStyles,
 } from '@material-ui/styles';
+import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => {
@@ -20,6 +21,9 @@ export const useGetStyles = () => {
               '& .MuiListItemIcon-root': {
                 minWidth: '40px',
               },
+            },
+            [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
+              display: 'none',
             },
           },
         },
