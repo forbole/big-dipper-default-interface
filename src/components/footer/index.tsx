@@ -5,6 +5,7 @@ import { useGetStyles } from './styles';
 import {
   getSocialMediaComponents, getStoreBadgeComponents, getFooterLinkComponents,
 } from './utils';
+import { useFooterHooks } from './hooks';
 
 const FooterComponent = () => {
   const { classes } = useGetStyles();
@@ -12,12 +13,13 @@ const FooterComponent = () => {
   const socialMediaComponents = getSocialMediaComponents();
   const storeBadgesComponents = getStoreBadgeComponents();
   const footerLinks = getFooterLinkComponents(t);
-
+  const { returnToHome } = useFooterHooks();
   return (
     <Footer
       className={classes.root}
       bigDipperLogo={{
         alt: 'big dipper logo',
+        onClick: returnToHome,
       }}
       blockExplorerText="Cosmos Block Explorer"
       copyrightText="Copyright © Forbole 2020"
