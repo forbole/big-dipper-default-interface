@@ -35,6 +35,11 @@ export const useGetStyles = () => {
             display: 'none',
             [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
               display: 'flex',
+              '& .network-open': {
+                '& .logo': {
+                  width: '215px',
+                },
+              },
             },
           },
 

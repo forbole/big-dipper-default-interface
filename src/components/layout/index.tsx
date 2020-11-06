@@ -125,6 +125,8 @@ export const Layout = (props: LayoutProps) => {
         className={classnames('children-wrapper', {
           desktopOpen: desktopHook.isMenuOpen,
         })}
+        onClick={desktopHook.handleOffClick}
+        role="button"
       >
         {children}
       </div>

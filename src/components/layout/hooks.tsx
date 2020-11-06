@@ -3,9 +3,6 @@ import {
 } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { UseNavHookProps } from './types';
-// export const useLayoutHook = () => {
-
-// };
 
 /**
  * Handles mobile nav states
@@ -19,7 +16,7 @@ export const useMobileNavHook = (windowSize:UseNavHookProps) => {
 
   useEffect(() => {
     if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
-      console.log('close all opened items in mobile');
+      turnOffTabs();
     }
   }, [windowSize.width]);
 
@@ -49,6 +46,21 @@ export const useMobileNavHook = (windowSize:UseNavHookProps) => {
     setOpen(true);
   };
 
+  /**
+   * Helper that will check and turn off any open tabs
+   */
+  const turnOffTabs = () => {
+    if (isOpen) {
+      setOpen(false);
+    }
+    if (isNetworkOpen) {
+      setNetwork(false);
+    }
+    if (isMenuOpen) {
+      setMenu(false);
+    }
+  };
+
   return {
     isOpen,
     isNetworkOpen,
@@ -64,8 +76,9 @@ export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
   const theme:any = useTheme();
 
   useEffect(() => {
+    // if window size shrings to tablet/mobile we will close any open tabs
     if (windowSize.width < theme?.breakpoints?.values?.desktop) {
-      console.log('close all opened items in desktop');
+      turnOffTabs();
     }
   }, [windowSize.width]);
 
@@ -77,14 +90,26 @@ export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
     setNetwork(!isNetworkOpen);
   };
 
-  // const handleClick = () => {
-  //   if (open) {
-  //     onClick();
-  //   }
-  //   if (isNetworkOpen) {
-  //     toggleNetwork();
-  //   }
-  // };
+  /**
+   * Helper that will check and turn off any open tabs
+   */
+  const turnOffTabs = () => {
+    if (isMenuOpen) {
+      toggleMenu();
+    }
+    if (isNetworkOpen) {
+      toggleNetwork();
+    }
+  };
+
+  /**
+   * Helper that turns off opened nav sections if user offclicks
+   */
+  const handleOffClick = () => {
+    if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
+      turnOffTabs();
+    }
+  };
 
   return {
     isMenuOpen,
@@ -92,5 +117,6 @@ export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
     toggleMenu,
     toggleNetwork,
     isNetworkOpen,
+    handleOffClick,
   };
 };
