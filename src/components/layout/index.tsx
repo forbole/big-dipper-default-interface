@@ -77,7 +77,9 @@ export const Layout = (props: LayoutProps) => {
   const menuItems = getNavComponents(t);
   return (
     <div className={classnames(classes.root, className)}>
+      {/* ========================================= */}
       {/* desktop nav start */}
+      {/* ========================================= */}
       <DesktopNav
         sideBar={{
           open: desktopHook.isMenuOpen,
@@ -96,8 +98,12 @@ export const Layout = (props: LayoutProps) => {
           searchBar,
         }}
       />
+      {/* ========================================= */}
       {/* desktop nav end */}
+      {/* ========================================= */}
+      {/* ========================================= */}
       {/* mobile nav start */}
+      {/* ========================================= */}
       <MobileNav
         hamburgerIcon={{
           isOpen: mobileHook.isOpen,
@@ -121,8 +127,12 @@ export const Layout = (props: LayoutProps) => {
         }}
         searchBar={searchBar}
       />
+      {/* ========================================= */}
       {/* mobile nav end */}
+      {/* ========================================= */}
+      {/* ========================================= */}
       {/* content start */}
+      {/* ========================================= */}
       <div
         className={classnames('children-wrapper', {
           desktopOpen: desktopHook.isMenuOpen,
@@ -132,7 +142,9 @@ export const Layout = (props: LayoutProps) => {
       >
         {children}
       </div>
+      {/* ========================================= */}
       {/* content end */}
+      {/* ========================================= */}
       <Footer />
     </div>
   );
