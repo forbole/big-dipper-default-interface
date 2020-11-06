@@ -1,6 +1,7 @@
 import {
   useState, useEffect,
 } from 'react';
+import { useRouter } from 'next/router';
 import { useTheme } from '@material-ui/core/styles';
 import { UseNavHookProps } from './types';
 
@@ -13,12 +14,18 @@ export const useMobileNavHook = (windowSize:UseNavHookProps) => {
   const [isNetworkOpen, setNetwork] = useState(false);
   const [isMenuOpen, setMenu] = useState(false);
   const theme:any = useTheme();
+  const router = useRouter();
 
   useEffect(() => {
     if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
       turnOffTabs();
     }
   }, [windowSize.width]);
+
+  // calls when mobile logo has been clicked
+  const returnToHome = () => {
+    router.push('/');
+  };
 
   // toggles between nav and network menu
   const toggleNavMenus = () => {
@@ -67,6 +74,7 @@ export const useMobileNavHook = (windowSize:UseNavHookProps) => {
     isMenuOpen,
     toggleNavMenus,
     openNetwork,
+    returnToHome,
   };
 };
 

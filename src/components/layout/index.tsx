@@ -105,6 +105,7 @@ export const Layout = (props: LayoutProps) => {
         }}
         logo={{
           alt: 'big dipper logo',
+          onClick: mobileHook.returnToHome,
         }}
         menu={{
           themeMode,
