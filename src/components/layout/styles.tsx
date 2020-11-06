@@ -11,7 +11,14 @@ export const useGetStyles = () => {
     return (
       createStyles({
         root: {
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
           minHeight: '100vh',
+          '& > *': {
+            width: '100%',
+          },
           '& a': {
             color: 'inherit',
             textDecoration: 'none',
@@ -44,12 +51,14 @@ export const useGetStyles = () => {
           },
 
           '& .children-wrapper': {
+            flex: 1,
             [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
-              marginLeft: DESKTOP_CLOSED_DRAWER_WIDTH,
-              padding: '0.5rem',
+              // width: `calc(100% - ${DESKTOP_CLOSED_DRAWER_WIDTH}px)`,
+              // marginLeft: DESKTOP_CLOSED_DRAWER_WIDTH,
+              paddingLeft: `${DESKTOP_CLOSED_DRAWER_WIDTH}px`,
               '&.desktopOpen': {
-                marginLeft: DESKTOP_OPEN_DRAWER_WIDTH,
-                transition: theme.transitions.create(['margin'], {
+                paddingLeft: `${DESKTOP_OPEN_DRAWER_WIDTH}px`,
+                transition: theme.transitions.create(['padding'], {
                   easing: theme.transitions.easing.easeIn,
                   duration: theme.transitions.duration.enteringScreen,
                 }),

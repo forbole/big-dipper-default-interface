@@ -121,6 +121,7 @@ export const Layout = (props: LayoutProps) => {
         searchBar={searchBar}
       />
       {/* mobile nav end */}
+      {/* content start */}
       <div
         className={classnames('children-wrapper', {
           desktopOpen: desktopHook.isMenuOpen,
@@ -130,6 +131,7 @@ export const Layout = (props: LayoutProps) => {
       >
         {children}
       </div>
+      {/* content end */}
       <Footer />
     </div>
   );
