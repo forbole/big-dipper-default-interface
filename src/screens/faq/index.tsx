@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   Layout, MaxWidthContainer, MaxWidthContent,
@@ -10,43 +11,31 @@ import getFaqDetails from './utils';
 const Faq = () => {
   const { t } = useTranslation('faq');
   const { classes } = useGetStyles();
-
+  const faqData = getFaqDetails();
   return (
-    <Layout>
+    <Layout className={classes.layout}>
       <MaxWidthContainer>
         <MaxWidthContent className={classes.root}>
-          <h1 className={classes.title}>
-            {t('FAQ')}
-          </h1>
+          <h1 className={classes.title}>{t('FAQ')}</h1>
           <p className={classes.context}>
             {t('context')}
+            &nbsp;
             <a
+              className={classnames('mail-link')}
               href="mailto:support@forbole.com"
-              className={classes.desktopOnly}
             >
               {t('email')}
             </a>
           </p>
-          <div className={classes.linkContainer}>
-            <a
-              href="mailto:support@forbole.com"
-              style={{
-                color: '#1D86FF',
-              }}
-            >
-              {t('email')}
-            </a>
-          </div>
-
           <Grid container spacing={2}>
-            {getFaqDetails().map((x, i) => {
+            {faqData.map((x) => {
               return (
-                <Grid key={i} item xs={12} desktop={6}>
+                <Grid key={x.question} item mobile={12} desktop={6}>
                   <h2 className={classes.subTitle}>
-                    {x.question}
+                    {t(x.question)}
                   </h2>
                   <p className={classes.paragraph}>
-                    {x.ans}
+                    {t(x.ans)}
                   </p>
                 </Grid>
               );

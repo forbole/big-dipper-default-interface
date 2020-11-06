@@ -1,35 +1,32 @@
-import { useTranslation } from 'i18n';
-
 const getFaqDetails = () => {
-  const { t } = useTranslation('faq');
   const faq = [
     {
-      question: t('question1'),
-      ans: t('ans1'),
+      question: 'question1',
+      ans: 'ans1',
     },
     {
-      question: t('question2'),
-      ans: t('ans2'),
+      question: 'question2',
+      ans: 'ans2',
     },
     {
-      question: t('question3'),
-      ans: t('ans3'),
+      question: 'question3',
+      ans: 'ans3',
     },
     {
-      question: t('question4'),
-      ans: t('ans4'),
+      question: 'question4',
+      ans: 'ans4',
     },
     {
-      question: t('question5'),
-      ans: t('ans5'),
+      question: 'question5',
+      ans: 'ans5',
     },
     {
-      question: t('question6'),
-      ans: t('ans6'),
+      question: 'question6',
+      ans: 'ans6',
     },
   ];
 
-  return (faq);
+  return faq;
 };
 
 export default getFaqDetails;

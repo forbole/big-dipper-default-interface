@@ -25,6 +25,7 @@ export const common = {
       'sans-serif',
       'Arial',
     ].join(','),
+    fontSize: 16,
     paragraph: {
       fontSize: '0.875rem', // 14px
     },
