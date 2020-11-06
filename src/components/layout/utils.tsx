@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { NavbarItem } from 'big-dipper-internal-ui';
 import Link from 'next/link';
 import {
@@ -34,32 +35,32 @@ export const navItems = [
   },
   {
     key: 'validators',
-    url: '/',
+    url: '/validators',
     icon: PersonOutline,
   },
   {
     key: 'blocks',
-    url: '/',
+    url: '/blocks',
     icon: CheckBoxOutlineBlankOutlined,
   },
   {
     key: 'activities',
-    url: '/',
+    url: '/activities',
     icon: SyncAltOutlined,
   },
   {
     key: 'proposals',
-    url: '/',
+    url: '/proposals',
     icon: EventNoteOutlined,
   },
   {
     key: 'news',
-    url: '/',
+    url: '/news',
     icon: AnnouncementOutlined,
   },
   {
     key: 'analysis',
-    url: '/',
+    url: '/analysis',
     icon: PieChartOutlined,
   },
 ];
@@ -68,11 +69,27 @@ export const navItems = [
  * Helper function to generate nav components
  */
 export const getNavComponents = (t:any) => {
-  return navItems.map((x, i) => {
+  const router = useRouter();
+
+  const isActive = (item:any) => {
+    if (item.url === router.asPath) {
+      return true;
+    } if (router.asPath.includes(item.url)) {
+      return true;
+    }
+    return false;
+  };
+
+  return navItems.map((x) => {
     return (
       <Link href={x.url}>
         <a>
-          <NavbarItem key={x.key} text={t(x.key)} icon={<x.icon />} />
+          <NavbarItem
+            key={x.key}
+            text={t(x.key)}
+            icon={<x.icon />}
+            active={isActive(x)}
+          />
         </a>
       </Link>
     );

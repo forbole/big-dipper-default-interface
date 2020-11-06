@@ -17,7 +17,6 @@ const FooterComponent = () => {
     <span className={classes.root}>
       <Footer
         bigDipperLogo={{
-          src: 'images/big-dipper-logo.png',
           alt: 'big dipper logo',
         }}
         blockExplorerText="Cosmos Block Explorer"

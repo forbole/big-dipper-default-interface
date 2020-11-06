@@ -53,8 +53,6 @@ export const useGetStyles = () => {
           '& .children-wrapper': {
             flex: 1,
             [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
-              // width: `calc(100% - ${DESKTOP_CLOSED_DRAWER_WIDTH}px)`,
-              // marginLeft: DESKTOP_CLOSED_DRAWER_WIDTH,
               paddingLeft: `${DESKTOP_CLOSED_DRAWER_WIDTH}px`,
               '&.desktopOpen': {
                 paddingLeft: `${DESKTOP_OPEN_DRAWER_WIDTH}px`,
