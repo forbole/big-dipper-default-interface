@@ -43,6 +43,9 @@ export const useGetStyles = () => {
             [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
               display: 'flex',
               '& .network-open': {
+                '& .actions': {
+                  alignItems: 'flex-start',
+                },
                 '& .logo': {
                   width: '215px',
                 },
@@ -54,12 +57,12 @@ export const useGetStyles = () => {
             flex: 1,
             [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
               paddingLeft: `${DESKTOP_CLOSED_DRAWER_WIDTH}px`,
+              transition: theme.transitions.create(['padding'], {
+                easing: theme.transitions.easing.easeIn,
+                duration: theme.transitions.duration.enteringScreen,
+              }),
               '&.desktopOpen': {
                 paddingLeft: `${DESKTOP_OPEN_DRAWER_WIDTH}px`,
-                transition: theme.transitions.create(['padding'], {
-                  easing: theme.transitions.easing.easeIn,
-                  duration: theme.transitions.duration.enteringScreen,
-                }),
               },
             },
           },

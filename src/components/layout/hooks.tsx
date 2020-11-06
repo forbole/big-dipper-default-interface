@@ -110,21 +110,11 @@ export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
     }
   };
 
-  /**
-   * Helper that turns off opened nav sections if user offclicks
-   */
-  const handleOffClick = () => {
-    if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
-      turnOffTabs();
-    }
-  };
-
   return {
     isMenuOpen,
     setMenu,
     toggleMenu,
     toggleNetwork,
     isNetworkOpen,
-    handleOffClick,
   };
 };

@@ -14,25 +14,24 @@ const FooterComponent = () => {
   const footerLinks = getFooterLinkComponents(t);
 
   return (
-    <span className={classes.root}>
-      <Footer
-        bigDipperLogo={{
-          alt: 'big dipper logo',
-        }}
-        blockExplorerText="Cosmos Block Explorer"
-        copyrightText="Copyright © Forbole 2020"
-        donate={{
-          text: t('donate'),
-          url: '#',
-        }}
-        links={{
-          components: footerLinks,
-          decorator: '|',
-        }}
-        socialMediaComponents={socialMediaComponents}
-        storeBadgesComponents={storeBadgesComponents}
-      />
-    </span>
+    <Footer
+      className={classes.root}
+      bigDipperLogo={{
+        alt: 'big dipper logo',
+      }}
+      blockExplorerText="Cosmos Block Explorer"
+      copyrightText="Copyright © Forbole 2020"
+      donate={{
+        text: t('donate'),
+        url: '#',
+      }}
+      links={{
+        components: footerLinks,
+        decorator: '|',
+      }}
+      socialMediaComponents={socialMediaComponents}
+      storeBadgesComponents={storeBadgesComponents}
+    />
   );
 };
 

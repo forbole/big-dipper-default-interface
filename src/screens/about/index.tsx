@@ -10,9 +10,9 @@ const About = () => {
   const { classes } = useGetStyles();
 
   return (
-    <Layout>
+    <Layout className={classes.layout}>
       <MaxWidthContainer>
-        <MaxWidthContent className={classes.root}>
+        <MaxWidthContent>
           <h1 className={classes.title}>
             {t('aboutbigDipper')}
           </h1>

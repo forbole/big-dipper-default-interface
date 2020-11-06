@@ -7,6 +7,10 @@ export const useGetStyles = () => {
   const useStyles = makeStyles({
     root: {
       padding: '1rem 1rem 2.5rem',
+      // background: theme?.palette?.background?.paper,
+    },
+    layout: {
+      background: 'pink',
     },
     title: {
       fontSize: '1.375rem',

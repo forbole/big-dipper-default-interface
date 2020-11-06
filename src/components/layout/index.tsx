@@ -11,7 +11,6 @@ import { LayoutProps } from './types';
 import {
   useMobileNavHook,
   useDesktopNavHook,
-  // useLayoutHook,
 } from './hooks';
 import {
   getLanguageList,
@@ -91,7 +90,7 @@ export const Layout = (props: LayoutProps) => {
             selectedNetwork,
             isNetworkOpen: desktopHook.isNetworkOpen,
             items: networkItems,
-            openNetwork: desktopHook.toggleNetwork,
+            toggleNetwork: desktopHook.toggleNetwork,
           },
           language,
           themeMode,
@@ -122,7 +121,7 @@ export const Layout = (props: LayoutProps) => {
         network={{
           isNetworkOpen: mobileHook.isNetworkOpen,
           items: networkItems,
-          openNetwork: mobileHook.openNetwork,
+          toggleNetwork: mobileHook.openNetwork,
           selectedNetwork,
         }}
         searchBar={searchBar}
@@ -137,8 +136,6 @@ export const Layout = (props: LayoutProps) => {
         className={classnames('children-wrapper', {
           desktopOpen: desktopHook.isMenuOpen,
         })}
-        onClick={desktopHook.handleOffClick}
-        role="button"
       >
         {children}
       </div>
