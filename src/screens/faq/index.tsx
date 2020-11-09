@@ -17,7 +17,7 @@ const Faq = () => {
       <MaxWidthContainer>
         <MaxWidthContent className={classes.root}>
           <h1 className={classes.title}>{t('FAQ')}</h1>
-          <p className={classes.context}>
+          <p className={classnames(classes.context, 'context')}>
             {t('context')}
             &nbsp;
             <a
@@ -34,7 +34,7 @@ const Faq = () => {
                   <h2 className={classes.subTitle}>
                     {t(x.question)}
                   </h2>
-                  <p className={classes.paragraph}>
+                  <p className={classnames(classes.paragraph, 'details')}>
                     {t(x.ans)}
                   </p>
                 </Grid>

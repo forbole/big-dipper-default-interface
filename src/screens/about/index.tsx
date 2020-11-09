@@ -19,7 +19,7 @@ const About = () => {
           <h1 className={classes.title}>
             {t('aboutbigDipper')}
           </h1>
-          <p className={classes.text}>
+          <p className={classnames(classes.text, 'details')}>
             {t('paragraph')}
           </p>
         </MaxWidthContent>

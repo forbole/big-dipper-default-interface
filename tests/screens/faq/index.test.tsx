@@ -3,11 +3,11 @@ import { mount } from 'enzyme';
 import Faq from '@screens/faq';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
-import { WithMockMaterialTheme } from '@tests/utils/mock_material_theme';
+import { BaseWrapper } from '@tests/utils/base_wrapper';
 
 describe('Faq', () => {
   it('it renders', () => {
-    const wrapper = mount(WithMockMaterialTheme({
+    const wrapper = mount(BaseWrapper({
       component: <Faq />,
       theme: createMuiTheme(lightTheme),
     }));
@@ -15,8 +15,5 @@ describe('Faq', () => {
     expect(
       wrapper.find('h1').first().text(),
     ).toBe('FAQ');
-    expect(
-      wrapper.find('p').first().text(),
-    ).toBe('contextemail');
   });
 });
