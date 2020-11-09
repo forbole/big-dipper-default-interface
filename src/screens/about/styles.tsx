@@ -31,9 +31,6 @@ export const useGetStyles = () => {
       fontSize: '1rem',
       margin: '0',
       whiteSpace: 'pre-wrap',
-      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
-        // fontSize: '1.125rem',
-      },
     },
 
   });
