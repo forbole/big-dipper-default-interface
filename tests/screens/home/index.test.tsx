@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Home from '@screens/home';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
-import { awaitActions } from '@tests/utils/await_actions';
+// import { awaitActions } from '@tests/utils/await_actions';
 import { queryExample } from '@graphql/queries';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
