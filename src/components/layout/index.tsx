@@ -26,6 +26,7 @@ export const Layout = (props: LayoutProps) => {
     children,
     className = '',
     searchBar,
+    header,
   } = props;
 
   // ============================
@@ -92,6 +93,7 @@ export const Layout = (props: LayoutProps) => {
             items: networkItems,
             toggleNetwork: desktopHook.toggleNetwork,
           },
+          header,
           language,
           themeMode,
           searchBar,
