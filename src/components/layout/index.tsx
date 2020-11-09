@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
-  MobileNav, DesktopNav,
+  MobileNav,
+  DesktopNav,
 } from 'big-dipper-internal-ui';
 import { Footer } from '@components';
 import { ThemeModeContext } from '@contexts';
@@ -38,6 +39,7 @@ export const Layout = (props: LayoutProps) => {
     getCurrentLanguage,
     changeLanguage,
   } = useContext(ThemeModeContext);
+
   const windowSize = useGetScreenSize();
   const mobileHook = useMobileNavHook(windowSize);
   const desktopHook = useDesktopNavHook(windowSize);

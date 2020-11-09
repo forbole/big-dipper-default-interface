@@ -72,10 +72,10 @@ export const getNavComponents = (t:any) => {
   const router = useRouter();
 
   const isActive = (item:any) => {
-    if (item.url === router.asPath) {
+    if (item.url === router?.asPath) {
       return true;
     }
-    if (router.asPath.includes(item.url) && item.url !== '/') {
+    if (router?.asPath?.includes(item.url) && item.url !== '/') {
       return true;
     }
     return false;
