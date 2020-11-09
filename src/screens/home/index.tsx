@@ -11,8 +11,7 @@ const Home = () => {
     <Layout
       header={(
         <DesktopHeaderBar
-          announcement="A fun fact"
-          title="Dashboard"
+          title={t('title')}
           market={[
             {
               key: 'Price',
@@ -40,6 +39,7 @@ const Home = () => {
     >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh magna, viverra sit
+        amet ornare non, accumsan sit amet turpis. Maecenas at dui interdum, suscipit sem vel, ullamcorper ex. Vestibulum tristique ultrices mollis. Integer porttitor fringilla nibh sit amet aliquam. Donec sed sem arcu. Sed sed quam a erat feugiat convallis quis nec mi. Quisque laoreet rutrum velit, eu laoreet nisl efficitur eget. Nam sit amet ipsum facilisis, auctor sapien id, sollicitudin lorem. Nulla cursus lectus at scelerisque ultrices. Aliquam quis orci id dui tincidunt molestie eu ac nunc. Suspendisse ut convallis erat,Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh magna, viverra sit
         amet ornare non, accumsan sit amet turpis. Maecenas at dui interdum, suscipit sem vel, ullamcorper ex. Vestibulum tristique ultrices mollis. Integer porttitor fringilla nibh sit amet aliquam. Donec sed sem arcu. Sed sed quam a erat feugiat convallis quis nec mi. Quisque laoreet rutrum velit, eu laoreet nisl efficitur eget. Nam sit amet ipsum facilisis, auctor sapien id, sollicitudin lorem. Nulla cursus lectus at scelerisque ultrices. Aliquam quis orci id dui tincidunt molestie eu ac nunc. Suspendisse ut convallis erat,
       </p>
     </Layout>

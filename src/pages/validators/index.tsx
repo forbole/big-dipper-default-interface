@@ -1,8 +1,8 @@
-import Home from '@screens/home';
+import Validators from '@screens/validators';
 
 const ValidatorsPage = () => {
   return (
-    <Home />
+    <Validators />
   );
 };
 
