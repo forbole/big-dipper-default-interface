@@ -5,8 +5,15 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const theme: any = useTheme();
   const useStyles = makeStyles({
+    layout: {
+      background: theme?.palette?.type === 'light' ? theme?.palette?.background?.paper : theme?.palette?.background?.background,
+    },
     root: {
-      padding: '1rem 1rem 2.5rem',
+      padding: theme?.palette?.custom?.margins?.small,
+      paddingBottom: theme?.palette?.custom?.gutters?.large,
+      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
+        padding: theme?.palette?.custom?.margins?.large,
+      },
     },
     title: {
       fontSize: '1.375rem',
@@ -23,9 +30,7 @@ export const useGetStyles = () => {
     text: {
       fontSize: '1rem',
       margin: '0',
-      [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
-        fontSize: '1.125rem',
-      },
+      whiteSpace: 'pre-wrap',
     },
 
   });

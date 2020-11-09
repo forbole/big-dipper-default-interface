@@ -37,11 +37,14 @@
       "@styles": [
         "src/styles"
       ],
-      "@utils/*": [
-        "src/utils/*"
+      "@utils": [
+        "src/utils"
       ],
       "@graphql": [
         "src/graphql"
+      ],
+      "@contexts": [
+        "src/contexts"
       ],
       "@graphql/queries": [
         "src/graphql/queries"

@@ -5,6 +5,7 @@ import { useGetStyles } from './styles';
 import {
   getSocialMediaComponents, getStoreBadgeComponents, getFooterLinkComponents,
 } from './utils';
+import { useFooterHooks } from './hooks';
 
 const FooterComponent = () => {
   const { classes } = useGetStyles();
@@ -12,28 +13,27 @@ const FooterComponent = () => {
   const socialMediaComponents = getSocialMediaComponents();
   const storeBadgesComponents = getStoreBadgeComponents();
   const footerLinks = getFooterLinkComponents(t);
-
+  const { returnToHome } = useFooterHooks();
   return (
-    <span className={classes.root}>
-      <Footer
-        bigDipperLogo={{
-          src: 'images/big-dipper-logo.png',
-          alt: 'big dipper logo',
-        }}
-        blockExplorerText="Cosmos Block Explorer"
-        copyrightText="Copyright © Forbole 2020"
-        donate={{
-          text: t('donate'),
-          url: '#',
-        }}
-        links={{
-          components: footerLinks,
-          decorator: '|',
-        }}
-        socialMediaComponents={socialMediaComponents}
-        storeBadgesComponents={storeBadgesComponents}
-      />
-    </span>
+    <Footer
+      className={classes.root}
+      bigDipperLogo={{
+        alt: 'big dipper logo',
+        onClick: returnToHome,
+      }}
+      blockExplorerText="Cosmos Block Explorer"
+      copyrightText="Copyright © Forbole 2020"
+      donate={{
+        text: t('donate'),
+        url: '#',
+      }}
+      links={{
+        components: footerLinks,
+        decorator: '|',
+      }}
+      socialMediaComponents={socialMediaComponents}
+      storeBadgesComponents={storeBadgesComponents}
+    />
   );
 };
 

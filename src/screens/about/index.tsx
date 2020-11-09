@@ -1,7 +1,10 @@
 import React from 'react';
+import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
-  Layout, MaxWidthContainer, MaxWidthContent,
+  Layout,
+  MaxWidthContainer,
+  MaxWidthContent,
 } from '@components';
 import { useGetStyles } from './styles';
 
@@ -10,13 +13,13 @@ const About = () => {
   const { classes } = useGetStyles();
 
   return (
-    <Layout>
+    <Layout className={classes.layout}>
       <MaxWidthContainer>
-        <MaxWidthContent className={classes.root}>
+        <MaxWidthContent className={classnames(classes.root)}>
           <h1 className={classes.title}>
             {t('aboutbigDipper')}
           </h1>
-          <p className={classes.text}>
+          <p className={classnames(classes.text, 'details')}>
             {t('paragraph')}
           </p>
         </MaxWidthContent>

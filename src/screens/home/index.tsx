@@ -1,46 +1,45 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import {
-  Layout, MaxWidthContent,
-} from '@components';
-import Button from '@material-ui/core/Button';
+import { DesktopHeaderBar } from 'big-dipper-internal-ui';
+import { Layout } from '@components';
 import { useHomeHook } from './hooks';
 
 const Home = () => {
-  const { t } = useTranslation('common');
-  const {
-    data,
-    loading,
-    error,
-  } = useHomeHook();
-
-  if (error) {
-    console.log('there is an error');
-  }
-
+  const { t } = useTranslation(['home', 'common']);
+  const { handleSearchbarSubmit } = useHomeHook();
   return (
-    <Layout>
-      <Button
-        variant="contained"
-        color="primary"
-      >
-        Hello World
-      </Button>
-      <h1>{t('bigDipper')}</h1>
-      <h1>{t('forbole')}</h1>
-      <MaxWidthContent>
-        <p>
-          home page on port
-        </p>
-      </MaxWidthContent>
-      {!loading && <h3>done loading!</h3>}
-      {!loading && !error && data.rates.map((x) => (
-        <p
-          key={x.currency}
-        >
-          {x.currency}
-        </p>
-      ))}
+    <Layout
+      header={(
+        <DesktopHeaderBar
+          title={t('title')}
+          market={[
+            {
+              key: 'Price',
+              value: '$2.75',
+            },
+            {
+              key: 'Market Cap',
+              value: '$515,555.75',
+            },
+            {
+              key: 'Inflation',
+              value: '7.95%',
+            },
+            {
+              key: 'Community Pool',
+              value: '3,400,000 ATOM',
+            },
+          ]}
+        />
+      )}
+      searchBar={{
+        searchBarPlaceholder: t('common:searchbar'),
+        searchBarCallback: handleSearchbarSubmit,
+      }}
+    >
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh magna, viverra sit
+      </p>
     </Layout>
   );
 };

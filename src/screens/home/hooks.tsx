@@ -1,14 +1,11 @@
-import { useQuery } from '@apollo/client';
-import { queryExample } from '@graphql/queries';
+import { handleSearchbarSubmit } from '@utils';
 
 export const useHomeHook = () => {
-  const {
-    loading, error, data,
-  } = useQuery(queryExample);
+  // ==========================
+  // search bar
+  // ==========================
 
   return {
-    loading,
-    error,
-    data,
+    handleSearchbarSubmit,
   };
 };
