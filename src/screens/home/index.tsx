@@ -45,44 +45,32 @@ const Home = () => {
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
         {/* block start */}
-        <div>block one</div>
-        <div>block two</div>
-        <div>block three</div>
-        <div>block four</div>
-        {/* <div className={classnames('data-blocks-container')}>
+        <div className={classnames('data-blocks-container')}>
           <div>block one</div>
           <div>block two</div>
           <div>block three</div>
           <div>block four</div>
-        </div> */}
-        {/* blocks end */}
+        </div>
         {/* graphs start */}
         <div className={classnames('data-graphs')}>
           data graphs
         </div>
-        {/* graphs end */}
-        <div className={classnames('data-wrapper')}>
-          {/* stabilities start */}
-          <div className={classnames('stablities')}>
-            stabilities
-          </div>
-          {/* stablities end */}
-          {/* consensus start */}
-          <div className={classnames('consensus')}>
-            consensus
-          </div>
-          {/* consensu end */}
+        {/* stabilities start */}
+        <div className={classnames('stablities')}>
+          stabilities
+        </div>
+        {/* consensus start */}
+        <div className={classnames('consensus')}>
+          consensus
         </div>
         {/* blocks start */}
         <div className={classnames('latest-blocks')}>
           latest blocks
         </div>
-        {/* blocks end */}
         {/* latest activities start */}
         <div className={classnames('latest-activites')}>
           latest activites
         </div>
-        {/* latest activities end */}
       </div>
       {/* ===================================== */}
       {/* content end */}
