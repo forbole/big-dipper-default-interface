@@ -1,12 +1,15 @@
 import React from 'react';
+import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
 import { Layout } from '@components';
 import { useHomeHook } from './hooks';
+import { useGetStyles } from './styles';
 
 const Home = () => {
   const { t } = useTranslation(['home', 'common']);
   const { handleSearchbarSubmit } = useHomeHook();
+  const { classes } = useGetStyles();
   return (
     <Layout
       header={(
@@ -37,9 +40,53 @@ const Home = () => {
         searchBarCallback: handleSearchbarSubmit,
       }}
     >
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nibh magna, viverra sit
-      </p>
+      {/* ===================================== */}
+      {/* content start */}
+      {/* ===================================== */}
+      <div className={classnames(classes.root)}>
+        {/* block start */}
+        <div>block one</div>
+        <div>block two</div>
+        <div>block three</div>
+        <div>block four</div>
+        {/* <div className={classnames('data-blocks-container')}>
+          <div>block one</div>
+          <div>block two</div>
+          <div>block three</div>
+          <div>block four</div>
+        </div> */}
+        {/* blocks end */}
+        {/* graphs start */}
+        <div className={classnames('data-graphs')}>
+          data graphs
+        </div>
+        {/* graphs end */}
+        <div className={classnames('data-wrapper')}>
+          {/* stabilities start */}
+          <div className={classnames('stablities')}>
+            stabilities
+          </div>
+          {/* stablities end */}
+          {/* consensus start */}
+          <div className={classnames('consensus')}>
+            consensus
+          </div>
+          {/* consensu end */}
+        </div>
+        {/* blocks start */}
+        <div className={classnames('latest-blocks')}>
+          latest blocks
+        </div>
+        {/* blocks end */}
+        {/* latest activities start */}
+        <div className={classnames('latest-activites')}>
+          latest activites
+        </div>
+        {/* latest activities end */}
+      </div>
+      {/* ===================================== */}
+      {/* content end */}
+      {/* ===================================== */}
     </Layout>
   );
 };
