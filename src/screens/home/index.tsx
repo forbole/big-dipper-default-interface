@@ -2,7 +2,9 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
-import { Layout } from '@components';
+import {
+  Layout, DataBlocksHeader,
+} from '@components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -45,12 +47,7 @@ const Home = () => {
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
         {/* block start */}
-        <div className={classnames('data-blocks-container')}>
-          <div>block one</div>
-          <div>block two</div>
-          <div>block three</div>
-          <div>block four</div>
-        </div>
+        <DataBlocksHeader />
         {/* graphs start */}
         <div className={classnames('data-graphs')}>
           data graphs
