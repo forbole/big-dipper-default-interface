@@ -9,7 +9,6 @@ import { useDataBlocksHeaderHook } from './hooks';
 const DataBlocksHeader = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation('common');
-  console.log(t('latestBlockHeight'), 'wtf');
   const { handleBlockTimeDurationClick } = useDataBlocksHeaderHook();
   const blockTimeDurations = getBlocktimeDurations(t);
   return (
