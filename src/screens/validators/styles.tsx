@@ -9,7 +9,7 @@ export const useGetStyles = () => {
       display: 'grid',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
-      '& .data-blocks-container': {
+      '& .data-blocks': {
         display: 'none',
       },
       '& .mobile-tablet-header': {
@@ -26,8 +26,8 @@ export const useGetStyles = () => {
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        '& .data-blocks-container': {
-          display: 'grid',
+        '& .data-blocks': {
+          display: 'block',
         },
         '& .mobile-tablet-header': {
           display: 'none',

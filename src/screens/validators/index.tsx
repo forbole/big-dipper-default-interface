@@ -47,7 +47,9 @@ const Validators = () => {
       {/* content start */}
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
-        <DataBlocksHeader />
+        <div className={classnames('data-blocks')}>
+          <DataBlocksHeader />
+        </div>
         <div className={classnames('content-container')}>
           <div className={classnames('mobile-tablet-header')}>
             mobile tablet header
