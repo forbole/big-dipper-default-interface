@@ -9,7 +9,7 @@ import {
   SyncAltOutlined,
   EventNoteOutlined,
   AnnouncementOutlined,
-  PieChartOutlined,
+  // PieChartOutlined,
 } from '@material-ui/icons';
 import { getLanguageValue } from '@utils';
 
