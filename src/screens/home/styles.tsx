@@ -3,7 +3,6 @@ import {
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
 
-// THIS IS A PLACE HOLDER STYLES TO SET UP LAYOUT REMOVE LATER
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
