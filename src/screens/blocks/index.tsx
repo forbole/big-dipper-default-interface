@@ -3,12 +3,12 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
 import { Layout } from '@components';
-import { useValidatorHook } from './hooks';
+import { useBlocksHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const Validators = () => {
-  const { t } = useTranslation(['validators', 'common']);
-  const { handleSearchbarSubmit } = useValidatorHook();
+const Blocks = () => {
+  const { t } = useTranslation(['blocks', 'common']);
+  const { handleSearchbarSubmit } = useBlocksHook();
   const { classes } = useGetStyles();
   return (
     <Layout
@@ -51,8 +51,8 @@ const Validators = () => {
           <div className={classnames('mobile-tablet-header')}>
             mobile tablet header
           </div>
-          <div className={classnames('validators-content')}>
-            validators table
+          <div className={classnames('blocks-content')}>
+            blocks table
           </div>
         </div>
       </div>
@@ -63,4 +63,4 @@ const Validators = () => {
   );
 };
 
-export default Validators;
+export default Blocks;

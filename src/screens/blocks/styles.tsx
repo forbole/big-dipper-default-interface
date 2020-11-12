@@ -18,7 +18,7 @@ export const useGetStyles = () => {
       '& .mobile-tablet-header': {
         height: '100px',
       },
-      '& .validators-content': {
+      '& .blocks-content': {
         height: '500px',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
