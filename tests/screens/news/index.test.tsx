@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Home from '@screens/home';
+import News from '@screens/news';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
@@ -9,12 +9,12 @@ import {
   DataBlocksHeader,
 } from '@components';
 
-describe('Home', () => {
+describe('News', () => {
   it('it renders', () => {
-    expect(Home).toBeTruthy();
+    expect(News).toBeTruthy();
     const wrapper = mount(
       BaseWrapper({
-        component: <Home />,
+        component: <News />,
         theme: createMuiTheme(lightTheme),
       }),
     );
@@ -24,12 +24,12 @@ describe('Home', () => {
   it('correctly renders Home component with hooks', async () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <Home />,
+        component: <News />,
         theme: createMuiTheme(lightTheme),
       }),
     );
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
-    expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
+    expect(wrapper.find(DataBlocksHeader)).toHaveLength(0);
   });
 });
