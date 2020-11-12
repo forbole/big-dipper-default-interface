@@ -6,7 +6,7 @@ import { Layout } from '@components';
 import { useProposalHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const Validators = () => {
+const Proposals = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { handleSearchbarSubmit } = useProposalHook();
   const { classes } = useGetStyles();
@@ -63,4 +63,4 @@ const Validators = () => {
   );
 };
 
-export default Validators;
+export default Proposals;

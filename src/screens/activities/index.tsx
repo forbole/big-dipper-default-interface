@@ -6,7 +6,7 @@ import { Layout } from '@components';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const Validators = () => {
+const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
   const { handleSearchbarSubmit } = useActivitiesHook();
   const { classes } = useGetStyles();
@@ -63,4 +63,4 @@ const Validators = () => {
   );
 };
 
-export default Validators;
+export default Activities;

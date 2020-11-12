@@ -58,11 +58,11 @@ export const navItems = [
     url: '/news',
     icon: AnnouncementOutlined,
   },
-  {
-    key: 'analysis',
-    url: '/analysis',
-    icon: PieChartOutlined,
-  },
+  // {
+  //   key: 'analysis',
+  //   url: '/analysis',
+  //   icon: PieChartOutlined,
+  // },
 ];
 
 /**

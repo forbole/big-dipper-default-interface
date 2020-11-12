@@ -25,6 +25,8 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        padding: theme?.palette?.custom?.gutters?.medium,
+        gridGap: theme?.palette?.custom?.gutters?.medium,
         '& .data-blocks': {
           display: 'block',
           height: '150px',
