@@ -3,7 +3,6 @@ import {
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
 
-// THIS IS A PLACE HOLDER STYLES TO SET UP LAYOUT REMOVE LATER
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
@@ -56,12 +55,14 @@ export const useGetStyles = () => {
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.gutters?.medium,
+        gridGap: theme?.palette?.custom?.gutters?.medium,
         gridTemplateColumns: 'repeat(4, 1fr)',
         '& > *': {
           gridColumn: '1 / 5',
         },
         '& .data-blocks-container': {
           gridTemplateColumns: 'repeat(4, 1fr)',
+          gridGap: theme?.palette?.custom?.gutters?.medium,
         },
         '& .data-graphs': {
           gridColumn: '1 / 3',

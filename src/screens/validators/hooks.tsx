@@ -1,6 +1,6 @@
 import { handleSearchbarSubmit } from '@utils';
 
-export const useHomeHook = () => {
+export const useValidatorHook = () => {
   return {
     handleSearchbarSubmit,
   };
