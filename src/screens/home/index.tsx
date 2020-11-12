@@ -3,7 +3,8 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
 import {
-  Layout, DataBlocksHeader,
+  Layout,
+  DataBlocksHeader,
 } from '@components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';

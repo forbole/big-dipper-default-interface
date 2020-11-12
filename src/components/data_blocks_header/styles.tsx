@@ -55,6 +55,7 @@ export const useGetStyles = () => {
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         gridTemplateColumns: 'repeat(4, 1fr)',
+        gridGap: theme?.palette?.custom?.gutters?.medium,
       },
     },
   }));

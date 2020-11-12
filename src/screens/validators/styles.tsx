@@ -9,17 +9,16 @@ export const useGetStyles = () => {
       display: 'grid',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
-      '& > *': {
-        background: 'pink',
-      },
-      '& .data-blocks': {
+      '& .data-blocks-container': {
         display: 'none',
       },
       '& .mobile-tablet-header': {
         height: '100px',
+        background: 'pink',
       },
       '& .validators-content': {
         height: '500px',
+        background: 'pink',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -27,9 +26,8 @@ export const useGetStyles = () => {
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        '& .data-blocks': {
-          display: 'block',
-          height: '150px',
+        '& .data-blocks-container': {
+          display: 'grid',
         },
         '& .mobile-tablet-header': {
           display: 'none',
