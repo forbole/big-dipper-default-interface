@@ -12,6 +12,8 @@ import {
   // PieChartOutlined,
 } from '@material-ui/icons';
 import { getLanguageValue } from '@utils';
+import { BigDipperNetwork } from '@models';
+import { NetworkItem } from './components';
 
 export const getLanguageList = () => {
   const langaugeList = ['en'];
@@ -97,37 +99,10 @@ export const getNavComponents = (t:any) => {
   });
 };
 
-// ===========================
-// Dummy data
-// ===========================
-export const networkDummy = {
-  name: 'Cosmos Hub',
-  logo: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/8178b6bcce1d1563bac10f8a150c713724a742f1/cosmoshub.svg?sanitize=true',
-  links: [
-    {
-      name: 'Mainnet',
-      chain_id: 'cosmoshub-3',
-      url: 'https://cosmos.bigdipper.live',
-    },
-    {
-      name: 'Testnet',
-      chain_id: 'stargate-3a',
-      url: 'https://stargate.bigdipper.live',
-    },
-    {
-      name: 'Testnet',
-      chain_id: 'gaia-13007',
-      url: 'https://gaia.bigdipper.live',
-    },
-    {
-      name: 'Retired',
-      chain_id: 'cosmoshub-2',
-      url: 'https://cosmoshub-2.bigdipper.live',
-    },
-    {
-      name: 'Retired',
-      chain_id: 'cosmoshub-1',
-      url: 'https://cosmoshub-1.bigdipper.live',
-    },
-  ],
+export const getNetworksComponent = (networks: BigDipperNetwork[]) => {
+  return networks.map((x) => {
+    return (
+      <NetworkItem network={x} />
+    );
+  });
 };

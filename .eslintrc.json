@@ -52,6 +52,7 @@
     "react/jsx-props-no-spreading": "off",
     "no-use-before-define": "off",
     "import/no-unresolved": "off",
+    "lines-between-class-members": "off",
     "react/no-array-index-key": "warn",
     "jsx-a11y/anchor-is-valid": "warn",
     "react/jsx-first-prop-new-line": [

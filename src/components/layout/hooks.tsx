@@ -2,7 +2,9 @@ import {
   useState, useEffect,
 } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import { useTheme } from '@material-ui/core/styles';
+import { BigDipperNetwork } from '@models';
 import { UseNavHookProps } from './types';
 
 /**
@@ -116,5 +118,25 @@ export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
     toggleMenu,
     toggleNetwork,
     isNetworkOpen,
+  };
+};
+
+export const useNetworkHook = () => {
+  const NETWORK_LIST_API = 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/7564611ee896b698eeb9657e981d414dbacf5efe/bd-networks.json';
+  const [networks, setNetworks] = useState([]);
+  useEffect(() => {
+    const getNetworkList = async () => {
+      const { data = [] } = await axios.get(NETWORK_LIST_API);
+      const formattedData = data
+        .map((x) => BigDipperNetwork.fromJson(x))
+        .sort((a, b) => a.name?.toLowerCase() - b.name?.toLowerCase());
+      console.log(formattedData, 'w');
+      setNetworks(formattedData);
+    };
+    getNetworkList();
+  }, []);
+
+  return {
+    networks,
   };
 };

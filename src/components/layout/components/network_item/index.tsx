@@ -1,25 +1,25 @@
 import React from 'react';
 import classnames from 'classnames';
-import { networkDummy } from '../../utils';
 import { useGetStyles } from './styles';
+import { NetworkItemProps } from './types';
 
-const NetworkItem = () => {
+const NetworkItem = (props: NetworkItemProps) => {
   const { classes } = useGetStyles();
-
+  const { network } = props;
   return (
     <div className={classes.root}>
       <div className="logo-container">
-        <img src={networkDummy.logo} alt="logo" />
+        <img src={network.logo} alt="logo" />
         <div className="networks">
           <p>
-            {networkDummy.name}
+            {network.name}
           </p>
-          {networkDummy.links.map((x) => {
+          {network.links.map((x) => {
             return (
-              <a href={x.url} target="_blank" rel="noreferrer" key={x.chain_id}>
+              <a href={x.url} target="_blank" rel="noreferrer" key={x.chainId}>
                 <div className="item">
                   <p>
-                    {x.chain_id}
+                    {x.chainId}
                   </p>
                   <div className={classnames(x.name.toLowerCase(), 'status')}>
                     {x.name}
