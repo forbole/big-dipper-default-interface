@@ -17,7 +17,7 @@ const Home = () => {
     <Layout
       header={(
         <DesktopHeaderBar
-          title={t('title')}
+          title={t('common:chain')}
           market={[
             {
               key: 'Price',

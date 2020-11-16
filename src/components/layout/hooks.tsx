@@ -130,7 +130,6 @@ export const useNetworkHook = () => {
       const formattedData = data
         .map((x) => BigDipperNetwork.fromJson(x))
         .sort((a, b) => a.name?.toLowerCase() - b.name?.toLowerCase());
-      console.log(formattedData, 'w');
       setNetworks(formattedData);
     };
     getNetworkList();
