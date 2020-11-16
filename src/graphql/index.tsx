@@ -1,3 +1,4 @@
+import WebSocket from 'isomorphic-ws';
 import {
   ApolloClient,
   InMemoryCache,
@@ -15,9 +16,10 @@ const wsLink = new WebSocketLink({
   options: {
     reconnect: true,
   },
+  webSocketImpl: WebSocket,
 });
 
-const link = split(
+const link = process?.browser ? split(
   ({ query }) => {
     const {
       kind, operation,
@@ -26,7 +28,7 @@ const link = split(
   },
   wsLink,
   httpLink,
-);
+) : httpLink;
 
 const client = new ApolloClient({
   link,
