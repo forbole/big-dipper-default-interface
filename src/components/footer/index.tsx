@@ -21,7 +21,7 @@ const FooterComponent = () => {
         alt: 'big dipper logo',
         onClick: returnToHome,
       }}
-      blockExplorerText="Cosmos Block Explorer"
+      blockExplorerText={t('common:blockExplorer')}
       copyrightText="Copyright © Forbole 2020"
       donate={{
         text: t('donate'),

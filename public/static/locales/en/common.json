@@ -2,7 +2,7 @@
   "chain": "Desmos",
   "bigDipper": "Big Dipper",
   "forbole": "Forbole",
-  "cosmosBlockExplorer": "Cosmos Block Explorer",
+  "blockExplorer": "Desmos Block Explorer",
   "light": "Light Mode",
   "dark": "Dark Mode",
   "searchbar": "Search by block height / address / tx hash",
