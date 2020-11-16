@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useEffect, useState,
+} from 'react';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
@@ -15,8 +17,14 @@ export const useAppHook = () => {
   // theme
   // =========================
   const [themeMode, setMode] = useState('light');
-
   const theme:any = themeMode === 'dark' ? darkTheme : lightTheme;
+
+  useEffect(() => {
+    const isClient = typeof window === 'object';
+    if (isClient && window?.matchMedia('(prefers-color-scheme: dark)')?.matches) {
+      setMode('dark');
+    }
+  }, []);
 
   const toggleThemeMode = () => {
     const value = themeMode === 'light' ? 'dark' : 'light';
