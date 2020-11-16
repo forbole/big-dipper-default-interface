@@ -1,10 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import { DesktopHeaderBar } from 'big-dipper-internal-ui';
 import {
   Layout,
   DataBlocksHeader,
+  HeaderBar,
 } from '@components';
 import { useProposalHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -16,28 +16,8 @@ const Proposals = () => {
   return (
     <Layout
       header={(
-        <DesktopHeaderBar
-          title={t('title')}
-          market={[
-            {
-              key: 'Price',
-              value: '$2.75',
-            },
-            {
-              key: 'Market Cap',
-              value: '$515,555.75',
-            },
-            {
-              key: 'Inflation',
-              value: '7.95%',
-            },
-            {
-              key: 'Community Pool',
-              value: '3,400,000 ATOM',
-            },
-          ]}
-        />
-)}
+        <HeaderBar />
+      )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
         searchBarCallback: handleSearchbarSubmit,
