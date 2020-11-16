@@ -9,7 +9,7 @@ export const chainConfig = {
     },
     {
       denom: 'matom',
-      exponent: 2,
+      exponent: 3,
       aliases: ['milliatom'],
     },
     {
