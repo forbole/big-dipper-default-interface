@@ -1,19 +1,34 @@
 export const chainConfig = {
-  base: 'uatom',
-  display: 'atom',
+  network: 'morpheus-10000',
+  base: 'udaric',
+  display: 'daric',
   denomUnits: [
     {
-      denom: 'uatom',
+      denom: 'udaric',
       exponent: 0,
-      aliases: ['microatom'],
+      aliases: ['microdaric'],
     },
     {
-      denom: 'matom',
+      denom: 'mdaric',
       exponent: 3,
-      aliases: ['milliatom'],
+      aliases: ['millidaric'],
     },
     {
-      denom: 'atom',
+      denom: 'daric',
+      exponent: 6,
+    },
+    {
+      denom: 'upotic',
+      exponent: 0,
+      aliases: ['microdaric'],
+    },
+    {
+      denom: 'mpotic',
+      exponent: 3,
+      aliases: ['millipotic'],
+    },
+    {
+      denom: 'potic',
       exponent: 6,
     },
   ],
