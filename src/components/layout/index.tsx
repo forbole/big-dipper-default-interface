@@ -24,7 +24,6 @@ import { NetworkItem } from './components';
 import { useGetStyles } from './styles';
 
 export const Layout = (props: LayoutProps) => {
-  const baseUrl = process.env.NEXT_PUBLIC_URL;
   const { t } = useTranslation('common');
   const { classes } = useGetStyles();
   const {
@@ -52,7 +51,6 @@ export const Layout = (props: LayoutProps) => {
   const windowSize = useGetScreenSize();
   const mobileHook = useMobileNavHook(windowSize);
   const desktopHook = useDesktopNavHook(windowSize);
-  const router = useRouter();
   // ============================
   // Languages
   // ============================
@@ -86,11 +84,13 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Menu
   // ============================
-  const currentPath = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
   const menuItems = getNavComponents(t);
   // ============================
   // Meta Tags
   // ============================
+  const router = useRouter();
+  const baseUrl = process.env.NEXT_PUBLIC_URL;
+  const currentPath = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
   if (!validator.isURL(image)) {
     image = `${baseUrl}${image}`;
   }
