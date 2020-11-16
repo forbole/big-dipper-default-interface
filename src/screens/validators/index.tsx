@@ -2,7 +2,10 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
-import { Layout } from '@components';
+import {
+  Layout,
+  DataBlocksHeader,
+} from '@components';
 import { useValidatorHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -45,7 +48,7 @@ const Validators = () => {
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
         <div className={classnames('data-blocks')}>
-          data blocks
+          <DataBlocksHeader />
         </div>
         <div className={classnames('content-container')}>
           <div className={classnames('mobile-tablet-header')}>

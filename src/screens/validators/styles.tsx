@@ -9,17 +9,16 @@ export const useGetStyles = () => {
       display: 'grid',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
-      '& > *': {
-        background: 'pink',
-      },
       '& .data-blocks': {
         display: 'none',
       },
       '& .mobile-tablet-header': {
         height: '100px',
+        background: 'pink',
       },
       '& .validators-content': {
         height: '500px',
+        background: 'pink',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -29,7 +28,6 @@ export const useGetStyles = () => {
         gridGap: theme?.palette?.custom?.gutters?.medium,
         '& .data-blocks': {
           display: 'block',
-          height: '150px',
         },
         '& .mobile-tablet-header': {
           display: 'none',

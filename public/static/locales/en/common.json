@@ -11,5 +11,13 @@
   "activities": "Activities",
   "proposals": "Proposals",
   "news": "News",
-  "analysis": "Analysis"
+  "analysis": "Analysis",
+  "latestBlockHeight": "Latest Block Height",
+  "averageBlockTime": "Average Block Time",
+  "allTime": "All Time",
+  "lastMinute": "Last Minute",
+  "lastHour": "Last Hour",
+  "lastDay": "Last Day",
+  "price": "Price",
+  "activeValidators": "Active Validators"
 }

@@ -9,8 +9,8 @@ import {
   ListItem,
 } from '@material-ui/core';
 
-describe('Home', () => {
-  it('correctly renders Home component', () => {
+describe('Footer', () => {
+  it('correctly renders Footer component', () => {
     const wrap = mount(WithMockMaterialTheme({
       component: <Footer />,
       theme: createMuiTheme(lightTheme),
