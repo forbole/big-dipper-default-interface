@@ -12,6 +12,9 @@ export const useGetStyles = () => {
       gridGap: theme?.palette?.custom?.gutters?.small,
       '& .data-block': {
         color: theme?.palette?.type === 'light' ? 'white' : theme?.palette?.custom?.fonts?.fontOne,
+        '& .header': {
+          alignItems: 'flex-end',
+        },
         '& .value': {
           fontSize: '1.2rem',
         },
