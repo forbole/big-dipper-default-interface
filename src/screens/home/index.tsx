@@ -24,11 +24,11 @@ const Home = () => {
     },
     marketCap: {
       title: 'Market Cap',
-      display: '$515,551,345.99',
+      display: '$515,551,345',
     },
     communityPool: {
       title: 'Community Pool',
-      display: '370,000.74',
+      display: '370,000',
     },
     data: {
       total: {
@@ -37,10 +37,10 @@ const Home = () => {
       },
       detail:
         [{
-          title: 'Bonded', value: 100000, display: '100,000',
+          title: 'Bonded', value: 100000, display: '10,000000',
         },
         {
-          title: 'UnBonded', value: 91235.473, display: '91,235.473',
+          title: 'UnBonded', value: 91235.473, display: '91,235000',
         },
         ],
     },

@@ -26,6 +26,7 @@ export const useGetStyles = () => {
       },
       '& .stablities': {
         background: 'white',
+        borderRadius: '2px',
         height: '400px', // data display holder
       },
       '& .consensus': {
