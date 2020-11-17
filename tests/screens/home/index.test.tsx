@@ -9,16 +9,16 @@ import { lightTheme } from '@styles';
 import {
   Layout,
   DataBlocksHeader,
-  // HeaderBar,
+  HeaderBar,
 } from '@components';
 
-describe('Home', () => {
-  it('it renders', () => {
-    const mockData = {
-      data: [],
-    };
+const LAYOUT_MOCK_DATA = {
+  data: [],
+};
 
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(mockData));
+describe('Home', () => {
+  it('it renders', async () => {
+    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
 
     expect(Home).toBeTruthy();
     const wrapper = mount(
@@ -27,19 +27,28 @@ describe('Home', () => {
         theme: createMuiTheme(lightTheme),
       }),
     );
+    await awaitActions({
+      wrapper,
+      time: 10,
+    });
     expect(wrapper).not.toBeNull();
   });
 
   it('correctly renders Home component with hooks', async () => {
+    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
     const wrapper = mount(
       BaseWrapper({
         component: <Home />,
         theme: createMuiTheme(lightTheme),
       }),
     );
+    await awaitActions({
+      wrapper,
+      time: 10,
+    });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
-    // expect(wrapper.find(HeaderBar)).toHaveLength(1);
+    expect(wrapper.find(HeaderBar)).toHaveLength(1);
   });
 });
