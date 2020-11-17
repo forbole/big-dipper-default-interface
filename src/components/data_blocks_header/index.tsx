@@ -14,7 +14,9 @@ const DataBlocksHeader = () => {
     handleBlockTimeDurationClick,
     latestBlockHeight,
     duration,
+    durationValue,
   } = useDataBlocksHeaderHook();
+
   const blockTimeDurations = getBlocktimeDurations(t);
   const formatLatestBlockHeight = formatNumber(latestBlockHeight?.data?.height);
   return (
@@ -26,7 +28,7 @@ const DataBlocksHeader = () => {
       />
       <DataBlock
         label={t('averageBlockTime')}
-        value="7.11 s"
+        value={`${durationValue} s`}
         durations={blockTimeDurations}
         selectedValue={duration}
         durationsCallback={handleBlockTimeDurationClick}

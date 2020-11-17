@@ -33,18 +33,24 @@ export const useDataBlocksHeaderHook = () => {
   });
 
   if (!durationData[duration] && DURATION_DATA[duration]?.query) {
+    console.log('im in here');
     // does not exist therefore we need to get it
-    const {
-      data: blockTimeData,
-      loading: blockTimeLoading,
-      error: blockTimeError,
-    } = useQuery(DURATION_QUERIES[duration].query);
-    console.log(blockTimeData, 'hello');
+    const { data: blockTimeData } = useQuery(DURATION_DATA[duration].query);
+    console.log(blockTimeData, 'whoops');
+    const blockTimeRaw = DURATION_DATA[duration]?.getRawData(blockTimeData);
+    const blockTimeFormat = DURATION_DATA[duration].model?.fromJson(blockTimeRaw);
+
+    const newDurationDataState = R.mergeDeepLeft({
+      [duration]: blockTimeFormat?.averageTime?.toFixed(2) ?? null,
+    }, durationData);
+
+    setDurationData(newDurationDataState);
   }
 
   const handleBlockTimeDurationClick = (value:string) => {
-    console.log(value, 'block time value');
+    setDuration(value);
   };
+
   // ====================================
   // Others
   // ====================================
@@ -52,6 +58,7 @@ export const useDataBlocksHeaderHook = () => {
   return {
     handleBlockTimeDurationClick,
     duration,
+    durationValue: durationData[duration] ?? '-',
     latestBlockHeight: {
       loading: latestBlockHeightLoading,
       error: latestBlockHeightError,
