@@ -42,6 +42,9 @@ export const useGetStyles = () => {
             display: 'none',
             [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
               display: 'flex',
+              '& .selected-network': {
+                padding: '0.25rem 1rem',
+              },
               '& .network-open': {
                 '& .actions': {
                   alignItems: 'flex-start',

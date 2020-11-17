@@ -11,16 +11,18 @@ import {
 import { Footer } from '@components';
 import { ThemeModeContext } from '@contexts';
 import { useGetScreenSize } from '@utils';
+import { chainConfig } from '@src/chain_config';
 import { LayoutProps } from './types';
 import {
   useMobileNavHook,
   useDesktopNavHook,
+  useNetworkHook,
 } from './hooks';
 import {
   getLanguageList,
   getNavComponents,
+  getNetworksComponent,
 } from './utils';
-import { NetworkItem } from './components';
 import { useGetStyles } from './styles';
 
 export const Layout = (props: LayoutProps) => {
@@ -72,15 +74,13 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Network
   // ============================
+  const { networks } = useNetworkHook();
+  const networkItems = getNetworksComponent(networks);
   const selectedNetwork = {
     online: true,
-    value: 'cosmoshub3dfgdgfhghfgh',
-    iconSrc: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/8178b6bcce1d1563bac10f8a150c713724a742f1/cosmoshub.svg?sanitize=true',
+    value: chainConfig.network,
+    iconSrc: chainConfig.icon,
   };
-  const networkItems = [
-    <NetworkItem />,
-    <NetworkItem />,
-  ];
   // ============================
   // Menu
   // ============================

@@ -1,6 +1,6 @@
 import {
   TelegramIcon,
-  FacebookIcon,
+  // FacebookIcon,
   MediumIcon,
   TwitterIcon,
   GithubIcon,
@@ -19,27 +19,27 @@ export const socialMediaLinks:SocialMediaProps[] = [
   {
     component: TelegramIcon,
     className: 'telegram',
-    url: '#',
+    url: 'https://t.me/desmosnetwork',
   },
-  {
-    component: FacebookIcon,
-    className: 'facebook',
-    url: '#',
-  },
+  // {
+  //   component: FacebookIcon,
+  //   className: 'facebook',
+  //   url: '#',
+  // },
   {
     component: MediumIcon,
     className: 'medium',
-    url: '#',
+    url: 'https://medium.com/desmosnetwork',
   },
   {
     component: TwitterIcon,
     className: 'twitter',
-    url: '#',
+    url: 'https://twitter.com/desmosnetwork',
   },
   {
     component: GithubIcon,
     className: 'github',
-    url: '#',
+    url: 'https://github.com/desmos-labs',
   },
 ];
 
@@ -62,18 +62,18 @@ export const getSocialMediaComponents = () => {
  * Store Badge links config
  */
 export const storeBadges = [
-  {
-    image: 'images/apple-badge.svg',
-    url: '#',
-    className: 'apple',
-    alt: 'app store',
-  },
-  {
-    image: 'images/google-play-badge.svg',
-    url: '#',
-    className: 'google',
-    alt: 'play store',
-  },
+  // {
+  //   image: 'images/apple-badge.svg',
+  //   url: '#',
+  //   className: 'apple',
+  //   alt: 'app store',
+  // },
+  // {
+  //   image: 'images/google-play-badge.svg',
+  //   url: '#',
+  //   className: 'google',
+  //   alt: 'play store',
+  // },
 ];
 
 /**

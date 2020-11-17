@@ -1,46 +1,26 @@
-// consensus
+// ====================================
+// Chain Related
+// ====================================
+
+// ====================================
+// Consensus
+// ====================================
 import {
-  BlockTimeLastMinute, BlockTimeLastHour, BlockTimeLastDay,
-  BlockTimeGenesis, BlockInfo, ConsensusState,
-} from './consensus';
-
-// distribution
-import { CommunityPool } from './distribution';
-
-// gov
-import {
-  Proposal, Deposit, AllVote,
-  YesVote, NoVote, AbstainVote,
-  NoWithVetoVote, TallyState,
-} from './gov';
-
-// mint
-import { Inflation } from './mint';
-
-// pricefeed
-import {
-  Price, MarketCap,
-} from './pricefeed';
-
-// staking
-import {
-  ValidatorDiscription, VALIDATOR_INFO, POTENTIAL, VotingPower,
-  Delegation, Redelegation, Undelegation, ValidatorList,
-} from './staking';
-
-export {
-  // consensus
   BlockTimeLastMinute,
   BlockTimeLastHour,
   BlockTimeLastDay,
   BlockTimeGenesis,
   BlockInfo,
   ConsensusState,
+} from './consensus';
 
-  // distribution
-  CommunityPool,
+// ====================================
+// Distribution
+// ====================================
+import { CommunityPool } from './distribution';
 
-  // gov
+// gov
+import {
   Proposal,
   Deposit,
   AllVote,
@@ -49,15 +29,25 @@ export {
   AbstainVote,
   NoWithVetoVote,
   TallyState,
+} from './gov';
 
-  // mint
-  Inflation,
+// ====================================
+// Mint
+// ====================================
+import { Inflation } from './mint';
 
-  // pricefeed
-  MarketCap,
+// ====================================
+// Price Feed
+// ====================================
+import {
   Price,
+  MarketCap,
+} from './pricefeed';
 
-  // staking
+// ====================================
+// Staking
+// ====================================
+import {
   ValidatorDiscription,
   VALIDATOR_INFO,
   POTENTIAL,
@@ -66,4 +56,41 @@ export {
   Redelegation,
   Undelegation,
   ValidatorList,
+} from './staking';
+
+// ====================================
+// Others
+// ====================================
+import BigDipperNetwork from './big_dipper_network';
+import BigDipperNetworkLink from './big_dipper_network_link';
+
+export {
+  BlockTimeLastMinute,
+  BlockTimeLastHour,
+  BlockTimeLastDay,
+  BlockTimeGenesis,
+  BlockInfo,
+  ConsensusState,
+  CommunityPool,
+  Proposal,
+  Deposit,
+  AllVote,
+  YesVote,
+  NoVote,
+  AbstainVote,
+  NoWithVetoVote,
+  TallyState,
+  Inflation,
+  MarketCap,
+  Price,
+  ValidatorDiscription,
+  VALIDATOR_INFO,
+  POTENTIAL,
+  VotingPower,
+  Delegation,
+  Redelegation,
+  Undelegation,
+  ValidatorList,
+  BigDipperNetwork,
+  BigDipperNetworkLink,
 };

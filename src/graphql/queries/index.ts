@@ -1,6 +1,7 @@
 import { queryExample } from './query_example';
-
-// consensus
+// ===============================
+// Consensus
+// ===============================
 import {
   AVERAGE_BLOCK_LAST_DAY,
   BLOCK_INFO_LIMIT,
@@ -11,33 +12,50 @@ import {
   CONSENSUS_STATE,
 } from './consensus';
 
-// staking
+// ===============================
+// Staking
+// ===============================
 import {
   VALIDATOR_DISCRIPTION,
   VALIDATOR_INFO,
   POTENTIAL,
   VOTING_POWER,
   VALIDATOR_LIST,
-  UNDELEGATION, DELEGATION, REDELEGATION,
+  UNDELEGATION,
+  DELEGATION,
+  REDELEGATION,
 } from './staking';
 
-// pricefeed
+// ===============================
+// PriceFeed
+// ===============================
 import {
-  PRICE, MARKET_CAP,
+  PRICE,
+  MARKET_CAP,
 } from './pricefeed';
 import { INFLATION } from './mint';
-import { COMMUNITY_POOL } from './distribution';
+import {
+  COMMUNITY_POOL_SUBSCRIPTION,
+  COMMUNITY_POOL_QUERY,
+} from './distribution';
 
-// gov
+// ===============================
+// Gov
+// ===============================
 import {
   PROPOSALS_LIST,
-  PROPOSAL, TALLY_STATE, NO_WITH_VETO_VOTE,
-  ABSTAIN_VOTE, DEPOSITS, NO_VOTE, ALL_VOTE, YES_VOTE,
+  PROPOSAL,
+  TALLY_STATE,
+  NO_WITH_VETO_VOTE,
+  ABSTAIN_VOTE,
+  DEPOSITS,
+  NO_VOTE,
+  ALL_VOTE,
+  YES_VOTE,
 } from './gov';
 
 export {
   queryExample,
-  // consensus
   AVERAGE_BLOCK_LAST_DAY,
   BLOCK_INFO_LIMIT,
   AVERAGE_BLOCK_LAST_HOUR,
@@ -45,8 +63,6 @@ export {
   AVERAGE_BLOCK_TIME_FROM_GENESIS,
   LATEST_BLOCK_HEIGHT,
   CONSENSUS_STATE,
-
-  // staking
   VALIDATOR_DISCRIPTION,
   VALIDATOR_INFO,
   POTENTIAL,
@@ -55,18 +71,11 @@ export {
   REDELEGATION,
   UNDELEGATION,
   VALIDATOR_LIST,
-
-  // pricefeed
   PRICE,
   MARKET_CAP,
-
-  // distribution
-  COMMUNITY_POOL,
-
-  // mint
+  COMMUNITY_POOL_SUBSCRIPTION,
+  COMMUNITY_POOL_QUERY,
   INFLATION,
-
-  // gov
   PROPOSALS_LIST,
   PROPOSAL,
   DEPOSITS,

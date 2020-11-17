@@ -46,6 +46,9 @@
       "@contexts": [
         "src/contexts"
       ],
+      "@models": [
+        "src/models"
+      ],
       "@graphql/queries": [
         "src/graphql/queries"
       ],
