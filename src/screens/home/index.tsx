@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
+import { Stabilities } from 'big-dipper-default-ui';
 import { Layout } from '@components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -10,6 +11,40 @@ const Home = () => {
   const { t } = useTranslation(['home', 'common']);
   const { handleSearchbarSubmit } = useHomeHook();
   const { classes } = useGetStyles();
+  const args = {
+    title: 'Stabilities',
+    coin: 'ATOM',
+    price: {
+      title: 'Price',
+      display: '$2.756',
+    },
+    inflation: {
+      title: 'Inflation',
+      display: '7.01%',
+    },
+    marketCap: {
+      title: 'Market Cap',
+      display: '$515,551,345.99',
+    },
+    communityPool: {
+      title: 'Community Pool',
+      display: '370,000.74',
+    },
+    data: {
+      total: {
+        value: 191235.473,
+        display: '0.19 m',
+      },
+      detail:
+        [{
+          title: 'Bonded', value: 100000, display: '100,000',
+        },
+        {
+          title: 'UnBonded', value: 91235.473, display: '91,235.473',
+        },
+        ],
+    },
+  };
   return (
     <Layout
       header={(
@@ -57,7 +92,9 @@ const Home = () => {
         </div>
         {/* stabilities start */}
         <div className={classnames('stablities')}>
-          stabilities
+          <Stabilities
+            {...args}
+          />
         </div>
         {/* consensus start */}
         <div className={classnames('consensus')}>

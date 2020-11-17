@@ -22,15 +22,15 @@ export const useGetStyles = () => {
       },
       '& .data-graphs': {
         background: 'pink',
-        height: '200px', // data display holder
+        // height: '200px', // data display holder
       },
       '& .stablities': {
-        background: 'pink',
-        height: '200px', // data display holder
+        background: 'white',
+        height: '400px', // data display holder
       },
       '& .consensus': {
         background: 'pink',
-        height: '200px',
+        // height: '200px',
       },
       '& .latest-blocks': {
         background: 'pink',
