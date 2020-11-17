@@ -127,9 +127,9 @@ export const useNetworkHook = () => {
   useEffect(() => {
     const getNetworkList = async () => {
       const { data = [] } = await axios.get(NETWORK_LIST_API);
+
       const formattedData = data
-        .map((x) => BigDipperNetwork.fromJson(x))
-        .sort((a, b) => a.name?.toLowerCase() - b.name?.toLowerCase());
+        .map((x) => BigDipperNetwork.fromJson(x));
       setNetworks(formattedData);
     };
     getNetworkList();

@@ -2,6 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Home from '@screens/home';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
+import { mockedAxios } from '@tests/utils/mock_axios';
+import { awaitActions } from '@tests/utils/await_actions';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
@@ -12,6 +14,12 @@ import {
 
 describe('Home', () => {
   it('it renders', () => {
+    const mockData = {
+      data: [],
+    };
+
+    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(mockData));
+
     expect(Home).toBeTruthy();
     const wrapper = mount(
       BaseWrapper({
