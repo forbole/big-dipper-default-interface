@@ -4,6 +4,8 @@ import Home from '@screens/home';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
+import { COMMUNITY_POOL_QUERY } from '@graphql/queries';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
@@ -16,17 +18,45 @@ const LAYOUT_MOCK_DATA = {
   data: [],
 };
 
+const MOCKS = [
+  {
+    request: {
+      query: COMMUNITY_POOL_QUERY,
+      variables: {
+      },
+    },
+    result: {
+      data: {
+        community_pool: [
+          {
+            coins: [
+              {
+                amount: 300000,
+                denom: 'udaric',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  },
+];
+
 describe('Home', () => {
   it('it renders', async () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
 
     expect(Home).toBeTruthy();
     const wrapper = mount(
-      BaseWrapper({
-        component: <Home />,
-        theme: createMuiTheme(lightTheme),
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <Home />,
+          theme: createMuiTheme(lightTheme),
+        }),
+        mocks: MOCKS,
       }),
     );
+
     await awaitActions({
       wrapper,
       time: 10,
@@ -37,9 +67,12 @@ describe('Home', () => {
   it('correctly renders Home component with hooks', async () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
     const wrapper = mount(
-      BaseWrapper({
-        component: <Home />,
-        theme: createMuiTheme(lightTheme),
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <Home />,
+          theme: createMuiTheme(lightTheme),
+        }),
+        mocks: MOCKS,
       }),
     );
     await awaitActions({
