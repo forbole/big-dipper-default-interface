@@ -1,12 +1,12 @@
 import React from 'react';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
-import { useTranslation } from 'i18n';
+import { HeaderBarProps } from './types';
 
-const HeaderBar = () => {
-  const { t } = useTranslation('common');
+const HeaderBar = (props:HeaderBarProps) => {
+  const { title } = props;
   return (
     <DesktopHeaderBar
-      title={t('chain')}
+      title={title}
       market={[
         {
           key: 'Price',

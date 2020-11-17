@@ -16,7 +16,7 @@ const Blocks = () => {
   return (
     <Layout
       header={(
-        <HeaderBar />
+        <HeaderBar title={t('title')} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
