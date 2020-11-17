@@ -15,10 +15,6 @@ export const useGetStyles = () => {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
         gridGap: theme?.palette?.custom?.gutters?.small,
-        '& > *': {
-          background: 'pink',
-          height: '80px',
-        },
       },
       '& .data-graphs': {
         background: 'pink',

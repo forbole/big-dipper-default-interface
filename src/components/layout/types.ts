@@ -11,6 +11,10 @@ export interface LayoutProps {
   className?: string;
   searchBar?: searchBar;
   header?: ReactElement;
+  description?: string;
+  type?: string;
+  title?: string;
+  image?: string;
 }
 
 export interface UseNavHookProps {

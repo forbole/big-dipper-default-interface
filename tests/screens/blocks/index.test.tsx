@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Home from '@screens/home';
+import Blocks from '@screens/blocks';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
@@ -9,12 +9,12 @@ import {
   DataBlocksHeader,
 } from '@components';
 
-describe('Home', () => {
+describe('Blocks', () => {
   it('it renders', () => {
-    expect(Home).toBeTruthy();
+    expect(Blocks).toBeTruthy();
     const wrapper = mount(
       BaseWrapper({
-        component: <Home />,
+        component: <Blocks />,
         theme: createMuiTheme(lightTheme),
       }),
     );
@@ -24,7 +24,7 @@ describe('Home', () => {
   it('correctly renders Home component with hooks', async () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <Home />,
+        component: <Blocks />,
         theme: createMuiTheme(lightTheme),
       }),
     );
