@@ -18,16 +18,13 @@ export const useGetStyles = () => {
       },
       '& .data-graphs': {
         background: 'pink',
-        // height: '200px', // data display holder
       },
       '& .stablities': {
-        background: 'white',
+        background: theme?.palette?.background?.paper,
         borderRadius: '2px',
-        height: '400px', // data display holder
       },
       '& .consensus': {
         background: 'pink',
-        // height: '200px',
       },
       '& .latest-blocks': {
         background: 'pink',

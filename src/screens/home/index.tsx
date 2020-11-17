@@ -7,6 +7,7 @@ import {
   Layout,
   DataBlocksHeader,
 } from '@components';
+import { useTheme } from '@material-ui/core/styles';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -14,6 +15,7 @@ const Home = () => {
   const { t } = useTranslation(['home', 'common']);
   const { handleSearchbarSubmit } = useHomeHook();
   const { classes } = useGetStyles();
+  const theme:any = useTheme();
   const args = {
     title: 'Stabilities',
     coin: 'ATOM',
@@ -27,7 +29,7 @@ const Home = () => {
     },
     marketCap: {
       title: 'Market Cap',
-      display: '$515,551,345',
+      display: '$515,551',
     },
     communityPool: {
       title: 'Community Pool',
@@ -43,9 +45,15 @@ const Home = () => {
           title: 'Bonded', value: 100000, display: '10,000',
         },
         {
-          title: 'UnBonded', value: 91235.473, display: '91,235.473',
+          title: 'UnBonded', value: 91235.473, display: '91,235.4',
         },
         ],
+    },
+    color: {
+      font1: theme?.palette?.custom?.fonts?.fontOne,
+      font2: theme?.palette?.custom?.fonts?.fontTwo,
+      line: '#E8E8E8',
+      colors: ['#FF7846', '#FFD800'],
     },
   };
   return (
