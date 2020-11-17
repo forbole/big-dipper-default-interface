@@ -23,10 +23,10 @@ const FooterComponent = () => {
       }}
       blockExplorerText={t('common:blockExplorer')}
       copyrightText="Copyright © Forbole 2020"
-      donate={{
-        text: t('donate'),
-        url: '#',
-      }}
+      // donate={{
+      //   text: t('donate'),
+      //   url: '#',
+      // }}
       links={{
         components: footerLinks,
         decorator: '|',
