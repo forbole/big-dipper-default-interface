@@ -32,7 +32,7 @@ const DataBlocksHeader = () => {
       />
       <DataBlock
         label={t('price')}
-        value="$ 2.75"
+        value="$ 0.00"
         className="price"
         durations={[{
           value: '24_hour',
