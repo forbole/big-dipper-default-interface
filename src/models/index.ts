@@ -58,6 +58,8 @@ import {
   ValidatorList,
 } from './staking';
 
+import LatestBlockHeight from './latest_block_height';
+
 // ====================================
 // Others
 // ====================================
@@ -65,6 +67,7 @@ import BigDipperNetwork from './big_dipper_network';
 import BigDipperNetworkLink from './big_dipper_network_link';
 
 export {
+  LatestBlockHeight,
   BlockTimeLastMinute,
   BlockTimeLastHour,
   BlockTimeLastDay,

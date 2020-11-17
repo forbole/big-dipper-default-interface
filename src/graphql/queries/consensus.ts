@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const LATEST_BLOCK_HEIGHT = gql`
+export const LATEST_BLOCK_HEIGHT_QUERY = gql`
   query LatestBlockHeight {
     block(limit: 1, order_by: {height: desc}) {
       height
