@@ -1,22 +1,43 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { DesktopHeaderBar } from 'big-dipper-internal-ui';
 import { HeaderBar } from '@components';
-import { WithMockMaterialTheme } from '@tests/utils/mock_material_theme';
-import { createMuiTheme } from '@material-ui/core/styles';
-import { lightTheme } from '@styles';
-// import {
-//   Button,
-//   ListItem,
-// } from '@material-ui/core';
+import { COMMUNITY_POOL_QUERY } from '@graphql/queries';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 
 describe('HeaderBar', () => {
   it('correctly renders component', () => {
-    const wrapper = mount(WithMockMaterialTheme({
-      component: <HeaderBar title="hello world" />,
-      theme: createMuiTheme(lightTheme),
-    }));
+    const mocks = [
+      {
+        request: {
+          query: COMMUNITY_POOL_QUERY,
+          variables: {
+          },
+        },
+        result: {
+          data: {
+            community_pool: [
+              {
+                coins: [
+                  {
+                    amount: 300000,
+                    denom: 'udaric',
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      },
+    ];
+
+    const wrapper = mount(
+      WithMockApolloProvider({
+        component: <HeaderBar />,
+        mocks,
+      }),
+    );
     expect(wrapper).not.toBeNull();
-    // expect(wrap.find(Button)).toHaveLength(0);
-    // expect(wrap.find(ListItem)).toHaveLength(3);
+    expect(wrapper.find(DesktopHeaderBar)).toHaveLength(1);
   });
 });
