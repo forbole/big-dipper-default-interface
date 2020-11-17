@@ -8,7 +8,7 @@ const COMMUNITY_POOL_SUBSCRIPTION = gql`
 }`;
 
 const COMMUNITY_POOL_QUERY = gql`
-subscription community_pool {
+query community_pool {
   community_pool(limit: 1, order_by: {height: desc}) {
    coins
  }

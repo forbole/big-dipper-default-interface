@@ -1,13 +1,16 @@
 export class CommunityPool {
-  public coin: number;
+  public amount: number;
+  public denom: string;
 
   constructor(payload: any) {
-    this.coin = payload.coin;
+    this.amount = payload.amount;
+    this.denom = payload.denom;
   }
 
   static fromJson(json: any) {
     return new CommunityPool({
-      coin: json.coin,
+      amount: json.amount,
+      denom: json.denom,
     });
   }
 }
