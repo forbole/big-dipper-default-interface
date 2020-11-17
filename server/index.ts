@@ -24,7 +24,7 @@ const port = process.env.PORT;
     server.listen(port, (err?: any) => {
       if (err) throw err;
       console.log('> Blast Off Ready On:');
-      console.log(`> URL: ${process.env.INTERFACE_URL}`);
+      console.log(`> URL: ${process.env.NEXT_PUBLIC_URL}`);
       console.log(`> ENV: ${process.env.ENV}`);
       console.log(`> PORT: ${process.env.PORT}`);
     });
