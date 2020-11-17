@@ -1,4 +1,3 @@
-import { queryExample } from './query_example';
 // ===============================
 // Consensus
 // ===============================
@@ -55,7 +54,6 @@ import {
 } from './gov';
 
 export {
-  queryExample,
   AVERAGE_BLOCK_LAST_DAY,
   BLOCK_INFO_LIMIT,
   AVERAGE_BLOCK_LAST_HOUR,
