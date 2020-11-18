@@ -6,10 +6,7 @@ import { lightTheme } from '@styles';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
-
-const LAYOUT_MOCK_DATA = {
-  data: [],
-};
+import { LAYOUT_MOCK_DATA } from '@tests/utils/mock_data';
 
 describe('Faq', () => {
   it('it renders', async () => {

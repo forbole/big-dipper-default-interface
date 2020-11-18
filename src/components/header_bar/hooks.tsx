@@ -10,8 +10,9 @@ export const useHeaderBarHook = () => {
     loading: communityPoolLoading,
     error: communityPoolError,
   } = useQuery(COMMUNITY_POOL_QUERY, {
-    pollInterval: generalConfig.pollInterval, // every 5 minutes
+    pollInterval: generalConfig.pollInterval,
   });
+
   const communityPoolRaw = R.pathOr([], ['community_pool', 0, 'coins'], communityPoolData);
   const communityPoolFormat = communityPoolRaw.map((x) => CommunityPool.fromJson(x));
 

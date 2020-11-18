@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DataBlock } from 'big-dipper-default-ui';
+import { formatNumber } from '@utils';
 import { useGetStyles } from './styles';
 import { getBlocktimeDurations } from './utils';
 import { useDataBlocksHeaderHook } from './hooks';
@@ -9,25 +10,33 @@ import { useDataBlocksHeaderHook } from './hooks';
 const DataBlocksHeader = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation('common');
-  const { handleBlockTimeDurationClick } = useDataBlocksHeaderHook();
+  const {
+    handleBlockTimeDurationClick,
+    latestBlockHeight,
+    duration,
+    durationValue,
+  } = useDataBlocksHeaderHook();
+
   const blockTimeDurations = getBlocktimeDurations(t);
+  const formatLatestBlockHeight = formatNumber(latestBlockHeight?.data?.height);
   return (
     <div className={classnames(classes.root, 'data-blocks-container')}>
       <DataBlock
         label={t('latestBlockHeight')}
-        value="2,768,643"
+        value={formatLatestBlockHeight}
         className="latest-block-height"
       />
       <DataBlock
         label={t('averageBlockTime')}
-        value="7.11 s"
+        value={`${durationValue} s`}
         durations={blockTimeDurations}
+        selectedValue={duration}
         durationsCallback={handleBlockTimeDurationClick}
         className="average-block-time"
       />
       <DataBlock
         label={t('price')}
-        value="$ 2.75"
+        value="$ 0.00"
         className="price"
         durations={[{
           value: '24_hour',

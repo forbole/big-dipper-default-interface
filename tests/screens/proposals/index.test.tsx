@@ -5,41 +5,15 @@ import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
-import { COMMUNITY_POOL_QUERY } from '@graphql/queries';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
   Layout,
   DataBlocksHeader,
 } from '@components';
-
-const LAYOUT_MOCK_DATA = {
-  data: [],
-};
-
-const MOCKS = [
-  {
-    request: {
-      query: COMMUNITY_POOL_QUERY,
-      variables: {
-      },
-    },
-    result: {
-      data: {
-        community_pool: [
-          {
-            coins: [
-              {
-                amount: 300000,
-                denom: 'udaric',
-              },
-            ],
-          },
-        ],
-      },
-    },
-  },
-];
+import {
+  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
+} from '@tests/utils/mock_data';
 
 describe('Proposals', () => {
   it('it renders', async () => {
@@ -51,7 +25,7 @@ describe('Proposals', () => {
           component: <Proposals />,
           theme: createMuiTheme(lightTheme),
         }),
-        mocks: MOCKS,
+        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),
     );
     await awaitActions({
@@ -69,7 +43,7 @@ describe('Proposals', () => {
           component: <Proposals />,
           theme: createMuiTheme(lightTheme),
         }),
-        mocks: MOCKS,
+        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),
     );
     await awaitActions({
