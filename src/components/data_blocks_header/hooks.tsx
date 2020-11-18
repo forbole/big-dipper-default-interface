@@ -28,7 +28,7 @@ export const useDataBlocksHeaderHook = () => {
   // ====================================
   // To disable refetching if it's the initial fetch
   const [intialFetchComplete, setInitialFetchComplete] = useState(false);
-  const [duration, setDuration] = useState('lastMinute');
+  const [duration, setDuration] = useState('lastDay');
   const [durationValues, setDurationData] = useState({
     allTime: null,
     lastMinute: null,

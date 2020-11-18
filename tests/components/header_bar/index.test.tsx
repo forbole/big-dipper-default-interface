@@ -33,7 +33,7 @@ describe('HeaderBar', () => {
 
     const wrapper = mount(
       WithMockApolloProvider({
-        component: <HeaderBar />,
+        component: <HeaderBar title="hello world" />,
         mocks,
       }),
     );
