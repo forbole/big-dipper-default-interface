@@ -136,7 +136,10 @@ export const Layout = (props: LayoutProps) => {
         ]}
       />
       {/* ========================================= */}
-      {/* header links */}
+      {/* ld schema */}
+      {/* ========================================= */}
+      {/* ========================================= */}
+      {/* other header tags */}
       {/* ========================================= */}
       <Head>
         <link rel="apple-touch-icon" sizes="180x180" href={`${baseUrl}/images/icons/apple-touch-icon.png`} />
