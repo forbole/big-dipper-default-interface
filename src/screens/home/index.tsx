@@ -55,6 +55,9 @@ const Home = () => {
       line: '#E8E8E8',
       colors: ['#FF7846', '#FFD800'],
     },
+    classname: {
+
+    },
   };
   return (
     <Layout

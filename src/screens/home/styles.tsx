@@ -10,7 +10,6 @@ export const useGetStyles = () => {
       gridTemplateColumns: 'repeat(1, 1fr)',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
-
       '& .data-blocks-container': {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
@@ -33,6 +32,9 @@ export const useGetStyles = () => {
       '& .latest-activites': {
         background: 'pink',
         height: '200px', // data display holder
+      },
+      '& .itemTitle': {
+        fontSize: '5rem',
       },
 
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
