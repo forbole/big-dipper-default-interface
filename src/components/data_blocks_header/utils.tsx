@@ -36,7 +36,7 @@ export const DURATION_DATA = {
     query: AVERAGE_BLOCK_TIME_FROM_GENESIS_QUERY,
     model: BlockTimeGenesis,
     getRawData: (data:any) => R.pathOr({
-    }, ['average_block_time_per_minute', 0], data),
+    }, ['average_block_time_from_genesis', 0], data),
   },
   lastMinute: {
     query: AVERAGE_BLOCK_LAST_MINUTE_QUERY,
@@ -48,12 +48,12 @@ export const DURATION_DATA = {
     query: AVERAGE_BLOCK_LAST_HOUR_QUERY,
     model: BlockTimeLastHour,
     getRawData: (data:any) => R.pathOr({
-    }, ['average_block_time_per_minute', 0], data),
+    }, ['average_block_time_per_hour', 0], data),
   },
   lastDay: {
     query: AVERAGE_BLOCK_LAST_DAY_QUERY,
     model: BlockTimeLastDay,
     getRawData: (data:any) => R.pathOr({
-    }, ['average_block_time_per_minute', 0], data),
+    }, ['average_block_time_per_day', 0], data),
   },
 };

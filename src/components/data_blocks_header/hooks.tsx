@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import {
+  useEffect, useState,
+} from 'react';
 import * as R from 'ramda';
 import { useQuery } from '@apollo/client';
 import { LATEST_BLOCK_HEIGHT_QUERY } from '@graphql/queries';
@@ -24,28 +26,37 @@ export const useDataBlocksHeaderHook = () => {
   // ====================================
   // Average Block Time
   // ====================================
+  // To disable refetching if it's the initial fetch
+  const [intialFetchComplete, setInitialFetchComplete] = useState(false);
   const [duration, setDuration] = useState('lastMinute');
-  const [durationData, setDurationData] = useState({
+  const [durationValues, setDurationData] = useState({
     allTime: null,
     lastMinute: null,
     lastHour: null,
     lastDay: null,
   });
 
-  if (!durationData[duration] && DURATION_DATA[duration]?.query) {
-    console.log('im in here');
-    // does not exist therefore we need to get it
-    const { data: blockTimeData } = useQuery(DURATION_DATA[duration].query);
-    console.log(blockTimeData, 'whoops');
+  const {
+    data: blockTimeData,
+    refetch: blockTimeRefetch,
+  } = useQuery(DURATION_DATA[duration].query);
+
+  useEffect(() => {
+    if (!durationValues[duration] && DURATION_DATA[duration]?.query && intialFetchComplete) {
+      blockTimeRefetch();
+    }
+    // If the initial duration is lastMinute we can refetch
     const blockTimeRaw = DURATION_DATA[duration]?.getRawData(blockTimeData);
     const blockTimeFormat = DURATION_DATA[duration].model?.fromJson(blockTimeRaw);
-
     const newDurationDataState = R.mergeDeepLeft({
       [duration]: blockTimeFormat?.averageTime?.toFixed(2) ?? null,
-    }, durationData);
+    }, durationValues);
 
     setDurationData(newDurationDataState);
-  }
+    if (!intialFetchComplete) {
+      setInitialFetchComplete(true);
+    }
+  }, [duration, blockTimeData]);
 
   const handleBlockTimeDurationClick = (value:string) => {
     setDuration(value);
@@ -58,7 +69,7 @@ export const useDataBlocksHeaderHook = () => {
   return {
     handleBlockTimeDurationClick,
     duration,
-    durationValue: durationData[duration] ?? '-',
+    durationValue: durationValues[duration] ?? '0',
     latestBlockHeight: {
       loading: latestBlockHeightLoading,
       error: latestBlockHeightError,
