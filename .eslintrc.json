@@ -93,20 +93,6 @@
         "typedefs": false
       }
     ],
-    "object-curly-newline": [
-      "error",
-      {
-        "ObjectExpression": "always",
-        "ObjectPattern": {
-          "multiline": true,
-          "minProperties": 2
-        },
-        "ImportDeclaration": {
-          "multiline": true,
-          "minProperties": 2
-        },
-        "ExportDeclaration": "always"
-      }
-    ]
+    "object-curly-newline": ["error", { "multiline": true }]
   }
 }
