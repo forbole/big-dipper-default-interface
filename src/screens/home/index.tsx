@@ -49,15 +49,7 @@ const Home = () => {
         },
         ],
     },
-    color: {
-      font1: theme?.palette?.custom?.fonts?.fontOne,
-      font2: theme?.palette?.custom?.fonts?.fontTwo,
-      line: '#E8E8E8',
-      colors: ['#FF7846', '#FFD800'],
-    },
-    classname: {
-
-    },
+    classname: 'stabilities',
   };
   return (
     <Layout

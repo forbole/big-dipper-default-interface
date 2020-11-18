@@ -21,6 +21,24 @@ export const useGetStyles = () => {
       '& .stablities': {
         background: theme?.palette?.background?.paper,
         borderRadius: '2px',
+        '& h1': {
+          color: theme?.palette?.custom?.fonts?.fontTwo,
+        },
+        '& .itemTitle': {
+          color: theme?.palette?.custom?.fonts?.fontThree,
+        },
+        '& .amount': {
+          color: theme?.palette?.custom?.fonts?.fontTwo,
+        },
+        '& .amountInChart': {
+          fill: theme?.palette?.custom?.fonts?.fontTwo,
+        },
+        '& .inChart': {
+          fill: theme?.palette?.custom?.fonts?.fontTwo,
+        },
+        '& .line': {
+          background: theme?.palette?.custom?.fonts?.fontThree,
+        },
       },
       '& .consensus': {
         background: 'pink',
@@ -33,10 +51,6 @@ export const useGetStyles = () => {
         background: 'pink',
         height: '200px', // data display holder
       },
-      '& .itemTitle': {
-        fontSize: '5rem',
-      },
-
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
         gridTemplateColumns: 'repeat(2, 1fr)',
         '& > *': {
