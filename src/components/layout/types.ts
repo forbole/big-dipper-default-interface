@@ -15,6 +15,7 @@ export interface LayoutProps {
   type?: string;
   title?: string;
   image?: string;
+  imageAlt?: string;
 }
 
 export interface UseNavHookProps {
