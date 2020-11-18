@@ -1,16 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
-// import { DataBlock } from 'big-dipper-default-ui';
+import { DataBlock } from 'big-dipper-default-ui';
 import { DataBlocksHeader } from '@components';
 import { awaitActions } from '@tests/utils/await_actions';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
-  AVERAGE_BLOCK_LAST_MINUTE_QUERY,
-  AVERAGE_BLOCK_LAST_HOUR_QUERY,
   AVERAGE_BLOCK_LAST_DAY_QUERY,
-  AVERAGE_BLOCK_TIME_FROM_GENESIS_QUERY,
   LATEST_BLOCK_HEIGHT_QUERY,
 } from '@graphql/queries';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
@@ -21,51 +18,15 @@ describe('DataBlocksHeader', () => {
       {
         request: {
           query: LATEST_BLOCK_HEIGHT_QUERY,
-          variables: {},
+          variables: {
+          },
         },
         result: {
           data: {
             block: [
-              {},
-            ],
-          },
-        },
-      },
-      {
-        request: {
-          query: AVERAGE_BLOCK_LAST_MINUTE_QUERY,
-          variables: {},
-        },
-        result: {
-          data: {
-            average_block_time_per_minute: [
-              {},
-            ],
-          },
-        },
-      },
-      {
-        request: {
-          query: AVERAGE_BLOCK_LAST_HOUR_QUERY,
-          variables: {},
-        },
-        result: {
-          data: {
-            average_block_time_per_hour: [
-              {},
-            ],
-          },
-        },
-      },
-      {
-        request: {
-          query: AVERAGE_BLOCK_TIME_FROM_GENESIS_QUERY,
-          variables: {},
-        },
-        result: {
-          data: {
-            average_block_time_from_genesis: [
-              {},
+              {
+                height: 44,
+              },
             ],
           },
         },
@@ -73,12 +34,15 @@ describe('DataBlocksHeader', () => {
       {
         request: {
           query: AVERAGE_BLOCK_LAST_DAY_QUERY,
-          variables: {},
+          variables: {
+          },
         },
         result: {
           data: {
             average_block_time_per_day: [
-              {},
+              {
+                average_time: 4.49,
+              },
             ],
           },
         },
@@ -86,12 +50,15 @@ describe('DataBlocksHeader', () => {
       {
         request: {
           query: AVERAGE_BLOCK_LAST_DAY_QUERY,
-          variables: {},
+          variables: {
+          },
         },
         result: {
           data: {
             average_block_time_per_day: [
-              {},
+              {
+                average_time: 5.49,
+              },
             ],
           },
         },
@@ -109,13 +76,21 @@ describe('DataBlocksHeader', () => {
         mocks,
       }),
     );
+
     await awaitActions({
       wrapper: wrap,
       time: 10,
     });
 
     expect(wrap).not.toBeNull();
-    // expect(wrap.find(DataBlock)).toHaveLength(4);
-    // expect(wrap.find('.data-blocks-container')).toHaveLength(1);
+    expect(wrap.find(DataBlock)).toHaveLength(4);
+    expect(wrap.find('.data-blocks-container')).toHaveLength(1);
+    expect(wrap.find('.latest-block-height').find('h1').text()).toEqual('44');
+    expect(wrap.find('.average-block-time').find('.MuiSelect-select').text()).toEqual('lastDay');
+    expect(wrap.find('.average-block-time').find('h1').text()).toEqual('5.49 s');
+    expect(wrap.find('.MuiMenu-list')).toHaveLength(0);
+    // test the clicks here
+    expect(wrap.find('.price').find('h1').text()).toEqual('$ 0.00');
+    // still need to test validators
   });
 });
