@@ -10,10 +10,7 @@ import {
   Layout,
   DataBlocksHeader,
 } from '@components';
-
-const LAYOUT_MOCK_DATA = {
-  data: [],
-};
+import { LAYOUT_MOCK_DATA } from '@tests/utils/mock_data';
 
 describe('News', () => {
   it('it renders', async () => {

@@ -6,65 +6,11 @@ import { awaitActions } from '@tests/utils/await_actions';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
-import {
-  AVERAGE_BLOCK_LAST_DAY_QUERY,
-  LATEST_BLOCK_HEIGHT_QUERY,
-} from '@graphql/queries';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
+import { DATA_BLOCKS_HEADER_MOCK } from '@tests/utils/mock_data';
 
 describe('DataBlocksHeader', () => {
   it('correctly renders component', async () => {
-    const mocks = [
-      {
-        request: {
-          query: LATEST_BLOCK_HEIGHT_QUERY,
-          variables: {
-          },
-        },
-        result: {
-          data: {
-            block: [
-              {
-                height: 44,
-              },
-            ],
-          },
-        },
-      },
-      {
-        request: {
-          query: AVERAGE_BLOCK_LAST_DAY_QUERY,
-          variables: {
-          },
-        },
-        result: {
-          data: {
-            average_block_time_per_day: [
-              {
-                average_time: 4.49,
-              },
-            ],
-          },
-        },
-      },
-      {
-        request: {
-          query: AVERAGE_BLOCK_LAST_DAY_QUERY,
-          variables: {
-          },
-        },
-        result: {
-          data: {
-            average_block_time_per_day: [
-              {
-                average_time: 5.49,
-              },
-            ],
-          },
-        },
-      },
-    ];
-
     expect(DataBlocksHeader).toBeTruthy();
 
     const wrap = mount(
@@ -73,7 +19,7 @@ describe('DataBlocksHeader', () => {
           component: <DataBlocksHeader />,
           theme: createMuiTheme(lightTheme),
         }),
-        mocks,
+        mocks: DATA_BLOCKS_HEADER_MOCK,
       }),
     );
 
