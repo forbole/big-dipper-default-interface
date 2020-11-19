@@ -2,6 +2,7 @@ import {
   makeStyles, createStyles,
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
+import { args } from './index';
 
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
@@ -37,7 +38,13 @@ export const useGetStyles = () => {
           fill: theme?.palette?.custom?.fonts?.fontTwo,
         },
         '& .line': {
-          background: theme?.palette?.custom?.fonts?.fontThree,
+          fill: theme?.palette?.custom?.fonts?.fontThree,
+        },
+        '& .bonded': {
+          background: args.colors[0],
+        },
+        '& .unbonded': {
+          background: args.colors[1],
         },
       },
       '& .consensus': {
