@@ -30,6 +30,28 @@ export const useGetStyles = () => {
         display: 'none',
       },
     },
+    desktop: {
+      display: 'none',
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        display: 'block',
+        '&.table-preview-wrapper': {
+          background: theme?.palette?.background?.paper,
+          '& .top-bar': {
+            '& h3': {
+              color: theme?.palette?.custom?.fonts?.fontOne,
+              fontSize: '1.5rem',
+            },
+          },
+        },
+        // '& .top-bar': {
+        //   '& h3': {
+        //     background: 'blue',
+        //     color: theme?.palette?.custom?.fonts?.fontOne,
+        //     fontSize: '1.5rem',
+        //   },
+        // },
+      },
+    },
   }));
 
   return {
