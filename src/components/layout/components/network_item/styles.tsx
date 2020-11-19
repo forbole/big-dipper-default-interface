@@ -27,6 +27,7 @@ export const useGetStyles = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           margin: '1.5rem 0',
+          transition: '0.2s',
         },
         '& .networks': {
           width: '100%',
@@ -36,6 +37,7 @@ export const useGetStyles = () => {
           color: 'white',
           fontSize: '0.75rem',
           borderRadius: '3px',
+          background: theme?.palette?.custom?.network?.retired,
           '&.retired': {
             background: theme?.palette?.custom?.network?.retired,
           },

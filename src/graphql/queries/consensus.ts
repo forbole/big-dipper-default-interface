@@ -1,35 +1,35 @@
 import { gql } from '@apollo/client';
 
-export const LATEST_BLOCK_HEIGHT = gql`
+export const LATEST_BLOCK_HEIGHT_QUERY = gql`
   query LatestBlockHeight {
     block(limit: 1, order_by: {height: desc}) {
       height
   }
 }`;
 
-export const AVERAGE_BLOCK_TIME_FROM_GENESIS = gql`
-subscription AverageBlockTimeAllTime{
+export const AVERAGE_BLOCK_TIME_FROM_GENESIS_QUERY = gql`
+query AverageBlockTimeAllTime{
   average_block_time_from_genesis(limit: 1, order_by: {height: desc}){
     average_time
   }
 }`;
 
-export const AVERAGE_BLOCK_LAST_MINUTE = gql`
-subscription AverageBlockTimeLastMinute{
+export const AVERAGE_BLOCK_LAST_MINUTE_QUERY = gql`
+query AverageBlockTimeLastMinute{
   average_block_time_per_minute(limit: 1, order_by: {height: desc}){
     average_time
   }
 }`;
 
-export const AVERAGE_BLOCK_LAST_HOUR = gql`
-subscription AverageBlockTimeLastHour{
+export const AVERAGE_BLOCK_LAST_HOUR_QUERY = gql`
+query AverageBlockTimeLastHour{
   average_block_time_per_hour(limit: 1, order_by: {height: desc}){
     average_time
   }
 }`;
 
-export const AVERAGE_BLOCK_LAST_DAY = gql`
-subscription AverageBlockTimeLastDay{
+export const AVERAGE_BLOCK_LAST_DAY_QUERY = gql`
+query AverageBlockTimeLastDay{
   average_block_time_per_day(limit: 1, order_by: {height: desc}){
     average_time
   }

@@ -4,6 +4,7 @@ import MaxWidthContent from './max_width_content';
 import MaxWidthContainer from './max_width_container';
 import DataBlocksHeader from './data_blocks_header';
 import StabilitiesItem from './stabilities';
+import HeaderBar from './header_bar';
 
 export {
   Layout,
@@ -12,4 +13,5 @@ export {
   MaxWidthContainer,
   DataBlocksHeader,
   StabilitiesItem,
+  HeaderBar,
 };

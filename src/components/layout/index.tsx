@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import validator from 'validator';
 import Head from 'next/head';
 import classnames from 'classnames';
@@ -11,16 +12,18 @@ import {
 import { Footer } from '@components';
 import { ThemeModeContext } from '@contexts';
 import { useGetScreenSize } from '@utils';
+import { chainConfig } from '@src/chain_config';
 import { LayoutProps } from './types';
 import {
   useMobileNavHook,
   useDesktopNavHook,
+  useNetworkHook,
 } from './hooks';
 import {
   getLanguageList,
   getNavComponents,
+  getNetworksComponent,
 } from './utils';
-import { NetworkItem } from './components';
 import { useGetStyles } from './styles';
 
 export const Layout = (props: LayoutProps) => {
@@ -34,6 +37,7 @@ export const Layout = (props: LayoutProps) => {
     description = '',
     type = 'website',
     title = t('bigDipper'),
+    imageAlt,
   } = props;
 
   let { image = '/images/icons/favicon-32x32.png' } = props;
@@ -72,15 +76,13 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Network
   // ============================
+  const { networks } = useNetworkHook();
+  const networkItems = getNetworksComponent(networks);
   const selectedNetwork = {
     online: true,
-    value: 'cosmoshub3dfgdgfhghfgh',
-    iconSrc: 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/8178b6bcce1d1563bac10f8a150c713724a742f1/cosmoshub.svg?sanitize=true',
+    value: chainConfig.network,
+    iconSrc: chainConfig.icon,
   };
-  const networkItems = [
-    <NetworkItem />,
-    <NetworkItem />,
-  ];
   // ============================
   // Menu
   // ============================
@@ -96,27 +98,60 @@ export const Layout = (props: LayoutProps) => {
   }
   return (
     <>
+      {/* ========================================= */}
+      {/* meta tags */}
+      {/* ========================================= */}
+      <NextSeo
+        title={title}
+        description={description}
+        openGraph={{
+          type,
+          title,
+          site_name: 'Big Dipper',
+          url: currentPath,
+          description,
+          images: [
+            {
+              url: image,
+              alt: imageAlt ?? description,
+            },
+          ],
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+        additionalMetaTags={[
+          {
+            name: 'msapplication-TileColor',
+            content: '#da532c',
+          },
+          {
+            name: 'msapplication-config',
+            content: `${baseUrl}/images/icons/browserconfig.xml`,
+          },
+          {
+            name: 'theme-color',
+            content: '#ffffff',
+          },
+        ]}
+      />
+      {/* ========================================= */}
+      {/* ld schema */}
+      {/* ========================================= */}
+      {/* ========================================= */}
+      {/* other header tags */}
+      {/* ========================================= */}
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="og:type" content={type} />
-        <meta name="og:title" content={title} />
-        <meta name="og:site_name" content="Big Dipper" />
-        <meta name="og:url" content={currentPath} />
-        <meta name="og:description" content={description} />
-        <meta name="og:image" content={image} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={image} />
         <link rel="apple-touch-icon" sizes="180x180" href={`${baseUrl}/images/icons/apple-touch-icon.png`} />
         <link rel="icon" type="image/png" sizes="32x32" href={`${baseUrl}/images/icons/favicon-32x32.png`} />
         <link rel="icon" type="image/png" sizes="16x16" href={`${baseUrl}/images/icons/favicon-16x16.png`} />
         <link rel="manifest" href={`${baseUrl}/images/icons/site.webmanifest`} />
         <link rel="mask-icon" href={`${baseUrl}/images/icons/safari-pinned-tab.svg`} color="#5bbad5" />
         <link rel="shortcut icon" href={`${baseUrl}/images/icons/favicon.ico`} />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="msapplication-config" content={`${baseUrl}/images/icons/browserconfig.xml`} />
-        <meta name="theme-color" content="#ffffff" />
       </Head>
+      {/* ========================================= */}
+      {/* body */}
+      {/* ========================================= */}
       <div className={classnames(classes.root, className)}>
         {/* ========================================= */}
         {/* desktop nav start */}

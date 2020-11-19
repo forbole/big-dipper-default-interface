@@ -8,7 +8,7 @@ class BlockTime {
 
   static fromJson(json: any) {
     return new BlockTime({
-      consensusAddress: json.average_time,
+      averageTime: json.average_time,
     });
   }
 }
