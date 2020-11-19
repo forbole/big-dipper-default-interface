@@ -2,50 +2,13 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DesktopHeaderBar } from 'big-dipper-internal-ui';
-import { Stabilities } from 'big-dipper-default-ui';
 import {
   Layout,
   DataBlocksHeader,
+  StabilitiesItem,
 } from '@components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
-
-export const args = {
-  title: 'Stabilities',
-  coin: 'ATOM',
-  price: {
-    title: 'Price',
-    display: '$2.756',
-  },
-  inflation: {
-    title: 'Inflation',
-    display: '7.01%',
-  },
-  marketCap: {
-    title: 'Market Cap',
-    display: '$515,551',
-  },
-  communityPool: {
-    title: 'Community Pool',
-    display: '370,000',
-  },
-  data: {
-    total: {
-      value: 191235.473,
-      display: '0.19 m',
-    },
-    detail:
-      [{
-        title: 'Bonded', value: 100000, display: '10,000',
-      },
-      {
-        title: 'UnBonded', value: 91235.473, display: '91,235.4',
-      },
-      ],
-  },
-  classname: 'stabilities',
-  colors: ['#FF7846', '#FFD800'],
-};
 
 const Home = () => {
   const { t } = useTranslation(['home', 'common']);
@@ -93,9 +56,7 @@ const Home = () => {
         </div>
         {/* stabilities start */}
         <div className={classnames('stablities')}>
-          <Stabilities
-            {...args}
-          />
+          <StabilitiesItem />
         </div>
         {/* consensus start */}
         <div className={classnames('consensus')}>

@@ -7,6 +7,7 @@ import { lightTheme } from '@styles';
 import {
   Layout,
   DataBlocksHeader,
+  StabilitiesItem,
 } from '@components';
 
 describe('Home', () => {
@@ -31,5 +32,6 @@ describe('Home', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
+    expect(wrapper.find(StabilitiesItem)).toHaveLength(1);
   });
 });

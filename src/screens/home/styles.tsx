@@ -2,7 +2,6 @@ import {
   makeStyles, createStyles,
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
-import { args } from './index';
 
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
@@ -22,30 +21,6 @@ export const useGetStyles = () => {
       '& .stablities': {
         background: theme?.palette?.background?.paper,
         borderRadius: '2px',
-        '& h1': {
-          color: theme?.palette?.custom?.fonts?.fontTwo,
-        },
-        '& .itemTitle': {
-          color: theme?.palette?.custom?.fonts?.fontThree,
-        },
-        '& .amount': {
-          color: theme?.palette?.custom?.fonts?.fontTwo,
-        },
-        '& .amountInChart': {
-          fill: theme?.palette?.custom?.fonts?.fontTwo,
-        },
-        '& .inChart': {
-          fill: theme?.palette?.custom?.fonts?.fontTwo,
-        },
-        '& .line': {
-          fill: theme?.palette?.custom?.fonts?.fontThree,
-        },
-        '& .bonded': {
-          background: args.colors[0],
-        },
-        '& .unbonded': {
-          background: args.colors[1],
-        },
       },
       '& .consensus': {
         background: 'pink',

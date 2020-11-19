@@ -16,7 +16,7 @@ export const useAppHook = () => {
   // =========================
   // theme
   // =========================
-  const [themeMode, setMode] = useState('dark');
+  const [themeMode, setMode] = useState('light');
   const theme:any = themeMode === 'dark' ? darkTheme : lightTheme;
 
   useEffect(() => {
