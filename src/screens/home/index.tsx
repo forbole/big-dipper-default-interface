@@ -6,6 +6,7 @@ import {
   DataBlocksHeader,
   HeaderBar,
 } from '@components';
+import { LatestBlocks } from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -43,7 +44,7 @@ const Home = () => {
         </div>
         {/* blocks start */}
         <div className={classnames('latest-blocks')}>
-          latest blocks
+          <LatestBlocks />
         </div>
         {/* latest activities start */}
         <div className={classnames('latest-activites')}>
