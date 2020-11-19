@@ -4,11 +4,13 @@ import {
   LatestBlocksMobile,
   TablePreviewWrapper,
 } from 'big-dipper-default-ui';
-import { dummyLatestBlocksData } from './utils';
 import { useGetStyles } from './styles';
 import {
   ActionMobile, FooterAction,
 } from './components';
+import {
+  dummyLatestBlocksData, dummyLabelsMobile,
+} from './utils';
 
 const LatestBlocks = () => {
   const { classes } = useGetStyles();
@@ -22,7 +24,10 @@ const LatestBlocks = () => {
       action={ActionMobile}
       footerAction={FooterAction}
     >
-      <LatestBlocksMobile data={dummyLatestBlocksData} />
+      <LatestBlocksMobile
+        labels={dummyLabelsMobile}
+        data={dummyLatestBlocksData}
+      />
     </TablePreviewWrapper>
   );
 };
