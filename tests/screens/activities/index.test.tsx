@@ -8,7 +8,6 @@ import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
 } from '@tests/utils/mock_data';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
   Layout,
@@ -23,7 +22,7 @@ describe('Activities', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Activities />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),
@@ -41,7 +40,7 @@ describe('Activities', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Activities />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),

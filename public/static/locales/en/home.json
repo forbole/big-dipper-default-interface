@@ -1,3 +1,11 @@
 {
-  "title": "Desmos"
+  "title": "Desmos",
+  "seeMore": "See More",
+  "latestBlocks": "Latest Blocks",
+  "txMobile": "tx",
+  "txDesktop": "Txs",
+  "proposer": "Proposer",
+  "height": "Height",
+  "time": "Time [UTC]",
+  "hash": "Hash"
 }

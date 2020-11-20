@@ -4,7 +4,6 @@ import { DataBlock } from 'big-dipper-default-ui';
 import { DataBlocksHeader } from '@components';
 import { awaitActions } from '@tests/utils/await_actions';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { DATA_BLOCKS_HEADER_MOCK } from '@tests/utils/mock_data';
@@ -17,7 +16,7 @@ describe('DataBlocksHeader', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <DataBlocksHeader />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: DATA_BLOCKS_HEADER_MOCK,
       }),

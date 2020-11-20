@@ -26,8 +26,7 @@ export const useGetStyles = () => {
         background: 'pink',
       },
       '& .latest-blocks': {
-        background: 'pink',
-        height: '200px', // data display holder
+
       },
       '& .latest-activites': {
         background: 'pink',

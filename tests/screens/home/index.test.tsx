@@ -1,11 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Home from '@screens/home';
+import { LatestBlocks } from '@screens/home/components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
   Layout,
@@ -26,7 +26,7 @@ describe('Home', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Home />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),
@@ -45,7 +45,7 @@ describe('Home', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Home />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),
@@ -59,5 +59,6 @@ describe('Home', () => {
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
     expect(wrapper.find(StabilitiesItem)).toHaveLength(1);
     expect(wrapper.find(HeaderBar)).toHaveLength(1);
+    expect(wrapper.find(LatestBlocks)).toHaveLength(1);
   });
 });

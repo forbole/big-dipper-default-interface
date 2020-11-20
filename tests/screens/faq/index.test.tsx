@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Faq from '@screens/faq';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
@@ -13,7 +12,7 @@ describe('Faq', () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
     const wrapper = mount(BaseWrapper({
       component: <Faq />,
-      theme: createMuiTheme(lightTheme),
+      theme: lightTheme,
     }));
 
     await awaitActions({
