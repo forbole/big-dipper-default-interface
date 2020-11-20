@@ -4,7 +4,6 @@ import News from '@screens/news';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
   Layout,
@@ -19,7 +18,7 @@ describe('News', () => {
     const wrapper = mount(
       BaseWrapper({
         component: <News />,
-        theme: createMuiTheme(lightTheme),
+        theme: lightTheme,
       }),
     );
 
@@ -35,7 +34,7 @@ describe('News', () => {
     const wrapper = mount(
       BaseWrapper({
         component: <News />,
-        theme: createMuiTheme(lightTheme),
+        theme: lightTheme,
       }),
     );
     await awaitActions({

@@ -5,7 +5,6 @@ import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
   Layout,
@@ -25,7 +24,7 @@ describe('Home', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Home />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),
@@ -44,7 +43,7 @@ describe('Home', () => {
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Home />,
-          theme: createMuiTheme(lightTheme),
+          theme: lightTheme,
         }),
         mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
       }),

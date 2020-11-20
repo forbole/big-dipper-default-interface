@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { Footer } from '@components';
 import { WithMockMaterialTheme } from '@tests/utils/mock_material_theme';
-import { createMuiTheme } from '@material-ui/core/styles';
 import { lightTheme } from '@styles';
 import {
   Button,
@@ -13,7 +12,7 @@ describe('Footer', () => {
   it('correctly renders Footer component', () => {
     const wrap = mount(WithMockMaterialTheme({
       component: <Footer />,
-      theme: createMuiTheme(lightTheme),
+      theme: lightTheme,
     }));
 
     expect(wrap.find(Button)).toHaveLength(0);
