@@ -41,6 +41,15 @@
       "rules": {
         "no-undef": "off"
       }
+    },
+    {
+      "files": [
+        "src/**/*.test.tsx"
+      ],
+      "rules": {
+        "no-undef": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
     }
   ],
   "rules": {

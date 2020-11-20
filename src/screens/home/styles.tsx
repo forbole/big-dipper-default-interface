@@ -29,8 +29,7 @@ export const useGetStyles = () => {
         height: '200px',
       },
       '& .latest-blocks': {
-        background: 'pink',
-        height: '200px', // data display holder
+
       },
       '& .latest-activites': {
         background: 'pink',
