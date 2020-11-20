@@ -33,25 +33,23 @@ export const args = {
         title: 'Bonded', value: 100000, display: '10,000',
       },
       {
-        title: 'UnBonded', value: 91235.473, display: '91,235.4',
+        title: 'Unbonded', value: 91235.473, display: '91,235.4',
       },
       ],
   },
-  classname: 'stabilities',
+  classname: 'classes.root',
   colors: ['#FF7846', '#FFD800'],
 };
 
 const StabilitiesItem = () => {
   const { classes } = useGetStyles();
-  // const { t } = useTranslation('common');
   return (
-    <div className={classnames(classes.root)}>
-      <div className={classnames('stablities')}>
-        <Stabilities
-          {...args}
-        />
-      </div>
-    </div>
+    // <div className={args.classname}>
+    <Stabilities
+      classname={classnames(classes.root)}
+      {...args}
+    />
+    // </div>
   );
 };
 

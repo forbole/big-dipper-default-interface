@@ -11,9 +11,11 @@ export const useGetStyles = () => {
         borderRadius: '2px',
         '& h1': {
           color: theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo,
+          // color: 'red',
         },
         '& .itemTitle': {
           color: theme?.palette?.custom?.fonts?.fontThree,
+          // color: 'red',
         },
         '& .amount': {
           color: theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo,
