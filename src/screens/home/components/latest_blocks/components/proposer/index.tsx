@@ -1,8 +1,21 @@
 import React from 'react';
+import classnames from 'classnames';
+import Link from 'next/link';
+import { useGetStyles } from './styles';
+import { ProposerProps } from './types';
 
-const Proposer = () => {
+const Proposer = (props:ProposerProps) => {
+  const { classes } = useGetStyles();
+  const {
+    id,
+    display,
+  } = props;
   return (
-    <p>Forbole</p>
+    <Link href={`/validators/${id}`}>
+      <a>
+        <p className={classnames(classes.root)}>{display}</p>
+      </a>
+    </Link>
   );
 };
 

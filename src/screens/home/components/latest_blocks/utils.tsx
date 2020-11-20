@@ -25,28 +25,28 @@ export const getLabelsDesktop = (t:any) => ({
 // mobile only shows 7
 export const dummyLatestBlocksData:any[] = [
   {
-    proposer: <Proposer />,
+    proposer: <Proposer display="Forbole" id="12345563" />,
     height: <Height display="200,00" raw={20000} />,
     time: '10 Jan 2021,13:00:22 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
   },
   {
-    proposer: <Proposer />,
+    proposer: <Proposer display="Forbole" id="12345563" />,
     height: <Height display="200,00" raw={20000} />,
     time: '10 Jan 2021,13:00:22 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
   },
   {
-    proposer: <Proposer />,
+    proposer: <Proposer display="Forbole" id="12345563" />,
     height: <Height display="200,00" raw={20000} />,
     time: '10 Jan 2021,13:00:22 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
   },
   {
-    proposer: <Proposer />,
+    proposer: <Proposer display="Forbole" id="12345563" />,
     height: <Height display="200,00" raw={20000} />,
     time: '10 Jan 2021,13:00:22 UTC',
     hash: '89832B67F594asddw32',
