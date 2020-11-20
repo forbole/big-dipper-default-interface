@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from '@src/screens/home/components/stabilities/node_modules/classnames';
+import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { Layout } from '@components';
 import { useNewsHook } from './hooks';

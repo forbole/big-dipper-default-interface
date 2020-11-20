@@ -19,8 +19,6 @@ export const useGetStyles = () => {
         background: 'pink',
       },
       '& .stablities': {
-        // background: theme?.palette?.background?.paper,
-        // borderRadius: '2px',
       },
       '& .consensus': {
         background: 'pink',
