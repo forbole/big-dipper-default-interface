@@ -1,6 +1,5 @@
 import React from 'react';
 import classnames from 'classnames';
-// import { useTranslation } from 'i18n';
 import { Stabilities } from 'big-dipper-default-ui';
 import { useGetStyles } from './styles';
 
@@ -37,19 +36,18 @@ export const args = {
       },
       ],
   },
-  classname: 'classes.root',
   colors: ['#FF7846', '#FFD800'],
 };
 
 const StabilitiesItem = () => {
   const { classes } = useGetStyles();
   return (
-    // <div className={args.classname}>
-    <Stabilities
-      classname={classnames(classes.root)}
-      {...args}
-    />
-    // </div>
+    <div>
+      <Stabilities
+        className={classnames(classes.root)}
+        {...args}
+      />
+    </div>
   );
 };
 

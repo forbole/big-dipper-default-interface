@@ -4,10 +4,9 @@ import { useTranslation } from 'i18n';
 import {
   Layout,
   DataBlocksHeader,
-  StabilitiesItem,
   HeaderBar,
 } from '@components';
-import { LatestBlocks } from './components';
+import { LatestBlocks, StabilitiesItem } from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 

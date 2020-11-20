@@ -3,7 +3,6 @@ import Footer from './footer';
 import MaxWidthContent from './max_width_content';
 import MaxWidthContainer from './max_width_container';
 import DataBlocksHeader from './data_blocks_header';
-import StabilitiesItem from './stabilities';
 import HeaderBar from './header_bar';
 
 export {
@@ -12,6 +11,5 @@ export {
   MaxWidthContent,
   MaxWidthContainer,
   DataBlocksHeader,
-  StabilitiesItem,
   HeaderBar,
 };

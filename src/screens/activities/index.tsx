@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classnames from '@src/screens/home/components/stabilities/node_modules/classnames';
 import { useTranslation } from 'i18n';
 import {
   Layout,
