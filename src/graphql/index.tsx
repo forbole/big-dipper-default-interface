@@ -32,6 +32,7 @@ const link = process?.browser ? split(
 
 const client = new ApolloClient({
   link,
+  ssrMode: true,
   cache: new InMemoryCache(),
 });
 
