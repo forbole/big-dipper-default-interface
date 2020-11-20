@@ -1,5 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
+import { useTranslation } from 'i18n';
 import {
   LatestBlocksMobile,
   TablePreviewWrapper,
@@ -10,11 +11,14 @@ import {
   ActionMobile, FooterAction, ActionDesktop,
 } from './components';
 import {
-  dummyLatestBlocksData, dummyLabelsMobile, dummyLabelsDesktop,
+  dummyLatestBlocksData, getLabelsMobile, getLabelsDesktop,
 } from './utils';
 
 const LatestBlocks = () => {
+  const { t } = useTranslation(['home']);
   const { classes } = useGetStyles();
+  const labelsMobile = getLabelsMobile(t);
+  const labelsDesktop = getLabelsDesktop(t);
   return (
     <>
       {/* ================================ */}
@@ -27,7 +31,7 @@ const LatestBlocks = () => {
         footerAction={FooterAction}
       >
         <LatestBlocksMobile
-          labels={dummyLabelsMobile}
+          labels={labelsMobile}
           data={dummyLatestBlocksData}
         />
       </TablePreviewWrapper>
@@ -40,7 +44,7 @@ const LatestBlocks = () => {
         action={ActionDesktop}
       >
         <LatestBlocksDesktop
-          labels={dummyLabelsDesktop}
+          labels={labelsDesktop}
           data={dummyLatestBlocksData}
         />
       </TablePreviewWrapper>

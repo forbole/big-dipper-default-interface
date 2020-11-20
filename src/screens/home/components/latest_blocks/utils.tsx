@@ -2,17 +2,25 @@ import {
   Proposer, Height,
 } from './components';
 
-export const dummyLabelsMobile = {
-  tx: 'tx',
-};
+/**
+ * Helper function to get mobile labels
+ * @param t i18n translator
+ */
+export const getLabelsMobile = (t:any) => ({
+  tx: t('txMobile'),
+});
 
-export const dummyLabelsDesktop = {
-  proposer: 'Proposer',
-  height: 'Height',
-  time: 'Time',
-  hash: 'Hash',
-  tx: 'tx',
-};
+/**
+ * Helper function to get deskop labels
+ * @param t i18n translator
+ */
+export const getLabelsDesktop = (t:any) => ({
+  proposer: t('proposer'),
+  height: t('height'),
+  time: t('time'),
+  hash: t('hash'),
+  tx: t('txDesktop'),
+});
 
 // mobile only shows 7
 export const dummyLatestBlocksData:any[] = [

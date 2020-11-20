@@ -42,14 +42,23 @@ export const useGetStyles = () => {
               fontSize: '1.5rem',
             },
           },
+          '& .content': {
+            '& .MuiTableCell-head': {
+              color: theme?.palette?.custom?.fonts?.fontTwo,
+            },
+            '& .table': {
+              background: theme?.palette?.background?.paper,
+            },
+            '& .single-row': {
+              '&:nth-of-type(odd)': {
+                background: theme?.palette?.custom?.table?.rowOdd,
+              },
+              '& .cell': {
+                color: theme?.palette?.custom?.fonts?.fontTwo,
+              },
+            },
+          },
         },
-        // '& .top-bar': {
-        //   '& h3': {
-        //     background: 'blue',
-        //     color: theme?.palette?.custom?.fonts?.fontOne,
-        //     fontSize: '1.5rem',
-        //   },
-        // },
       },
     },
   }));

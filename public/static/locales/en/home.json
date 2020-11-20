@@ -2,5 +2,10 @@
   "title": "Desmos",
   "seeMore": "See More",
   "latestBlocks": "Latest Blocks",
-  "tx": "tx"
+  "txMobile": "tx",
+  "txDesktop": "Txs",
+  "proposer": "Proposer",
+  "height": "Height",
+  "time": "Time [UTC]",
+  "hash": "Hash"
 }
