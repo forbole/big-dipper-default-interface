@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const LATEST_TRANSACTIONS_QUERY = gql`
 query LatestActivies($limit: Int!, $offset: Int!) {
-  transaction(order_by: {timestamp: desc}, where: {messages: {_is_null: false}}, limit: $limit, offset: !offset) {
+  transaction(order_by: {timestamp: desc}, where: {messages: {_is_null: false}}, limit: $limit, offset: $offset) {
     messages
   }
 }
