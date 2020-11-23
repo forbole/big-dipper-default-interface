@@ -27,35 +27,7 @@ query DescriptionHistory($address: String!) {
   }
 }`;
 
-export const POTENTIAL = gql`
-query DescriptionHistory($address: String!) {
-  validator_info(where: {operator_address: {_eq: $address}}) {
-    self_delegate_address
-    operator_address
-    max_change_rate
-    max_rate
-    validator_commission {
-      commission
-    }
-  }
-  proposal_aggregate(where: {proposer: {_eq: $address}}) {
-    aggregate {
-      count(columns: proposal_id)
-    }
-  }
-  validator_delegation_shares_aggregate(where: {account: {address: {_eq: $address}}}) {
-    aggregate {
-      count(columns: delegator_address)
-    }
-  }
-  validator_uptime(where: {validator: {}, validator_address: {_eq: $address}}) {
-    signed_blocks_window
-    missed_blocks_counter
-  }
-}
-`;
-
-export const VOTING_POWER = gql`
+export const VALIDATOR_VOTING_POWER = gql`
   query MyQuery($consAddress: String!, $limit: Int!) {
     validator_voting_power(where: {consensus_address: {_eq: $consAddress}}, limit: $limit) {
       voting_power
@@ -69,45 +41,6 @@ export const VOTING_POWER = gql`
       self_delegate_address
     }
   }
-`;
-
-export const DELEGATION = gql`
-  query MyQuery($consAddress: String!, $limit: Int!) {
-    validator_delegation_shares(where: {validator_info: {consensus_address: {_eq: $consAddress}}}, limit: $limit) {
-      shares
-      delegator_address
-    }
-  }
-`;
-
-export const REDELEGATION = gql`
-  query MyQuery($consAddress: String!, $limit: Int!) {
-    validator_redelegation(where: {validator: {consensus_address: {_eq: $consAddress}}}, limit: $limit) {
-      amount
-      src_validator_address
-      dst_validator_address
-    }
-    validator_redelegation_aggregate(where: {src_validator_address: {_eq: $consAddress}}) {
-      aggregate {
-        count(distinct: true, columns: dst_validator_address)
-      }
-    }
-  }
-`;
-
-export const UNDELEGATION = gql`
-  query MyQuery($consAddress: String!, $limit: Int!) {
-  validator_unbonding_delegation_aggregate(where: {consensus_address: {_eq: $consAddress}}) {
-    aggregate {
-      count(columns: delegator_address)
-    }
-  }
-  validator_unbonding_delegation(limit: $limit, where: {consensus_address: {_eq: $consAddress}}) {
-    amount
-    delegator_address
-  }
-}
-
 `;
 
 // VALIDATOR_LIST return a list of validator as "Active validators" on big
@@ -138,3 +71,31 @@ export const VALIDATOR_LIST = gql`
     }
   }
 }`;
+
+export const VALIDATOR_POTENTIAL = gql`
+query DescriptionHistory($address: String!) {
+  validator_info(where: {operator_address: {_eq: $address}}) {
+    self_delegate_address
+    operator_address
+    max_change_rate
+    max_rate
+    validator_commission {
+      commission
+    }
+  }
+  proposal_aggregate(where: {proposer: {_eq: $address}}) {
+    aggregate {
+      count(columns: proposal_id)
+    }
+  }
+  validator_delegation_shares_aggregate(where: {account: {address: {_eq: $address}}}) {
+    aggregate {
+      count(columns: delegator_address)
+    }
+  }
+  validator_uptime(where: {validator: {}, validator_address: {_eq: $address}}) {
+    signed_blocks_window
+    missed_blocks_counter
+  }
+}
+`;
