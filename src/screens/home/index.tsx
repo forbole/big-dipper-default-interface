@@ -6,7 +6,10 @@ import {
   DataBlocksHeader,
   HeaderBar,
 } from '@components';
-import { LatestBlocks, StabilitiesItem } from './components';
+import {
+  LatestBlocks,
+  StabilitiesItem,
+} from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 
