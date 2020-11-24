@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Home from '@screens/home';
 import {
   LatestBlocks,
-  StabilitiesItem,
+  Stabilities,
 } from '@screens/home/components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
@@ -16,7 +16,7 @@ import {
   HeaderBar,
 } from '@components';
 import {
-  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK, STABILITIES_MOCK,
+  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
 } from '@tests/utils/mock_data';
 
 describe('Home', () => {
@@ -56,11 +56,11 @@ describe('Home', () => {
       wrapper,
       time: 10,
     });
-    // expect(wrapper).not.toBeNull();
-    // expect(wrapper.find(Layout)).toHaveLength(1);
-    // expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
-    // // expect(wrapper.find(StabilitiesItem)).not.toBeNull();
-    // expect(wrapper.find(HeaderBar)).toHaveLength(1);
-    // expect(wrapper.find(LatestBlocks)).toHaveLength(1);
+    expect(wrapper).not.toBeNull();
+    expect(wrapper.find(Layout)).toHaveLength(1);
+    expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
+    expect(wrapper.find(Stabilities)).toHaveLength(1);
+    expect(wrapper.find(HeaderBar)).toHaveLength(1);
+    expect(wrapper.find(LatestBlocks)).toHaveLength(1);
   });
 });

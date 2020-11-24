@@ -8,7 +8,7 @@ import {
 } from '@components';
 import {
   LatestBlocks,
-  StabilitiesItem,
+  Stabilities,
 } from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -39,7 +39,7 @@ const Home = () => {
         </div>
         {/* stabilities start */}
         <div className={classnames('stablities')}>
-          <StabilitiesItem />
+          <Stabilities />
         </div>
         {/* consensus start */}
         <div className={classnames('consensus')}>

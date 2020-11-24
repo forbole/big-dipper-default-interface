@@ -7,5 +7,13 @@
   "proposer": "Proposer",
   "height": "Height",
   "time": "Time [UTC]",
-  "hash": "Hash"
+  "hash": "Hash",
+  "stabilitiesTitle": "Stabilities",
+  "coin": "ATOM",
+  "priceTitle": "Price",
+  "inflationTitle": "Inflation",
+  "marketCapTitle": "Market Cap",
+  "communityPoolTitle": "Community Pool",
+  "bonded": "Bonded",
+  "unbonded": "Unbonded"
 }

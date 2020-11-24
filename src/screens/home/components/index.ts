@@ -1,7 +1,7 @@
 import LatestBlocks from './latest_blocks';
-import StabilitiesItem from './stabilities';
+import Stabilities from './stabilities';
 
 export {
   LatestBlocks,
-  StabilitiesItem,
+  Stabilities,
 };
