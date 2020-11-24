@@ -1,15 +1,28 @@
 // ===============================
 // Consensus
 // ===============================
+import { CONSENSUS_STATE } from './consensus';
+
+// ===============================
+// Blocks
+// ===============================
 import {
   AVERAGE_BLOCK_LAST_MINUTE_QUERY,
-  BLOCK_INFO_LIMIT,
+  LATEST_BLOCKS_QUERY,
   AVERAGE_BLOCK_LAST_HOUR_QUERY,
   AVERAGE_BLOCK_LAST_DAY_QUERY,
   AVERAGE_BLOCK_TIME_FROM_GENESIS_QUERY,
   LATEST_BLOCK_HEIGHT_QUERY,
-  CONSENSUS_STATE,
-} from './consensus';
+} from './blocks';
+
+// ===============================
+// Transaction
+// ===============================
+import {
+  UNDELEGATION,
+  DELEGATION_QUERY,
+  REDELEGATION,
+} from './transactions';
 
 // ===============================
 // Staking
@@ -17,13 +30,10 @@ import {
 import {
   VALIDATOR_DISCRIPTION,
   VALIDATOR_INFO,
-  POTENTIAL,
-  VOTING_POWER,
+  VALIDATOR_POTENTIAL,
+  VALIDATOR_VOTING_POWER,
   VALIDATOR_LIST,
-  UNDELEGATION,
-  DELEGATION,
-  REDELEGATION,
-} from './staking';
+} from './validators';
 
 // ===============================
 // PriceFeed
@@ -51,11 +61,11 @@ import {
   NO_VOTE,
   ALL_VOTE,
   YES_VOTE,
-} from './gov';
+} from './proposals';
 
 export {
   AVERAGE_BLOCK_LAST_MINUTE_QUERY,
-  BLOCK_INFO_LIMIT,
+  LATEST_BLOCKS_QUERY,
   AVERAGE_BLOCK_LAST_HOUR_QUERY,
   AVERAGE_BLOCK_LAST_DAY_QUERY,
   AVERAGE_BLOCK_TIME_FROM_GENESIS_QUERY,
@@ -63,9 +73,9 @@ export {
   CONSENSUS_STATE,
   VALIDATOR_DISCRIPTION,
   VALIDATOR_INFO,
-  POTENTIAL,
-  VOTING_POWER,
-  DELEGATION,
+  VALIDATOR_POTENTIAL,
+  VALIDATOR_VOTING_POWER,
+  DELEGATION_QUERY,
   REDELEGATION,
   UNDELEGATION,
   VALIDATOR_LIST,
