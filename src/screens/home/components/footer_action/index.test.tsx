@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { mount } from 'enzyme';
+import { mount } from '@src/screens/home/components/action_mobile/node_modules/enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import FooterAction from '.';

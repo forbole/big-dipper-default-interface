@@ -27,8 +27,7 @@ export const useGetStyles = () => {
 
       },
       '& .latest-activites': {
-        background: 'pink',
-        height: '200px', // data display holder
+
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
         gridTemplateColumns: 'repeat(2, 1fr)',

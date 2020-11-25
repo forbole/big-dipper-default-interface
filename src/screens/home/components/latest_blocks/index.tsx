@@ -21,6 +21,7 @@ const LatestBlocks = () => {
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
   const { handleClick } = useLatestBlocksHook();
+  const url = '/blocks';
   return (
     <>
       {/* ================================ */}
@@ -28,9 +29,9 @@ const LatestBlocks = () => {
       {/* ================================ */}
       <TablePreviewWrapper
         className={classnames(classes.mobile)}
-        title="Latest Blocks"
-        action={ActionMobile}
-        footerAction={FooterAction}
+        title={t('latestBlocks')}
+        action={<ActionMobile url={url} />}
+        footerAction={<FooterAction url={url} />}
       >
         <LatestBlocksMobile
           labels={labelsMobile}
@@ -44,7 +45,7 @@ const LatestBlocks = () => {
       <TablePreviewWrapper
         className={classnames(classes.desktop)}
         title="Latest Blocks"
-        action={ActionDesktop}
+        action={<ActionMobile url={url} />}
       >
         <LatestBlocksDesktop
           labels={labelsDesktop}
