@@ -10,7 +10,6 @@ export const useGetStyles = () => {
       gridTemplateColumns: 'repeat(1, 1fr)',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
-
       '& .data-blocks-container': {
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
@@ -18,15 +17,11 @@ export const useGetStyles = () => {
       },
       '& .data-graphs': {
         background: 'pink',
-        height: '200px', // data display holder
       },
       '& .stablities': {
-        background: 'pink',
-        height: '200px', // data display holder
       },
       '& .consensus': {
         background: 'pink',
-        height: '200px',
       },
       '& .latest-blocks': {
 
@@ -35,7 +30,6 @@ export const useGetStyles = () => {
         background: 'pink',
         height: '200px', // data display holder
       },
-
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
         gridTemplateColumns: 'repeat(2, 1fr)',
         '& > *': {

@@ -6,7 +6,10 @@ import {
   DataBlocksHeader,
   HeaderBar,
 } from '@components';
-import { LatestBlocks } from './components';
+import {
+  LatestBlocks,
+  Stabilities,
+} from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -36,7 +39,7 @@ const Home = () => {
         </div>
         {/* stabilities start */}
         <div className={classnames('stablities')}>
-          stabilities
+          <Stabilities />
         </div>
         {/* consensus start */}
         <div className={classnames('consensus')}>
