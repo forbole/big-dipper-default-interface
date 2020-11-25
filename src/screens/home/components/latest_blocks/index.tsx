@@ -13,12 +13,14 @@ import {
 import {
   dummyLatestBlocksData, getLabelsMobile, getLabelsDesktop,
 } from './utils';
+import { useLatestBlocksHook } from './hooks';
 
 const LatestBlocks = () => {
   const { t } = useTranslation(['home']);
   const { classes } = useGetStyles();
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
+  const { handleClick } = useLatestBlocksHook();
   return (
     <>
       {/* ================================ */}
@@ -33,6 +35,7 @@ const LatestBlocks = () => {
         <LatestBlocksMobile
           labels={labelsMobile}
           data={dummyLatestBlocksData}
+          onClick={handleClick}
         />
       </TablePreviewWrapper>
       {/* ================================ */}
