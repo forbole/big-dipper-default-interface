@@ -28,6 +28,10 @@ export const useGetStyles = () => {
       },
     },
     desktop: {
+      display: 'none',
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        display: 'block',
+      },
     },
   }));
 

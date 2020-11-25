@@ -4,8 +4,11 @@ import { useTranslation } from 'i18n';
 import {
   TablePreviewWrapper,
   LatestActivitiesMobile,
+  LatestActivitiesDesktop,
 } from 'big-dipper-default-ui';
-import { dummyLatestActivitiesData } from './utils';
+import {
+  dummyLatestActivitiesData, dummyLatestActivitiesDataDesktop,
+} from './utils';
 import {
   ActionMobile, FooterAction,
 } from '..';
@@ -30,6 +33,19 @@ const LatestActivities = () => {
       >
         <LatestActivitiesMobile
           data={dummyLatestActivitiesData}
+          onClick={handleClick}
+        />
+      </TablePreviewWrapper>
+      {/* ================================= */}
+      {/* Desktop */}
+      {/* ================================= */}
+      <TablePreviewWrapper
+        className={classnames(classes.desktop)}
+        title={t('latestActivities')}
+        action={<ActionMobile url={url} />}
+      >
+        <LatestActivitiesDesktop
+          data={dummyLatestActivitiesDataDesktop}
           onClick={handleClick}
         />
       </TablePreviewWrapper>

@@ -67,3 +67,76 @@ export const dummyLatestActivitiesData:any[] = [
     content: <DummyContentMobile />,
   },
 ];
+
+export const dummyLatestActivitiesDataDesktop = [
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    time: '1 hour',
+    success: true,
+    content: <div>custom content</div>,
+    hash: '12344566',
+  },
+];
