@@ -64,4 +64,41 @@ export const dummyLatestBlocksData:any[] = [
     hash: '89832B67F594asddw32',
     tx: 2,
   },
+  {
+    proposer: <Proposer display="Forbole" id="12345563" />,
+    height: {
+      value: 20000,
+      display: <Height display="200,00" raw={20000} />,
+    },
+    time: '10 Jan 2021,13:00:20 UTC',
+    hash: '89832B67F594asddw32',
+    tx: 2,
+  }, {
+    proposer: <Proposer display="Forbole" id="12345563" />,
+    height: {
+      value: 20000,
+      display: <Height display="200,00" raw={20000} />,
+    },
+    time: '10 Jan 2021,13:00:20 UTC',
+    hash: '89832B67F594asddw32',
+    tx: 2,
+  }, {
+    proposer: <Proposer display="Forbole" id="12345563" />,
+    height: {
+      value: 20000,
+      display: <Height display="200,00" raw={20000} />,
+    },
+    time: '10 Jan 2021,13:00:20 UTC',
+    hash: '89832B67F594asddw32',
+    tx: 2,
+  }, {
+    proposer: <Proposer display="Forbole" id="12345563" />,
+    height: {
+      value: 20000,
+      display: <Height display="200,00" raw={20000} />,
+    },
+    time: '10 Jan 2021,13:00:20 UTC',
+    hash: '89832B67F594asddw32',
+    tx: 2,
+  },
 ];

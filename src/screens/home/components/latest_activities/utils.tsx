@@ -76,7 +76,7 @@ export const dummyLatestActivitiesDataDesktop = [
     },
     time: '1 hour',
     success: true,
-    content: <div>custom content</div>,
+    content: <div>custom content content content content content content content content content</div>,
     hash: '12344566',
   },
   {

@@ -8,7 +8,7 @@ export const useGetStyles = () => {
     root: {
       display: 'grid',
       gridTemplateColumns: 'repeat(1, 1fr)',
-      gridTemplateRows: 'min-content min-content min-content',
+      gridAutoRows: 'min-content',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
       '& .data-blocks-container': {
