@@ -49,6 +49,7 @@ const LatestBlocks = () => {
         <LatestBlocksDesktop
           labels={labelsDesktop}
           data={dummyLatestBlocksData}
+          onClick={handleClick}
         />
       </TablePreviewWrapper>
     </>
