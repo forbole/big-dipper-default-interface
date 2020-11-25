@@ -1,6 +1,11 @@
+import { useRouter } from 'next/router';
+
 export const useLatestBlocksHook = () => {
+  const router = useRouter();
   const handleClick = (data:any) => {
-    console.log(data.hash, 'hash baby');
+    if (typeof data?.height?.value === 'number') {
+      router.push(`/blocks/${data.height.value}`);
+    }
   };
 
   return {
