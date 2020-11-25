@@ -50,6 +50,9 @@ export const useGetStyles = () => {
               background: theme?.palette?.background?.paper,
             },
             '& .single-row': {
+              '&:hover': {
+                cursor: 'pointer',
+              },
               '&:nth-of-type(odd)': {
                 background: theme?.palette?.custom?.table?.rowOdd,
               },
