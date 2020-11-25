@@ -59,7 +59,7 @@ export const DATA_BLOCKS_HEADER_MOCK = [
       data: {
         average_block_time_per_day: [
           {
-            average_time: 4.49,
+            average_time: 5.49,
           },
         ],
       },
