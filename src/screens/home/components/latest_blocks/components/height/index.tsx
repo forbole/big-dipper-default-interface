@@ -10,12 +10,19 @@ const Height = (props:HeightProps) => {
     raw,
     display = '-',
   } = props;
+
+  const test = (e:any) => {
+    console.log('i got clicked');
+    e.stopPropagation();
+  };
   return (
-    <Link href={`/blocks/${raw}`}>
-      <a>
-        <p className={classnames(classes.root)}>{display}</p>
-      </a>
-    </Link>
+    <span onClick={test} role="button">
+      <Link href={`/blocks/${raw}`}>
+        <a>
+          <p className={classnames(classes.root)}>{display}</p>
+        </a>
+      </Link>
+    </span>
   );
 };
 
