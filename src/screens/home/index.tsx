@@ -9,6 +9,7 @@ import {
 import {
   LatestBlocks,
   Stabilities,
+  LatestActivities,
 } from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -51,7 +52,7 @@ const Home = () => {
         </div>
         {/* latest activities start */}
         <div className={classnames('latest-activites')}>
-          latest activites
+          <LatestActivities />
         </div>
       </div>
       {/* ===================================== */}

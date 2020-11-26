@@ -8,6 +8,7 @@ export const useGetStyles = () => {
     root: {
       display: 'grid',
       gridTemplateColumns: 'repeat(1, 1fr)',
+      gridAutoRows: 'min-content',
       gridGap: theme?.palette?.custom?.gutters?.small,
       padding: theme?.palette?.custom?.gutters?.small,
       '& .data-blocks-container': {
@@ -27,8 +28,7 @@ export const useGetStyles = () => {
 
       },
       '& .latest-activites': {
-        background: 'pink',
-        height: '200px', // data display holder
+
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
         gridTemplateColumns: 'repeat(2, 1fr)',
