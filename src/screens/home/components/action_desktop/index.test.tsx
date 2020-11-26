@@ -9,7 +9,7 @@ describe('ActionDesktop', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <ActionDesktop />,
+        component: <ActionDesktop url="/" />,
         theme: lightTheme,
       }),
     );
