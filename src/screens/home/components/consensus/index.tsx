@@ -1,52 +1,40 @@
 import React from 'react';
 import classnames from 'classnames';
-import { useTranslation } from 'i18n';
-import { Stabilities } from 'big-dipper-default-ui';
+// import { useTranslation } from 'i18n';
+import { Consensus } from 'big-dipper-default-ui';
 import { useGetStyles } from './styles';
+import { dummyProposerData } from './utils';
 
 export const colors = ['#FF7846', '#FFD800'];
 
-const StabilitiesItem = () => {
+const ConsensusState = () => {
   const { classes } = useGetStyles();
-  const { t } = useTranslation(['home']);
+  // const { t } = useTranslation(['home']);
   return (
-    <Stabilities
+    <Consensus
       className={classnames(classes.root)}
-      title={t('stabilitiesTitle')}
-      coin={t('coin')}
-      price={{
-        title: t('priceTitle'),
-        display: '$2.756',
+      title="Consensus State"
+      height={{
+        title: 'Height',
+        display: '2,769,405',
       }}
-      inflation={{
-        title: t('inflationTitle'),
-        display: '7.01%',
+      proposer={dummyProposerData}
+      votingPower={{
+        title: 'Voting Power',
+        value: 0.85,
       }}
-      marketCap={{
-        title: t('marketCapTitle'),
-        display: '$515,551',
+      colors={['#FD3B4C', '#E8E8E8']}
+      round={{
+        title: 'Round',
+        display: '6',
       }}
-      communityPool={{
-        title: t('communityPoolTitle'),
-        display: '370,000',
+      step={{
+        title: 'Step',
+        display: '4',
       }}
-      data={{
-        total: {
-          value: 191235.473,
-          display: '0.19 m',
-        },
-        detail:
-          [{
-            title: t('bonded'), value: 100000, display: '10,000',
-          },
-          {
-            title: t('unbonded'), value: 91235.473, display: '91,235.4',
-          },
-          ],
-      }}
-      colors={colors}
+      // icon="public/images/icons/favicon-16*16.png"
     />
   );
 };
 
-export default StabilitiesItem;
+export default ConsensusState;
