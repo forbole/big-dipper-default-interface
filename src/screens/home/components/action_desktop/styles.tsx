@@ -5,6 +5,7 @@ import {
 export const useGetStyles = () => {
   const useStyles = makeStyles(createStyles({
     root: {
+      padding: '0.2rem 1rem',
       boxShadow: 'none',
       '&:hover': {
         boxShadow: 'none',

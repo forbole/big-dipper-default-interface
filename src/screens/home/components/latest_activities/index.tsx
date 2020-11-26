@@ -10,7 +10,7 @@ import {
   dummyLatestActivitiesData, dummyLatestActivitiesDataDesktop,
 } from './utils';
 import {
-  ActionMobile, FooterAction,
+  ActionMobile, FooterAction, ActionDesktop,
 } from '..';
 import { useGetStyles } from './styles';
 import { useLatestActivitiesHook } from './hooks';
@@ -42,7 +42,7 @@ const LatestActivities = () => {
       <TablePreviewWrapper
         className={classnames(classes.desktop)}
         title={t('latestActivities')}
-        action={<ActionMobile url={url} />}
+        action={<ActionDesktop url={url} />}
       >
         <LatestActivitiesDesktop
           data={dummyLatestActivitiesDataDesktop}

@@ -45,7 +45,7 @@ const LatestBlocks = () => {
       <TablePreviewWrapper
         className={classnames(classes.desktop)}
         title="Latest Blocks"
-        action={<ActionMobile url={url} />}
+        action={<ActionDesktop url={url} />}
       >
         <LatestBlocksDesktop
           labels={labelsDesktop}
