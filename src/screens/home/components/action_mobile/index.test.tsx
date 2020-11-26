@@ -9,7 +9,7 @@ describe('ActionMobile', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <ActionMobile />,
+        component: <ActionMobile url="/" />,
         theme: lightTheme,
       }),
     );

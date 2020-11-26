@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import ActionDesktop from '.';
+import FooterAction from '.';
 
-describe('ActionDesktop', () => {
+describe('FooterAction', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <ActionDesktop />,
+        component: <FooterAction url="/" />,
         theme: lightTheme,
       }),
     );

@@ -15,14 +15,11 @@ export const useGetStyles = () => {
         },
       },
       '& .content': {
-        '& .single-block': {
+        '& .activity': {
           color: theme?.palette?.custom?.fonts?.fontTwo,
           borderColor: theme?.palette?.divider,
           '&:first-child': {
             borderColor: theme?.palette?.divider,
-          },
-          '& .time': {
-            color: theme?.palette?.custom?.fonts?.fontThree,
           },
         },
       },
@@ -43,25 +40,15 @@ export const useGetStyles = () => {
               fontSize: '1.5rem',
             },
           },
-          '& .content': {
-            '& .MuiTableCell-head': {
-              color: theme?.palette?.custom?.fonts?.fontTwo,
-            },
-            '& .table': {
-              background: theme?.palette?.background?.paper,
-            },
-            '& .single-row': {
-              '&:hover': {
-                cursor: 'pointer',
-              },
-              '&:nth-of-type(odd)': {
-                background: theme?.palette?.custom?.table?.rowOdd,
-              },
-              '& .cell': {
-                color: theme?.palette?.custom?.fonts?.fontTwo,
-              },
-            },
+        },
+        '& .single-activity': {
+          '&:hover': {
+            cursor: 'pointer',
           },
+        },
+        '& .MuiTableCell-root': {
+          color: theme?.palette?.custom?.fonts?.fontTwo,
+          borderColor: theme?.palette?.divider,
         },
       },
     },

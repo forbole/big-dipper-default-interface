@@ -13,12 +13,15 @@ import {
 import {
   dummyLatestBlocksData, getLabelsMobile, getLabelsDesktop,
 } from './utils';
+import { useLatestBlocksHook } from './hooks';
 
 const LatestBlocks = () => {
   const { t } = useTranslation(['home']);
   const { classes } = useGetStyles();
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
+  const { handleClick } = useLatestBlocksHook();
+  const url = '/blocks';
   return (
     <>
       {/* ================================ */}
@@ -26,13 +29,14 @@ const LatestBlocks = () => {
       {/* ================================ */}
       <TablePreviewWrapper
         className={classnames(classes.mobile)}
-        title="Latest Blocks"
-        action={ActionMobile}
-        footerAction={FooterAction}
+        title={t('latestBlocks')}
+        action={<ActionMobile url={url} />}
+        footerAction={<FooterAction url={url} />}
       >
         <LatestBlocksMobile
           labels={labelsMobile}
           data={dummyLatestBlocksData}
+          onClick={handleClick}
         />
       </TablePreviewWrapper>
       {/* ================================ */}
@@ -41,11 +45,12 @@ const LatestBlocks = () => {
       <TablePreviewWrapper
         className={classnames(classes.desktop)}
         title="Latest Blocks"
-        action={ActionDesktop}
+        action={<ActionDesktop url={url} />}
       >
         <LatestBlocksDesktop
           labels={labelsDesktop}
           data={dummyLatestBlocksData}
+          onClick={handleClick}
         />
       </TablePreviewWrapper>
     </>
