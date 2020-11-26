@@ -54,7 +54,7 @@ export const useGetStyles = () => {
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
         // gridTemplateColumns: 'repeat(6, minmax(100px, 1fr))',
-        gridTemplateColumns: 'repeat(6, 1fr)',
+        gridTemplateColumns: 'repeat(7, 1fr)',
         '& .mobile-tablet-header': {
           display: 'none',
         },
@@ -66,16 +66,16 @@ export const useGetStyles = () => {
         },
 
         '& .validator-info': {
-          gridColumn: '3 / 7',
+          gridColumn: '3 / 8',
         },
 
         '& .validator-voting-power': {
-          gridColumn: '3 / 5',
+          gridColumn: '3 / 6',
         },
 
         '& .potential': {
           height: '100%',
-          gridColumn: '5 / 7',
+          gridColumn: '6 / 8',
           gridRow: '2 / span 1',
         },
 
@@ -83,10 +83,10 @@ export const useGetStyles = () => {
           gridColumn: '1 / 3',
         },
         '& .staking': {
-          gridColumn: '3 / 7',
+          gridColumn: '3 / 8',
         },
         '& .events-and-activities': {
-          gridColumn: '1 / 7',
+          gridColumn: '1 / 8',
         },
       },
     },
