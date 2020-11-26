@@ -31,7 +31,7 @@ const ValidatorDetails = () => {
           mobile tablet header
         </div>
         <div className={classnames('validator-bio')}>
-          validators table
+          validators bio
         </div>
         <div className={classnames('validator-info')}>
           validators info
@@ -40,10 +40,10 @@ const ValidatorDetails = () => {
           validators voting power
         </div>
         <div className={classnames('missed-blocks')}>
-          validators voting power
+          missed blocks
         </div>
         <div className={classnames('potential')}>
-          validators voting power
+          potential
         </div>
         <div className={classnames('staking')}>
           staking chart

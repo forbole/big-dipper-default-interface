@@ -6,9 +6,6 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      // display: 'grid',
-      // gridGap: theme?.palette?.custom?.gutters?.small,
-      // padding: theme?.palette?.custom?.gutters?.small,
       '& .mobile-tablet-header': {
         height: '100px',
         background: 'pink',
@@ -53,10 +50,28 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
+        gridTemplateColumns: 'repeat(3, minmax(100px, 1fr))',
         '& .mobile-tablet-header': {
           display: 'none',
+        },
+
+        '& .validator-bio': {
+          gridColumn: '1 / 2',
+          gridRow: '1 / span 2',
+          height: '100%',
+        },
+
+        '& .validator-info': {
+          gridColumn: '2 / 4',
+        },
+
+        '& .potential': {
+          height: '100%',
+          gridColumn: '3 / 4',
+          gridRow: '2 / span 1',
         },
       },
     },
