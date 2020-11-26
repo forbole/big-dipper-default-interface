@@ -36,6 +36,7 @@ export const useGetStyles = () => {
         display: 'block',
         '&.table-preview-wrapper': {
           background: theme?.palette?.background?.paper,
+          height: '100%',
           '& .top-bar': {
             '& h3': {
               color: theme?.palette?.custom?.fonts?.fontOne,

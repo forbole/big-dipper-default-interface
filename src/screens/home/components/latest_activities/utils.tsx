@@ -75,8 +75,8 @@ export const dummyLatestActivitiesDataDesktop = [
       className: 'delegate',
     },
     time: '1 hour',
-    success: true,
-    content: <div>custom content content content content content content content content content</div>,
+    success: false,
+    content: <div>custom content</div>,
     hash: '12344566',
   },
   {

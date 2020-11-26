@@ -31,6 +31,25 @@ export const useGetStyles = () => {
       display: 'none',
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'block',
+        '&.table-preview-wrapper': {
+          background: theme?.palette?.background?.paper,
+          height: '100%',
+          '& .top-bar': {
+            '& h3': {
+              color: theme?.palette?.custom?.fonts?.fontOne,
+              fontSize: '1.5rem',
+            },
+          },
+        },
+        '& .single-activity': {
+          '&:hover': {
+            cursor: 'pointer',
+          },
+        },
+        '& .MuiTableCell-root': {
+          color: theme?.palette?.custom?.fonts?.fontTwo,
+          borderColor: theme?.palette?.divider,
+        },
       },
     },
   }));
