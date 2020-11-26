@@ -1,9 +1,7 @@
-import {
-  makeStyles, createStyles,
-} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles(createStyles({
+  const useStyles = makeStyles({
     root: {
       padding: '0.2rem 1rem',
       boxShadow: 'none',
@@ -14,7 +12,7 @@ export const useGetStyles = () => {
         lineHeight: '1.2',
       },
     },
-  }));
+  });
 
   return {
     classes: useStyles(),
