@@ -49,7 +49,7 @@ const ValidatorDetails = () => {
           staking chart
         </div>
         <div className={classnames('events-and-activities')}>
-          staking chart
+          power events and activities
         </div>
       </div>
       {/* ===================================== */}

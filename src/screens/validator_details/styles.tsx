@@ -53,25 +53,40 @@ export const useGetStyles = () => {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        gridTemplateColumns: 'repeat(3, minmax(100px, 1fr))',
+        // gridTemplateColumns: 'repeat(6, minmax(100px, 1fr))',
+        gridTemplateColumns: 'repeat(6, 1fr)',
         '& .mobile-tablet-header': {
           display: 'none',
         },
 
         '& .validator-bio': {
-          gridColumn: '1 / 2',
+          gridColumn: '1 / 3',
           gridRow: '1 / span 2',
           height: '100%',
         },
 
         '& .validator-info': {
-          gridColumn: '2 / 4',
+          gridColumn: '3 / 7',
+        },
+
+        '& .validator-voting-power': {
+          gridColumn: '3 / 5',
         },
 
         '& .potential': {
           height: '100%',
-          gridColumn: '3 / 4',
+          gridColumn: '5 / 7',
           gridRow: '2 / span 1',
+        },
+
+        '& .missed-blocks': {
+          gridColumn: '1 / 3',
+        },
+        '& .staking': {
+          gridColumn: '3 / 7',
+        },
+        '& .events-and-activities': {
+          gridColumn: '1 / 7',
         },
       },
     },
