@@ -3,15 +3,15 @@ import { HeaderBarDesktop as HeaderBar } from 'big-dipper-internal-ui';
 import { formatDenom } from '@utils';
 import { chainConfig } from '@src/chain_config';
 import { HeaderBarDesktopProps } from './types';
-import { useHeaderBarDesktopHook } from './hooks';
 import { getBasePool } from './utils';
 
 /**
  * Custom Header component
  */
 const HeaderBarDesktopDesktop = (props:HeaderBarDesktopProps) => {
-  const { title } = props;
-  const { communityPool } = useHeaderBarDesktopHook();
+  const {
+    title, communityPool,
+  } = props;
   const baseCommunityPool = getBasePool(chainConfig.base, communityPool.data);
   const communityPoolValue = formatDenom('daric', baseCommunityPool?.amount ?? 0);
   return (

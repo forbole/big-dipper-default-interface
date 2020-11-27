@@ -6,17 +6,19 @@ import {
   DataBlocksHeader,
   HeaderBarDesktop,
 } from '@components';
+import { useMarketHook } from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
+  const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useActivitiesHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       header={(
-        <HeaderBarDesktop title={t('title')} />
+        <HeaderBarDesktop title={t('title')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),

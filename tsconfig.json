@@ -49,6 +49,9 @@
       "@models": [
         "src/models"
       ],
+      "@hooks": [
+        "src/hooks"
+      ],
       "@graphql/queries": [
         "src/graphql/queries"
       ],

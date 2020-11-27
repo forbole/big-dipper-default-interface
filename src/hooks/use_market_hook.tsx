@@ -4,7 +4,7 @@ import { COMMUNITY_POOL_QUERY } from '@graphql/queries';
 import { CommunityPool } from '@models';
 import { generalConfig } from '@src/general_config';
 
-export const useHeaderBarDesktopHook = () => {
+export const useMarketHook = () => {
   const {
     data: communityPoolData,
     loading: communityPoolLoading,

@@ -5,18 +5,20 @@ import {
   Layout,
   HeaderBarDesktop,
 } from '@components';
+import { useMarketHook } from '@hooks';
 import { useAccountDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const AccountDetails = () => {
   const { t } = useTranslation(['accounts', 'common']);
+  const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useAccountDetailsHook();
   const { classes } = useGetStyles();
 
   return (
     <Layout
       header={(
-        <HeaderBarDesktop title={t('subTitle')} />
+        <HeaderBarDesktop title={t('subTitle')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
