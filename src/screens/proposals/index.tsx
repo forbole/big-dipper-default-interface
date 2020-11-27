@@ -33,13 +33,11 @@ const Proposals = () => {
         <div className={classnames('data-blocks')}>
           <DataBlocksHeader />
         </div>
-        <div className={classnames('content-container')}>
-          <div className={classnames('mobile-tablet-header')}>
-            <HeaderBarMobile title={t('title')} communityPool={communityPool} />
-          </div>
-          <div className={classnames('proposals-content')}>
-            Proposals table
-          </div>
+        <div className={classnames('mobile-tablet-header')}>
+          <HeaderBarMobile title={t('title')} communityPool={communityPool} />
+        </div>
+        <div className={classnames('proposals-content')}>
+          Proposals table
         </div>
       </div>
       {/* ===================================== */}

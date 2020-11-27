@@ -33,13 +33,11 @@ const ActivityDetails = () => {
         <div className={classnames('data-blocks')}>
           <DataBlocksHeader />
         </div>
-        <div className={classnames('content-container')}>
-          <div className={classnames('mobile-tablet-header')}>
-            <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
-          </div>
-          <div className={classnames('activity-details-content')}>
-            Activity Details table
-          </div>
+        <div className={classnames('mobile-tablet-header')}>
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
+        </div>
+        <div className={classnames('activity-details-content')}>
+          Activity Details table
         </div>
       </div>
       {/* ===================================== */}

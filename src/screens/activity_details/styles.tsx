@@ -6,9 +6,6 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      display: 'grid',
-      gridGap: theme?.palette?.custom?.gutters?.small,
-      padding: theme?.palette?.custom?.gutters?.small,
       '& .data-blocks': {
         display: 'none',
       },
@@ -21,6 +18,7 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
         '& .data-blocks': {
