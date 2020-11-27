@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from '@src/components/header_bar_desktop/node_modules/enzyme';
+import { mount } from 'enzyme';
 import { DataBlock } from 'big-dipper-default-ui';
 import { DataBlocksHeader } from '@components';
 import { awaitActions } from '@tests/utils/await_actions';
