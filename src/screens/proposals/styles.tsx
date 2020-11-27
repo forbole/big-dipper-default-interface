@@ -12,10 +12,6 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      '& .mobile-tablet-header': {
-        height: '100px',
-        background: 'pink',
-      },
       '& .proposals-content': {
         height: '500px',
         background: 'pink',

@@ -4,6 +4,7 @@ import { useTranslation } from 'i18n';
 import {
   Layout,
   HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
@@ -30,7 +31,7 @@ const ValidatorDetails = () => {
       <div className={classnames(classes.root)}>
 
         <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('validator-bio')}>
           validators bio

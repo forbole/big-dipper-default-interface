@@ -5,6 +5,7 @@ import {
   Layout,
   DataBlocksHeader,
   HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
 import { useBlocksHook } from './hooks';
@@ -34,7 +35,7 @@ const Blocks = () => {
         </div>
         <div className={classnames('content-container')}>
           <div className={classnames('mobile-tablet-header')}>
-            mobile tablet header
+            <HeaderBarMobile title={t('title')} communityPool={communityPool} />
           </div>
           <div className={classnames('blocks-content')}>
             blocks table

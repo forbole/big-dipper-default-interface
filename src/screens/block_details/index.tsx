@@ -5,6 +5,7 @@ import {
   Layout,
   HeaderBarDesktop,
   DataBlocksHeader,
+  HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
@@ -33,7 +34,7 @@ const BlockDetails = () => {
           <DataBlocksHeader />
         </div>
         <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('block-details')}>
           block details

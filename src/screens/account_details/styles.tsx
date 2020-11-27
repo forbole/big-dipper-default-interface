@@ -6,9 +6,6 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .mobile-tablet-header': {
-
-      },
       '& .account-details': {
         height: '500px',
         background: 'pink',

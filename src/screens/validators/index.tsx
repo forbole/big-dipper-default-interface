@@ -5,6 +5,7 @@ import {
   Layout,
   DataBlocksHeader,
   HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
 import { useValidatorHook } from './hooks';
@@ -34,7 +35,7 @@ const Validators = () => {
         </div>
         <div className={classnames('content-container')}>
           <div className={classnames('mobile-tablet-header')}>
-            mobile tablet header
+            <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
           </div>
           <div className={classnames('validators-content')}>
             validators table
