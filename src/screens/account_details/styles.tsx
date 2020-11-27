@@ -7,9 +7,7 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       '& .mobile-tablet-header': {
-        height: '100px',
-        background: 'pink',
-        border: 'solid 1px black',
+
       },
       '& .account-details': {
         height: '500px',

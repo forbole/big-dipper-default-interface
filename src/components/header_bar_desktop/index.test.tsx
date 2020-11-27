@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { HeaderBarDesktopDesktop } from 'big-dipper-internal-ui';
+import { HeaderBarDesktop } from 'big-dipper-internal-ui';
 import { HeaderBarDesktop } from '@components';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { HEADER_BAR_MOCK } from '@tests/utils/mock_data';
@@ -14,6 +14,6 @@ describe('HeaderBarDesktop', () => {
       }),
     );
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(HeaderBarDesktopDesktop)).toHaveLength(1);
+    expect(wrapper.find(HeaderBarDesktop)).toHaveLength(1);
   });
 });

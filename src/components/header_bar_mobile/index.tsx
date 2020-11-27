@@ -1,15 +1,12 @@
 import React from 'react';
-import { HeaderBarDesktop as HeaderBar } from 'big-dipper-internal-ui';
+import { HeaderBarMobile as HeaderBar } from 'big-dipper-internal-ui';
 import {
   formatDenom, getBaseCommunityPool,
 } from '@utils';
 import { chainConfig } from '@src/chain_config';
-import { HeaderBarDesktopProps } from './types';
+import { HeaderBarMobileProps } from './types';
 
-/**
- * Custom Header component
- */
-const HeaderBarDesktop = (props:HeaderBarDesktopProps) => {
+const HeaderBarMobile = (props:HeaderBarMobileProps) => {
   const {
     title, communityPool,
   } = props;
@@ -40,4 +37,4 @@ const HeaderBarDesktop = (props:HeaderBarDesktopProps) => {
   );
 };
 
-export default HeaderBarDesktop;
+export default HeaderBarMobile;

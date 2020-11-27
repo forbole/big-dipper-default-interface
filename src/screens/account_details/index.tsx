@@ -4,6 +4,7 @@ import { useTranslation } from 'i18n';
 import {
   Layout,
   HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
 import { useAccountDetailsHook } from './hooks';
@@ -30,7 +31,7 @@ const AccountDetails = () => {
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
         <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header (dont know if this is needed)
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('account-details')}>
           account details
