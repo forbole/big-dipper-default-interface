@@ -3,15 +3,15 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   Layout,
-  HeaderBar,
   DataBlocksHeader,
+  HeaderBar,
 } from '@components';
-import { useValidatorDetailsHook } from './hooks';
+import { useActivityDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const BlockDetails = () => {
-  const { t } = useTranslation(['blocks', 'common']);
-  const { handleSearchbarSubmit } = useValidatorDetailsHook();
+const ActivityDetails = () => {
+  const { t } = useTranslation(['activities', 'common']);
+  const { handleSearchbarSubmit } = useActivityDetailsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
@@ -30,22 +30,20 @@ const BlockDetails = () => {
         <div className={classnames('data-blocks')}>
           <DataBlocksHeader />
         </div>
-        <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header
-        </div>
-        <div className={classnames('block-details')}>
-          block details
-        </div>
-        <div className={classnames('block-activities')}>
-          block activities
+        <div className={classnames('content-container')}>
+          <div className={classnames('mobile-tablet-header')}>
+            mobile tablet header
+          </div>
+          <div className={classnames('activity-details-content')}>
+            Activity Details table
+          </div>
         </div>
       </div>
       {/* ===================================== */}
       {/* content end */}
       {/* ===================================== */}
     </Layout>
-
   );
 };
 
-export default BlockDetails;
+export default ActivityDetails;

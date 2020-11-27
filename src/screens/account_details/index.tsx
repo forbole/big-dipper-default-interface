@@ -5,13 +5,14 @@ import {
   Layout,
   HeaderBar,
 } from '@components';
-import { useValidatorDetailsHook } from './hooks';
+import { useAccountDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const ValidatorDetails = () => {
-  const { t } = useTranslation(['validators', 'common']);
-  const { handleSearchbarSubmit } = useValidatorDetailsHook();
+const AccountDetails = () => {
+  const { t } = useTranslation(['accounts', 'common']);
+  const { handleSearchbarSubmit } = useAccountDetailsHook();
   const { classes } = useGetStyles();
+
   return (
     <Layout
       header={(
@@ -26,30 +27,17 @@ const ValidatorDetails = () => {
       {/* content start */}
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
-
         <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header
+          mobile tablet header (dont know if this is needed)
         </div>
-        <div className={classnames('validator-bio')}>
-          validators bio
+        <div className={classnames('account-details')}>
+          account details
         </div>
-        <div className={classnames('validator-info')}>
-          validators info
+        <div className={classnames('account-staking')}>
+          account staking
         </div>
-        <div className={classnames('validator-voting-power')}>
-          validators voting power
-        </div>
-        <div className={classnames('missed-blocks')}>
-          missed blocks
-        </div>
-        <div className={classnames('potential')}>
-          potential
-        </div>
-        <div className={classnames('staking')}>
-          staking chart
-        </div>
-        <div className={classnames('events-and-activities')}>
-          power events and activities
+        <div className={classnames('account-activities')}>
+          account activities
         </div>
       </div>
       {/* ===================================== */}
@@ -59,4 +47,4 @@ const ValidatorDetails = () => {
   );
 };
 
-export default ValidatorDetails;
+export default AccountDetails;
