@@ -4,7 +4,7 @@ import { useTranslation } from 'i18n';
 import {
   Layout,
   DataBlocksHeader,
-  HeaderBar,
+  HeaderBarDesktop,
 } from '@components';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -16,7 +16,7 @@ const Activities = () => {
   return (
     <Layout
       header={(
-        <HeaderBar title={t('title')} />
+        <HeaderBarDesktop title={t('title')} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),

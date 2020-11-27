@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount } from '@src/components/header_bar_desktop/node_modules/enzyme';
 import { MaxWidthContent } from '@components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';

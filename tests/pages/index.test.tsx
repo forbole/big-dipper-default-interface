@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow } from '@src/components/header_bar_desktop/node_modules/enzyme';
 import Home from '@screens/home';
 import HomePage from '@src/pages/index';
 

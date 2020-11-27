@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   Layout,
-  HeaderBar,
+  HeaderBarDesktop,
 } from '@components';
 import { useAccountDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -16,7 +16,7 @@ const AccountDetails = () => {
   return (
     <Layout
       header={(
-        <HeaderBar title={t('subTitle')} />
+        <HeaderBarDesktop title={t('subTitle')} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
