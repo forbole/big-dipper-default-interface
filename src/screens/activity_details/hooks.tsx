@@ -1,6 +1,6 @@
 import { handleSearchbarSubmit } from '@utils';
 
-export const useActivitiesDetailsHook = () => {
+export const useActivityDetailsHook = () => {
   return {
     handleSearchbarSubmit,
   };

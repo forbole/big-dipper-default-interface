@@ -6,12 +6,12 @@ import {
   DataBlocksHeader,
   HeaderBar,
 } from '@components';
-import { useActivitiesDetailsHook } from './hooks';
+import { useActivityDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const ActivitiesDetails = () => {
+const ActivityDetails = () => {
   const { t } = useTranslation(['activities', 'common']);
-  const { handleSearchbarSubmit } = useActivitiesDetailsHook();
+  const { handleSearchbarSubmit } = useActivityDetailsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
@@ -35,7 +35,7 @@ const ActivitiesDetails = () => {
             mobile tablet header
           </div>
           <div className={classnames('activity-details-content')}>
-            Activities Details table
+            Activity Details table
           </div>
         </div>
       </div>
@@ -46,4 +46,4 @@ const ActivitiesDetails = () => {
   );
 };
 
-export default ActivitiesDetails;
+export default ActivityDetails;
