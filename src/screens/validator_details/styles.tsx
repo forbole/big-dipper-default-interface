@@ -6,11 +6,6 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .mobile-tablet-header': {
-        height: '100px',
-        background: 'pink',
-        border: 'solid 1px black',
-      },
       '& .validator-bio': {
         height: '500px',
         background: 'pink',

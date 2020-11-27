@@ -3,19 +3,22 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   Layout,
-  HeaderBar,
+  HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
+import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation(['validators', 'common']);
+  const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useValidatorDetailsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       header={(
-        <HeaderBar title={t('subTitle')} />
+        <HeaderBarDesktop title={t('subTitle')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
@@ -28,7 +31,7 @@ const ValidatorDetails = () => {
       <div className={classnames(classes.root)}>
 
         <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('validator-bio')}>
           validators bio

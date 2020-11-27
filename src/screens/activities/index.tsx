@@ -4,19 +4,22 @@ import { useTranslation } from 'i18n';
 import {
   Layout,
   DataBlocksHeader,
-  HeaderBar,
+  HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
+import { useMarketHook } from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
+  const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useActivitiesHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       header={(
-        <HeaderBar title={t('title')} />
+        <HeaderBarDesktop title={t('title')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
@@ -30,13 +33,11 @@ const Activities = () => {
         <div className={classnames('data-blocks')}>
           <DataBlocksHeader />
         </div>
-        <div className={classnames('content-container')}>
-          <div className={classnames('mobile-tablet-header')}>
-            mobile tablet header
-          </div>
-          <div className={classnames('activities-content')}>
-            Activities table
-          </div>
+        <div className={classnames('mobile-tablet-header')}>
+          <HeaderBarMobile title={t('title')} communityPool={communityPool} />
+        </div>
+        <div className={classnames('activities-content')}>
+          Activities table
         </div>
       </div>
       {/* ===================================== */}

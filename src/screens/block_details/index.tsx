@@ -3,20 +3,23 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   Layout,
-  HeaderBar,
+  HeaderBarDesktop,
   DataBlocksHeader,
+  HeaderBarMobile,
 } from '@components';
+import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const BlockDetails = () => {
   const { t } = useTranslation(['blocks', 'common']);
+  const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useValidatorDetailsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       header={(
-        <HeaderBar title={t('subTitle')} />
+        <HeaderBarDesktop title={t('subTitle')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
@@ -31,7 +34,7 @@ const BlockDetails = () => {
           <DataBlocksHeader />
         </div>
         <div className={classnames('mobile-tablet-header')}>
-          mobile tablet header
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('block-details')}>
           block details

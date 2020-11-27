@@ -9,11 +9,6 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      '& .mobile-tablet-header': {
-        height: '100px',
-        background: 'pink',
-        border: 'solid 1px black',
-      },
       '& .block-details': {
         height: '500px',
         background: 'orange',

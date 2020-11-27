@@ -4,8 +4,9 @@ import { useTranslation } from 'i18n';
 import {
   Layout,
   DataBlocksHeader,
-  HeaderBar,
+  HeaderBarDesktop,
 } from '@components';
+import { useMarketHook } from '@hooks';
 import {
   LatestBlocks,
   Stabilities,
@@ -16,12 +17,13 @@ import { useGetStyles } from './styles';
 
 const Home = () => {
   const { t } = useTranslation(['home', 'common']);
+  const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useHomeHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       header={(
-        <HeaderBar title={t('title')} />
+        <HeaderBarDesktop title={t('title')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),

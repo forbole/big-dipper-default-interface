@@ -13,7 +13,7 @@ import { lightTheme } from '@styles';
 import {
   Layout,
   DataBlocksHeader,
-  HeaderBar,
+  HeaderBarDesktop,
 } from '@components';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
@@ -60,7 +60,7 @@ describe('Home', () => {
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
     expect(wrapper.find(Stabilities)).toHaveLength(1);
-    expect(wrapper.find(HeaderBar)).toHaveLength(1);
+    expect(wrapper.find(HeaderBarDesktop)).toHaveLength(1);
     expect(wrapper.find(LatestBlocks)).toHaveLength(1);
   });
 });
