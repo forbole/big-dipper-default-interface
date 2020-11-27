@@ -53,7 +53,6 @@ export const useGetStyles = () => {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        // gridTemplateColumns: 'repeat(6, minmax(100px, 1fr))',
         gridTemplateColumns: 'repeat(7, 1fr)',
         '& .mobile-tablet-header': {
           display: 'none',
