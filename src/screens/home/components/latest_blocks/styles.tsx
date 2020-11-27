@@ -36,12 +36,6 @@ export const useGetStyles = () => {
         display: 'block',
         '&.table-preview-wrapper': {
           background: theme?.palette?.background?.paper,
-          // wingman
-          // height: '100%',
-          height: '0',
-          minHeight: '100%',
-          display: 'flex',
-          flexDirection: 'column',
           '& .top-bar': {
             '& h3': {
               color: theme?.palette?.custom?.fonts?.fontOne,
@@ -49,8 +43,6 @@ export const useGetStyles = () => {
             },
           },
           '& .content': {
-            flex: '1',
-            overflow: 'auto',
             '& .MuiTableCell-head': {
               color: theme?.palette?.custom?.fonts?.fontTwo,
             },

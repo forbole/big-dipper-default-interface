@@ -33,22 +33,23 @@ export const useGetStyles = () => {
         display: 'block',
         '&.table-preview-wrapper': {
           background: theme?.palette?.background?.paper,
-          // wingman
-          // height: '100%',
-          // height: '0',
-          // minHeight: '100%',
-          // display: 'flex',
-          // flexDirection: 'column',
+          height: '0',
+          minHeight: '100%',
+          display: 'flex',
+          flexDirection: 'column',
           '& .top-bar': {
             '& h3': {
               color: theme?.palette?.custom?.fonts?.fontOne,
               fontSize: '1.5rem',
             },
           },
+
+          '& .content': {
+            flex: '1',
+            overflow: 'auto',
+          },
         },
         '& .single-activity': {
-          // flex: '1',
-          // overflow: 'auto',
           '&:hover': {
             cursor: 'pointer',
           },
