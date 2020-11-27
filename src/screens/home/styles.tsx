@@ -46,6 +46,7 @@ export const useGetStyles = () => {
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
         gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateRows: 'min-content',
         '& > *': {
           gridColumn: '1 / 5',
         },

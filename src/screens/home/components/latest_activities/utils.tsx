@@ -63,6 +63,46 @@ export const dummyLatestActivitiesData:any[] = [
     },
     hash: '12344',
     time: '1 hour',
+    success: false,
+    content: <DummyContentMobile />,
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    hash: '12344',
+    time: '1 hour',
+    success: false,
+    content: <DummyContentMobile />,
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    hash: '12344',
+    time: '1 hour',
+    success: false,
+    content: <DummyContentMobile />,
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    hash: '12344',
+    time: '1 hour',
+    success: false,
+    content: <DummyContentMobile />,
+  },
+  {
+    type: {
+      display: 'Delegate',
+      className: 'delegate',
+    },
+    hash: '12344',
+    time: '1 hour',
     success: true,
     content: <DummyContentMobile />,
   },
