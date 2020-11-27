@@ -6,7 +6,7 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       color: theme?.palette?.custom?.fonts?.fontFive,
-      marginTop: '10px',
+      display: 'flex',
     },
   }));
 

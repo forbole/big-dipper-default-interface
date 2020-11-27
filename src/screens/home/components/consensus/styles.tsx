@@ -36,6 +36,11 @@ export const useGetStyles = () => {
             '& .unbonded': {
               background: colors[1],
             },
+            '& .icon': {
+              width: '1.5rem',
+              height: '1.5rem',
+              marginRight: '0.3rem',
+            },
           },
         },
       }));

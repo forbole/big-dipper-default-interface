@@ -16,5 +16,9 @@
   "communityPoolTitle": "Community Pool",
   "bonded": "Bonded",
   "unbonded": "Unbonded",
-  "latestActivities": "Latest Activities"
+  "latestActivities": "Latest Activities",
+  "consensusTitle": "Consensus State",
+  "votingPowerTitle": "Voting Power",
+  "roundTitle": "Round",
+  "stepTitle": "Step"
 }

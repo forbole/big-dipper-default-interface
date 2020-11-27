@@ -15,6 +15,6 @@ describe('Proposer', () => {
     );
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Link)).toHaveLength(1);
-    expect(wrapper.find('p').first().text()).toEqual('Forbole');
+    expect(wrapper.find('div').first().text()).toEqual('Forbole');
   });
 });
