@@ -9,9 +9,16 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      '& .activities-content': {
+      '& .block-details': {
         height: '500px',
-        background: 'pink',
+        background: 'orange',
+        border: 'solid 1px black',
+      },
+
+      '& .block-activities': {
+        height: '500px',
+        background: 'yellow',
+        border: 'solid 1px black',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

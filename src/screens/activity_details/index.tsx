@@ -8,18 +8,18 @@ import {
   HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
-import { useBlocksHook } from './hooks';
+import { useActivityDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const Blocks = () => {
-  const { t } = useTranslation(['blocks', 'common']);
+const ActivityDetails = () => {
+  const { t } = useTranslation(['activities', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useBlocksHook();
+  const { handleSearchbarSubmit } = useActivityDetailsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       header={(
-        <HeaderBarDesktop title={t('title')} communityPool={communityPool} />
+        <HeaderBarDesktop title={t('subTitle')} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
@@ -34,10 +34,10 @@ const Blocks = () => {
           <DataBlocksHeader />
         </div>
         <div className={classnames('mobile-tablet-header')}>
-          <HeaderBarMobile title={t('title')} communityPool={communityPool} />
+          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
-        <div className={classnames('blocks-content')}>
-          blocks table
+        <div className={classnames('activity-details-content')}>
+          Activity Details table
         </div>
       </div>
       {/* ===================================== */}
@@ -47,4 +47,4 @@ const Blocks = () => {
   );
 };
 
-export default Blocks;
+export default ActivityDetails;

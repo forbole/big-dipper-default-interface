@@ -1,9 +1,9 @@
-import ActivitiesDetails from '@screens/activities_details';
+import ActivityDetails from '@src/screens/activity_details';
 
-const ActivitiesDetailsPage = () => {
+const ActivityDetailsPage = () => {
   return (
-    <ActivitiesDetails />
+    <ActivityDetails />
   );
 };
 
-export default ActivitiesDetailsPage;
+export default ActivityDetailsPage;

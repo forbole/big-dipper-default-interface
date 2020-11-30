@@ -10,6 +10,7 @@ const Height = (props:HeightProps) => {
     raw,
     display = '-',
   } = props;
+
   return (
     <Link href={`/blocks/${raw}`}>
       <a>

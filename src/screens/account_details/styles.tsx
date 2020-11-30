@@ -6,12 +6,20 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .data-blocks': {
-        display: 'none',
-      },
-      '& .activities-content': {
+      '& .account-details': {
         height: '500px',
         background: 'pink',
+        border: 'solid 1px black',
+      },
+      '& .account-staking': {
+        height: '500px',
+        background: 'yellow',
+        border: 'solid 1px black',
+      },
+      '& .account-activities': {
+        height: '500px',
+        background: 'lime',
+        border: 'solid 1px black',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -20,9 +28,6 @@ export const useGetStyles = () => {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        '& .data-blocks': {
-          display: 'block',
-        },
         '& .mobile-tablet-header': {
           display: 'none',
         },
