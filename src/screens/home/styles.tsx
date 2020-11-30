@@ -20,6 +20,7 @@ export const useGetStyles = () => {
         background: 'pink',
       },
       '& .stablities': {
+
       },
       '& .consensus': {
       },
