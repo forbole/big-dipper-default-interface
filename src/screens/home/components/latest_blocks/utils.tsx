@@ -50,6 +50,16 @@ export const dummyLatestBlocksData:any[] = [
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
     },
+    time: '10 Jan 2021,13:00:27 UTC',
+    hash: '89832B67F594asddw32',
+    tx: 2,
+  },
+  {
+    proposer: <Proposer display="Forbole" id="12345563" />,
+    height: {
+      value: 20000,
+      display: <Height display="200,00" raw={20000} />,
+    },
     time: '10 Jan 2021,13:00:21 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
@@ -60,17 +70,7 @@ export const dummyLatestBlocksData:any[] = [
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
     },
-    time: '10 Jan 2021,13:00:20 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <Proposer display="Forbole" id="12345563" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:20 UTC',
+    time: '10 Jan 2021,13:00:22 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
   }, {
@@ -79,7 +79,7 @@ export const dummyLatestBlocksData:any[] = [
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
     },
-    time: '10 Jan 2021,13:00:20 UTC',
+    time: '10 Jan 2021,13:00:23 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
   }, {
@@ -88,7 +88,7 @@ export const dummyLatestBlocksData:any[] = [
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
     },
-    time: '10 Jan 2021,13:00:20 UTC',
+    time: '10 Jan 2021,13:00:24 UTC',
     hash: '89832B67F594asddw32',
     tx: 2,
   }, {
