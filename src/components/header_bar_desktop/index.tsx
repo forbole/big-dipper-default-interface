@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderBarDesktop as HeaderBar } from 'big-dipper-internal-ui';
+import { useTranslation } from 'i18n';
 import {
   formatDenom, getBaseCommunityPool,
 } from '@utils';
@@ -10,6 +11,7 @@ import { HeaderBarDesktopProps } from './types';
  * Custom Header component
  */
 const HeaderBarDesktop = (props:HeaderBarDesktopProps) => {
+  const { t } = useTranslation('common');
   const {
     title, communityPool,
   } = props;
@@ -20,19 +22,19 @@ const HeaderBarDesktop = (props:HeaderBarDesktopProps) => {
       title={title}
       market={[
         {
-          key: 'Price',
+          key: t('price'),
           value: '$0.00',
         },
         {
-          key: 'Market Cap',
+          key: t('marketCap'),
           value: '-',
         },
         {
-          key: 'Inflation',
+          key: t('inflation'),
           value: '0.00%',
         },
         {
-          key: 'Community Pool',
+          key: t('communityPool'),
           value: `${communityPoolValue.format} ${communityPoolValue.denom}`,
         },
       ]}

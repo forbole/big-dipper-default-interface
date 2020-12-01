@@ -14,7 +14,7 @@ const OnlineVotingPower = () => {
   const { classes } = useGetStyles();
   const windowSize = useGetScreenSize();
   const { gridAspect } = useOnlineVotingPowerHook(windowSize);
-  console.log(gridAspect, 'what are you');
+
   return (
     <div className={classnames(classes.root)}>
       <SelectTabs
