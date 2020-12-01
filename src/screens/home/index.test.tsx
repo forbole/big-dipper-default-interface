@@ -4,6 +4,7 @@ import Home from '@screens/home';
 import {
   LatestBlocks,
   Stabilities,
+  OnlineVotingPower,
 } from '@screens/home/components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
@@ -62,5 +63,6 @@ describe('Home', () => {
     expect(wrapper.find(Stabilities)).toHaveLength(1);
     expect(wrapper.find(HeaderBarDesktop)).toHaveLength(1);
     expect(wrapper.find(LatestBlocks)).toHaveLength(1);
+    expect(wrapper.find(OnlineVotingPower)).toHaveLength(1);
   });
 });

@@ -11,6 +11,7 @@ import {
   LatestBlocks,
   Stabilities,
   LatestActivities,
+  OnlineVotingPower,
 } from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -38,7 +39,7 @@ const Home = () => {
         <DataBlocksHeader />
         {/* graphs start */}
         <div className={classnames('data-graphs')}>
-          data graphs
+          <OnlineVotingPower />
         </div>
         {/* stabilities start */}
         <div className={classnames('stablities')}>

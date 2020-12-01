@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeaderBarMobile as HeaderBar } from 'big-dipper-internal-ui';
+import { useTranslation } from 'i18n';
 import {
   formatDenom, getBaseCommunityPool,
 } from '@utils';
@@ -7,6 +8,7 @@ import { chainConfig } from '@src/chain_config';
 import { HeaderBarMobileProps } from './types';
 
 const HeaderBarMobile = (props:HeaderBarMobileProps) => {
+  const { t } = useTranslation('common');
   const {
     title, communityPool,
   } = props;
@@ -17,19 +19,19 @@ const HeaderBarMobile = (props:HeaderBarMobileProps) => {
       title={title}
       market={[
         {
-          key: 'Price',
+          key: t('price'),
           value: '$0.00',
         },
         {
-          key: 'Market Cap',
+          key: t('marketCap'),
           value: '-',
         },
         {
-          key: 'Inflation',
+          key: t('inflation'),
           value: '0.00%',
         },
         {
-          key: 'Community Pool',
+          key: t('communityPool'),
           value: `${communityPoolValue.format} ${communityPoolValue.denom}`,
         },
       ]}

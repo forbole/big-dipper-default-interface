@@ -17,7 +17,6 @@ export const useGetStyles = () => {
         gridGap: theme?.palette?.custom?.gutters?.small,
       },
       '& .data-graphs': {
-        background: 'pink',
       },
       '& .stablities': {
       },
