@@ -4,63 +4,68 @@ import {
 import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: any) => createStyles({
-    mobile: {
-      '&.table-preview-wrapper': {
-        background: theme?.palette?.background?.paper,
-      },
-      '& .top-bar': {
-        '& h3': {
-          color: theme?.palette?.custom?.fonts?.fontOne,
-        },
-      },
-      '& .content': {
-        '& .activity': {
-          color: theme?.palette?.custom?.fonts?.fontTwo,
-          borderColor: theme?.palette?.divider,
-          '&:first-child': {
-            borderColor: theme?.palette?.divider,
+  const useStyles = makeStyles((theme: any) => {
+    const headerColor = theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo;
+    return (
+      createStyles({
+        mobile: {
+          '&.table-preview-wrapper': {
+            background: theme?.palette?.background?.paper,
           },
-        },
-      },
-      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        display: 'none',
-      },
-    },
-    desktop: {
-      display: 'none',
-      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        display: 'block',
-        '&.table-preview-wrapper': {
-          background: theme?.palette?.background?.paper,
-          height: '0',
-          minHeight: '100%',
-          display: 'flex',
-          flexDirection: 'column',
           '& .top-bar': {
             '& h3': {
-              color: theme?.palette?.custom?.fonts?.fontOne,
-              fontSize: '1.5rem',
+              color: headerColor,
             },
           },
-
           '& .content': {
-            flex: '1',
-            overflow: 'auto',
+            '& .activity': {
+              color: theme?.palette?.custom?.fonts?.fontTwo,
+              borderColor: theme?.palette?.divider,
+              '&:first-child': {
+                borderColor: theme?.palette?.divider,
+              },
+            },
+          },
+          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+            display: 'none',
           },
         },
-        '& .single-activity': {
-          '&:hover': {
-            cursor: 'pointer',
+        desktop: {
+          display: 'none',
+          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+            display: 'block',
+            '&.table-preview-wrapper': {
+              background: theme?.palette?.background?.paper,
+              height: '0',
+              minHeight: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              '& .top-bar': {
+                '& h3': {
+                  color: headerColor,
+                  fontSize: '1.5rem',
+                },
+              },
+
+              '& .content': {
+                flex: '1',
+                overflow: 'auto',
+              },
+            },
+            '& .single-activity': {
+              '&:hover': {
+                cursor: 'pointer',
+              },
+            },
+            '& .MuiTableCell-root': {
+              color: theme?.palette?.custom?.fonts?.fontTwo,
+              borderColor: theme?.palette?.divider,
+            },
           },
         },
-        '& .MuiTableCell-root': {
-          color: theme?.palette?.custom?.fonts?.fontTwo,
-          borderColor: theme?.palette?.divider,
-        },
-      },
-    },
-  }));
+      })
+    );
+  });
 
   return {
     classes: useStyles(),

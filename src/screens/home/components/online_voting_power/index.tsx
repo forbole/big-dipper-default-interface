@@ -2,8 +2,8 @@ import React from 'react';
 import {
   OnlineVotingPower as OnlineVotingPowerUi, SelectTabs,
 } from 'big-dipper-default-ui';
+import { useTranslation } from 'i18n';
 import classnames from 'classnames';
-import { useTheme } from '@material-ui/core/styles';
 import {
   formatNumber, useGetScreenSize,
 } from '@utils';
@@ -12,6 +12,7 @@ import { fakeData } from './utils';
 import { useOnlineVotingPowerHook } from './hooks';
 
 const OnlineVotingPower = () => {
+  const { t } = useTranslation('home');
   const { classes } = useGetStyles();
   const windowSize = useGetScreenSize();
   const {
@@ -27,7 +28,7 @@ const OnlineVotingPower = () => {
         tabs={[
           {
             key: 'onlineVotingPower',
-            display: 'Online Voting Power',
+            display: t('onlineVotingPower'),
             component: (
               <OnlineVotingPowerUi
                 data={fakeData}

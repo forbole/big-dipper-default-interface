@@ -61,6 +61,7 @@ const lightThemeOverride = {
     background: {
       default: 'rgba(248, 248, 248, 1)',
       paper: 'rgba(255, 255, 255, 1)',
+      paperLowOpacity: 'rgba(255, 255, 255, 0.75)',
       footer: 'rgba(0, 0, 0, 1)',
     },
     custom: {
@@ -113,6 +114,7 @@ const darkThemeOverride = {
     background: {
       default: 'rgba(10, 10, 10, 1)',
       paper: 'rgba(19, 19, 22, 1)',
+      paperLowOpacity: 'rgba(19, 19, 22, 0.75)',
       footer: 'rgba(19, 19, 22, 1)',
     },
     custom: {
