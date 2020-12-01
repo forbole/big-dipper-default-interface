@@ -18,7 +18,12 @@ export const useOnlineVotingPowerHook = (windowSize: WindowSizeProps) => {
     }
   }, [windowSize.width]);
 
+  const getCartesianGridStroke = () => {
+    return theme?.palette?.divider;
+  };
+
   return {
     gridAspect,
+    getCartesianGridStroke,
   };
 };

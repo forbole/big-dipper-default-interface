@@ -4,19 +4,24 @@ import {
 import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: any) => createStyles({
-    root: {
-      // textAlign: 'center',
-      // color: theme?.palette?.custom?.fonts?.fontThree,
-      // fontSize: '1.125rem',
-      // margin: 0,
-      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        '& .selected-title': {
-          fontSize: '1.5rem',
+  const useStyles = makeStyles((theme: any) => {
+    const headerColor = theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo;
+    return (
+      createStyles({
+        root: {
+          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+            '& .select-tabs': {
+              background: theme?.palette?.background?.paper,
+              '& .selected-title': {
+                fontSize: '1.5rem',
+                color: headerColor,
+              },
+            },
+          },
         },
-      },
-    },
-  }));
+      })
+    );
+  });
 
   return {
     classes: useStyles(),

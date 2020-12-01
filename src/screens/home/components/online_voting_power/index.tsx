@@ -3,6 +3,7 @@ import {
   OnlineVotingPower as OnlineVotingPowerUi, SelectTabs,
 } from 'big-dipper-default-ui';
 import classnames from 'classnames';
+import { useTheme } from '@material-ui/core/styles';
 import {
   formatNumber, useGetScreenSize,
 } from '@utils';
@@ -13,7 +14,11 @@ import { useOnlineVotingPowerHook } from './hooks';
 const OnlineVotingPower = () => {
   const { classes } = useGetStyles();
   const windowSize = useGetScreenSize();
-  const { gridAspect } = useOnlineVotingPowerHook(windowSize);
+  const {
+    gridAspect,
+    getCartesianGridStroke,
+  } = useOnlineVotingPowerHook(windowSize);
+  const cartesianGridStroke = getCartesianGridStroke();
 
   return (
     <div className={classnames(classes.root)}>
@@ -32,7 +37,7 @@ const OnlineVotingPower = () => {
                     fontSize: 12,
                   },
                   cartesianGrid: {
-                    stroke: '#E8E8E8',
+                    stroke: cartesianGridStroke,
                   },
                   toolTipFormatter: (value) => formatNumber(value),
                 }}
