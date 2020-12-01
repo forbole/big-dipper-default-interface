@@ -11,11 +11,8 @@ import {
   LatestBlocks,
   Stabilities,
   LatestActivities,
-<<<<<<< HEAD
   Consensus,
-=======
   OnlineVotingPower,
->>>>>>> 23f76d340f8520d37a49a1ca41bd4a745416f08f
 } from './components';
 import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';

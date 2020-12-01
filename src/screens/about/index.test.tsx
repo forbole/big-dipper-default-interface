@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from '@src/screens/home/components/consensus/components/proposer/node_modules/enzyme';
+import { mount } from 'enzyme';
 import About from '@screens/about';
 import { lightTheme } from '@styles';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
