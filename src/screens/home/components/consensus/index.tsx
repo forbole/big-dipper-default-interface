@@ -2,14 +2,14 @@ import React from 'react';
 import classnames from 'classnames';
 import { Consensus } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
+import { useTheme } from '@material-ui/core/styles';
 import { useGetStyles } from './styles';
 import { dummyProposerData } from './utils';
-
-export const colors = ['#FF7846', '#FFD800'];
 
 const ConsensusState = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation(['home']);
+  const theme: any = useTheme();
   return (
     <Consensus
       className={classnames(classes.root)}
@@ -23,7 +23,7 @@ const ConsensusState = () => {
         title: t('votingPowerTitle'),
         value: 0.85,
       }}
-      colors={['#FD3B4C', '#E8E8E8']}
+      colors={['#FD3B4C', theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43']}
       round={{
         title: t('roundTitle'),
         display: '6',

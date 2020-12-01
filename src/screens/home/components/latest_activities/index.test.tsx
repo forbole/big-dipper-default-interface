@@ -1,25 +1,25 @@
 import React from 'react';
-import { mount } from '@src/screens/home/components/consensus/components/proposer/node_modules/enzyme';
+import { mount } from 'enzyme';
 import {
-  LatestBlocksMobile,
   TablePreviewWrapper,
-  LatestBlocksDesktop,
+  LatestActivitiesMobile,
+  LatestActivitiesDesktop,
 } from 'big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import LatestBlocks from '.';
+import LatestActivities from '.';
 
-describe('LatestBlocks', () => {
+describe('LatestActivities', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <LatestBlocks />,
+        component: <LatestActivities />,
         theme: lightTheme,
       }),
     );
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(LatestBlocksMobile)).toHaveLength(1);
+    expect(wrapper.find(LatestActivitiesMobile)).toHaveLength(1);
     expect(wrapper.find(TablePreviewWrapper)).toHaveLength(2);
-    expect(wrapper.find(LatestBlocksDesktop)).toHaveLength(1);
+    expect(wrapper.find(LatestActivitiesDesktop)).toHaveLength(1);
   });
 });

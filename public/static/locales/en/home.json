@@ -20,5 +20,6 @@
   "consensusTitle": "Consensus State",
   "votingPowerTitle": "Voting Power",
   "roundTitle": "Round",
-  "stepTitle": "Step"
+  "stepTitle": "Step",
+  "onlineVotingPower": "Online Voting Power"
 }

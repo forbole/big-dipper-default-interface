@@ -1,4 +1,4 @@
-import Proposer from './proposer';
+import { Proposer } from './components/index';
 
 export const dummyProposerData:any = {
   title: 'Proposer',

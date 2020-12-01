@@ -11,12 +11,12 @@ const Proposer = (props:ProposerProps) => {
     display,
   } = props;
 
-  const path = '/images/icons/favicon-16x16.png';
+  const path = 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg';
   return (
     <Link href={`/validators/${id}`}>
       <a className={classnames(classes.root)}>
         <img src={path} alt="" className={classnames('icon')} />
-        <div className={classnames(classes.root)}>{display}</div>
+        <div>{display}</div>
       </a>
     </Link>
   );

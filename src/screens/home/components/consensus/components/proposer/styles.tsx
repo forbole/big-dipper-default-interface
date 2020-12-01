@@ -5,8 +5,10 @@ import {
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      color: theme?.palette?.custom?.fonts?.fontFive,
       display: 'flex',
+      '& div': {
+        color: theme?.palette?.custom?.fonts?.fontFive,
+      },
     },
   }));
 

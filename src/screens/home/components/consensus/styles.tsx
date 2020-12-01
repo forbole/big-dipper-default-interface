@@ -1,7 +1,6 @@
 import {
   makeStyles, createStyles,
 } from '@material-ui/styles';
-import { colors } from './index';
 
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => {
@@ -27,19 +26,11 @@ export const useGetStyles = () => {
             '& .inChart': {
               fill: colorTheme,
             },
-            '& .line': {
-              background: theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43',
-            },
-            '& .bonded': {
-              background: colors[0],
-            },
-            '& .unbonded': {
-              background: colors[1],
-            },
             '& .icon': {
               width: '1.5rem',
               height: '1.5rem',
               marginRight: '0.3rem',
+              borderRadius: '999em',
             },
           },
         },
