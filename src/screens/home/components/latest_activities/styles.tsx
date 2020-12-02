@@ -4,68 +4,22 @@ import {
 import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: any) => {
-    const headerColor = theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo;
-    return (
-      createStyles({
-        mobile: {
-          '&.table-preview-wrapper': {
-            background: theme?.palette?.background?.paper,
-          },
-          '& .top-bar': {
-            '& h3': {
-              color: headerColor,
-            },
-          },
+  const useStyles = makeStyles((theme: any) => createStyles({
+    tablePreviewWrapper: {
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        '&.table-preview-wrapper': {
+          height: '0',
+          minHeight: '100%',
+          display: 'flex',
+          flexDirection: 'column',
           '& .content': {
-            '& .activity': {
-              color: theme?.palette?.custom?.fonts?.fontTwo,
-              borderColor: theme?.palette?.divider,
-              '&:first-child': {
-                borderColor: theme?.palette?.divider,
-              },
-            },
-          },
-          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-            display: 'none',
+            flex: '1',
+            overflow: 'auto',
           },
         },
-        desktop: {
-          display: 'none',
-          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-            display: 'block',
-            '&.table-preview-wrapper': {
-              background: theme?.palette?.background?.paper,
-              height: '0',
-              minHeight: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              '& .top-bar': {
-                '& h3': {
-                  color: headerColor,
-                  fontSize: '1.5rem',
-                },
-              },
-
-              '& .content': {
-                flex: '1',
-                overflow: 'auto',
-              },
-            },
-            '& .single-activity': {
-              '&:hover': {
-                cursor: 'pointer',
-              },
-            },
-            '& .MuiTableCell-root': {
-              color: theme?.palette?.custom?.fonts?.fontTwo,
-              borderColor: theme?.palette?.divider,
-            },
-          },
-        },
-      })
-    );
-  });
+      },
+    },
+  }));
 
   return {
     classes: useStyles(),

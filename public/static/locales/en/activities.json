@@ -1,4 +1,18 @@
 {
   "title": "Activities",
-  "subTitle": "Activity Details"
+  "subTitle": "Activity Details",
+  "latestActivities": "Latest Activities",
+  "hash": "Hash",
+  "height": "Height",
+  "fee": "Fee",
+  "gas": "Gas (used/ wanted)",
+  "status": "Status",
+  "memo": "Memo",
+  "transfer": "Transfer",
+  "staking": "Staking",
+  "distribution": "Distribution",
+  "governance": "Governance",
+  "slashing": "Slashing",
+  "none": "None",
+  "filerBy": "Filter by..."
 }

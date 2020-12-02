@@ -8,7 +8,7 @@ export const useGetStyles = () => {
     root: {
       '& .blocks-content': {
         background: theme?.palette?.background?.paper,
-        padding: `0 ${theme?.palette?.custom?.margins?.small}`,
+        padding: theme?.palette?.custom?.margins?.small,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'grid',

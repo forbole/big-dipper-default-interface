@@ -7,8 +7,13 @@ import {
   LatestActivitiesDesktop,
 } from 'big-dipper-default-ui';
 import {
-  dummyLatestActivitiesData, dummyLatestActivitiesDataDesktop,
-} from './utils';
+  useMobileOnlyStyles,
+  useDesktopOnlyStyles,
+  useLatestActivitiesMobileStyles,
+  useTablePreviewWrapperStyles,
+  useLatestActivitiesDesktopStyles,
+} from '@styles';
+import { dummyLatestActivities } from './utils';
 import {
   ActionMobile, FooterAction, ActionDesktop,
 } from '..';
@@ -18,6 +23,11 @@ import { useLatestActivitiesHook } from './hooks';
 const LatestActivities = () => {
   const { t } = useTranslation(['home']);
   const { classes } = useGetStyles();
+  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
+  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+  const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
+  const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
+  const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
   const { handleClick } = useLatestActivitiesHook();
   const url = '/activities';
   return (
@@ -26,13 +36,16 @@ const LatestActivities = () => {
       {/* Mobile */}
       {/* ================================= */}
       <TablePreviewWrapper
-        className={classnames(classes.mobile)}
+        className={classnames(tablePreviewWrapperStyles.root, mobileOnlyStyles.root)}
         title={t('latestActivities')}
         action={<ActionMobile url={url} />}
         footerAction={<FooterAction url={url} />}
       >
         <LatestActivitiesMobile
-          data={dummyLatestActivitiesData}
+          className={classnames(
+            latestActivitiesMobileStyles.root,
+          )}
+          data={dummyLatestActivities}
           onClick={handleClick}
         />
       </TablePreviewWrapper>
@@ -40,12 +53,19 @@ const LatestActivities = () => {
       {/* Desktop */}
       {/* ================================= */}
       <TablePreviewWrapper
-        className={classnames(classes.desktop)}
+        className={classnames(
+          desktopOnlyStyles.root,
+          tablePreviewWrapperStyles.root,
+          classes.tablePreviewWrapper,
+        )}
         title={t('latestActivities')}
         action={<ActionDesktop url={url} />}
       >
         <LatestActivitiesDesktop
-          data={dummyLatestActivitiesDataDesktop}
+          className={classnames(
+            latestActivitiesDesktopStyles.root,
+          )}
+          data={dummyLatestActivities}
           onClick={handleClick}
         />
       </TablePreviewWrapper>
