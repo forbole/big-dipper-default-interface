@@ -10,7 +10,7 @@ export const useGetStyles = () => {
         display: 'none',
       },
       '& .blocks-content': {
-        height: '1000px',
+        // minheight: '1000px',
         background: 'pink',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
