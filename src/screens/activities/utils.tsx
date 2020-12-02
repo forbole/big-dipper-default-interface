@@ -200,11 +200,40 @@ export const dummyLatestActivitiesData:any[] = [
 
 export const getCollapsibleLabels = (t:any) => {
   return ({
-    hash: 'hash',
-    height: 'height',
-    fee: 'fee',
-    gas: 'Gas (used/ wanted)',
-    status: 'Status',
-    memo: 'Memo',
+    hash: t('hash'),
+    height: t('height'),
+    fee: t('fee'),
+    gas: t('gas'),
+    status: t('status'),
+    memo: t('memo'),
   });
+};
+
+export const getFilterLabels = () => {
+  return ([
+    {
+      key: 'none',
+      display: 'none',
+    },
+    {
+      key: 'transfer',
+      display: 'transfer',
+    },
+    {
+      key: 'staking',
+      display: 'staking',
+    },
+    {
+      key: 'distribution',
+      display: 'distribution',
+    },
+    {
+      key: 'governance',
+      display: 'governance',
+    },
+    {
+      key: 'slashing',
+      display: 'slashing',
+    },
+  ]);
 };
