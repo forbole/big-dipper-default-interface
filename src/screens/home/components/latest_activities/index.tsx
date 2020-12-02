@@ -11,6 +11,7 @@ import {
   useDesktopOnlyStyles,
   useLatestActivitiesMobileStyles,
   useTablePreviewWrapperStyles,
+  useLatestActivitiesDesktopStyles,
 } from '@styles';
 import {
   dummyLatestActivitiesData, dummyLatestActivitiesDataDesktop,
@@ -27,6 +28,7 @@ const LatestActivities = () => {
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
+  const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
   const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
   const { handleClick } = useLatestActivitiesHook();
   const url = '/activities';
@@ -43,7 +45,6 @@ const LatestActivities = () => {
       >
         <LatestActivitiesMobile
           className={classnames(
-            mobileOnlyStyles.root,
             latestActivitiesMobileStyles.root,
           )}
           data={dummyLatestActivitiesData}
@@ -54,11 +55,18 @@ const LatestActivities = () => {
       {/* Desktop */}
       {/* ================================= */}
       <TablePreviewWrapper
-        className={classnames(classes.desktop)}
+        className={classnames(
+          tablePreviewWrapperStyles.root,
+          desktopOnlyStyles.root,
+          classes.tablePreviewWrapper,
+        )}
         title={t('latestActivities')}
         action={<ActionDesktop url={url} />}
       >
         <LatestActivitiesDesktop
+          className={classnames(
+            latestActivitiesDesktopStyles.root,
+          )}
           data={dummyLatestActivitiesDataDesktop}
           onClick={handleClick}
         />
