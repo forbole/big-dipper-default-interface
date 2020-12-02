@@ -6,20 +6,32 @@ import {
   TablePreviewWrapper,
   LatestBlocksDesktop,
 } from 'big-dipper-default-ui';
-import { useLatestBlocksDesktopStyles } from '@styles';
-import { useGetStyles } from './styles';
 import {
-  ActionMobile, FooterAction, ActionDesktop,
+  useLatestBlocksDesktopStyles,
+  useLatestBlocksMobileStyles,
+  useMobileOnlyStyles,
+  useDesktopOnlyStyles,
+  useTablePreviewWrapperStyles,
+} from '@styles';
+import {
+  ActionMobile,
+  FooterAction,
+  ActionDesktop,
 } from './components';
 import {
-  dummyLatestBlocksData, getLabelsMobile, getLabelsDesktop,
+  dummyLatestBlocksData,
+  getLabelsMobile,
+  getLabelsDesktop,
 } from './utils';
 import { useLatestBlocksHook } from './hooks';
 
 const LatestBlocks = () => {
   const { t } = useTranslation(['home']);
-  const { classes } = useGetStyles();
-  const { classes: latestBlockDesktopStyles } = useLatestBlocksDesktopStyles();
+  const { classes: latestBlocksDesktopStyles } = useLatestBlocksDesktopStyles();
+  const { classes: latestBlocksMobileStyles } = useLatestBlocksMobileStyles();
+  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
+  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+  const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
   const { handleClick } = useLatestBlocksHook();
@@ -30,12 +42,13 @@ const LatestBlocks = () => {
       {/* mobile */}
       {/* ================================ */}
       <TablePreviewWrapper
-        className={classnames(classes.mobile)}
+        className={classnames(tablePreviewWrapperStyles.root, mobileOnlyStyles.root)}
         title={t('latestBlocks')}
         action={<ActionMobile url={url} />}
         footerAction={<FooterAction url={url} />}
       >
         <LatestBlocksMobile
+          className={classnames(latestBlocksMobileStyles.root)}
           labels={labelsMobile}
           data={dummyLatestBlocksData}
           onClick={handleClick}
@@ -45,12 +58,12 @@ const LatestBlocks = () => {
       {/* desktop */}
       {/* ================================ */}
       <TablePreviewWrapper
-        className={classnames(classes.desktop)}
+        className={classnames(tablePreviewWrapperStyles.root, desktopOnlyStyles.root)}
         title="Latest Blocks"
         action={<ActionDesktop url={url} />}
       >
         <LatestBlocksDesktop
-          className={classnames(latestBlockDesktopStyles.root)}
+          className={classnames(latestBlocksDesktopStyles.root)}
           labels={labelsDesktop}
           data={dummyLatestBlocksData}
           onClick={handleClick}

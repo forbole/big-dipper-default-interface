@@ -29,6 +29,18 @@ export const useGetStyles = () => {
         },
       },
     },
+    latestBlocksMobile: {
+      '&.latest-blocks-mobile': {
+        '& .single-block': {
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
+        },
+      },
+    },
   }));
 
   return {

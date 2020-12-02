@@ -8,6 +8,7 @@ import { useLatestBlocksDesktopStyles } from './latest_blocks_desktop';
 import { useMobileOnlyStyles } from './mobile_only';
 import { useDesktopOnlyStyles } from './desktop_only';
 import { useLatestBlocksMobileStyles } from './latest_blocks_mobile';
+import { useTablePreviewWrapperStyles } from './table_preview_wrapper';
 
 export {
   darkTheme,
@@ -18,4 +19,5 @@ export {
   useLatestBlocksMobileStyles,
   useMobileOnlyStyles,
   useDesktopOnlyStyles,
+  useTablePreviewWrapperStyles,
 };

@@ -82,7 +82,11 @@ const Blocks = () => {
             {/* mobile */}
             {/* ================================ */}
             <LatestBlocksMobile
-              className={classnames(latestBlocksMobileStyles.root, mobileOnlyStyles.root)}
+              className={classnames(
+                classes.latestBlocksMobile,
+                latestBlocksMobileStyles.root,
+                mobileOnlyStyles.root,
+              )}
               labels={labelsMobile}
               data={data}
               onClick={handleClick}
@@ -91,7 +95,10 @@ const Blocks = () => {
             {/* desktop */}
             {/* ================================ */}
             <LatestBlocksDesktop
-              className={classnames(latestBlocksDesktopStyles.root, desktopOnlyStyles.root)}
+              className={classnames(
+                latestBlocksDesktopStyles.root,
+                desktopOnlyStyles.root,
+              )}
               labels={labelsDesktop}
               data={data}
               onClick={handleClick}

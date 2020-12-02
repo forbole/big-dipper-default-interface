@@ -13,10 +13,7 @@ export const useLatestBlocksMobileStyles = () => {
           color: theme?.palette?.custom?.fonts?.fontTwo,
           borderColor: theme?.palette?.divider,
           '&:first-child': {
-            borderTop: 'none',
-          },
-          '&:last-child': {
-            borderBottom: 'none',
+            borderColor: theme?.palette?.divider,
           },
           '& .time': {
             color: theme?.palette?.custom?.fonts?.fontThree,
