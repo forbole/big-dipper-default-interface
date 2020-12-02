@@ -1,9 +1,7 @@
-import {
-  makeStyles, createStyles,
-} from '@material-ui/styles';
+import { makeStyles } from '@material-ui/styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: any) => createStyles({
+  const useStyles = makeStyles(({
     root: {
       padding: '1rem 0 2rem',
       display: 'flex',
