@@ -56,8 +56,8 @@ const LatestActivities = () => {
       {/* ================================= */}
       <TablePreviewWrapper
         className={classnames(
-          tablePreviewWrapperStyles.root,
           desktopOnlyStyles.root,
+          tablePreviewWrapperStyles.root,
           classes.tablePreviewWrapper,
         )}
         title={t('latestActivities')}

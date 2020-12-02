@@ -13,10 +13,16 @@ export const useLatestActivitiesDesktopStyles = () => {
           '&:hover': {
             cursor: 'pointer',
           },
+          '&.active': {
+            background: theme?.palette?.custom?.table?.rowOdd,
+          },
         },
         '& .MuiTableCell-root': {
           color: theme?.palette?.custom?.fonts?.fontTwo,
           borderColor: theme?.palette?.divider,
+        },
+        '& .collapsible-table-row': {
+          background: theme?.palette?.custom?.table?.rowOdd,
         },
       },
     },

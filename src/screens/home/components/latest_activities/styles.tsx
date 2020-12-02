@@ -1,16 +1,25 @@
-import { makeStyles } from '@material-ui/styles';
+import {
+  makeStyles, createStyles,
+} from '@material-ui/styles';
+import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles({
+  const useStyles = makeStyles((theme: any) => createStyles({
     tablePreviewWrapper: {
-      '&.table-preview-wrapper': {
-        '& .content': {
-          flex: '1',
-          overflow: 'auto',
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        '&.table-preview-wrapper': {
+          height: '0',
+          minHeight: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          '& .content': {
+            flex: '1',
+            overflow: 'auto',
+          },
         },
       },
     },
-  });
+  }));
 
   return {
     classes: useStyles(),
