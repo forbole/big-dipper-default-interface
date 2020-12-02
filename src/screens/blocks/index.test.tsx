@@ -9,6 +9,8 @@ import { lightTheme } from '@styles';
 import {
   Layout,
   DataBlocksHeader,
+  HeaderBarDesktop,
+  HeaderBarMobile,
 } from '@components';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
@@ -51,6 +53,9 @@ describe('Blocks', () => {
     });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
+    expect(wrapper.find('.blocks-content__header--desktop')).toHaveLength(1);
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
+    expect(wrapper.find(HeaderBarDesktop)).toHaveLength(1);
+    expect(wrapper.find(HeaderBarMobile)).toHaveLength(1);
   });
 });

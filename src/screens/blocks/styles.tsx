@@ -6,25 +6,35 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .data-blocks': {
-        display: 'none',
-      },
       '& .blocks-content': {
-        height: '500px',
-        background: 'pink',
-      },
-      [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
-
+        background: theme?.palette?.background?.paper,
+        padding: `0 ${theme?.palette?.custom?.margins?.small}`,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        '& .data-blocks': {
-          display: 'block',
+        '& .blocks-content': {
+          padding: theme?.palette?.custom?.margins?.large,
+          borderRadius: '6px',
         },
-        '& .mobile-tablet-header': {
-          display: 'none',
+        '& .blocks-content__header--desktop': {
+          margin: '0 0 1rem',
+          fontWeight: 500,
+          fontSize: '1.5rem',
+          color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+        },
+      },
+    },
+    latestBlocksMobile: {
+      '&.latest-blocks-mobile': {
+        '& .single-block': {
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
         },
       },
     },

@@ -11,7 +11,7 @@ import {
 } from 'big-dipper-internal-ui';
 import { Footer } from '@components';
 import { ThemeModeContext } from '@contexts';
-import { useGetScreenSize } from '@utils';
+import { useGetScreenSizeHook } from '@hooks';
 import { chainConfig } from '@src/chain_config';
 import { LayoutProps } from './types';
 import {
@@ -52,7 +52,7 @@ export const Layout = (props: LayoutProps) => {
     changeLanguage,
   } = useContext(ThemeModeContext);
 
-  const windowSize = useGetScreenSize();
+  const windowSize = useGetScreenSizeHook();
   const mobileHook = useMobileNavHook(windowSize);
   const desktopHook = useDesktopNavHook(windowSize);
   // ============================
