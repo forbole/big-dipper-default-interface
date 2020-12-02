@@ -76,6 +76,7 @@ const lightThemeOverride = {
         fontThree: 'rgba(119, 119, 119, 1)', // subfonts
         fontFour: 'rgba(153, 153, 153, 1)', // placeholders
         fontFive: 'rgba(29, 134, 255, 1)', // names and address (links)
+        fontOneToTwo: 'rgba(0, 0, 0, 1)', // fonts the switch from fontOne in light mode to fontTwo in dark mode
       },
       dashboardData: {
         dashOne: 'rgba(250, 58, 57, 1)',
@@ -129,6 +130,7 @@ const darkThemeOverride = {
         fontThree: 'rgba(129, 129, 129, 1)', // subfonts
         fontFour: 'rgba(153, 153, 153, 1) ', // placeholders
         fontFive: 'rgba(39, 140, 255, 1)', // names and address (links)
+        fontOneToTwo: 'rgba(170, 170, 171, 1)', // fonts the switch from fontOne in light mode to fontTwo in dark mode
       },
       dashboardData: {
         dashOne: 'rgba(250, 58, 57, 0.7)',
