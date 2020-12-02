@@ -32,9 +32,10 @@ export const useGetStyles = () => {
         },
         '& .blocks-content__header--desktop': {
           display: 'block',
-          margin: '0',
+          margin: '0 0 1rem',
           fontWeight: 500,
           fontSize: '1.5rem',
+          color: theme?.palette?.custom?.fonts?.fontOneToTwo,
         },
         '& .mobile-tablet-header': {
           display: 'none',
@@ -65,6 +66,25 @@ export const useGetStyles = () => {
       display: 'none',
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'block',
+        '&.latest-blocks-desktop': {
+          '& .MuiTableCell-head': {
+            color: theme?.palette?.custom?.fonts?.fontTwo,
+          },
+          '& .table': {
+            background: theme?.palette?.background?.paper,
+          },
+          '& .single-row': {
+            '&:hover': {
+              cursor: 'pointer',
+            },
+            '&:nth-of-type(odd)': {
+              background: theme?.palette?.custom?.table?.rowOdd,
+            },
+            '& .cell': {
+              color: theme?.palette?.custom?.fonts?.fontTwo,
+            },
+          },
+        },
       },
     },
   }));
