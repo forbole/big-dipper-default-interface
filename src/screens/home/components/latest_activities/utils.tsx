@@ -35,60 +35,7 @@ export const DummyContentMobile = () => {
   );
 };
 
-export const dummyLatestActivitiesData:any[] = [
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    hash: '12344',
-    time: '1 hour',
-    success: true,
-    content: <DummyContentMobile />,
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    hash: '12344',
-    time: '1 hour',
-    success: false,
-    content: <DummyContentMobile />,
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    hash: '12344',
-    time: '1 hour',
-    success: false,
-    content: <DummyContentMobile />,
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    hash: '12344',
-    time: '1 hour',
-    success: false,
-    content: <DummyContentMobile />,
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    hash: '12344',
-    time: '1 hour',
-    success: false,
-    content: <DummyContentMobile />,
-  },
-];
-
-export const dummyLatestActivitiesDataDesktop = [
+export const dummyLatestActivities:any = [
   {
     type: {
       display: 'Delegate',

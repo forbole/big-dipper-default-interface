@@ -13,9 +13,7 @@ import {
   useTablePreviewWrapperStyles,
   useLatestActivitiesDesktopStyles,
 } from '@styles';
-import {
-  dummyLatestActivitiesData, dummyLatestActivitiesDataDesktop,
-} from './utils';
+import { dummyLatestActivities } from './utils';
 import {
   ActionMobile, FooterAction, ActionDesktop,
 } from '..';
@@ -47,7 +45,7 @@ const LatestActivities = () => {
           className={classnames(
             latestActivitiesMobileStyles.root,
           )}
-          data={dummyLatestActivitiesData}
+          data={dummyLatestActivities}
           onClick={handleClick}
         />
       </TablePreviewWrapper>
@@ -67,7 +65,7 @@ const LatestActivities = () => {
           className={classnames(
             latestActivitiesDesktopStyles.root,
           )}
-          data={dummyLatestActivitiesDataDesktop}
+          data={dummyLatestActivities}
           onClick={handleClick}
         />
       </TablePreviewWrapper>
