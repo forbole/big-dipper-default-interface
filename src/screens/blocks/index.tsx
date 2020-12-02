@@ -64,7 +64,7 @@ const Blocks = () => {
         <div className={classnames('data-blocks', desktopOnlyStyles.root)}>
           <DataBlocksHeader />
         </div>
-        <div className={classnames('mobile-tablet-header')}>
+        <div className={classnames(mobileOnlyStyles.root)}>
           <HeaderBarMobile title={t('title')} communityPool={communityPool} />
         </div>
         <div className={classnames('blocks-content')}>
