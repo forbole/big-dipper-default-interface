@@ -14,6 +14,12 @@ import {
   InfiniteLoader,
 } from '@components';
 import { useMarketHook } from '@hooks';
+import {
+  useLatestBlocksDesktopStyles,
+  useLatestBlocksMobileStyles,
+  useMobileOnlyStyles,
+  useDesktopOnlyStyles,
+} from '@styles';
 import { useBlocksHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
@@ -24,6 +30,11 @@ const Blocks = () => {
   const { t } = useTranslation(['blocks', 'common']);
   const { communityPool } = useMarketHook();
   const { classes } = useGetStyles();
+  const { classes: latestBlocksDesktopStyles } = useLatestBlocksDesktopStyles();
+  const { classes: latestBlocksMobileStyles } = useLatestBlocksMobileStyles();
+  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
+  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+
   const {
     handleSearchbarSubmit,
     handleLoadMore,
@@ -50,14 +61,14 @@ const Blocks = () => {
       {/* content start */}
       {/* ===================================== */}
       <div className={classnames(classes.root)}>
-        <div className={classnames('data-blocks')}>
+        <div className={classnames('data-blocks', desktopOnlyStyles.root)}>
           <DataBlocksHeader />
         </div>
         <div className={classnames('mobile-tablet-header')}>
           <HeaderBarMobile title={t('title')} communityPool={communityPool} />
         </div>
         <div className={classnames('blocks-content')}>
-          <h2 className={classnames('blocks-content__header--desktop')}>
+          <h2 className={classnames('blocks-content__header--desktop', desktopOnlyStyles.root)}>
             {t('latestBlocks')}
           </h2>
           {/* blocks table */}
@@ -71,7 +82,7 @@ const Blocks = () => {
             {/* mobile */}
             {/* ================================ */}
             <LatestBlocksMobile
-              className={classnames(classes.mobile)}
+              className={classnames(latestBlocksMobileStyles.root, mobileOnlyStyles.root)}
               labels={labelsMobile}
               data={data}
               onClick={handleClick}
@@ -80,7 +91,7 @@ const Blocks = () => {
             {/* desktop */}
             {/* ================================ */}
             <LatestBlocksDesktop
-              className={classnames(classes.desktop)}
+              className={classnames(latestBlocksDesktopStyles.root, desktopOnlyStyles.root)}
               labels={labelsDesktop}
               data={data}
               onClick={handleClick}

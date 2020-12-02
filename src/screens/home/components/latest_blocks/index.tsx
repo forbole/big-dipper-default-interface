@@ -6,6 +6,7 @@ import {
   TablePreviewWrapper,
   LatestBlocksDesktop,
 } from 'big-dipper-default-ui';
+import { useLatestBlocksDesktopStyles } from '@styles';
 import { useGetStyles } from './styles';
 import {
   ActionMobile, FooterAction, ActionDesktop,
@@ -18,6 +19,7 @@ import { useLatestBlocksHook } from './hooks';
 const LatestBlocks = () => {
   const { t } = useTranslation(['home']);
   const { classes } = useGetStyles();
+  const { classes: latestBlockDesktopStyles } = useLatestBlocksDesktopStyles();
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
   const { handleClick } = useLatestBlocksHook();
@@ -48,6 +50,7 @@ const LatestBlocks = () => {
         action={<ActionDesktop url={url} />}
       >
         <LatestBlocksDesktop
+          className={classnames(latestBlockDesktopStyles.root)}
           labels={labelsDesktop}
           data={dummyLatestBlocksData}
           onClick={handleClick}
