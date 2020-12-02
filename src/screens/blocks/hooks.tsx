@@ -19,10 +19,8 @@ export const useBlocksHook = () => {
   };
 
   const handleLoadMore = () => {
-    console.log('loading more');
     setTimeout(() => {
       if (state.data.length < 10) {
-        console.log('im in here');
         handleSetState({
           data: [
             ...state.data,
@@ -56,9 +54,10 @@ export const useBlocksHook = () => {
               hash: '89832B67F594asddw32',
               tx: 2,
             }],
+          hasMore: false,
         });
       }
-    }, 1500);
+    }, 2500);
     return null;
   };
 

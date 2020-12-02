@@ -1,6 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import { LatestBlocksMobile } from 'big-dipper-default-ui';
+import {
+  LatestBlocksMobile,
+  LatestBlocksDesktop,
+} from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
 import {
@@ -13,7 +16,9 @@ import {
 import { useMarketHook } from '@hooks';
 import { useBlocksHook } from './hooks';
 import { useGetStyles } from './styles';
-import { getLabelsMobile } from './utils';
+import {
+  getLabelsMobile, getLabelsDesktop,
+} from './utils';
 
 const Blocks = () => {
   const { t } = useTranslation(['blocks', 'common']);
@@ -29,6 +34,7 @@ const Blocks = () => {
     hasMore, data,
   } = state;
   const labelsMobile = getLabelsMobile(t);
+  const labelsDesktop = getLabelsDesktop(t);
 
   return (
     <Layout
@@ -51,24 +57,35 @@ const Blocks = () => {
           <HeaderBarMobile title={t('title')} communityPool={communityPool} />
         </div>
         <div className={classnames('blocks-content')}>
+          <h2 className={classnames('blocks-content__header--desktop')}>
+            {t('latestBlocks')}
+          </h2>
           {/* blocks table */}
-          {/* ================================ */}
-          {/* mobile */}
-          {/* ================================ */}
-          <div className={classnames(classes.mobile)}>
-            <InfiniteScroll
-              pageStart={0}
-              loadMore={handleLoadMore}
-              hasMore={hasMore}
-              loader={<InfiniteLoader key={0} />}
-            >
-              <LatestBlocksMobile
-                labels={labelsMobile}
-                data={data}
-                onClick={handleClick}
-              />
-            </InfiniteScroll>
-          </div>
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={handleLoadMore}
+            hasMore={hasMore}
+            loader={<InfiniteLoader key={0} />}
+          >
+            {/* ================================ */}
+            {/* mobile */}
+            {/* ================================ */}
+            <LatestBlocksMobile
+              className={classnames(classes.mobile)}
+              labels={labelsMobile}
+              data={data}
+              onClick={handleClick}
+            />
+            {/* ================================ */}
+            {/* desktop */}
+            {/* ================================ */}
+            <LatestBlocksDesktop
+              className={classnames(classes.desktop)}
+              labels={labelsDesktop}
+              data={data}
+              onClick={handleClick}
+            />
+          </InfiniteScroll>
         </div>
       </div>
       {/* ===================================== */}

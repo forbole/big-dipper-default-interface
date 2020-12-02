@@ -6,5 +6,6 @@
   "proposer": "Proposer",
   "height": "Height",
   "time": "Time [UTC]",
-  "hash": "Hash"
+  "hash": "Hash",
+  "latestBlocks": "Latest Blocks"
 }

@@ -11,6 +11,10 @@ export const useGetStyles = () => {
       },
       '& .blocks-content': {
         background: theme?.palette?.background?.paper,
+        padding: `0 ${theme?.palette?.custom?.margins?.small}`,
+      },
+      '& .blocks-content__header--desktop': {
+        display: 'none',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -22,14 +26,23 @@ export const useGetStyles = () => {
         '& .data-blocks': {
           display: 'block',
         },
+        '& .blocks-content': {
+          padding: theme?.palette?.custom?.margins?.large,
+          borderRadius: '6px',
+        },
+        '& .blocks-content__header--desktop': {
+          display: 'block',
+          margin: '0',
+          fontWeight: 500,
+          fontSize: '1.5rem',
+        },
         '& .mobile-tablet-header': {
           display: 'none',
         },
       },
     },
     mobile: {
-      padding: '0 1rem',
-      '& .latest-blocks-mobile': {
+      '&.latest-blocks-mobile': {
         '& .single-block': {
           color: theme?.palette?.custom?.fonts?.fontTwo,
           borderColor: theme?.palette?.divider,
@@ -46,6 +59,12 @@ export const useGetStyles = () => {
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'none',
+      },
+    },
+    desktop: {
+      display: 'none',
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        display: 'block',
       },
     },
   }));
