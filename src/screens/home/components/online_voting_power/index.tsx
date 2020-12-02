@@ -4,9 +4,8 @@ import {
 } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
-import {
-  formatNumber, useGetScreenSize,
-} from '@utils';
+import { formatNumber } from '@utils';
+import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
 import { fakeData } from './utils';
 import { useOnlineVotingPowerHook } from './hooks';
@@ -14,7 +13,7 @@ import { useOnlineVotingPowerHook } from './hooks';
 const OnlineVotingPower = () => {
   const { t } = useTranslation('home');
   const { classes } = useGetStyles();
-  const windowSize = useGetScreenSize();
+  const windowSize = useGetScreenSizeHook();
   const {
     gridAspect,
     getCartesianGridStroke,
