@@ -8,28 +8,6 @@ export const useGetStyles = () => {
     const headerColor = theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo;
     return (
       createStyles({
-        mobile: {
-          '&.table-preview-wrapper': {
-            background: theme?.palette?.background?.paper,
-          },
-          '& .top-bar': {
-            '& h3': {
-              color: headerColor,
-            },
-          },
-          '& .content': {
-            '& .activity': {
-              color: theme?.palette?.custom?.fonts?.fontTwo,
-              borderColor: theme?.palette?.divider,
-              '&:first-child': {
-                borderColor: theme?.palette?.divider,
-              },
-            },
-          },
-          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-            display: 'none',
-          },
-        },
         desktop: {
           display: 'none',
           [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {

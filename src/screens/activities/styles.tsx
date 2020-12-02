@@ -6,25 +6,29 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .data-blocks': {
-        display: 'none',
-      },
       '& .activities-content': {
-        height: '500px',
-        background: 'pink',
-      },
-      [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
-
+        background: theme?.palette?.background?.paper,
+        padding: `0 ${theme?.palette?.custom?.margins?.small}`,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
-        '& .data-blocks': {
-          display: 'block',
+        '& .activities-content': {
+          padding: theme?.palette?.custom?.margins?.large,
+          borderRadius: '6px',
         },
-        '& .mobile-tablet-header': {
-          display: 'none',
+      },
+    },
+    latestActivitiesMobile: {
+      '&.latest-activities-mobile': {
+        '& .activity': {
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
         },
       },
     },
