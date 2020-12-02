@@ -4,6 +4,7 @@ import Home from '@screens/home';
 import {
   LatestBlocks,
   Stabilities,
+  Consensus,
   OnlineVotingPower,
 } from '@screens/home/components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
@@ -61,6 +62,7 @@ describe('Home', () => {
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
     expect(wrapper.find(Stabilities)).toHaveLength(1);
+    expect(wrapper.find(Consensus)).toHaveLength(1);
     expect(wrapper.find(HeaderBarDesktop)).toHaveLength(1);
     expect(wrapper.find(LatestBlocks)).toHaveLength(1);
     expect(wrapper.find(OnlineVotingPower)).toHaveLength(1);

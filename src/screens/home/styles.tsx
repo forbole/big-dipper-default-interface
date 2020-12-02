@@ -21,7 +21,6 @@ export const useGetStyles = () => {
       '& .stablities': {
       },
       '& .consensus': {
-        background: 'pink',
       },
       '& .latest-blocks': {
 

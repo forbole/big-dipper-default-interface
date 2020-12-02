@@ -11,6 +11,7 @@ import {
   LatestBlocks,
   Stabilities,
   LatestActivities,
+  Consensus,
   OnlineVotingPower,
 } from './components';
 import { useHomeHook } from './hooks';
@@ -47,7 +48,7 @@ const Home = () => {
         </div>
         {/* consensus start */}
         <div className={classnames('consensus')}>
-          consensus
+          <Consensus />
         </div>
         {/* blocks start */}
         <div className={classnames('latest-blocks')}>
