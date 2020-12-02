@@ -1,4 +1,10 @@
 {
   "title": "Blocks",
-  "subTitle": "Block #"
+  "subTitle": "Block #",
+  "txMobile": "tx",
+  "txDesktop": "Txs",
+  "proposer": "Proposer",
+  "height": "Height",
+  "time": "Time [UTC]",
+  "hash": "Hash"
 }

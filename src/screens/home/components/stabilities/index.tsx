@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { Stabilities } from 'big-dipper-default-ui';
+import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
 
 export const colors = ['#FF7846', '#FFD800'];
@@ -13,7 +14,7 @@ const StabilitiesItem = () => {
     <Stabilities
       className={classnames(classes.root)}
       title={t('stabilitiesTitle')}
-      coin={t('coin')}
+      coin={chainConfig.display}
       price={{
         title: t('priceTitle'),
         display: '$2.756',

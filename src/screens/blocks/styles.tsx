@@ -10,8 +10,7 @@ export const useGetStyles = () => {
         display: 'none',
       },
       '& .blocks-content': {
-        // minheight: '1000px',
-        background: 'pink',
+        background: theme?.palette?.background?.paper,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -26,6 +25,27 @@ export const useGetStyles = () => {
         '& .mobile-tablet-header': {
           display: 'none',
         },
+      },
+    },
+    mobile: {
+      padding: '0 1rem',
+      '& .latest-blocks-mobile': {
+        '& .single-block': {
+          color: theme?.palette?.custom?.fonts?.fontTwo,
+          borderColor: theme?.palette?.divider,
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
+          '& .time': {
+            color: theme?.palette?.custom?.fonts?.fontThree,
+          },
+        },
+      },
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        display: 'none',
       },
     },
   }));
