@@ -151,7 +151,6 @@ const Activities = () => {
             <LatestActivitiesDesktop
               collapsibleLabels={collapsibleLabels}
               data={data}
-              onClick={handleClick}
               className={classnames(
                 desktopOnlyStyles.root,
                 latestActivitiesDesktopStyles.root,
