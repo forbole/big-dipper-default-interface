@@ -36,6 +36,9 @@ export const useGetStyles = () => {
             '& .unbonded': {
               background: colors[1],
             },
+            '& .chartBox': {
+              width: '45%',
+            },
           },
         },
       }));
