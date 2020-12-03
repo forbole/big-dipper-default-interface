@@ -1,5 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import {
+  LatestActivitiesMobile,
+  LatestActivitiesDesktop,
+} from 'big-dipper-default-ui';
 import Activities from '@screens/activities';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
@@ -52,5 +56,7 @@ describe('Activities', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(DataBlocksHeader)).toHaveLength(1);
+    expect(wrapper.find(LatestActivitiesMobile)).toHaveLength(1);
+    expect(wrapper.find(LatestActivitiesDesktop)).toHaveLength(1);
   });
 });

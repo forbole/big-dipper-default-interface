@@ -2,7 +2,7 @@ import {
   useState, useEffect,
 } from 'react';
 
-function useGetScreenSize() {
+function useGetScreenSizeHook() {
   const isClient = typeof window === 'object';
 
   function getSize() {
@@ -31,5 +31,5 @@ function useGetScreenSize() {
 }
 
 export {
-  useGetScreenSize,
+  useGetScreenSizeHook,
 };

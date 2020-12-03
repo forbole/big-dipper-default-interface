@@ -126,8 +126,13 @@ export const useNetworkHook = () => {
   const [networks, setNetworks] = useState([]);
   useEffect(() => {
     const getNetworkList = async () => {
-      const { data = [] } = await axios.get(NETWORK_LIST_API);
-
+      let data = [];
+      try {
+        const results = await axios.get(NETWORK_LIST_API);
+        data = results?.data ?? [];
+      } catch (error) {
+        console.error(error);
+      }
       const formattedData = data
         .map((x) => BigDipperNetwork.fromJson(x));
       setNetworks(formattedData);
