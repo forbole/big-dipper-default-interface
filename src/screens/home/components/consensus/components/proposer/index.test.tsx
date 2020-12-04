@@ -9,7 +9,7 @@ describe('Proposer', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <Proposer id="3000" display="Forbole" />,
+        component: <Proposer id="3000" display="Forbole" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
         theme: lightTheme,
       }),
     );

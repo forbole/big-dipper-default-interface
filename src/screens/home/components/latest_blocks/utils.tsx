@@ -25,7 +25,7 @@ export const getLabelsDesktop = (t:any) => ({
 // mobile only shows 7
 export const dummyLatestBlocksData:any[] = [
   {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -35,7 +35,7 @@ export const dummyLatestBlocksData:any[] = [
     tx: 2,
   },
   {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -45,7 +45,7 @@ export const dummyLatestBlocksData:any[] = [
     tx: 2,
   },
   {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -55,7 +55,7 @@ export const dummyLatestBlocksData:any[] = [
     tx: 2,
   },
   {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -65,7 +65,7 @@ export const dummyLatestBlocksData:any[] = [
     tx: 2,
   },
   {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -74,7 +74,7 @@ export const dummyLatestBlocksData:any[] = [
     hash: '89832B67F594asddw32',
     tx: 2,
   }, {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -83,7 +83,7 @@ export const dummyLatestBlocksData:any[] = [
     hash: '89832B67F594asddw32',
     tx: 2,
   }, {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
@@ -92,7 +92,7 @@ export const dummyLatestBlocksData:any[] = [
     hash: '89832B67F594asddw32',
     tx: 2,
   }, {
-    proposer: <Proposer display="Forbole" id="12345563" />,
+    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
     height: {
       value: 20000,
       display: <Height display="200,00" raw={20000} />,
