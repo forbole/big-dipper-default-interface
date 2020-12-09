@@ -3,11 +3,14 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { ToastContainer } from 'react-toastify';
 import { ApolloProvider } from '@apollo/client';
 import client from '@graphql';
 import { ThemeModeContext } from '@contexts';
 import { appWithTranslation } from '../../../i18n';
 import { useAppHook } from './hooks';
+import { useGetStyles } from './styles';
+import 'react-toastify/dist/ReactToastify.css';
 
 /**
  * This default export is required in a new `pages/_app.js` file.
@@ -24,6 +27,7 @@ function MyApp({
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+  const { classes } = useGetStyles();
 
   return (
     <>
@@ -43,6 +47,18 @@ function MyApp({
           <ThemeModeContext.Provider value={layoutProps}>
             <Component
               {...pageProps}
+            />
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              className={classes.toast}
             />
           </ThemeModeContext.Provider>
         </ThemeProvider>

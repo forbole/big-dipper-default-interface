@@ -11,11 +11,6 @@ export const useGetStyles = () => {
         background: 'pink',
         border: 'solid 1px black',
       },
-      '& .validator-info': {
-        height: '500px',
-        background: 'yellow',
-        border: 'solid 1px black',
-      },
       '& .validator-voting-power': {
         height: '500px',
         background: 'lime',
