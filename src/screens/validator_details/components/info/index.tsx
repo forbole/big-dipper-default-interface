@@ -1,37 +1,52 @@
 import React from 'react';
 import { ValidatorInfo } from 'big-dipper-default-ui';
+import { useTranslation } from 'i18n';
+import { useGetScreenSizeHook } from '@hooks';
 import { useInfoHook } from './hooks';
+import { useGetStyles } from './styles';
+import {
+  dummyData, formatData,
+} from './utils';
 
 const Info = () => {
-  const { handleCopy } = useInfoHook();
+  const { t } = useTranslation(['validators', 'common']);
+  const windowSize = useGetScreenSizeHook();
+  const { classes } = useGetStyles();
+  const {
+    handleCopy, isDesktop,
+  } = useInfoHook(t, windowSize);
+  const formatDummyData = formatData(dummyData, isDesktop);
+
   return (
     <ValidatorInfo
+      className={classes.root}
       title="Validator Info"
+      desktop={isDesktop}
       copyCallback={handleCopy}
       operatorAddress={{
-        label: 'Operator Address',
+        label: t('operatorAddress'),
         rawValue: '123456678',
-        display: '123...56758',
+        display: formatDummyData.operatorAddress,
       }}
       selfDelegateAddress={{
-        label: 'Self-Delegate Address',
+        label: t('selfDelegateAddress'),
         rawValue: '123456678',
-        display: <p>123...5678</p>,
+        display: formatDummyData.selfDelegateAddress,
       }}
       commissionRate={{
-        label: 'Commission Rate',
+        label: t('commissionRate'),
         display: '10%',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna libero, mattis nec ultrices sit amet, pharetra vitae lorem. Quisque pretium pulvinar eros,',
+        description: t('commissionRateDescription'),
       }}
       maxChangeRate={{
-        label: 'Max Change Rate',
+        label: t('maxChangeRate'),
         display: '2%',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent urna libero, mattis nec ultrices sit amet, pharetra vitae lorem. Quisque pretium pulvinar eros,',
+        description: t('maxChangeRateDescription'),
       }}
       maxRate={{
-        label: 'Max Rate',
+        label: t('maxRate'),
         display: '5%',
-        description: 'Max Rate Description',
+        description: t('maxRateDescription'),
       }}
     />
   );
