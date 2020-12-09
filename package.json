@@ -22,6 +22,7 @@
     "big-dipper-default-ui": "git+https://github.com/forbole/big-dipper-default-ui.git",
     "big-dipper-internal-ui": "git+https://github.com/forbole/big-dipper-internal-ui.git",
     "classnames": "^2.2.6",
+    "copy-to-clipboard": "^3.3.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "dotenv-defaults": "^2.0.1",
