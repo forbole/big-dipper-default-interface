@@ -15,6 +15,7 @@ export const useGetStyles = () => {
         flexDirection: 'column',
       },
       '& .activities-filter-select': {
+        marginTop: theme?.palette?.custom?.margins?.small,
         '&.hide': {
           visibility: 'hidden',
         },
@@ -33,6 +34,7 @@ export const useGetStyles = () => {
     },
     latestActivitiesMobile: {
       '&.latest-activities-mobile': {
+        marginTop: 0,
         '& .activity': {
           '&:first-child': {
             borderTop: 'none',
