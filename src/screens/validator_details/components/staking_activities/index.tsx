@@ -7,14 +7,14 @@ import {
 } from '@material-ui/core';
 import { TabPanel } from '@components';
 import { getAllyProps } from '@utils';
-import { useStakingActivityHook } from './hooks';
+import { useStakingActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 
-const StakingActivity = () => {
+const StakingActivities = () => {
   const {
     tabValue,
     handleTabChange,
-  } = useStakingActivityHook();
+  } = useStakingActivitiesHook();
   const { t } = useTranslation('validators');
   const { classes } = useGetStyles();
   return (
@@ -59,4 +59,4 @@ const StakingActivity = () => {
   );
 };
 
-export default StakingActivity;
+export default StakingActivities;

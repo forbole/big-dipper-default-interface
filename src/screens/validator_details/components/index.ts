@@ -1,9 +1,9 @@
 import Info from './info';
 import PowerActivities from './power_activities';
-import StakingActivity from './staking_activity';
+import StakingActivities from './staking_activities';
 
 export {
   Info,
   PowerActivities,
-  StakingActivity,
+  StakingActivities,
 };
