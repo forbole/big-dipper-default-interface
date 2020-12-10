@@ -10,7 +10,6 @@ import {
   TabPanel, ActivitiesFilter,
 } from '@components';
 import { getAllyProps } from '@utils';
-import { useDesktopOnlyStyles } from '@styles';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -22,7 +21,6 @@ const PowerActivities = () => {
   const { t } = useTranslation('validators');
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
-  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   return (
     <div className={classnames(classes.root)}>
       <div className={classnames('flex')}>
@@ -39,7 +37,7 @@ const PowerActivities = () => {
           <Tab disableRipple label={t('activities')} {...getAllyProps(1)} />
         </Tabs>
         <ActivitiesFilter
-          className={classnames(desktopOnlyStyles.root, {
+          className={classnames({
             hide: tabValue === 0,
             show: tabValue === 1,
           })}

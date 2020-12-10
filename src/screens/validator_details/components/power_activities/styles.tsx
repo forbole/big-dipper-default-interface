@@ -6,21 +6,26 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-
+      '& .flex': {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'column',
+      },
+      '& .activities-filter-select': {
+        '&.hide': {
+          visibility: 'hidden',
+        },
+        '&.show': {
+          visibility: 'visible',
+        },
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         '& .flex': {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        },
-        '& .hide': {
-          visibility: 'hidden',
-        },
-        '& .show': {
-          visibility: 'visible',
+          flexDirection: 'row',
         },
       },
     },

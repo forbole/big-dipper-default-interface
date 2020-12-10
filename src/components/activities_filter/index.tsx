@@ -26,7 +26,7 @@ const ActivitiesFilter = (props:ActivitiesFilterProps) => {
 
   return (
     <Select
-      className={classnames(classes.select, className, 'content-header__select')}
+      className={classnames(classes.select, className, 'activities-filter-select')}
       displayEmpty
       MenuProps={{
         anchorOrigin: {
