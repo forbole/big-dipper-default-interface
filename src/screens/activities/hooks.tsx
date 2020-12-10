@@ -11,7 +11,6 @@ export const useActivitiesHook = () => {
   ] = useState({
     data: dummyLatestActivitiesData,
     hasMore: true,
-    selectedFilter: '',
   });
 
   const handleSetState = (stateChange: any) => {
@@ -39,12 +38,8 @@ export const useActivitiesHook = () => {
     }
   };
 
-  const handleOnFilterSelect = (selected) => {
-    const newSelectedFilter = selected.key === 'none' ? '' : selected.key;
-    handleSetState({
-      selectedFilter: newSelectedFilter,
-    });
-    console.log(`filter selected in activities: ${selected.key}`);
+  const handleOnFilterCallback = (value) => {
+    console.log(`filter selected in activities: ${value.key}`);
   };
 
   return {
@@ -53,6 +48,6 @@ export const useActivitiesHook = () => {
     handleSetState,
     handleLoadMore,
     handleClick,
-    handleOnFilterSelect,
+    handleOnFilterCallback,
   };
 };

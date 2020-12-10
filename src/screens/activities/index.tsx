@@ -7,12 +7,6 @@ import {
   LatestActivitiesDesktop,
 } from 'big-dipper-default-ui';
 import {
-  MenuItem,
-  Select,
-  InputBase,
-  Typography,
-} from '@material-ui/core';
-import {
   Layout,
   DataBlocksHeader,
   HeaderBarDesktop,
@@ -38,13 +32,12 @@ const Activities = () => {
     handleSearchbarSubmit,
     handleLoadMore,
     handleClick,
-    handleOnFilterSelect,
     state,
+    handleOnFilterCallback,
   } = useActivitiesHook();
   const {
     hasMore,
     data,
-    selectedFilter,
   } = state;
 
   const { classes } = useGetStyles();
@@ -80,7 +73,7 @@ const Activities = () => {
             <h1 className={classnames('content-header__title--desktop', desktopOnlyStyles.root)}>
               {t('latestActivities')}
             </h1>
-            <ActivitiesFilter />
+            <ActivitiesFilter callback={handleOnFilterCallback} />
           </div>
           {/* ================================ */}
           {/* activity table */}
