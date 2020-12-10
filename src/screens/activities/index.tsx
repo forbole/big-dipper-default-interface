@@ -18,6 +18,7 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
   InfiniteLoader,
+  ActivitiesFilter,
 } from '@components';
 import {
   useMobileOnlyStyles,
@@ -28,9 +29,7 @@ import {
 import { useMarketHook } from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
-import {
-  getCollapsibleLabels, getFilterLabels,
-} from './utils';
+import { getCollapsibleLabels } from './utils';
 
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
@@ -55,7 +54,6 @@ const Activities = () => {
   const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
 
   const collapsibleLabels = getCollapsibleLabels(t);
-  const filterLabels = getFilterLabels();
 
   return (
     <Layout
@@ -82,47 +80,7 @@ const Activities = () => {
             <h1 className={classnames('content-header__title--desktop', desktopOnlyStyles.root)}>
               {t('latestActivities')}
             </h1>
-            <Select
-              className="content-header__select"
-              displayEmpty
-              MenuProps={{
-                anchorOrigin: {
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                },
-                transformOrigin: {
-                  vertical: 'top',
-                  horizontal: 'left',
-                },
-                getContentAnchorEl: null,
-              }}
-              value={selectedFilter}
-              renderValue={
-                selectedFilter !== '' ? undefined : () => {
-                  return (
-                    <p className={classnames('select__placeholder')}>
-                      {t('filerBy')}
-                    </p>
-                  );
-                }
-              }
-              input={<InputBase />}
-            >
-              {filterLabels.map((x) => {
-                return (
-                  <MenuItem
-                    key={x.key}
-                    onClick={() => handleOnFilterSelect(x)}
-                    value={x.key}
-                    className={classes.filterMenu}
-                  >
-                    <Typography variant="inherit" noWrap>
-                      {t(x.display)}
-                    </Typography>
-                  </MenuItem>
-                );
-              })}
-            </Select>
+            <ActivitiesFilter />
           </div>
           {/* ================================ */}
           {/* activity table */}

@@ -7,15 +7,18 @@ import {
   HeaderBarMobile,
 } from '@components';
 import { useMarketHook } from '@hooks';
-import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
-import { Info } from './components';
+import { useValidatorDetailsHook } from './hooks';
+import {
+  Info, PowerActivities,
+} from './components';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation(['validators', 'common']);
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useValidatorDetailsHook();
   const { classes } = useGetStyles();
+
   return (
     <Layout
       header={(
@@ -53,7 +56,7 @@ const ValidatorDetails = () => {
           staking chart
         </div>
         <div className={classnames('events-and-activities')}>
-          power events and activities
+          <PowerActivities />
         </div>
       </div>
       {/* ===================================== */}
