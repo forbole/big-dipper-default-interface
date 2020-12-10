@@ -9,6 +9,7 @@ import {
 import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
+import { Info } from './components';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation(['validators', 'common']);
@@ -37,7 +38,7 @@ const ValidatorDetails = () => {
           validators bio
         </div>
         <div className={classnames('validator-info')}>
-          validators info
+          <Info />
         </div>
         <div className={classnames('validator-voting-power')}>
           validators voting power

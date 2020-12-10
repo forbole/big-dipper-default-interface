@@ -22,6 +22,7 @@
     "big-dipper-default-ui": "git+https://github.com/forbole/big-dipper-default-ui.git",
     "big-dipper-internal-ui": "git+https://github.com/forbole/big-dipper-internal-ui.git",
     "classnames": "^2.2.6",
+    "copy-to-clipboard": "^3.3.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "dotenv-defaults": "^2.0.1",
@@ -36,6 +37,7 @@
     "react-dom": "16.13.1",
     "react-i18next": "^11.7.2",
     "react-infinite-scroller": "^1.2.4",
+    "react-toastify": "^6.2.0",
     "recharts": "^1.8.5",
     "subscriptions-transport-ws": "^0.9.18",
     "validator": "^13.1.17"

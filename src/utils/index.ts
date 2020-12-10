@@ -3,6 +3,7 @@ import { handleSearchbarSubmit } from './handle_searchbar';
 import { formatDenom } from './format_denom';
 import { formatNumber } from './format_number';
 import { getBaseCommunityPool } from './get_base_community_pool';
+import { formatMiddleEllipse } from './format_middle_ellipse';
 
 export {
   getLanguageValue,
@@ -10,4 +11,5 @@ export {
   formatNumber,
   formatDenom,
   getBaseCommunityPool,
+  formatMiddleEllipse,
 };
