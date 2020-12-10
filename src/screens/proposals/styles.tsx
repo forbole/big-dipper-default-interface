@@ -9,9 +9,18 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      '& .proposals-content': {
-        height: '500px',
-        background: 'pink',
+      '& .toggle': {
+        height: '2rem',
+        background: 'white',
+        padding: '0 1rem 0 1rem',
+      },
+      '& .toggleContent': {
+        float: 'right',
+      },
+      '& .proposalList': {
+        paddingLeft: theme?.palette?.custom?.gutters?.small,
+        paddingRight: theme?.palette?.custom?.gutters?.small,
+        background: 'white',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -25,6 +34,15 @@ export const useGetStyles = () => {
         },
         '& .mobile-tablet-header': {
           display: 'none',
+        },
+        '& .proposalList': {
+          paddingLeft: theme?.palette?.custom?.gutters?.medium,
+          paddingRight: theme?.palette?.custom?.gutters?.medium,
+
+        },
+        '& .toggle': {
+          background: 'inherit',
+          padding: '0',
         },
       },
     },
