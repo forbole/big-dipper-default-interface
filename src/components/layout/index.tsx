@@ -52,9 +52,9 @@ export const Layout = (props: LayoutProps) => {
     changeLanguage,
   } = useContext(ThemeModeContext);
 
-  const windowSize = useGetScreenSizeHook();
-  const mobileHook = useMobileNavHook(windowSize);
-  const desktopHook = useDesktopNavHook(windowSize);
+  const { isDesktop } = useGetScreenSizeHook();
+  const mobileHook = useMobileNavHook(isDesktop);
+  const desktopHook = useDesktopNavHook(isDesktop);
   // ============================
   // Languages
   // ============================

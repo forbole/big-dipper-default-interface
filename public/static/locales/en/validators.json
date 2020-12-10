@@ -8,5 +8,9 @@
   "maxChangeRate": "Max Change Rate",
   "maxChangeRateDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, nulla et consequat vulputate, augue neque maximus ligula, ac pretium augue velit a metus.",
   "maxRate": "Max Rate",
-  "maxRateDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, nulla et consequat vulputate, augue neque maximus ligula, ac pretium augue velit a metus."
+  "maxRateDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, nulla et consequat vulputate, augue neque maximus ligula, ac pretium augue velit a metus.",
+  "active": "Active",
+  "inactive": "Inactive",
+  "searchActiveValidator": "Search active validator",
+  "searchInactiveValidator": "Search inactive validator"
 }
