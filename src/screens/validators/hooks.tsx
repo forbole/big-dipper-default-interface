@@ -1,8 +1,5 @@
-import {
-  useState, useEffect,
-} from 'react';
+import { useState } from 'react';
 import { handleSearchbarSubmit } from '@utils';
-import { useTheme } from '@material-ui/core/styles';
 
 export const useValidatorHook = () => {
   return {
@@ -10,19 +7,8 @@ export const useValidatorHook = () => {
   };
 };
 
-export const useValidatorListHook = (windowSize:any) => {
+export const useValidatorListHook = () => {
   const [tabValue, setTabValue] = useState(0);
-  const [isDesktop, setDesktop] = useState(false);
-  const theme:any = useTheme();
-
-  useEffect(() => {
-    if (windowSize.width >= theme?.breakpoints?.values?.desktop && !isDesktop) {
-      setDesktop(true);
-    }
-    if (windowSize.width < theme?.breakpoints?.values?.desktop && isDesktop) {
-      setDesktop(false);
-    }
-  }, [windowSize.width]);
 
   const handleTabChange = (_event:any, newValue: number) => {
     setTabValue(newValue);
@@ -31,6 +17,5 @@ export const useValidatorListHook = (windowSize:any) => {
   return {
     tabValue,
     handleTabChange,
-    isDesktop,
   };
 };

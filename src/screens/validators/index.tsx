@@ -24,12 +24,11 @@ const Validators = () => {
   const { t } = useTranslation(['validators', 'common']);
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useValidatorHook();
-  const windowSize = useGetScreenSizeHook();
+  const { isDesktop } = useGetScreenSizeHook();
   const {
     tabValue,
     handleTabChange,
-    isDesktop,
-  } = useValidatorListHook(windowSize);
+  } = useValidatorListHook();
 
   const { classes } = useGetStyles();
   return (

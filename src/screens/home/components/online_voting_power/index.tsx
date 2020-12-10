@@ -13,7 +13,7 @@ import { useOnlineVotingPowerHook } from './hooks';
 const OnlineVotingPower = () => {
   const { t } = useTranslation('home');
   const { classes } = useGetStyles();
-  const windowSize = useGetScreenSizeHook();
+  const { windowSize } = useGetScreenSizeHook();
   const {
     gridAspect,
     getCartesianGridStroke,

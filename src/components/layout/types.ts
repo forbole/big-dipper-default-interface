@@ -17,8 +17,3 @@ export interface LayoutProps {
   image?: string;
   imageAlt?: string;
 }
-
-export interface UseNavHookProps {
-  width: number;
-  height: number;
-}
