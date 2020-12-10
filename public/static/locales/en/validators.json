@@ -14,5 +14,8 @@
   "searchActiveValidator": "Search active validator",
   "searchInactiveValidator": "Search inactive validator",
   "powerEvents": "Power Events",
-  "activities": "Activities"
+  "activities": "Activities",
+  "delegations": "Delegations",
+  "redelegations": "Redelegations",
+  "undelegations": "Undelegations"
 }
