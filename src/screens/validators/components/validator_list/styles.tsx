@@ -6,7 +6,9 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-
+      '& .MuiTab-wrapper': {
+        fontSize: '1rem',
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
@@ -29,6 +31,9 @@ export const useGetStyles = () => {
         },
         '& .outline-input__icon': {
           fill: theme?.palette?.custom?.fonts?.fontFour,
+        },
+        '& .MuiTab-wrapper': {
+          fontSize: '1.125rem',
         },
       },
     },
