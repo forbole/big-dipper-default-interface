@@ -6,6 +6,8 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
+      padding: theme?.palette?.custom?.margins?.small,
+      background: theme?.palette?.background?.paper,
       '& .flex': {
         display: 'flex',
         alignItems: 'center',
