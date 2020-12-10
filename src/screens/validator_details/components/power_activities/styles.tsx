@@ -31,6 +31,18 @@ export const useGetStyles = () => {
         },
       },
     },
+    latestActivitiesMobile: {
+      '&.latest-activities-mobile': {
+        '& .activity': {
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
+        },
+      },
+    },
   }));
 
   return {
