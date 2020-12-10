@@ -6,9 +6,13 @@ import {
   Tabs,
 } from '@material-ui/core';
 import { useGetScreenSizeHook } from '@hooks';
-import { TabPanel } from '@components';
+import {
+  TabPanel, ActivitiesFilter,
+} from '@components';
 import { getAllyProps } from '@utils';
+import { useDesktopOnlyStyles } from '@styles';
 import { useValidatorDetailsHook } from './hooks';
+import { useGetStyles } from './styles';
 
 const PowerActivities = () => {
   const {
@@ -17,9 +21,10 @@ const PowerActivities = () => {
   } = useValidatorDetailsHook();
   const { t } = useTranslation('validators');
   const { isDesktop } = useGetScreenSizeHook();
-
+  const { classes } = useGetStyles();
+  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   return (
-    <div>
+    <div className={classnames(classes.root)}>
       <div className={classnames('flex')}>
         <Tabs
           value={tabValue}
@@ -33,7 +38,12 @@ const PowerActivities = () => {
           <Tab disableRipple label={t('powerEvents')} {...getAllyProps(0)} />
           <Tab disableRipple label={t('activities')} {...getAllyProps(1)} />
         </Tabs>
-        <div>select drop down for activities</div>
+        <ActivitiesFilter
+          className={classnames(desktopOnlyStyles.root, {
+            hide: tabValue === 0,
+            show: tabValue === 1,
+          })}
+        />
       </div>
       {/* =================================== */}
       {/* active */}

@@ -13,7 +13,9 @@ import { useGetStyles } from './styles';
 import { ActivitiesFilterProps } from './types';
 
 const ActivitiesFilter = (props:ActivitiesFilterProps) => {
-  const { callback } = props;
+  const {
+    callback, className,
+  } = props;
   const filterLabels = getFilterLabels();
   const { t } = useTranslation(['activities', 'common']);
   const {
@@ -24,7 +26,7 @@ const ActivitiesFilter = (props:ActivitiesFilterProps) => {
 
   return (
     <Select
-      className="content-header__select"
+      className={classnames(classes.select, className, 'content-header__select')}
       displayEmpty
       MenuProps={{
         anchorOrigin: {
