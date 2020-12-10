@@ -2,9 +2,8 @@ import {
   useState, useEffect,
 } from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import { WindowSizeProps } from './types';
 
-export const useOnlineVotingPowerHook = (windowSize: WindowSizeProps) => {
+export const useOnlineVotingPowerHook = (windowSize: { width: number, height: number}) => {
   const [gridAspect, setGridAspect] = useState(undefined);
   const theme:any = useTheme();
 

@@ -10,11 +10,13 @@ import {
 import { useMarketHook } from '@hooks';
 import { useValidatorHook } from './hooks';
 import { useGetStyles } from './styles';
+import { ValidatorList } from './components';
 
 const Validators = () => {
   const { t } = useTranslation(['validators', 'common']);
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useValidatorHook();
+
   const { classes } = useGetStyles();
   return (
     <Layout
@@ -37,7 +39,7 @@ const Validators = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('validators-content')}>
-          validators table
+          <ValidatorList />
         </div>
       </div>
       {/* ===================================== */}

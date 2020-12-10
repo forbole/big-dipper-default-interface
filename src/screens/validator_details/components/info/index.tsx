@@ -10,11 +10,9 @@ import {
 
 const Info = () => {
   const { t } = useTranslation(['validators', 'common']);
-  const windowSize = useGetScreenSizeHook();
+  const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
-  const {
-    handleCopy, isDesktop,
-  } = useInfoHook(t, windowSize);
+  const { handleCopy } = useInfoHook(t);
   const formatDummyData = formatData(dummyData, isDesktop);
 
   return (

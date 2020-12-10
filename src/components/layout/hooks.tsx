@@ -3,26 +3,23 @@ import {
 } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import { useTheme } from '@material-ui/core/styles';
 import { BigDipperNetwork } from '@models';
-import { UseNavHookProps } from './types';
 
 /**
  * Handles mobile nav states
  */
-export const useMobileNavHook = (windowSize:UseNavHookProps) => {
+export const useMobileNavHook = (isDesktop:boolean) => {
   // animation for the hamburger menu
   const [isOpen, setOpen] = useState(false);
   const [isNetworkOpen, setNetwork] = useState(false);
   const [isMenuOpen, setMenu] = useState(false);
-  const theme:any = useTheme();
   const router = useRouter();
 
   useEffect(() => {
-    if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
+    if (isDesktop) {
       turnOffTabs();
     }
-  }, [windowSize.width]);
+  }, [isDesktop]);
 
   // calls when mobile logo has been clicked
   const returnToHome = () => {
@@ -80,17 +77,16 @@ export const useMobileNavHook = (windowSize:UseNavHookProps) => {
   };
 };
 
-export const useDesktopNavHook = (windowSize:UseNavHookProps) => {
+export const useDesktopNavHook = (isDesktop:boolean) => {
   const [isMenuOpen, setMenu] = useState(false);
   const [isNetworkOpen, setNetwork] = useState(false);
-  const theme:any = useTheme();
 
   useEffect(() => {
-    // if window size shrings to tablet/mobile we will close any open tabs
-    if (windowSize.width < theme?.breakpoints?.values?.desktop) {
+    // if window size shrinks to tablet/mobile we will close any open tabs
+    if (!isDesktop) {
       turnOffTabs();
     }
-  }, [windowSize.width]);
+  }, [isDesktop]);
 
   const toggleMenu = () => {
     setMenu(!isMenuOpen);
