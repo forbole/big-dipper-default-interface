@@ -16,11 +16,6 @@ export const useGetStyles = () => {
         background: 'yellow',
         border: 'solid 1px black',
       },
-      '& .account-activities': {
-        height: '500px',
-        background: 'lime',
-        border: 'solid 1px black',
-      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
