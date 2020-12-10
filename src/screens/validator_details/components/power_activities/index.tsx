@@ -52,7 +52,7 @@ const PowerActivities = () => {
 
   return (
     <div className={classnames(classes.root)}>
-      <div className={classnames('flex')}>
+      <div className={classnames('tab__flex')}>
         <Tabs
           value={tabValue}
           onChange={handleTabChange}

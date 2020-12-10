@@ -8,7 +8,7 @@ export const useGetStyles = () => {
     root: {
       padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
-      '& .flex': {
+      '& .tab__flex': {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -26,7 +26,7 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        '& .flex': {
+        '& .tab__flex': {
           flexDirection: 'row',
         },
       },

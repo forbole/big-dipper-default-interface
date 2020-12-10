@@ -5,7 +5,7 @@ import { dummyLatestActivitiesData } from './utils';
 
 export const useValidatorDetailsHook = () => {
   const router = useRouter();
-  const [tabValue, setTabValue] = useState(0);
+  const [tabValue, setTabValue] = useState(1);
   const [
     state, setState,
   ] = useState({

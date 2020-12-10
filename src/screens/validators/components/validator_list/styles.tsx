@@ -6,6 +6,7 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
+      padding: theme?.palette?.custom?.margins?.small,
       '& .MuiTab-wrapper': {
         fontSize: '1rem',
       },
@@ -13,6 +14,7 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        padding: theme?.palette?.custom?.margins?.large,
         '& .flex': {
           display: 'flex',
           alignItems: 'center',
