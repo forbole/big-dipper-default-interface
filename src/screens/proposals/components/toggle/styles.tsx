@@ -7,7 +7,6 @@ export const useGetStyles = () => {
     root: {
       width: '2.875rem',
       padding: '0',
-      // margin: theme.spacing(1),
       '& .switchBase': {
         padding: '3px',
         '&$checked': {
@@ -21,8 +20,6 @@ export const useGetStyles = () => {
           },
         },
         '&$focusVisible $thumb': {
-          // color: '#0f2e14',
-          // border: '1px solid #fff',
         },
       },
       '& .thumb': {
@@ -34,8 +31,6 @@ export const useGetStyles = () => {
       '& .track': {
         background: '#E8E8E8',
         borderRadius: '2px',
-        // border: `1px solid ${theme.palette.grey[400]}`,
-        // backgroundColor: theme.palette.grey[50],
         opacity: 1,
         transition: theme.transitions.create(['background-color', 'border']),
       },
