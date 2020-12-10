@@ -70,7 +70,7 @@ const ValidatorList = () => {
         </div>
       </TabPanel>
       {/* =================================== */}
-      {/* active */}
+      {/* inactive */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
         <div className={classnames('validator-list__data-container')}>

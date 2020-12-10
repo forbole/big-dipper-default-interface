@@ -1,6 +1,7 @@
 import {
   makeStyles, createStyles,
 } from '@material-ui/styles';
+import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
@@ -14,6 +15,11 @@ export const useGetStyles = () => {
         },
         '& .validator-info__header, & .detail': {
           borderColor: theme?.palette?.divider,
+        },
+      },
+      [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        '&.validator-info': {
+          padding: theme?.palette?.custom?.margins?.large,
         },
       },
     },

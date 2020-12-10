@@ -12,5 +12,8 @@
   "active": "Active",
   "inactive": "Inactive",
   "searchActiveValidator": "Search active validator",
-  "searchInactiveValidator": "Search inactive validator"
+  "searchInactiveValidator": "Search inactive validator",
+  "delegations": "Delegations",
+  "redelegations": "Redelegations",
+  "undelegations": "Undelegations"
 }

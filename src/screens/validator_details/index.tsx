@@ -9,7 +9,9 @@ import {
 import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
-import { Info } from './components';
+import {
+  Info, StakingActivity,
+} from './components';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation(['validators', 'common']);
@@ -50,7 +52,7 @@ const ValidatorDetails = () => {
           potential
         </div>
         <div className={classnames('staking')}>
-          staking chart
+          <StakingActivity />
         </div>
         <div className={classnames('events-and-activities')}>
           power events and activities
