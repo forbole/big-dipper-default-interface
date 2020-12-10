@@ -6,6 +6,7 @@ import DataBlocksHeader from './data_blocks_header';
 import HeaderBarDesktop from './header_bar_desktop';
 import HeaderBarMobile from './header_bar_mobile';
 import InfiniteLoader from './infinite_loader';
+import TabPanel from './tab_panel';
 
 export {
   Layout,
@@ -16,4 +17,5 @@ export {
   HeaderBarDesktop,
   HeaderBarMobile,
   InfiniteLoader,
+  TabPanel,
 };

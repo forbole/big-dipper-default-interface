@@ -13,6 +13,7 @@ function useGetScreenSizeHook() {
   }
 
   const [windowSize, setWindowSize] = useState(getSize);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect((): any => {
     if (!isClient) {
@@ -24,10 +25,13 @@ function useGetScreenSizeHook() {
     }
 
     window.addEventListener('resize', handleResize);
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  return windowSize;
+  return {
+    windowSize,
+  };
 }
 
 export {
