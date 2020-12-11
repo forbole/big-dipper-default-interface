@@ -9,10 +9,8 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      '& .activity-details-content': {
-        height: '500px',
-        background: 'pink',
-        border: '1px solid black',
+      '& .activity-details, & .activity-details-content': {
+        height: '100%',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -21,12 +19,21 @@ export const useGetStyles = () => {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
+        gridTemplateRows: 'auto 1fr',
         '& .data-blocks': {
           display: 'block',
         },
         '& .mobile-tablet-header': {
           display: 'none',
         },
+      },
+      '& .activity-details': {
+        borderRadius: '6px',
+      },
+    },
+    layout: {
+      '& .children-wrapper': {
+        display: 'flex',
       },
     },
   }));

@@ -1,23 +1,28 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
+import { ActivityDetails as Details } from 'big-dipper-default-ui';
 import {
   Layout,
   DataBlocksHeader,
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook, useGetScreenSizeHook,
+} from '@hooks';
 import { useActivityDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const ActivityDetails = () => {
   const { t } = useTranslation(['activities', 'common']);
   const { communityPool } = useMarketHook();
+  const { isDesktop } = useGetScreenSizeHook();
   const { handleSearchbarSubmit } = useActivityDetailsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
+      className={classes.layout}
       header={(
         <HeaderBarDesktop title={t('subTitle')} communityPool={communityPool} />
       )}
@@ -37,7 +42,27 @@ const ActivityDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('activity-details-content')}>
-          Activity Details table
+          <Details
+            desktop={isDesktop}
+            labels={{
+              hash: 'hash',
+              height: 'height',
+              fee: 'fee',
+              gas: 'Gas (used/ wanted)',
+              status: 'Status',
+              memo: 'Memo',
+            }}
+            data={{
+              time: '1 hour',
+              success: true,
+              content: <div>custom content</div>,
+              hash: '12344566',
+              height: <div>height</div>,
+              fee: '123 uatm',
+              gas: '1,234 / 20, 999',
+              memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
+            }}
+          />
         </div>
       </div>
       {/* ===================================== */}
