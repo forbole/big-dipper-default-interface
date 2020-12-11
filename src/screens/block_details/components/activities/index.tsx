@@ -27,7 +27,7 @@ const Activities = () => {
     handleLoadMore,
     handleClick,
   } = useActivitiesHook();
-  const { t } = useTranslation(['accounts', 'activities']);
+  const { t } = useTranslation(['blocks', 'activities']);
   const { classes } = useGetStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
@@ -41,7 +41,7 @@ const Activities = () => {
   return (
     <div className={classes.root}>
       <div className="header__container">
-        <h2>{t('latestActivities')}</h2>
+        <h2>{t('activities')}</h2>
         <ActivitiesFilter
           callback={handleOnFilterCallback}
         />

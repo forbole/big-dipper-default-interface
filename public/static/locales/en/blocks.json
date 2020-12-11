@@ -7,5 +7,6 @@
   "height": "Height",
   "time": "Time [UTC]",
   "hash": "Hash",
-  "latestBlocks": "Latest Blocks"
+  "latestBlocks": "Latest Blocks",
+  "activities": "Activities"
 }
