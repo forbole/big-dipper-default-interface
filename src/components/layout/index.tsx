@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import validator from 'validator';
-import Head from 'next/head';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
@@ -138,17 +137,7 @@ export const Layout = (props: LayoutProps) => {
       {/* ========================================= */}
       {/* ld schema */}
       {/* ========================================= */}
-      {/* ========================================= */}
-      {/* other header tags */}
-      {/* ========================================= */}
-      <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href={`${baseUrl}/images/icons/apple-touch-icon.png`} />
-        <link rel="icon" type="image/png" sizes="32x32" href={`${baseUrl}/images/icons/favicon-32x32.png`} />
-        <link rel="icon" type="image/png" sizes="16x16" href={`${baseUrl}/images/icons/favicon-16x16.png`} />
-        <link rel="manifest" href={`${baseUrl}/images/icons/site.webmanifest`} />
-        <link rel="mask-icon" href={`${baseUrl}/images/icons/safari-pinned-tab.svg`} color="#5bbad5" />
-        <link rel="shortcut icon" href={`${baseUrl}/images/icons/favicon.ico`} />
-      </Head>
+
       {/* ========================================= */}
       {/* body */}
       {/* ========================================= */}
