@@ -6,14 +6,19 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .account-details': {
+      '& .proposal-details': {
         height: '500px',
         background: 'pink',
         border: 'solid 1px black',
       },
-      '& .account-staking': {
+      '& .proposal-vote': {
         height: '500px',
         background: 'yellow',
+        border: 'solid 1px black',
+      },
+      '& .proposal-deposits': {
+        height: '500px',
+        background: 'lime',
         border: 'solid 1px black',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {

@@ -33,11 +33,14 @@ const ProposalDetails = () => {
         <div className={classnames('mobile-tablet-header')}>
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
-        <div className={classnames('account-details')}>
-          account details
+        <div className={classnames('proposal-details')}>
+          details
         </div>
-        <div className={classnames('account-staking')}>
-          account staking
+        <div className={classnames('proposal-vote')}>
+          vote
+        </div>
+        <div className={classnames('proposal-deposits')}>
+          deposits
         </div>
       </div>
       {/* ===================================== */}
