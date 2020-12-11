@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { formatMiddleEllipse } from '@utils';
 
 export const dummyData = {
@@ -17,10 +18,31 @@ export const formatData = (data, isDesktop) => {
     };
     return {
       operatorAddress: formatMiddleEllipse(data.operatorAddress ?? '', formatOptions),
-      selfDelegateAddress: formatMiddleEllipse(data.selfDelegateAddress ?? '', formatOptions),
+      selfDelegateAddress: (
+        <Link href={`/accounts/${data.selfDelegateAddress}`}>
+          <a>
+            <p>
+              {formatMiddleEllipse(data.selfDelegateAddress ?? '', formatOptions)}
+            </p>
+          </a>
+        </Link>
+      ),
       maxChangeRate: data.maxChangeRate,
       maxRate: data.maxRate,
     };
   }
-  return data;
+  return {
+    operatorAddress: data.operatorAddress,
+    selfDelegateAddress: (
+      <Link href={`/accounts/${data.selfDelegateAddress}`}>
+        <a>
+          <p>
+            {data.selfDelegateAddress}
+          </p>
+        </a>
+      </Link>
+    ),
+    maxChangeRate: data.maxChangeRate,
+    maxRate: data.maxRate,
+  };
 };

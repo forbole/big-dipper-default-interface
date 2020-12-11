@@ -7,35 +7,38 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       padding: theme?.palette?.custom?.margins?.small,
-      '& .MuiTab-wrapper': {
-        fontSize: '1rem',
+      background: theme?.palette?.background?.paper,
+      '& .header__container': {
+        '& h2': {
+          fontSize: '1.375rem',
+          fontWeight: 500,
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.margins?.large,
-        '& .flex': {
+        '& .header__container': {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          '& h2': {
+            fontSize: '1.5rem',
+          },
         },
-        '& .MuiInputBase-input': {
-          padding: '0.5rem 1rem 0.5rem 0',
-          fontSize: '0.875rem',
-          color: theme?.palette?.custom?.fonts?.fontFour,
-        },
-        '& .MuiOutlinedInput-notchedOutline': {
-          border: 'none',
-        },
-        '& .MuiOutlinedInput-root': {
-          background: theme?.palette?.background?.default,
-        },
-        '& .outline-input__icon': {
-          fill: theme?.palette?.custom?.fonts?.fontFour,
-        },
-        '& .MuiTab-wrapper': {
-          fontSize: '1.125rem',
+      },
+    },
+    latestActivitiesMobile: {
+      '&.latest-activities-mobile': {
+        marginTop: 0,
+        '& .activity': {
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
         },
       },
     },

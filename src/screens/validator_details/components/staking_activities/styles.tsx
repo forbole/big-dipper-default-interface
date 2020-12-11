@@ -6,26 +6,17 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .data-blocks': {
-        display: 'none',
-      },
-      '& .block-details': {
-        height: '500px',
-        background: 'orange',
-        border: 'solid 1px black',
+      padding: theme?.palette?.custom?.margins?.small,
+      '& .MuiTab-wrapper': {
+        fontSize: '1rem',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        display: 'grid',
-        padding: theme?.palette?.custom?.gutters?.medium,
-        gridGap: theme?.palette?.custom?.gutters?.medium,
-        '& .data-blocks': {
-          display: 'block',
-        },
-        '& .mobile-tablet-header': {
-          display: 'none',
+        padding: theme?.palette?.custom?.margins?.large,
+        '& .MuiTab-wrapper': {
+          fontSize: '1.125rem',
         },
       },
     },

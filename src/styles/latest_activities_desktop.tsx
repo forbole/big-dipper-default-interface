@@ -9,6 +9,7 @@ export const useLatestActivitiesDesktopStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       '&.latest-activities-desktop': {
+        padding: theme?.palette?.custom?.margins?.large,
         '& .single-activity': {
           '&:hover': {
             cursor: 'pointer',

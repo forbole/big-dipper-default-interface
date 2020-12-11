@@ -7,39 +7,37 @@ import {
   LatestActivitiesDesktop,
 } from 'big-dipper-default-ui';
 import {
-  Layout,
-  DataBlocksHeader,
-  HeaderBarDesktop,
-  HeaderBarMobile,
-  InfiniteLoader,
+  Tab,
+  Tabs,
+} from '@material-ui/core';
+import { useGetScreenSizeHook } from '@hooks';
+import {
+  TabPanel,
   ActivitiesFilter,
+  InfiniteLoader,
 } from '@components';
+import { getAllyProps } from '@utils';
 import {
   useMobileOnlyStyles,
   useDesktopOnlyStyles,
   useLatestActivitiesMobileStyles,
   useLatestActivitiesDesktopStyles,
 } from '@styles';
-import { useMarketHook } from '@hooks';
-import { useActivitiesHook } from './hooks';
+import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 import { getCollapsibleLabels } from './utils';
 
-const Activities = () => {
-  const { t } = useTranslation(['activities', 'common']);
-  const { communityPool } = useMarketHook();
+const PowerActivities = () => {
   const {
-    handleSearchbarSubmit,
+    tabValue,
+    handleTabChange,
+    handleOnFilterCallback,
+    state,
     handleLoadMore,
     handleClick,
-    state,
-    handleOnFilterCallback,
-  } = useActivitiesHook();
-  const {
-    hasMore,
-    data,
-  } = state;
-
+  } = useValidatorDetailsHook();
+  const { t } = useTranslation(['validators', 'activities']);
+  const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
@@ -47,34 +45,47 @@ const Activities = () => {
   const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
 
   const collapsibleLabels = getCollapsibleLabels(t);
+  const {
+    hasMore,
+    data,
+  } = state;
 
   return (
-    <Layout
-      header={(
-        <HeaderBarDesktop title={t('title')} communityPool={communityPool} />
-      )}
-      searchBar={{
-        searchBarPlaceholder: t('common:searchbar'),
-        searchBarCallback: handleSearchbarSubmit,
-      }}
-    >
-      {/* ===================================== */}
-      {/* content start */}
-      {/* ===================================== */}
-      <div className={classnames(classes.root)}>
-        <div className={classnames(desktopOnlyStyles.root)}>
-          <DataBlocksHeader />
+    <div className={classnames(classes.root)}>
+      <div className={classnames('tab__flex')}>
+        <Tabs
+          value={tabValue}
+          onChange={handleTabChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant={isDesktop ? null : 'fullWidth'}
+          scrollButtons="auto"
+          aria-label="validator list tabs"
+        >
+          <Tab disableRipple label={t('powerEvents')} {...getAllyProps(0)} />
+          <Tab disableRipple label={t('activities')} {...getAllyProps(1)} />
+        </Tabs>
+        <ActivitiesFilter
+          callback={handleOnFilterCallback}
+          className={classnames({
+            hide: tabValue === 0,
+            show: tabValue === 1,
+          })}
+        />
+      </div>
+      {/* =================================== */}
+      {/* active */}
+      {/* =================================== */}
+      <TabPanel value={tabValue} index={0}>
+        <div className={classnames('data-container')}>
+          power events
         </div>
-        <div className={classnames(mobileOnlyStyles.root)}>
-          <HeaderBarMobile title={t('title')} communityPool={communityPool} />
-        </div>
-        <div className={classnames('activities-content')}>
-          <div className={classnames('content-header')}>
-            <h1 className={classnames('content-header__title--desktop', desktopOnlyStyles.root)}>
-              {t('latestActivities')}
-            </h1>
-            <ActivitiesFilter callback={handleOnFilterCallback} />
-          </div>
+      </TabPanel>
+      {/* =================================== */}
+      {/* active */}
+      {/* =================================== */}
+      <TabPanel value={tabValue} index={1}>
+        <div className={classnames('data-container')}>
           {/* ================================ */}
           {/* activity table */}
           {/* ================================ */}
@@ -109,12 +120,9 @@ const Activities = () => {
             />
           </InfiniteScroll>
         </div>
-      </div>
-      {/* ===================================== */}
-      {/* content end */}
-      {/* ===================================== */}
-    </Layout>
+      </TabPanel>
+    </div>
   );
 };
 
-export default Activities;
+export default PowerActivities;

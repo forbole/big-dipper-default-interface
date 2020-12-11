@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import { handleSearchbarSubmit } from '@utils';
 import { useRouter } from 'next/router';
 import { dummyLatestActivitiesData } from './utils';
 
-export const useActivitiesHook = () => {
+export const useValidatorDetailsHook = () => {
   const router = useRouter();
+  const [tabValue, setTabValue] = useState(1);
   const [
     state, setState,
   ] = useState({
@@ -38,16 +38,21 @@ export const useActivitiesHook = () => {
     }
   };
 
+  const handleTabChange = (_event:any, newValue: number) => {
+    setTabValue(newValue);
+  };
+
   const handleOnFilterCallback = (value) => {
     console.log(`filter selected in activities: ${value.key}`);
   };
 
   return {
-    handleSearchbarSubmit,
+    tabValue,
+    handleTabChange,
+    handleOnFilterCallback,
     state,
     handleSetState,
     handleLoadMore,
     handleClick,
-    handleOnFilterCallback,
   };
 };
