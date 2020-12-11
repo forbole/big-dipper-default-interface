@@ -20,10 +20,11 @@ import {
   useLatestActivitiesMobileStyles,
   useLatestActivitiesDesktopStyles,
 } from '@styles';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook, useActivityLabelsHook,
+} from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
-import { getCollapsibleLabels } from './utils';
 
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
@@ -46,7 +47,7 @@ const Activities = () => {
   const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
   const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
 
-  const collapsibleLabels = getCollapsibleLabels(t);
+  const { collapsibleLabels } = useActivityLabelsHook();
 
   return (
     <Layout

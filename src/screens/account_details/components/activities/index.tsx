@@ -16,8 +16,8 @@ import {
   useLatestActivitiesMobileStyles,
   useLatestActivitiesDesktopStyles,
 } from '@styles';
+import { useActivityLabelsHook } from '@hooks';
 import { useActivitiesHook } from './hooks';
-import { getCollapsibleLabels } from './utils';
 import { useGetStyles } from './styles';
 
 const Activities = () => {
@@ -37,7 +37,7 @@ const Activities = () => {
     hasMore,
     data,
   } = state;
-  const collapsibleLabels = getCollapsibleLabels(t);
+  const { collapsibleLabels } = useActivityLabelsHook();
   return (
     <div className={classes.root}>
       <div className="header__container">

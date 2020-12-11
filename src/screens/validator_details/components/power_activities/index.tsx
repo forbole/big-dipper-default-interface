@@ -10,7 +10,9 @@ import {
   Tab,
   Tabs,
 } from '@material-ui/core';
-import { useGetScreenSizeHook } from '@hooks';
+import {
+  useGetScreenSizeHook, useActivityLabelsHook,
+} from '@hooks';
 import {
   TabPanel,
   ActivitiesFilter,
@@ -23,9 +25,9 @@ import {
   useLatestActivitiesMobileStyles,
   useLatestActivitiesDesktopStyles,
 } from '@styles';
+
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
-import { getCollapsibleLabels } from './utils';
 
 const PowerActivities = () => {
   const {
@@ -44,7 +46,7 @@ const PowerActivities = () => {
   const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
   const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
 
-  const collapsibleLabels = getCollapsibleLabels(t);
+  const { collapsibleLabels } = useActivityLabelsHook();
   const {
     hasMore,
     data,
