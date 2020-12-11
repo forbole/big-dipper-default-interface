@@ -197,14 +197,3 @@ export const dummyLatestActivitiesData:any[] = [
     },
   },
 ];
-
-export const getCollapsibleLabels = (t:any) => {
-  return ({
-    hash: t('hash'),
-    height: t('height'),
-    fee: t('fee'),
-    gas: t('gas'),
-    status: t('status'),
-    memo: t('memo'),
-  });
-};
