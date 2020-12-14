@@ -11,13 +11,13 @@ import {
 import {
   ProposalList, Toggle,
 } from './components';
-import { useProposalHook } from './components/proposal_list/hooks';
+import { useProposalsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const Proposals = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useProposalHook();
+  const { handleSearchbarSubmit } = useProposalsHook();
   const { classes } = useGetStyles();
   return (
     <Layout

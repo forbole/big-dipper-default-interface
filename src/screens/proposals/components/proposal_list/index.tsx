@@ -4,12 +4,12 @@ import { useGetScreenSizeHook } from '@hooks';
 import { ProposalList } from 'big-dipper-default-ui';
 import { dummyProposalList } from './utils';
 import { useGetStyles } from './styles';
-import { useProposalHook } from './hooks';
+import { useProposalListHook } from './hooks';
 
 const Proposal = () => {
   const { classes } = useGetStyles();
   const { isDesktop } = useGetScreenSizeHook();
-  const { handleClick } = useProposalHook();
+  const { handleClick } = useProposalListHook();
   return (
     <ProposalList
       className={classnames(classes.root)}
@@ -19,4 +19,5 @@ const Proposal = () => {
     />
   );
 };
+
 export default Proposal;

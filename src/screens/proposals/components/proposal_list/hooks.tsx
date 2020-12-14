@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-export const useProposalHook = () => {
+export const useProposalListHook = () => {
   const router = useRouter();
   const handleClick = (data:any) => {
     if (typeof data?.title?.id === 'number') {
