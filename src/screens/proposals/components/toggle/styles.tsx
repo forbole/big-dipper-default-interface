@@ -9,18 +9,14 @@ export const useGetStyles = () => {
       padding: '0',
       '& .switchBase': {
         padding: '3px',
-        '&$checked': {
-          transform: 'translateX(16px)',
-          borderRadius: 2,
-          color: 'white',
-          '& + $track': {
-            opacity: 1,
-            border: 'none',
-            backgroundColor: '#E8E8E8',
-          },
-        },
         '&$focusVisible $thumb': {
         },
+      },
+      '& .MuiSwitch-colorSecondary.Mui-checked': {
+        color: 'white',
+      },
+      '& .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track': {
+        background: '#E8E8E8',
       },
       '& .thumb': {
         width: '1.25rem',

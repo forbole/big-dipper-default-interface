@@ -15,7 +15,8 @@ export const useGetStyles = () => {
         padding: '0 1rem 0 1rem',
       },
       '& .toggleContent': {
-        float: 'right',
+        display: 'flex',
+        justifyContent: 'flex-end',
       },
       '& .proposalList': {
         paddingLeft: theme?.palette?.custom?.gutters?.small,
@@ -43,12 +44,6 @@ export const useGetStyles = () => {
         '& .toggle': {
           background: 'inherit',
           padding: '0',
-        },
-        '& .MuiSwitch-colorSecondary.Mui-checked': {
-          color: 'pink',
-        },
-        '& .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track': {
-          background: 'blue',
         },
       },
     },
