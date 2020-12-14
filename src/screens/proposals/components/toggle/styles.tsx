@@ -12,6 +12,7 @@ export const useGetStyles = () => {
         '&$checked': {
           transform: 'translateX(16px)',
           borderRadius: 2,
+          color: 'white',
           '& + $track': {
             opacity: 1,
             border: 'none',
