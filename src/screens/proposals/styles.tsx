@@ -44,6 +44,12 @@ export const useGetStyles = () => {
           background: 'inherit',
           padding: '0',
         },
+        '& .MuiSwitch-colorSecondary.Mui-checked': {
+          color: 'pink',
+        },
+        '& .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track': {
+          background: 'blue',
+        },
       },
     },
   }));
