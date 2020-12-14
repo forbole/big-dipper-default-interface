@@ -11,7 +11,6 @@ describe('ProposalList', () => {
       BaseWrapper({
         component: <ProposalList
           data={dummyProposalList}
-          imageUrl="/images/icons/wall-clock.png"
         />,
         theme: lightTheme,
       }),
