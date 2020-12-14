@@ -15,7 +15,7 @@ export const useGetStyles = () => {
           '& + $track': {
             opacity: 1,
             border: 'none',
-            background: '#E8E8E8',
+            backgroundColor: '#E8E8E8',
           },
         },
         '&$focusVisible $thumb': {
