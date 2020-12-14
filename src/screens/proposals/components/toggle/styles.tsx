@@ -11,7 +11,6 @@ export const useGetStyles = () => {
         padding: '3px',
         '&$checked': {
           transform: 'translateX(16px)',
-          color: theme.palette.common.white,
           borderRadius: 2,
           '& + $track': {
             opacity: 1,
@@ -24,7 +23,6 @@ export const useGetStyles = () => {
       },
       '& .thumb': {
         width: '1.25rem',
-
         borderRadius: '2px',
         boxShadow: 'none',
       },
@@ -44,7 +42,6 @@ export const useGetStyles = () => {
       '& .thumb': {
         height: '1.375rem',
       },
-
     },
     mobile: {
       height: '1.5rem',

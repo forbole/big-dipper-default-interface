@@ -11,7 +11,7 @@ import {
 import {
   ProposalList, Toggle,
 } from './components';
-import { useProposalHook } from './hooks';
+import { useProposalHook } from './components/proposal_list/hooks';
 import { useGetStyles } from './styles';
 
 const Proposals = () => {
