@@ -50,7 +50,7 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        padding: theme?.palette?.custom?.margins?.large,
+        padding: theme?.palette?.custom?.margins?.small,
         '& .flex': {
           display: 'flex',
           alignItems: 'center',
@@ -66,12 +66,10 @@ export const useGetStyles = () => {
         },
         '& .MuiOutlinedInput-root': {
           background: theme?.palette?.background?.default,
+          minWidth: '400px',
         },
         '& .outline-input__icon': {
           fill: theme?.palette?.custom?.fonts?.fontFour,
-        },
-        '& .MuiTab-wrapper': {
-          fontSize: '1.125rem',
         },
       },
     },

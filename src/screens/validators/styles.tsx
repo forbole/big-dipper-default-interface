@@ -19,6 +19,7 @@ export const useGetStyles = () => {
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'grid',
+        gridTemplateRows: 'auto 1fr',
         padding: theme?.palette?.custom?.gutters?.medium,
         gridGap: theme?.palette?.custom?.gutters?.medium,
         '& .data-blocks': {

@@ -30,6 +30,11 @@ export const useGetStyles = () => {
         '& .tab__flex': {
           flexDirection: 'row',
         },
+        '& .data-container': {
+          '& .latest-activities-desktop': {
+            padding: 0,
+          },
+        },
       },
     },
     latestActivitiesMobile: {

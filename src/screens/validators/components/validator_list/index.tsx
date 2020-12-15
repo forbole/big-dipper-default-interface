@@ -24,6 +24,8 @@ import {
   dummyActiveMobileData,
   dummyActiveDesktopData,
   dummyInactiveMobileData,
+  dummyInactiveDesktopData,
+  dummyLabels,
 } from './utils';
 
 const ValidatorList = () => {
@@ -83,26 +85,14 @@ const ValidatorList = () => {
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
             data={dummyActiveMobileData}
-            labels={{
-              commission: 'commission',
-            }}
+            labels={dummyLabels}
             onClick={handleRowClick}
           />
           <ValidatorListDesktop
             onClick={handleRowClick}
             className={classnames(desktopOnlyStyles.root)}
             data={dummyActiveDesktopData}
-            labels={{
-              moniker: 'moniker',
-              votingPower: 'voting power',
-              self: 'self',
-              commission: 'commission',
-              status: 'status',
-              condition: {
-                display: 'Condition',
-                description: 'hello world',
-              },
-            }}
+            labels={dummyLabels}
           />
         </div>
       </TabPanel>
@@ -112,11 +102,17 @@ const ValidatorList = () => {
       <TabPanel value={tabValue} index={1}>
         <div className={classnames('validator-list__data-container')}>
           <ValidatorListMobile
+            className={classnames(mobileOnlyStyles.root)}
             onClick={handleRowClick}
-            labels={{
-              commission: 'commission',
-            }}
+            labels={dummyLabels}
             data={dummyInactiveMobileData}
+          />
+          <ValidatorListDesktop
+            inactive
+            onClick={handleRowClick}
+            className={classnames(desktopOnlyStyles.root)}
+            data={dummyInactiveDesktopData}
+            labels={dummyLabels}
           />
         </div>
       </TabPanel>

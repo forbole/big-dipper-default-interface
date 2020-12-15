@@ -303,3 +303,93 @@ export const dummyInactiveMobileData = [
     },
   },
 ];
+
+export const dummyInactiveDesktopData = [
+  {
+    moniker: {
+      rawValue: 'Forbole',
+      display: <div>Forbole</div>,
+    },
+    operatorAddress: '31afsdff2',
+    self: {
+      rawValue: 10,
+      display: '10%',
+    },
+    votingPower: {
+      rawValue: 1000,
+      display: '110',
+      percentDisplay: '106%',
+    },
+    status: {
+      rawValue: 'active',
+      className: 'active',
+      display: 'active',
+    },
+    condition: {
+      rawValue: 'healthy',
+      className: 'healthy',
+    },
+  },
+  {
+    moniker: {
+      rawValue: 'Forbole',
+      display: <div>Forbole</div>,
+    },
+    operatorAddress: '31afsdff2',
+    self: {
+      rawValue: 10,
+      display: '10%',
+    },
+    votingPower: {
+      rawValue: 1000,
+      display: '110',
+      percentDisplay: '106%',
+    },
+    status: {
+      rawValue: 'active',
+      className: 'active',
+      display: 'active',
+    },
+    condition: {
+      rawValue: 'healthy',
+      className: 'healthy',
+    },
+  },
+  {
+    moniker: {
+      rawValue: 'Forbole',
+      display: <div>Forbole</div>,
+    },
+    operatorAddress: '31afsdff2',
+    self: {
+      rawValue: 10,
+      display: '10%',
+    },
+    votingPower: {
+      rawValue: 1000,
+      display: '110',
+      percentDisplay: '106%',
+    },
+    status: {
+      rawValue: 'active',
+      className: 'active',
+      display: 'active',
+    },
+    condition: {
+      rawValue: 'healthy',
+      className: 'healthy',
+    },
+  },
+];
+
+export const dummyLabels:any = {
+  moniker: 'moniker',
+  votingPower: 'voting power',
+  self: 'self',
+  commission: 'commission',
+  status: 'status',
+  condition: {
+    display: 'Condition',
+    description: 'hello world',
+  },
+};
