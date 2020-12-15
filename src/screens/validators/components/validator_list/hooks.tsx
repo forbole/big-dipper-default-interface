@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export const useValidatorListHook = () => {
+  const router = useRouter();
   const [tabValue, setTabValue] = useState(0);
   const [searchValue, setSearch] = useState('');
 
@@ -16,11 +18,18 @@ export const useValidatorListHook = () => {
     console.log(`searched with values: ${searchValue}`);
   };
 
+  const handleRowClick = (data:any) => {
+    if (data?.operatorAddress) {
+      router.push(`/validators/${data.operatorAddress}`);
+    }
+  };
+
   return {
     tabValue,
     handleTabChange,
     handleSearchChange,
     handleSearchSubmit,
     searchValue,
+    handleRowClick,
   };
 };

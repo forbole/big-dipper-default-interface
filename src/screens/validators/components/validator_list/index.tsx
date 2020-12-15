@@ -11,11 +11,13 @@ import {
 } from '@material-ui/core';
 import { useGetScreenSizeHook } from '@hooks';
 import { TabPanel } from '@components';
-import { useDesktopOnlyStyles } from '@styles';
+import {
+  useDesktopOnlyStyles,
+  useMobileOnlyStyles,
+} from '@styles';
 import { getAllyProps } from '@utils';
 import { useValidatorListHook } from './hooks';
 import { useGetStyles } from './styles';
-import { ActiveList } from './components';
 import { dummyActiveMobileData } from './utils';
 
 const ValidatorList = () => {
@@ -27,9 +29,11 @@ const ValidatorList = () => {
     handleSearchChange,
     handleSearchSubmit,
     searchValue,
+    handleRowClick,
   } = useValidatorListHook();
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const placeholderValue = tabValue === 0
     ? t('searchActiveValidator')
     : t('searchInactiveValidator');
@@ -71,11 +75,12 @@ const ValidatorList = () => {
         <div className={classnames('validator-list__data-container')}>
           {/* <ActiveList /> */}
           <ValidatorListMobile
+            className={classnames(mobileOnlyStyles.root)}
             data={dummyActiveMobileData}
             labels={{
               commission: 'commission',
             }}
-            onClick={() => {}}
+            onClick={handleRowClick}
           />
         </div>
       </TabPanel>
