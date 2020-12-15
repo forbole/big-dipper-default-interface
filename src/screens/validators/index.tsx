@@ -20,6 +20,7 @@ const Validators = () => {
   const { classes } = useGetStyles();
   return (
     <Layout
+      className={classes.layout}
       header={(
         <HeaderBarDesktop title={t('title')} communityPool={communityPool} />
       )}

@@ -6,10 +6,12 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
+      width: '100%',
       '& .data-blocks': {
         display: 'none',
       },
       '& .validators-content': {
+        height: '100%',
         background: theme?.palette?.background?.paper,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
@@ -25,6 +27,11 @@ export const useGetStyles = () => {
         '& .mobile-tablet-header': {
           display: 'none',
         },
+      },
+    },
+    layout: {
+      '& .children-wrapper': {
+        display: 'flex',
       },
     },
   }));
