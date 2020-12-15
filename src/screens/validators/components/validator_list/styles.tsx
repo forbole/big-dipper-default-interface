@@ -10,11 +10,47 @@ export const useGetStyles = () => {
       '& .MuiTab-wrapper': {
         fontSize: '1rem',
       },
+      '& .validator-list__data-container': {
+        '& .single-validator-mobile': {
+          color: theme.palette.custom.fonts.fontTwo,
+          borderBottom: `1px solid ${theme?.palette?.divider}`,
+          '&:first-child': {
+            borderTop: 'none',
+          },
+          '&:last-child': {
+            borderBottom: 'none',
+          },
+        },
+
+        '& .validator-list-desktop': {
+          '& .MuiTableSortLabel-root, & .MuiTableCell-root': {
+            color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+          },
+          '& .question-icon': {
+            fill: theme?.palette?.custom?.fonts?.fontOneToTwo,
+            fontSize: '1rem',
+          },
+          '& .table__row': {
+            '&:nth-of-type(odd)': {
+              background: theme?.palette?.custom?.table?.rowOdd,
+              '& .rank': {
+                background: theme?.palette?.background?.paper,
+              },
+            },
+            '& .rank': {
+              background: theme?.palette?.background?.default,
+            },
+            '& .percentage-data': {
+              color: theme.palette.custom.fonts.fontThree,
+            },
+          },
+        },
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        padding: theme?.palette?.custom?.margins?.large,
+        padding: theme?.palette?.custom?.margins?.small,
         '& .flex': {
           display: 'flex',
           alignItems: 'center',
@@ -30,12 +66,10 @@ export const useGetStyles = () => {
         },
         '& .MuiOutlinedInput-root': {
           background: theme?.palette?.background?.default,
+          minWidth: '400px',
         },
         '& .outline-input__icon': {
           fill: theme?.palette?.custom?.fonts?.fontFour,
-        },
-        '& .MuiTab-wrapper': {
-          fontSize: '1.125rem',
         },
       },
     },

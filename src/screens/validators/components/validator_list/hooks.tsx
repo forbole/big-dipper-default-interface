@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export const useValidatorListHook = () => {
+  const router = useRouter();
   const [tabValue, setTabValue] = useState(0);
   const [searchValue, setSearch] = useState('');
 
@@ -12,8 +14,15 @@ export const useValidatorListHook = () => {
     setSearch(e?.target?.value);
   };
 
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (e:any) => {
+    e.preventDefault();
     console.log(`searched with values: ${searchValue}`);
+  };
+
+  const handleRowClick = (data:any) => {
+    if (data?.operatorAddress) {
+      router.push(`/validators/${data.operatorAddress}`);
+    }
   };
 
   return {
@@ -22,5 +31,6 @@ export const useValidatorListHook = () => {
     handleSearchChange,
     handleSearchSubmit,
     searchValue,
+    handleRowClick,
   };
 };

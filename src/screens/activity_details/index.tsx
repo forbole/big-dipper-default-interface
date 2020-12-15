@@ -55,7 +55,7 @@ const ActivityDetails = () => {
             data={{
               time: '1 hour',
               success: true,
-              content: <div>custom content</div>,
+              content: <div className="details__content">custom content</div>,
               hash: '12344566',
               height: <div>height</div>,
               fee: '123 uatm',
