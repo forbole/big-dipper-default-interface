@@ -6,7 +6,7 @@ export const useGetStyles = () => {
   const theme: any = useTheme();
   const useStyles = makeStyles({
     layout: {
-      background: theme?.palette?.type === 'light' ? theme?.palette?.background?.paper : theme?.palette?.background?.background,
+      background: theme?.palette?.type === 'light' ? theme?.palette?.background?.paper : theme?.palette?.background?.default,
     },
     root: {
       padding: theme?.palette?.custom?.margins?.small,

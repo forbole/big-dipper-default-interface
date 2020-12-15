@@ -63,7 +63,7 @@
     "import/no-unresolved": "off",
     "lines-between-class-members": "off",
     "react/no-array-index-key": "warn",
-    "jsx-a11y/anchor-is-valid": "warn",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-first-prop-new-line": [
       "error",
       "multiline"

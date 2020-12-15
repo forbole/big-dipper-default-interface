@@ -12,6 +12,15 @@ export const useGetStyles = () => {
       '& .activity-details, & .activity-details-content': {
         height: '100%',
       },
+      '& .activity-details-content': {
+        '& .activity-details': {
+          color: theme.palette.custom.fonts.fontTwo,
+          background: theme?.palette?.background?.paper,
+        },
+        '& .activity-details__content-wrapper': {
+          borderTop: `solid 1px ${theme?.palette?.divider}`,
+        },
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
@@ -26,9 +35,9 @@ export const useGetStyles = () => {
         '& .mobile-tablet-header': {
           display: 'none',
         },
-      },
-      '& .activity-details': {
-        borderRadius: '6px',
+        '& .activity-details': {
+          borderRadius: '6px',
+        },
       },
     },
     layout: {
