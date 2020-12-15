@@ -10,8 +10,7 @@ export const useGetStyles = () => {
         display: 'none',
       },
       '& .validators-content': {
-        height: '500px',
-        background: 'pink',
+        background: theme?.palette?.background?.paper,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

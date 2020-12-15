@@ -10,6 +10,15 @@ export const useGetStyles = () => {
       '& .MuiTab-wrapper': {
         fontSize: '1rem',
       },
+      '& .validator-list__data-container': {
+        '& .validator-list-mobile': {
+          color: theme.palette.custom.fonts.fontTwo,
+          borderTop: `1px solid ${theme?.palette?.divider}`,
+          '&:first-child': {
+            borderTop: 'none',
+          },
+        },
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },

@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { Search } from '@material-ui/icons';
+import { ValidatorListMobile } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import {
   Tab,
@@ -14,6 +15,8 @@ import { useDesktopOnlyStyles } from '@styles';
 import { getAllyProps } from '@utils';
 import { useValidatorListHook } from './hooks';
 import { useGetStyles } from './styles';
+import { ActiveList } from './components';
+import { dummyActiveMobileData } from './utils';
 
 const ValidatorList = () => {
   const { t } = useTranslation('validators');
@@ -66,7 +69,14 @@ const ValidatorList = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={0}>
         <div className={classnames('validator-list__data-container')}>
-          active
+          {/* <ActiveList /> */}
+          <ValidatorListMobile
+            data={dummyActiveMobileData}
+            labels={{
+              commission: 'commission',
+            }}
+            onClick={() => {}}
+          />
         </div>
       </TabPanel>
       {/* =================================== */}
