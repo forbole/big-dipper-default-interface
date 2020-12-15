@@ -18,7 +18,7 @@ export const useGetStyles = () => {
           color: theme?.palette?.custom?.fonts?.fontOne,
         },
         '& .button': {
-          color: theme?.palette?.custom?.fonts?.fontOne,
+          color: theme?.palette?.type === 'light' ? '#FFFFFF' : theme?.palette?.custom?.fonts?.fontOne,
         },
         '& .table': {
           '& tr': {
