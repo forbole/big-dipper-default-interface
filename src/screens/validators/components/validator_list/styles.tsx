@@ -11,7 +11,7 @@ export const useGetStyles = () => {
         fontSize: '1rem',
       },
       '& .validator-list__data-container': {
-        '& .validator-list-mobile': {
+        '& .single-validator-mobile': {
           color: theme.palette.custom.fonts.fontTwo,
           borderBottom: `1px solid ${theme?.palette?.divider}`,
           '&:first-child': {
@@ -23,8 +23,12 @@ export const useGetStyles = () => {
         },
 
         '& .validator-list-desktop': {
-          '& .MuiTableSortLabel-root': {
+          '& .MuiTableSortLabel-root, & .MuiTableCell-root': {
             color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+          },
+          '& .question-icon': {
+            fill: theme?.palette?.custom?.fonts?.fontOneToTwo,
+            fontSize: '1rem',
           },
           '& .table__row': {
             '&:nth-of-type(odd)': {
@@ -35,6 +39,9 @@ export const useGetStyles = () => {
             },
             '& .rank': {
               background: theme?.palette?.background?.default,
+            },
+            '& .percentage-data': {
+              color: theme.palette.custom.fonts.fontThree,
             },
           },
         },

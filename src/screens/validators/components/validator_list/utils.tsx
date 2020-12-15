@@ -3,99 +3,23 @@ import React from 'react';
 export const dummyActiveMobileData = [
   {
     moniker: {
+      rawValue: 'Forbole',
       imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
       display: 'Forbole',
     },
-    operatorAddress: '312',
+    operatorAddress: '3s12',
+    commission: {
+      rawValue: 90,
+      display: '90%',
+    },
+    self: {
+      rawValue: 11,
+      display: '11%',
+    },
     votingPower: {
-      rawValue: 1000,
-      display: '110,000,08511111111321654649845',
-      percentDisplay: '10654654654654654654654564%',
-    },
-    status: {
-      rawValue: 'active',
-      className: 'active',
-      display: 'active',
-    },
-  },
-  {
-    moniker: {
-      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      display: 'Forbole',
-    },
-    operatorAddress: '312',
-    votingPower: {
-      rawValue: 1000,
-      display: '110,000,08511111111321654649845',
-      percentDisplay: '10654654654654654654654564%',
-    },
-    status: {
-      rawValue: 'active',
-      className: 'active',
-      display: 'active',
-    },
-  },
-  {
-    moniker: {
-      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      display: 'Forbole',
-    },
-    operatorAddress: '312',
-    votingPower: {
-      rawValue: 1000,
-      display: '110,000,08511111111321654649845',
-      percentDisplay: '10654654654654654654654564%',
-    },
-    status: {
-      rawValue: 'active',
-      className: 'active',
-      display: 'active',
-    },
-  },
-  {
-    moniker: {
-      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      display: 'Forbole',
-    },
-    operatorAddress: '312',
-    votingPower: {
-      rawValue: 1000,
-      display: '110,000,08511111111321654649845',
-      percentDisplay: '10654654654654654654654564%',
-    },
-    status: {
-      rawValue: 'active',
-      className: 'active',
-      display: 'active',
-    },
-  },
-  {
-    moniker: {
-      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      display: 'Forbole',
-    },
-    operatorAddress: '312',
-    votingPower: {
-      rawValue: 1000,
-      display: '110,000,08511111111321654649845',
-      percentDisplay: '10654654654654654654654564%',
-    },
-    status: {
-      rawValue: 'active',
-      className: 'active',
-      display: 'active',
-    },
-  },
-  {
-    moniker: {
-      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
-      display: 'Forbole',
-    },
-    operatorAddress: '312',
-    votingPower: {
-      rawValue: 1000,
-      display: '110,000,08511111111321654649845',
-      percentDisplay: '10654654654654654654654564%',
+      rawValue: 10,
+      display: '10',
+      percentDisplay: '45%',
     },
     status: {
       rawValue: 'active',
@@ -307,6 +231,75 @@ export const dummyActiveDesktopData = [
     condition: {
       rawValue: 'healthy',
       className: 'healthy',
+    },
+  },
+];
+
+export const dummyInactiveMobileData = [
+  {
+    moniker: {
+      rawValue: 'Forbole',
+      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+      display: 'forbole',
+    },
+    operatorAddress: '31afsdff2',
+    self: {
+      rawValue: 10,
+      display: '10%',
+    },
+    votingPower: {
+      rawValue: 1000,
+      display: '110',
+      percentDisplay: '106%',
+    },
+    status: {
+      rawValue: 'active',
+      className: 'active',
+      display: 'active',
+    },
+  },
+  {
+    moniker: {
+      rawValue: 'Forbole',
+      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+      display: 'forbole',
+    },
+    operatorAddress: '31afsdff2',
+    self: {
+      rawValue: 10,
+      display: '10%',
+    },
+    votingPower: {
+      rawValue: 1000,
+      display: '110',
+      percentDisplay: '106%',
+    },
+    status: {
+      rawValue: 'active',
+      className: 'active',
+      display: 'active',
+    },
+  },
+  {
+    moniker: {
+      rawValue: 'Forbole',
+      imageUrl: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
+      display: 'forbole',
+    },
+    operatorAddress: '31afsdff2',
+    self: {
+      rawValue: 10,
+      display: '10%',
+    },
+    votingPower: {
+      rawValue: 1000,
+      display: '110',
+      percentDisplay: '106%',
+    },
+    status: {
+      rawValue: 'active',
+      className: 'active',
+      display: 'active',
     },
   },
 ];

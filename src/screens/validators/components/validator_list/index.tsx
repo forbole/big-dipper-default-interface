@@ -21,7 +21,9 @@ import { getAllyProps } from '@utils';
 import { useValidatorListHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
-  dummyActiveMobileData, dummyActiveDesktopData,
+  dummyActiveMobileData,
+  dummyActiveDesktopData,
+  dummyInactiveMobileData,
 } from './utils';
 
 const ValidatorList = () => {
@@ -109,7 +111,13 @@ const ValidatorList = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
         <div className={classnames('validator-list__data-container')}>
-          inactive
+          <ValidatorListMobile
+            onClick={handleRowClick}
+            labels={{
+              commission: 'commission',
+            }}
+            data={dummyInactiveMobileData}
+          />
         </div>
       </TabPanel>
     </div>
