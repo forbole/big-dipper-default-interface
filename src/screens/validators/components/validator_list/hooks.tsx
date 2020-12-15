@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export const useValidatorListHook = () => {
@@ -14,7 +14,7 @@ export const useValidatorListHook = () => {
     setSearch(e?.target?.value);
   };
 
-  const handleSearchSubmit = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchSubmit = (e:any) => {
     e.preventDefault();
     console.log(`searched with values: ${searchValue}`);
   };

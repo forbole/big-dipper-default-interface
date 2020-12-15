@@ -80,7 +80,7 @@ const ValidatorList = () => {
       {/* active */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={0}>
-        <div className={classnames('validator-list__data-container')}>
+        <div className={classnames('validator-list__data-container', 'validator-list__active')}>
           {/* <ActiveList /> */}
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
@@ -100,7 +100,7 @@ const ValidatorList = () => {
       {/* inactive */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
-        <div className={classnames('validator-list__data-container')}>
+        <div className={classnames('validator-list__data-container', 'validator-list__inactive')}>
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
             onClick={handleRowClick}
