@@ -41,7 +41,6 @@ const Proposals = () => {
         </div>
         <div className={classnames('toggle')}>
           <div className={classnames('toggleContent')}>
-            Show All&nbsp;
             <Toggle />
           </div>
         </div>

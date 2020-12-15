@@ -11,17 +11,18 @@ export const useGetStyles = () => {
       },
       '& .toggle': {
         height: '2rem',
-        background: 'white',
+        background: theme?.palette?.type === 'light' ? '#ffffff' : '#131316',
         padding: '0 1rem 0 1rem',
       },
       '& .toggleContent': {
         display: 'flex',
         justifyContent: 'flex-end',
+        color: theme?.palette?.custom?.fonts?.fontOne,
       },
       '& .proposalList': {
         paddingLeft: theme?.palette?.custom?.gutters?.small,
         paddingRight: theme?.palette?.custom?.gutters?.small,
-        background: 'white',
+        background: theme?.palette?.background?.paper,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -42,7 +43,7 @@ export const useGetStyles = () => {
 
         },
         '& .toggle': {
-          background: 'inherit',
+          background: 'none',
           padding: '0',
         },
       },

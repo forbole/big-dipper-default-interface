@@ -11,18 +11,21 @@ const Toggle = (props: ToggleProp) => {
   const responsiveClass = isDesktop ? classes.desktop : classes.mobile;
 
   return (
-    <Switch
-      focusVisibleClassName={classnames('focusVisible')}
-      disableRipple
-      className={classnames(classes.root, responsiveClass)}
-      classes={{
-        switchBase: classnames('switchBase'),
-        thumb: classnames('thumb'),
-        track: classnames('track'),
-        checked: classnames('checked'),
-      }}
-      {...props}
-    />
+    <div className={classnames(classes.root, responsiveClass)}>
+      <h4>Show All</h4>
+      <Switch
+        focusVisibleClassName={classnames('focusVisible')}
+        disableRipple
+        className={classnames('switch')}
+        classes={{
+          switchBase: classnames('switchBase'),
+          thumb: classnames('thumb'),
+          track: classnames('track'),
+          checked: classnames('checked'),
+        }}
+        {...props}
+      />
+    </div>
   );
 };
 

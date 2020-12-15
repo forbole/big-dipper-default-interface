@@ -1,5 +1,6 @@
 import React from 'react';
 import { AvatarDisplay } from 'big-dipper-default-ui';
+import { useTheme } from '@material-ui/core/styles';
 
 const Proposer = () => {
   return (
@@ -12,11 +13,12 @@ const Proposer = () => {
 };
 
 const Title = () => {
+  const theme:any = useTheme();
   return (
     <a
       href="/validators/123"
       style={{
-        color: 'black', textDecoration: 'none',
+        color: theme?.palette?.custom?.fonts?.fontOne, textDecoration: 'none',
       }}
     >
       Lunie.io on iOS and Android
@@ -26,7 +28,7 @@ const Title = () => {
 
 export const dummyProposalList: any = [
   {
-    id: '#01',
+    id: '1',
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
@@ -38,7 +40,7 @@ export const dummyProposalList: any = [
     duration: '(In 12 days)',
   },
   {
-    id: '#02',
+    id: 2,
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
@@ -49,7 +51,7 @@ export const dummyProposalList: any = [
     },
   },
   {
-    id: '#03',
+    id: 3,
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
@@ -61,7 +63,7 @@ export const dummyProposalList: any = [
     duration: '(In 12 days)',
   },
   {
-    id: '#04',
+    id: 4,
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
@@ -72,7 +74,7 @@ export const dummyProposalList: any = [
     },
   },
   {
-    id: '#05',
+    id: 5,
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
@@ -83,7 +85,7 @@ export const dummyProposalList: any = [
     },
   },
   {
-    id: '#06',
+    id: 6,
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
