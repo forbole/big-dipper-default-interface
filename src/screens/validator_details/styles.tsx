@@ -31,11 +31,6 @@ export const useGetStyles = () => {
         background: '#de5dc0',
         border: 'solid 1px black',
       },
-      '& .events-and-activities': {
-        height: '400px',
-        background: '#dbc5fa',
-        border: 'solid 1px black',
-      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },

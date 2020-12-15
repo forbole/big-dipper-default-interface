@@ -6,11 +6,15 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-
+      padding: theme?.palette?.custom?.margins?.small,
+      '& .MuiTab-wrapper': {
+        fontSize: '1rem',
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        padding: theme?.palette?.custom?.margins?.large,
         '& .flex': {
           display: 'flex',
           alignItems: 'center',
@@ -29,6 +33,9 @@ export const useGetStyles = () => {
         },
         '& .outline-input__icon': {
           fill: theme?.palette?.custom?.fonts?.fontFour,
+        },
+        '& .MuiTab-wrapper': {
+          fontSize: '1.125rem',
         },
       },
     },

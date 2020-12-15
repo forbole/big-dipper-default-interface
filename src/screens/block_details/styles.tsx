@@ -14,12 +14,6 @@ export const useGetStyles = () => {
         background: 'orange',
         border: 'solid 1px black',
       },
-
-      '& .block-activities': {
-        height: '500px',
-        background: 'yellow',
-        border: 'solid 1px black',
-      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },

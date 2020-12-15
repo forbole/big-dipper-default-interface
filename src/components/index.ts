@@ -7,6 +7,7 @@ import HeaderBarDesktop from './header_bar_desktop';
 import HeaderBarMobile from './header_bar_mobile';
 import InfiniteLoader from './infinite_loader';
 import TabPanel from './tab_panel';
+import ActivitiesFilter from './activities_filter';
 
 export {
   Layout,
@@ -18,4 +19,5 @@ export {
   HeaderBarMobile,
   InfiniteLoader,
   TabPanel,
+  ActivitiesFilter,
 };

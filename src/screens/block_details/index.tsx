@@ -10,6 +10,7 @@ import {
 import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
+import { Activities } from './components';
 
 const BlockDetails = () => {
   const { t } = useTranslation(['blocks', 'common']);
@@ -40,7 +41,7 @@ const BlockDetails = () => {
           block details
         </div>
         <div className={classnames('block-activities')}>
-          block activities
+          <Activities />
         </div>
       </div>
       {/* ===================================== */}
