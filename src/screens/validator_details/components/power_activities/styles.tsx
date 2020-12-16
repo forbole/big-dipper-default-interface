@@ -6,9 +6,9 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
       '& .tab__flex': {
+        padding: theme?.palette?.custom?.margins?.small,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -17,10 +17,10 @@ export const useGetStyles = () => {
       '& .activities-filter-select': {
         marginTop: theme?.palette?.custom?.margins?.small,
         '&.hide': {
-          visibility: 'hidden',
+          display: 'none',
         },
         '&.show': {
-          visibility: 'visible',
+          display: 'flex',
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
@@ -29,10 +29,11 @@ export const useGetStyles = () => {
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         '& .tab__flex': {
           flexDirection: 'row',
+          padding: theme?.palette?.custom?.margins?.large,
         },
         '& .data-container': {
           '& .latest-activities-desktop': {
-            padding: 0,
+            paddingTop: 0,
           },
         },
       },
