@@ -25,7 +25,7 @@ export const useGetStyles = () => {
         color: theme?.palette?.type === 'light' ? '#FFFFFF' : theme?.palette?.custom?.fonts?.fontTwo,
       },
       '& .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track': {
-        background: theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43',
+        background: theme?.palette?.divider,
       },
       '& .thumb': {
         width: '1.25rem',

@@ -22,7 +22,7 @@ export const useGetStyles = () => {
         },
         '& .table': {
           '& tr': {
-            borderBottomColor: theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43',
+            borderBottomColor: theme?.palette?.divider,
           },
         },
       },

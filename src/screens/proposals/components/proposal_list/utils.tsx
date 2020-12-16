@@ -28,7 +28,7 @@ const Title = () => {
 
 export const dummyProposalList: any = [
   {
-    id: '1',
+    id: 1,
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
