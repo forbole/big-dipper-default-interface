@@ -5,29 +5,26 @@ import { useGetScreenSizeHook } from '@hooks';
 import { ProposalList } from 'big-dipper-default-ui';
 import { InfiniteLoader } from '@components';
 import { useGetStyles } from './styles';
-import { useProposalListHook } from './hooks';
 import { ProposalListProps } from './types';
 
-const Proposal = (porps: ProposalListProps) => {
+const Proposal = (props: ProposalListProps) => {
   const { classes } = useGetStyles();
   const { isDesktop } = useGetScreenSizeHook();
   const {
-    state,
-    handleLoadMore,
-    handleClick,
-  } = useProposalListHook();
-  const {
     isToggled,
-    data,
-  } = porps;
-  const {
-    hasMore,
     // data,
+    handleLoadMore,
+    state,
+    handleClick,
+  } = props;
+  const {
+    data,
+    hasMore,
   } = state;
 
   let formatData = data;
   if (!isToggled) {
-    formatData = formatData.filter((x) => x.id < 1);
+    formatData = formatData.filter((x) => x.id < 10);
   }
 
   return (

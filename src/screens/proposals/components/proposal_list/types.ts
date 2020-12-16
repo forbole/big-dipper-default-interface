@@ -1,4 +1,6 @@
 export interface ProposalListProps {
-  isToggled: boolean;
-  data: any;
+  isToggled?: boolean;
+  handleLoadMore?: any,
+  state: any,
+  handleClick?: any,
 }

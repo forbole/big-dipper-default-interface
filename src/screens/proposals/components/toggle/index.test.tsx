@@ -8,7 +8,9 @@ describe('Toggle', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <Toggle />,
+        component: <Toggle
+          isToggled={false}
+        />,
         theme: lightTheme,
       }),
     );

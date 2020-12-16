@@ -21,11 +21,12 @@ const Proposals = () => {
     handleSearchbarSubmit,
     handleChange,
     isToggled,
-    data,
-    handleSetData,
-    // setData,
+    handleLoadMore,
+    state,
+    handleClick,
   } = useProposalHook();
   const { classes } = useGetStyles();
+  const { data } = state;
   return (
     <Layout
       header={(
@@ -56,6 +57,9 @@ const Proposals = () => {
         </div>
         <div className={classnames('proposalList')}>
           <ProposalList
+            handleClick={handleClick}
+            state={state}
+            handleLoadMore={handleLoadMore}
             isToggled={isToggled}
             data={data}
           />

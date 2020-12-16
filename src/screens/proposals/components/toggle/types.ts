@@ -1,4 +1,4 @@
 export interface ToggleProp {
   isToggled: boolean;
-  handleChange: any;
+  handleChange?: any;
 }
