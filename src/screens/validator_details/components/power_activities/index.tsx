@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import {
   LatestActivitiesMobile,
   LatestActivitiesDesktop,
+  PowerEvents,
 } from 'big-dipper-default-ui';
 import {
   Tab,

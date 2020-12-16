@@ -197,3 +197,114 @@ export const dummyLatestActivitiesData:any[] = [
     },
   },
 ];
+
+export const dummyPowerEvents = [
+  {
+    blockHeight: <div>1,233</div>,
+    date: '10 Dec 2019 18:12 UTC',
+    previousValue: '12,468,123',
+    currentValue: '12,468,123',
+    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+    valueDifference: {
+      className: 'negative',
+      display: '-1,123',
+    },
+    value: '1,2345.03 DARIC',
+    type: {
+      className: 'delegation',
+      display: 'Delegation',
+    },
+    redelegate: {
+      from: <div>Wallet A</div>,
+      to: <div>Wallet B</div>,
+    },
+  },
+  {
+    blockHeight: <div>1,233</div>,
+    date: '10 Dec 2009 18:12 UTC',
+    previousValue: '12,468,123',
+    currentValue: '12,468,123',
+    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+    valueDifference: {
+      className: 'negative',
+      display: '-1,123',
+    },
+    value: '1,2345.03 DARIC',
+    type: {
+      className: 'delegation',
+      display: 'Delegation',
+    },
+  },
+  {
+    blockHeight: <div>1,233</div>,
+    date: '10 Dec 2019 18:12 UTC',
+    previousValue: '12,468,123',
+    currentValue: '12,468,123',
+    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+    valueDifference: {
+      className: 'negative',
+      display: '-1,123',
+    },
+    value: '1,2345.03 DARIC',
+    type: {
+      className: 'delegation',
+      display: 'Delegation',
+    },
+    redelegate: {
+      from: <div>Wallet A</div>,
+      to: <div>Wallet B</div>,
+    },
+  },
+  {
+    blockHeight: <div>1,233</div>,
+    date: '10 Dec 2009 18:12 UTC',
+    previousValue: '12,468,123',
+    currentValue: '12,468,123',
+    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+    valueDifference: {
+      className: 'negative',
+      display: '-1,123',
+    },
+    value: '1,2345.03 DARIC',
+    type: {
+      className: 'delegation',
+      display: 'Delegation',
+    },
+  },
+  {
+    blockHeight: <div>1,233</div>,
+    date: '10 Dec 2019 18:12 UTC',
+    previousValue: '12,468,123',
+    currentValue: '12,468,123',
+    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+    valueDifference: {
+      className: 'negative',
+      display: '-1,123',
+    },
+    value: '1,2345.03 DARIC',
+    type: {
+      className: 'delegation',
+      display: 'Delegation',
+    },
+    redelegate: {
+      from: <div>Wallet A</div>,
+      to: <div>Wallet B</div>,
+    },
+  },
+  {
+    blockHeight: <div>1,233</div>,
+    date: '10 Dec 2009 18:12 UTC',
+    previousValue: '12,468,123',
+    currentValue: '12,468,123',
+    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+    valueDifference: {
+      className: 'negative',
+      display: '-1,123',
+    },
+    value: '1,2345.03 DARIC',
+    type: {
+      className: 'delegation',
+      display: 'Delegation',
+    },
+  },
+];

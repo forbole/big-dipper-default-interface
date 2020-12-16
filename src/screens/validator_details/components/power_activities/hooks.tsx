@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { dummyLatestActivitiesData } from './utils';
+import {
+  dummyLatestActivitiesData,
+  dummyPowerEvents,
+} from './utils';
 
 export const useValidatorDetailsHook = () => {
   const router = useRouter();
-  const [tabValue, setTabValue] = useState(1);
+  const [tabValue, setTabValue] = useState(0);
   const [
     state, setState,
   ] = useState({
@@ -42,10 +45,6 @@ export const useValidatorDetailsHook = () => {
     setTabValue(newValue);
   };
 
-  const handleOnFilterCallback = (value) => {
-    console.log(`filter selected in activities: ${value.key}`);
-  };
-
   return {
     tabValue,
     handleTabChange,
@@ -54,5 +53,11 @@ export const useValidatorDetailsHook = () => {
     handleSetState,
     handleLoadMore,
     handleClick,
+  };
+};
+
+export const useActivitiesHook = () => {
+  const handleOnFilterCallback = (value) => {
+    console.log(`filter selected in activities: ${value.key}`);
   };
 };
