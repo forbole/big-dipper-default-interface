@@ -6,9 +6,9 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
       '& .tab__flex': {
+        padding: theme?.palette?.custom?.margins?.small,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -17,20 +17,31 @@ export const useGetStyles = () => {
       '& .activities-filter-select': {
         marginTop: theme?.palette?.custom?.margins?.small,
         '&.hide': {
-          visibility: 'hidden',
+          display: 'none',
         },
         '&.show': {
-          visibility: 'visible',
+          display: 'flex',
+        },
+      },
+      '& .power-events': {
+        color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+        '& .event__header': {
+          background: theme?.palette?.custom?.table?.rowOdd,
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        borderRadius: '4px',
         '& .tab__flex': {
           flexDirection: 'row',
+          padding: theme?.palette?.custom?.margins?.large,
+          paddingBottom: '1rem',
         },
         '& .data-container': {
+          padding: theme?.palette?.custom?.margins?.large,
+          paddingTop: 0,
           '& .latest-activities-desktop': {
             padding: 0,
           },

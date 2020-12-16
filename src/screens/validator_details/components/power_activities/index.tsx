@@ -2,9 +2,11 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
+import { useTheme } from '@material-ui/core/styles';
 import {
   LatestActivitiesMobile,
   LatestActivitiesDesktop,
+  PowerEvents,
 } from 'big-dipper-default-ui';
 import {
   Tab,
@@ -25,18 +27,18 @@ import {
   useLatestActivitiesMobileStyles,
   useLatestActivitiesDesktopStyles,
 } from '@styles';
-
-import { useValidatorDetailsHook } from './hooks';
+import {
+  useValidatorDetailsHook,
+  useActivitiesHook,
+  usePowerEventsHook,
+} from './hooks';
 import { useGetStyles } from './styles';
 
 const PowerActivities = () => {
+  const theme:any = useTheme();
   const {
     tabValue,
     handleTabChange,
-    handleOnFilterCallback,
-    state,
-    handleLoadMore,
-    handleClick,
   } = useValidatorDetailsHook();
   const { t } = useTranslation(['validators', 'activities']);
   const { isDesktop } = useGetScreenSizeHook();
@@ -46,11 +48,18 @@ const PowerActivities = () => {
   const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
   const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
 
+  // ================================
+  // activities
+  // ================================
+  const activitiesHook = useActivitiesHook();
+  const activitiesState = activitiesHook.state;
   const { collapsibleLabels } = useActivityLabelsHook();
-  const {
-    hasMore,
-    data,
-  } = state;
+
+  // ================================
+  // events
+  // ================================
+  const powerEventsHook = usePowerEventsHook();
+  const powerEventsState = powerEventsHook.state;
 
   return (
     <div className={classnames(classes.root)}>
@@ -68,7 +77,7 @@ const PowerActivities = () => {
           <Tab disableRipple label={t('activities')} {...getAllyProps(1)} />
         </Tabs>
         <ActivitiesFilter
-          callback={handleOnFilterCallback}
+          callback={activitiesHook.handleOnFilterCallback}
           className={classnames({
             hide: tabValue === 0,
             show: tabValue === 1,
@@ -76,15 +85,25 @@ const PowerActivities = () => {
         />
       </div>
       {/* =================================== */}
-      {/* active */}
+      {/* power events */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={0}>
         <div className={classnames('data-container')}>
-          power events
+          <InfiniteScroll
+            pageStart={0}
+            loadMore={powerEventsHook.handleLoadMore}
+            hasMore={powerEventsState.hasMore}
+            loader={<InfiniteLoader key={0} />}
+          >
+            <PowerEvents
+              desktop={theme?.breakpoints?.values?.tablet}
+              data={powerEventsState.data}
+            />
+          </InfiniteScroll>
         </div>
       </TabPanel>
       {/* =================================== */}
-      {/* active */}
+      {/* activities */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
         <div className={classnames('data-container')}>
@@ -93,8 +112,8 @@ const PowerActivities = () => {
           {/* ================================ */}
           <InfiniteScroll
             pageStart={0}
-            loadMore={handleLoadMore}
-            hasMore={hasMore}
+            loadMore={activitiesHook.handleLoadMore}
+            hasMore={activitiesState.hasMore}
             loader={<InfiniteLoader key={0} />}
           >
             {/* ================================ */}
@@ -106,15 +125,15 @@ const PowerActivities = () => {
                 classes.latestActivitiesMobile,
                 latestActivitiesMobileStyles.root,
               )}
-              data={data}
-              onClick={handleClick}
+              data={activitiesState.data}
+              onClick={activitiesHook.handleClick}
             />
             {/* ================================ */}
             {/* desktop */}
             {/* ================================ */}
             <LatestActivitiesDesktop
               collapsibleLabels={collapsibleLabels}
-              data={data}
+              data={activitiesState.data}
               className={classnames(
                 desktopOnlyStyles.root,
                 latestActivitiesDesktopStyles.root,
