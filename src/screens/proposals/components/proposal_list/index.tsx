@@ -12,7 +12,6 @@ const Proposal = (props: ProposalListProps) => {
   const { isDesktop } = useGetScreenSizeHook();
   const {
     isToggled,
-    // data,
     handleLoadMore,
     state,
     handleClick,

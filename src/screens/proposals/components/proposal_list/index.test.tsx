@@ -16,5 +16,6 @@ describe('ProposalList', () => {
       }),
     );
     expect(wrapper).not.toBeNull();
+    expect(wrapper.find(ProposalList)).toHaveLength(1);
   });
 });

@@ -1,21 +1,18 @@
 import React from 'react';
 import { Switch } from '@material-ui/core';
-import { useGetScreenSizeHook } from '@hooks';
 import classnames from 'classnames';
 import { useGetStyles } from './styles';
 import { ToggleProp } from './types';
 
 const Toggle = (props: ToggleProp) => {
   const { classes } = useGetStyles();
-  const { isDesktop } = useGetScreenSizeHook();
   const {
     isToggled,
     handleChange,
   } = props;
-  const responsiveClass = isDesktop ? classes.desktop : classes.mobile;
 
   return (
-    <div className={classnames(classes.root, responsiveClass)}>
+    <div className={classnames(classes.root)}>
       <h4>Show All</h4>
       <Switch
         checked={isToggled}

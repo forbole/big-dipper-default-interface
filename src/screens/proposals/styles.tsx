@@ -11,13 +11,10 @@ export const useGetStyles = () => {
       },
       '& .toggle': {
         height: '2rem',
-        background: theme?.palette?.type === 'light' ? '#ffffff' : '#131316',
+        background: theme?.palette?.background?.paper,
         padding: '0 1rem 0 1rem',
-      },
-      '& .toggleContent': {
         display: 'flex',
         justifyContent: 'flex-end',
-        color: theme?.palette?.custom?.fonts?.fontOne,
       },
       '& .proposalList': {
         paddingLeft: theme?.palette?.custom?.gutters?.small,

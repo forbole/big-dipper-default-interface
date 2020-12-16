@@ -15,5 +15,7 @@ describe('Toggle', () => {
       }),
     );
     expect(wrapper).not.toBeNull();
+    expect(wrapper.find('h4').text()).toEqual('Show All');
+    expect(wrapper.find(Toggle)).toHaveLength(1);
   });
 });

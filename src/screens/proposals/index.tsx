@@ -26,7 +26,6 @@ const Proposals = () => {
     handleClick,
   } = useProposalHook();
   const { classes } = useGetStyles();
-  const { data } = state;
   return (
     <Layout
       header={(
@@ -48,12 +47,10 @@ const Proposals = () => {
           <HeaderBarMobile title={t('title')} communityPool={communityPool} />
         </div>
         <div className={classnames('toggle')}>
-          <div className={classnames('toggleContent')}>
-            <Toggle
-              isToggled={isToggled}
-              handleChange={handleChange}
-            />
-          </div>
+          <Toggle
+            isToggled={isToggled}
+            handleChange={handleChange}
+          />
         </div>
         <div className={classnames('proposalList')}>
           <ProposalList
@@ -61,7 +58,6 @@ const Proposals = () => {
             state={state}
             handleLoadMore={handleLoadMore}
             isToggled={isToggled}
-            data={data}
           />
         </div>
       </div>
