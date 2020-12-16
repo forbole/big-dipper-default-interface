@@ -1,10 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-// import {
-//   MobileNav,
-//   DesktopNav,
-//   Footer,
-// } from 'big-dipper-internal-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import NetworkItem from '.';
