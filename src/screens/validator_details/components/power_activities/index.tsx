@@ -91,8 +91,8 @@ const PowerActivities = () => {
         <div className={classnames('data-container')}>
           <InfiniteScroll
             pageStart={0}
-            loadMore={activitiesHook.handleLoadMore}
-            hasMore={activitiesState.hasMore}
+            loadMore={powerEventsHook.handleLoadMore}
+            hasMore={powerEventsState.hasMore}
             loader={<InfiniteLoader key={0} />}
           >
             <PowerEvents
