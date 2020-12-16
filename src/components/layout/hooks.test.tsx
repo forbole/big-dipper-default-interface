@@ -2,7 +2,6 @@ import {
   renderHook,
   act,
 } from '@testing-library/react-hooks';
-import { awaitActions } from '@tests/utils/await_actions';
 import {
   useMobileNavHook,
   // useDesktopNavHook,
