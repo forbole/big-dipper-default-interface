@@ -8,12 +8,18 @@ import { ToggleProp } from './types';
 const Toggle = (props: ToggleProp) => {
   const { classes } = useGetStyles();
   const { isDesktop } = useGetScreenSizeHook();
+  const {
+    isToggled,
+    handleChange,
+  } = props;
   const responsiveClass = isDesktop ? classes.desktop : classes.mobile;
 
   return (
     <div className={classnames(classes.root, responsiveClass)}>
       <h4>Show All</h4>
       <Switch
+        checked={isToggled}
+        onChange={handleChange}
         focusVisibleClassName={classnames('focusVisible')}
         disableRipple
         className={classnames('switch')}
@@ -23,7 +29,6 @@ const Toggle = (props: ToggleProp) => {
           track: classnames('track'),
           checked: classnames('checked'),
         }}
-        {...props}
       />
     </div>
   );

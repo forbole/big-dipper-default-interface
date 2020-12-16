@@ -17,7 +17,14 @@ import { useGetStyles } from './styles';
 const Proposals = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useProposalHook();
+  const {
+    handleSearchbarSubmit,
+    handleChange,
+    isToggled,
+    data,
+    handleSetData,
+    // setData,
+  } = useProposalHook();
   const { classes } = useGetStyles();
   return (
     <Layout
@@ -41,11 +48,17 @@ const Proposals = () => {
         </div>
         <div className={classnames('toggle')}>
           <div className={classnames('toggleContent')}>
-            <Toggle />
+            <Toggle
+              isToggled={isToggled}
+              handleChange={handleChange}
+            />
           </div>
         </div>
         <div className={classnames('proposalList')}>
-          <ProposalList />
+          <ProposalList
+            isToggled={isToggled}
+            data={data}
+          />
         </div>
       </div>
       {/* ===================================== */}

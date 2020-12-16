@@ -1,22 +1,49 @@
 import React from 'react';
 import classnames from 'classnames';
+import InfiniteScroll from 'react-infinite-scroller';
 import { useGetScreenSizeHook } from '@hooks';
 import { ProposalList } from 'big-dipper-default-ui';
-import { dummyProposalList } from './utils';
+import { InfiniteLoader } from '@components';
 import { useGetStyles } from './styles';
 import { useProposalListHook } from './hooks';
+import { ProposalListProps } from './types';
 
-const Proposal = () => {
+const Proposal = (porps: ProposalListProps) => {
   const { classes } = useGetStyles();
   const { isDesktop } = useGetScreenSizeHook();
-  const { handleClick } = useProposalListHook();
+  const {
+    state,
+    handleLoadMore,
+    handleClick,
+  } = useProposalListHook();
+  const {
+    isToggled,
+    data,
+  } = porps;
+  const {
+    hasMore,
+    // data,
+  } = state;
+
+  let formatData = data;
+  if (!isToggled) {
+    formatData = formatData.filter((x) => x.id < 1);
+  }
+
   return (
-    <ProposalList
-      className={classnames(classes.root)}
-      data={dummyProposalList}
-      desktop={isDesktop}
-      onClick={handleClick}
-    />
+    <InfiniteScroll
+      pageStart={0}
+      loadMore={handleLoadMore}
+      hasMore={hasMore}
+      loader={<InfiniteLoader key={0} />}
+    >
+      <ProposalList
+        className={classnames(classes.root)}
+        data={formatData}
+        desktop={isDesktop}
+        onClick={handleClick}
+      />
+    </InfiniteScroll>
   );
 };
 

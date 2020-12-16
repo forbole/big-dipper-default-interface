@@ -1,3 +1,4 @@
 export interface ToggleProp {
-  desktop?: boolean;
+  isToggled: boolean;
+  handleChange: any;
 }
