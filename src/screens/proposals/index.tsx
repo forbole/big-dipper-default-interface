@@ -1,20 +1,30 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
+import { useMarketHook } from '@hooks';
 import {
   Layout,
   DataBlocksHeader,
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  ProposalList, Toggle,
+} from './components';
 import { useProposalHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const Proposals = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useProposalHook();
+  const {
+    handleSearchbarSubmit,
+    handleChange,
+    isToggled,
+    handleLoadMore,
+    state,
+    handleClick,
+  } = useProposalHook();
   const { classes } = useGetStyles();
   return (
     <Layout
@@ -36,8 +46,21 @@ const Proposals = () => {
         <div className={classnames('mobile-tablet-header')}>
           <HeaderBarMobile title={t('title')} communityPool={communityPool} />
         </div>
-        <div className={classnames('proposals-content')}>
-          Proposals table
+        <div className={classnames('toggle')}>
+          <Toggle
+            isToggled={isToggled}
+            handleChange={handleChange}
+            showAll={t('showAll')}
+          />
+        </div>
+        <div className={classnames('proposalList')}>
+          <ProposalList
+            handleClick={handleClick}
+            state={state}
+            handleLoadMore={handleLoadMore}
+            isToggled={isToggled}
+            proposerDisplay={t('proposerDisplay')}
+          />
         </div>
       </div>
       {/* ===================================== */}
