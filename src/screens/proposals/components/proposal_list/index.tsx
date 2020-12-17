@@ -2,12 +2,12 @@ import React from 'react';
 import classnames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useGetScreenSizeHook } from '@hooks';
-import { ProposalList } from 'big-dipper-default-ui';
+import { ProposalList as Proposals } from 'big-dipper-default-ui';
 import { InfiniteLoader } from '@components';
 import { useGetStyles } from './styles';
 import { ProposalListProps } from './types';
 
-const Proposal = (props: ProposalListProps) => {
+const ProposalList = (props: ProposalListProps) => {
   const { classes } = useGetStyles();
   const { isDesktop } = useGetScreenSizeHook();
   const {
@@ -23,7 +23,7 @@ const Proposal = (props: ProposalListProps) => {
 
   let formatData = data;
   if (!isToggled) {
-    formatData = formatData.filter((x) => x.id < 10);
+    formatData = formatData.filter((x) => x.id % 2);
   }
 
   return (
@@ -33,7 +33,7 @@ const Proposal = (props: ProposalListProps) => {
       hasMore={hasMore}
       loader={<InfiniteLoader key={0} />}
     >
-      <ProposalList
+      <Proposals
         className={classnames(classes.root)}
         data={formatData}
         desktop={isDesktop}
@@ -43,4 +43,4 @@ const Proposal = (props: ProposalListProps) => {
   );
 };
 
-export default Proposal;
+export default ProposalList;
