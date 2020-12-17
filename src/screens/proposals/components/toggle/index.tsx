@@ -9,11 +9,12 @@ const Toggle = (props: ToggleProp) => {
   const {
     isToggled,
     handleChange,
+    showAll,
   } = props;
 
   return (
     <div className={classnames(classes.root)}>
-      <h4>Show All</h4>
+      <h4>{showAll}</h4>
       <Switch
         checked={isToggled}
         onChange={handleChange}

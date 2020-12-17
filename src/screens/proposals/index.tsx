@@ -50,6 +50,7 @@ const Proposals = () => {
           <Toggle
             isToggled={isToggled}
             handleChange={handleChange}
+            showAll={t('showAll')}
           />
         </div>
         <div className={classnames('proposalList')}>
@@ -58,6 +59,7 @@ const Proposals = () => {
             state={state}
             handleLoadMore={handleLoadMore}
             isToggled={isToggled}
+            proposerDisplay={t('proposerDisplay')}
           />
         </div>
       </div>

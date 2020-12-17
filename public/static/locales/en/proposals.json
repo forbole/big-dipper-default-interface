@@ -1,4 +1,6 @@
 {
   "title": "Proposals",
-  "subTitle": "Proposal Details"
+  "subTitle": "Proposal Details",
+  "proposerDisplay": "Proposer",
+  "showAll": "Show All"
 }

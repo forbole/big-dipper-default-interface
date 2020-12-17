@@ -3,4 +3,5 @@ export interface ProposalListProps {
   handleLoadMore: any,
   state: any,
   handleClick: any,
+  proposerDisplay: string;
 }

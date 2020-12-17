@@ -11,6 +11,7 @@ describe('ProposalList', () => {
       BaseWrapper({
         component: <ProposalList
           data={dummyProposalList}
+          proposerDisplay="Proposer"
         />,
         theme: lightTheme,
       }),

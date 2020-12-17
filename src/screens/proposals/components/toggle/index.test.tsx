@@ -10,6 +10,7 @@ describe('Toggle', () => {
       BaseWrapper({
         component: <Toggle
           isToggled={false}
+          showAll="Show All"
         />,
         theme: lightTheme,
       }),

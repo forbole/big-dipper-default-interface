@@ -15,6 +15,7 @@ const ProposalList = (props: ProposalListProps) => {
     handleLoadMore,
     state,
     handleClick,
+    proposerDisplay,
   } = props;
   const {
     data,
@@ -38,6 +39,7 @@ const ProposalList = (props: ProposalListProps) => {
         data={formatData}
         desktop={isDesktop}
         onClick={handleClick}
+        proposerDisplay={proposerDisplay}
       />
     </InfiniteScroll>
   );
