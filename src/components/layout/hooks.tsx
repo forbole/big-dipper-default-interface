@@ -114,6 +114,7 @@ export const useDesktopNavHook = (isDesktop:boolean) => {
     toggleMenu,
     toggleNetwork,
     isNetworkOpen,
+    turnOffTabs,
   };
 };
 
