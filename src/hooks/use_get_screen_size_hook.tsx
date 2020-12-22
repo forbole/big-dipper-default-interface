@@ -15,6 +15,7 @@ function useGetScreenSizeHook() {
 
   const [windowSize, setWindowSize] = useState(getSize);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
   const theme:any = useTheme();
 
   useEffect((): any => {
@@ -31,10 +32,19 @@ function useGetScreenSizeHook() {
   }, []);
 
   useEffect(() => {
-    if ((windowSize?.width ?? 0) >= theme?.breakpoints?.values?.desktop && !isDesktop) {
-      setIsDesktop(true);
+    const width = windowSize?.width ?? 0;
+    // is tablet
+    if (width >= theme?.breakpoints?.values?.tablet
+      && width < theme?.breakpoints?.values?.desktop) {
+      setIsTablet(true);
+    } else {
+      setIsTablet(false);
     }
-    if ((windowSize?.width ?? 0) < theme?.breakpoints?.values?.desktop && isDesktop) {
+
+    // is desktop
+    if (width >= theme?.breakpoints?.values?.desktop) {
+      setIsDesktop(true);
+    } else {
       setIsDesktop(false);
     }
   }, [windowSize.width]);
@@ -42,6 +52,7 @@ function useGetScreenSizeHook() {
   return {
     windowSize,
     isDesktop,
+    isTablet,
   };
 }
 

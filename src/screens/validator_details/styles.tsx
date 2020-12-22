@@ -16,11 +16,6 @@ export const useGetStyles = () => {
         background: 'lime',
         border: 'solid 1px black',
       },
-      '& .missed-blocks': {
-        height: '400px',
-        background: 'orange',
-        border: 'solid 1px black',
-      },
       '& .potential': {
         height: '400px',
         background: 'skyblue',

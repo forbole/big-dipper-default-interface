@@ -10,7 +10,10 @@ import { useMarketHook } from '@hooks';
 import { useGetStyles } from './styles';
 import { useValidatorDetailsHook } from './hooks';
 import {
-  Info, PowerActivities, StakingActivities,
+  Info,
+  PowerActivities,
+  StakingActivities,
+  MissedBlocks,
 } from './components';
 
 const ValidatorDetails = () => {
@@ -47,7 +50,7 @@ const ValidatorDetails = () => {
           validators voting power
         </div>
         <div className={classnames('missed-blocks')}>
-          missed blocks
+          <MissedBlocks />
         </div>
         <div className={classnames('potential')}>
           potential
