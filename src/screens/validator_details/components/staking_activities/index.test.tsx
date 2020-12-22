@@ -17,6 +17,7 @@ describe('StakingActivites', () => {
         theme: lightTheme,
       }),
     );
+
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(0);
     expect(wrapper.find(ValidatorStakingMobile)).toHaveLength(0);
