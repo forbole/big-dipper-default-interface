@@ -9,7 +9,7 @@ import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import StakingActivities from '.';
 
-describe('StakingActivites', () => {
+describe('StakingActivities', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
