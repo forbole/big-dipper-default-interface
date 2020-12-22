@@ -19,8 +19,8 @@ describe('StakingActivites', () => {
     );
 
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(0);
-    expect(wrapper.find(ValidatorStakingMobile)).toHaveLength(0);
+    expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(1);
+    expect(wrapper.find(ValidatorStakingMobile)).toHaveLength(1);
     wrapper.find(Tab).last().simulate('click');
   });
 });
