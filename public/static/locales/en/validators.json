@@ -17,5 +17,15 @@
   "activities": "Activities",
   "delegations": "Delegations",
   "redelegations": "Redelegations",
-  "undelegations": "Undelegations"
+  "undelegations": "Undelegations",
+  "missedBlocks": "Missed Blocks",
+  "proposer": "Proposer",
+  "height": "Height",
+  "votingPower": "Voting Power",
+  "gas": "Gas (used/wanted)",
+  "missed": "Missed",
+  "voted": "Voted",
+  "yes": "Yes",
+  "no": "No",
+  "signatures": "Signatures"
 }
