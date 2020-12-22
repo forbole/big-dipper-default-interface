@@ -20,6 +20,9 @@ export const useGetStyles = () => {
         },
       },
     },
+    stakingMobile: {
+      height: '310px',
+    },
   }));
 
   return {

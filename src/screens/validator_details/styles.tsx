@@ -27,9 +27,18 @@ export const useGetStyles = () => {
         border: 'solid 1px black',
       },
       '& .staking': {
-        height: '400px',
-        background: '#de5dc0',
-        border: 'solid 1px black',
+        background: theme?.palette?.background?.paper,
+      },
+      '& .validator-staking': {
+        height: '310px',
+        background: theme?.palette?.background?.paper,
+        '& .single-row': {
+          '&:nth-of-type(odd)': {
+            background:
+              theme?.palette?.type === 'light' ? '#F8F8F8' : '#19191D',
+          },
+        },
+
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
