@@ -17,5 +17,9 @@
   "activities": "Activities",
   "delegations": "Delegations",
   "redelegations": "Redelegations",
-  "undelegations": "Undelegations"
+  "undelegations": "Undelegations",
+  "from": "From",
+  "redelegateTo": "Redelegate to",
+  "amount": "Amount",
+  "address": "Address"
 }
