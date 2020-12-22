@@ -1,5 +1,19 @@
 import { AvatarDisplay } from 'big-dipper-default-ui';
 
+export const getLabels = (t:any) => {
+  return ({
+    proposer: t('proposer'),
+    height: t('height'),
+    votingPower: t('votingPower'),
+    gas: t('gas'),
+    missed: t('missed'),
+    voted: t('voted'),
+    yes: t('yes'),
+    no: t('no'),
+    signatures: t('signatures'),
+  });
+};
+
 export const getAspect = ({
   isDesktop = false,
   isTablet = false,
