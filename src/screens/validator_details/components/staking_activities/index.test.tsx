@@ -1,0 +1,25 @@
+import React from 'react';
+import { mount } from 'enzyme';
+import { Tab } from '@material-ui/core';
+import {
+  ValidatorStakingMobile,
+  ValidatorStakingDesktop,
+} from 'big-dipper-default-ui';
+import { BaseWrapper } from '@tests/utils/base_wrapper';
+import { lightTheme } from '@styles';
+import StakingActivities from '.';
+
+describe('StakingActivites', () => {
+  it('correctly renders component', () => {
+    const wrapper = mount(
+      BaseWrapper({
+        component: <StakingActivities />,
+        theme: lightTheme,
+      }),
+    );
+    expect(wrapper).not.toBeNull();
+    expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(0);
+    expect(wrapper.find(ValidatorStakingMobile)).toHaveLength(0);
+    wrapper.find(Tab).last().simulate('click');
+  });
+});
