@@ -1,3 +1,5 @@
+import { AvatarDisplay } from 'big-dipper-default-ui';
+
 export const getAspect = ({
   isDesktop = false,
   isTablet = false,
@@ -13,20 +15,34 @@ export const getAspect = ({
 
 export const dummyData = [
   {
-    proposer: <div>forbole</div>,
+    proposer: <AvatarDisplay
+      imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+      alt="avatar image"
+      title="Forbole"
+    />,
     height: '123,001',
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
-    proposer: <div>forbole</div>,
+    proposer: <AvatarDisplay
+      imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+      alt="avatar image"
+      title="Forbole"
+    />,
     height: '123,001',
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -34,7 +50,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -42,7 +61,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -50,7 +72,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -58,7 +83,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -66,7 +94,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -74,7 +105,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 85,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -82,7 +116,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -90,7 +127,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 77,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -98,7 +138,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -106,7 +149,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -114,7 +160,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -122,7 +171,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -130,7 +182,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -138,7 +193,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -146,7 +204,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -154,7 +215,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -162,7 +226,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 42,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -170,7 +237,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -178,7 +248,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 36,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -186,7 +259,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -194,7 +270,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 55,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -202,7 +281,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 95,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -210,7 +292,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -218,7 +303,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 22,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -226,7 +314,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 10,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -234,7 +325,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -242,7 +336,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 60,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -250,7 +347,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 60,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -258,7 +358,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 60,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -266,7 +369,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 60,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -274,7 +380,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 60,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -282,7 +391,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 60,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -290,7 +402,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -298,7 +413,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -306,7 +424,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -314,7 +435,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -322,7 +446,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -330,7 +457,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>forbole</div>,
@@ -338,7 +468,10 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: false,
-    signatures: 100,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
   {
     proposer: <div>stake fish</div>,
@@ -346,6 +479,9 @@ export const dummyData = [
     votingPower: '78%',
     gas: '1,500,794 / 3,000,000',
     voted: true,
-    signatures: 86,
+    signatures: {
+      raw: 86,
+      display: '86',
+    },
   },
 ];
