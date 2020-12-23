@@ -10,7 +10,10 @@ import {
 import { useMarketHook } from '@hooks';
 import { useValidatorDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
-import { Activities } from './components';
+import {
+  Activities,
+  BlockDetailsTable,
+} from './components';
 
 const BlockDetails = () => {
   const { t } = useTranslation(['blocks', 'common']);
@@ -38,7 +41,7 @@ const BlockDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('block-details')}>
-          block details
+          <BlockDetailsTable />
         </div>
         <div className={classnames('block-activities')}>
           <Activities />
