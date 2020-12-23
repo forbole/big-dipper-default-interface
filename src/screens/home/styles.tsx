@@ -54,6 +54,8 @@ export const useGetStyles = () => {
         },
         '& .data-graphs': {
           gridColumn: '1 / 3',
+          // wingman
+          height: '300px',
         },
         '& .stablities': {
           gridColumn: '3 / span 1',

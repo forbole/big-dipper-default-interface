@@ -10,6 +10,8 @@ export const useGetStyles = () => {
     return (
       createStyles({
         root: {
+          // wingman
+          height: '100%',
           '& .custom-tool-tip': {
             background: theme?.palette?.background?.paperLowOpacity,
             '& p': {

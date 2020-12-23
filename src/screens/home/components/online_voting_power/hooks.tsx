@@ -9,7 +9,7 @@ export const useOnlineVotingPowerHook = (windowSize: { width: number, height: nu
 
   useEffect(() => {
     if (windowSize.width >= theme?.breakpoints?.values?.desktop) {
-      setGridAspect(undefined);
+      setGridAspect(1.5);
     } else if (windowSize.width >= theme?.breakpoints?.values?.tablet) {
       setGridAspect(3);
     } else {
