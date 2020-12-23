@@ -10,7 +10,9 @@ import { Layout } from '@components';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
 } from '@tests/utils/mock_data';
-import { Info } from './components';
+import {
+  Info, MissedBlocks, PowerActivities, StakingActivities,
+} from './components';
 import ValidatorDetails from '.';
 
 describe('ValidatorDetails', () => {
@@ -51,5 +53,8 @@ describe('ValidatorDetails', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(Info)).toHaveLength(1);
+    expect(wrapper.find(MissedBlocks)).toHaveLength(1);
+    expect(wrapper.find(PowerActivities)).toHaveLength(1);
+    expect(wrapper.find(StakingActivities)).toHaveLength(1);
   });
 });

@@ -21,10 +21,8 @@ export const useGetStyles = () => {
         background: 'skyblue',
         border: 'solid 1px black',
       },
-      '& .staking': {
-        height: '400px',
-        background: '#de5dc0',
-        border: 'solid 1px black',
+      '& .missed-blocks': {
+        height: '550px',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -60,9 +58,11 @@ export const useGetStyles = () => {
 
         '& .missed-blocks': {
           gridColumn: '1 / 3',
+          height: '600px',
         },
         '& .staking': {
           gridColumn: '3 / 8',
+          height: '600px',
         },
         '& .events-and-activities': {
           gridColumn: '1 / 8',

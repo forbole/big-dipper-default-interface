@@ -7,8 +7,21 @@ import {
 } from '@material-ui/core';
 import { TabPanel } from '@components';
 import { getAllyProps } from '@utils';
+import {
+  ValidatorStakingDesktop, ValidatorStakingMobile,
+} from 'big-dipper-default-ui';
+import {
+  useMobileOnlyStyles,
+  useDesktopOnlyStyles,
+} from '@styles';
 import { useStakingActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
+import {
+  getRedelegationLabels,
+  getLabels,
+  dummyValidatorStaking,
+  dummyValidatorRedelegations,
+} from './utils';
 
 const StakingActivities = () => {
   const {
@@ -16,7 +29,20 @@ const StakingActivities = () => {
     handleTabChange,
   } = useStakingActivitiesHook();
   const { t } = useTranslation('validators');
+
+  // ==================================
+  // styles
+  // ==================================
   const { classes } = useGetStyles();
+  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
+  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+
+  // ==================================
+  // labels
+  // ==================================
+  const labels = getLabels(t);
+  const redelegationLabels = getRedelegationLabels(t);
+
   return (
     <div className={classnames(classes.root)}>
       <Tabs
@@ -36,7 +62,21 @@ const StakingActivities = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={0}>
         <div className={classnames('staking__data-container')}>
-          delegation
+          {/* ================================ */}
+          {/* mobile */}
+          {/* ================================ */}
+          <ValidatorStakingMobile
+            className={classnames('validator-staking', mobileOnlyStyles.root)}
+            data={dummyValidatorStaking}
+          />
+          {/* ================================ */}
+          {/* desktop */}
+          {/* ================================ */}
+          <ValidatorStakingDesktop
+            className={classnames('validator-staking', desktopOnlyStyles.root)}
+            labels={labels}
+            data={dummyValidatorStaking}
+          />
         </div>
       </TabPanel>
       {/* =================================== */}
@@ -44,7 +84,22 @@ const StakingActivities = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
         <div className={classnames('staking__data-container')}>
-          redelegations
+          {/* ================================ */}
+          {/* mobile */}
+          {/* ================================ */}
+          <ValidatorStakingMobile
+            className={classnames('validator-staking', mobileOnlyStyles.root)}
+            data={dummyValidatorRedelegations}
+            labels={redelegationLabels}
+          />
+          {/* ================================ */}
+          {/* desktop */}
+          {/* ================================ */}
+          <ValidatorStakingDesktop
+            className={classnames('validator-staking', desktopOnlyStyles.root)}
+            labels={redelegationLabels}
+            data={dummyValidatorRedelegations}
+          />
         </div>
       </TabPanel>
       {/* =================================== */}
@@ -52,7 +107,21 @@ const StakingActivities = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={2}>
         <div className={classnames('staking__data-container')}>
-          undelegations
+          {/* ================================ */}
+          {/* mobile */}
+          {/* ================================ */}
+          <ValidatorStakingMobile
+            className={classnames('validator-staking', mobileOnlyStyles.root)}
+            data={dummyValidatorStaking}
+          />
+          {/* ================================ */}
+          {/* desktop */}
+          {/* ================================ */}
+          <ValidatorStakingDesktop
+            className={classnames('validator-staking', desktopOnlyStyles.root)}
+            labels={labels}
+            data={dummyValidatorStaking}
+          />
         </div>
       </TabPanel>
     </div>
