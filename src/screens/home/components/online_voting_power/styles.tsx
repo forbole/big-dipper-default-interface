@@ -10,7 +10,6 @@ export const useGetStyles = () => {
     return (
       createStyles({
         root: {
-          // wingman
           height: '100%',
           '& .custom-tool-tip': {
             background: theme?.palette?.background?.paperLowOpacity,
@@ -20,6 +19,12 @@ export const useGetStyles = () => {
           },
           '& .select-tabs': {
             background: theme?.palette?.background?.paper,
+            display: 'flex',
+            flexDirection: 'column',
+            '& .selected-component-container': {
+              flex: 1,
+              overflow: 'hidden',
+            },
             '& .selected-title': {
               color: headerColor,
             },

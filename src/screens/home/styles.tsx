@@ -17,6 +17,7 @@ export const useGetStyles = () => {
         gridGap: theme?.palette?.custom?.gutters?.small,
       },
       '& .data-graphs': {
+        height: '325px',
       },
       '& .stablities': {
       },
@@ -39,6 +40,9 @@ export const useGetStyles = () => {
         '& .consensus': {
           gridColumn: '2 / 3',
         },
+        '& .data-graphs': {
+          height: '425px',
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.gutters?.medium,
@@ -54,8 +58,7 @@ export const useGetStyles = () => {
         },
         '& .data-graphs': {
           gridColumn: '1 / 3',
-          // wingman
-          height: '300px',
+          height: '505px',
         },
         '& .stablities': {
           gridColumn: '3 / span 1',
