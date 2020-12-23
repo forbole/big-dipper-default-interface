@@ -12,7 +12,6 @@ export const useGetStyles = () => {
         display: 'flex',
         flexDirection: 'column',
         '& .validator-blocks__bar-chart': {
-          // height: '400px',
           overflowY: 'auto',
           overflowX: 'hidden',
         },
@@ -30,7 +29,6 @@ export const useGetStyles = () => {
         },
         [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
           '& .validator-blocks__bar-chart': {
-            // height: '550px',
           },
         },
         [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
@@ -38,7 +36,6 @@ export const useGetStyles = () => {
             size: '1.5rem',
           },
           '& .validator-blocks__bar-chart': {
-            // height: '600px',
             minHeight: 'initial',
           },
         },
