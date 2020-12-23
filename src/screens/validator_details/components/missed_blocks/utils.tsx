@@ -14,19 +14,6 @@ export const getLabels = (t:any) => {
   });
 };
 
-export const getAspect = ({
-  isDesktop = false,
-  isTablet = false,
-}) => {
-  if (isTablet) {
-    return 1;
-  }
-  if (isDesktop) {
-    return 0.5;
-  }
-  return 0.5;
-};
-
 export const dummyData = [
   {
     proposer: <AvatarDisplay
