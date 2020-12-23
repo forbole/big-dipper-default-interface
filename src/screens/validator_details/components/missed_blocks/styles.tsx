@@ -7,10 +7,12 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       background: theme?.palette?.background?.paper,
+      height: '100%',
       '&.validator-blocks': {
+        display: 'flex',
+        flexDirection: 'column',
         '& .validator-blocks__bar-chart': {
-          minHeight: '400px',
-          height: '70vh',
+          // height: '400px',
           overflowY: 'auto',
           overflowX: 'hidden',
         },
@@ -28,16 +30,15 @@ export const useGetStyles = () => {
         },
         [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
           '& .validator-blocks__bar-chart': {
-            minHeight: '600px',
+            // height: '550px',
           },
         },
         [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-          height: '100%',
           '& .validator-blocks__title': {
             size: '1.5rem',
           },
           '& .validator-blocks__bar-chart': {
-            height: '400px',
+            // height: '600px',
             minHeight: 'initial',
           },
         },

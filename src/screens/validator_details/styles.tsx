@@ -21,18 +21,8 @@ export const useGetStyles = () => {
         background: 'skyblue',
         border: 'solid 1px black',
       },
-      '& .staking': {
-        background: theme?.palette?.background?.paper,
-      },
-      '& .validator-staking': {
-        background: theme?.palette?.background?.paper,
-        '& .single-row': {
-          '&:nth-of-type(odd)': {
-            background:
-              theme?.palette?.type === 'light' ? '#F8F8F8' : '#19191D',
-          },
-        },
-
+      '& .missed-blocks': {
+        height: '550px',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -68,11 +58,11 @@ export const useGetStyles = () => {
 
         '& .missed-blocks': {
           gridColumn: '1 / 3',
-          height: '100%',
+          height: '600px',
         },
         '& .staking': {
           gridColumn: '3 / 8',
-          // minHeight: '768px',
+          height: '600px',
         },
         '& .events-and-activities': {
           gridColumn: '1 / 8',
