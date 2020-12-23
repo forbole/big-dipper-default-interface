@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Tab } from '@material-ui/core';
 import {
   ValidatorStakingMobile,
   ValidatorStakingDesktop,
@@ -21,6 +20,5 @@ describe('StakingActivities', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(1);
     expect(wrapper.find(ValidatorStakingMobile)).toHaveLength(1);
-    wrapper.find(Tab).last().simulate('click');
   });
 });
