@@ -5,7 +5,6 @@ import {
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { formatNumber } from '@utils';
-import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
 import { fakeData } from './utils';
 import { useOnlineVotingPowerHook } from './hooks';
@@ -13,11 +12,7 @@ import { useOnlineVotingPowerHook } from './hooks';
 const OnlineVotingPower = () => {
   const { t } = useTranslation('home');
   const { classes } = useGetStyles();
-  const { windowSize } = useGetScreenSizeHook();
-  const {
-    gridAspect,
-    getCartesianGridStroke,
-  } = useOnlineVotingPowerHook(windowSize);
+  const { getCartesianGridStroke } = useOnlineVotingPowerHook();
   const cartesianGridStroke = getCartesianGridStroke();
 
   return (
@@ -32,7 +27,6 @@ const OnlineVotingPower = () => {
               <OnlineVotingPowerUi
                 data={fakeData}
                 recharts={{
-                  gridAspect,
                   axis: {
                     fontSize: 12,
                   },
