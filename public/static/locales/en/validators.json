@@ -21,5 +21,15 @@
   "from": "From",
   "redelegateTo": "Redelegate to",
   "amount": "Amount",
-  "address": "Address"
+  "address": "Address",
+  "missedBlocks": "Missed Blocks",
+  "proposer": "Proposer",
+  "height": "Height",
+  "votingPower": "Voting Power",
+  "gas": "Gas (used/wanted)",
+  "missed": "Missed",
+  "voted": "Voted",
+  "yes": "Yes",
+  "no": "No",
+  "signatures": "Signatures"
 }
