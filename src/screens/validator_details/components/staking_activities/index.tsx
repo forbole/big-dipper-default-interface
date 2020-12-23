@@ -14,12 +14,13 @@ import {
   useMobileOnlyStyles,
   useDesktopOnlyStyles,
 } from '@styles';
-import { useTheme } from '@material-ui/core/styles';
 import { useStakingActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
-  getLabelsDesktop,
-  dummyValidatorStaking, dummyValidatorRedelegations, getLabelsRedelegationsDesktop,
+  getRedelegationLabels,
+  getLabels,
+  dummyValidatorStaking,
+  dummyValidatorRedelegations,
 } from './utils';
 
 const StakingActivities = () => {
@@ -28,13 +29,19 @@ const StakingActivities = () => {
     handleTabChange,
   } = useStakingActivitiesHook();
   const { t } = useTranslation('validators');
-  const { classes } = useGetStyles();
-  const theme: any = useTheme();
 
-  const labelsDesktop = getLabelsDesktop(t);
-  const labelsDesktopRedelegations = getLabelsRedelegationsDesktop(t);
+  // ==================================
+  // styles
+  // ==================================
+  const { classes } = useGetStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+
+  // ==================================
+  // labels
+  // ==================================
+  const labels = getLabels(t);
+  const redelegationLabels = getRedelegationLabels(t);
 
   return (
     <div className={classnames(classes.root)}>
@@ -55,26 +62,21 @@ const StakingActivities = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={0}>
         <div className={classnames('staking__data-container')}>
-
           {/* ================================ */}
           {/* mobile */}
           {/* ================================ */}
           <ValidatorStakingMobile
             className={classnames('validator-staking', mobileOnlyStyles.root)}
             data={dummyValidatorStaking}
-            tablePaginationColor={theme?.palette?.background?.paper}
           />
-
           {/* ================================ */}
           {/* desktop */}
           {/* ================================ */}
           <ValidatorStakingDesktop
             className={classnames('validator-staking', desktopOnlyStyles.root)}
-            labels={labelsDesktop}
+            labels={labels}
             data={dummyValidatorStaking}
-            tablePaginationColor={theme?.palette?.background?.paper}
           />
-
         </div>
       </TabPanel>
       {/* =================================== */}
@@ -82,27 +84,22 @@ const StakingActivities = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
         <div className={classnames('staking__data-container')}>
-
           {/* ================================ */}
           {/* mobile */}
           {/* ================================ */}
           <ValidatorStakingMobile
             className={classnames('validator-staking', mobileOnlyStyles.root)}
             data={dummyValidatorRedelegations}
-            tablePaginationColor={theme?.palette?.background?.paper}
-
+            labels={redelegationLabels}
           />
-
           {/* ================================ */}
           {/* desktop */}
           {/* ================================ */}
           <ValidatorStakingDesktop
             className={classnames('validator-staking', desktopOnlyStyles.root)}
-            labels={labelsDesktopRedelegations}
+            labels={redelegationLabels}
             data={dummyValidatorRedelegations}
-            tablePaginationColor={theme?.palette?.background?.paper}
           />
-
         </div>
       </TabPanel>
       {/* =================================== */}
@@ -110,26 +107,21 @@ const StakingActivities = () => {
       {/* =================================== */}
       <TabPanel value={tabValue} index={2}>
         <div className={classnames('staking__data-container')}>
-
           {/* ================================ */}
           {/* mobile */}
           {/* ================================ */}
           <ValidatorStakingMobile
             className={classnames('validator-staking', mobileOnlyStyles.root)}
             data={dummyValidatorStaking}
-            tablePaginationColor={theme?.palette?.background?.paper}
           />
-
           {/* ================================ */}
           {/* desktop */}
           {/* ================================ */}
           <ValidatorStakingDesktop
             className={classnames('validator-staking', desktopOnlyStyles.root)}
-            labels={labelsDesktop}
+            labels={labels}
             data={dummyValidatorStaking}
-            tablePaginationColor={theme?.palette?.background?.paper}
           />
-
         </div>
       </TabPanel>
     </div>

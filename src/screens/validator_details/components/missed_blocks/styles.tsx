@@ -32,6 +32,7 @@ export const useGetStyles = () => {
           },
         },
         [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+          height: '100%',
           '& .validator-blocks__title': {
             size: '1.5rem',
           },

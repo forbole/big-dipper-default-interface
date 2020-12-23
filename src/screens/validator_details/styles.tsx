@@ -25,7 +25,6 @@ export const useGetStyles = () => {
         background: theme?.palette?.background?.paper,
       },
       '& .validator-staking': {
-        height: '310px',
         background: theme?.palette?.background?.paper,
         '& .single-row': {
           '&:nth-of-type(odd)': {
@@ -69,9 +68,11 @@ export const useGetStyles = () => {
 
         '& .missed-blocks': {
           gridColumn: '1 / 3',
+          height: '100%',
         },
         '& .staking': {
           gridColumn: '3 / 8',
+          // minHeight: '768px',
         },
         '& .events-and-activities': {
           gridColumn: '1 / 8',

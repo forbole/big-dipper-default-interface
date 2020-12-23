@@ -15,15 +15,18 @@ const Address = () => {
  * Helper function to get mobile labels
  * @param t i18n translator
  */
-export const getLabelsMobile = (t: any) => ({
+export const getRedelegationLabels = (t: any) => ({
+  from: t('from'),
+  redelegateTo: t('redelegateTo'),
   address: t('address'),
+  amount: t('amount'),
 });
 
 /**
- * Helper function to get deskop labels
+ * Helper function to get delegation and undelegation labels
  * @param t i18n translator
  */
-export const getLabelsDesktop = (t: any) => ({
+export const getLabels = (t: any) => ({
   address: t('address'),
   amount: t('amount'),
 });
@@ -75,162 +78,106 @@ export const dummyValidatorStaking: any[] = [
 export const dummyValidatorRedelegations: any[] = [
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
   {
     address: <Address />,
-    from: <Address />,
-    redelegateTo: <Address />,
-    amount: '1,000 ATOM',
-  },
-
-];
-
-export const dummyValidatorRedelegationsMobile: any[] = [
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    from: <a href="/">Forbole</a>,
-    redelegateTo: <a href="/">Forbole</a>,
+    redelegate: {
+      from: <Address />,
+      to: <Address />,
+    },
     amount: '1,000 ATOM',
   },
 
