@@ -3,7 +3,7 @@
 // } from '@material-ui/styles';
 import { AvatarDisplay } from 'big-dipper-default-ui';
 
-export const ProposerDesktop = () => {
+export const Proposer = () => {
   return (
     <AvatarDisplay
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
@@ -13,59 +13,137 @@ export const ProposerDesktop = () => {
   );
 };
 
-export const ProposerMobile = () => {
-  return (
-    <div
-      style={{
-        color: '#1D86FF',
-      }}
-    >
-      Forbole
-    </div>
-  );
-};
-
 export const signatureData = [
   {
-    validator: <ProposerDesktop />,
-    votingPower: '3,880,293.53653856 ATOM',
-    votingPowerPercentage: '7.02%',
-    signStatus: 0,
-
+    validator: {
+      rawValue: 'Forbole',
+      display: <AvatarDisplay
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        alt="avatar image"
+        title="Forbole"
+      />,
+    },
+    votingPower: {
+      rawValue: 3880293.53653856,
+      display: '3,880,293.53653856 ATOM',
+    },
+    votingPowerPercentage: {
+      rawValue: 7.02,
+      display: '7.02%',
+    },
+    signStatus: {
+      rawValue: 0,
+      display: 'Down',
+    },
   },
   {
-    validator: <ProposerDesktop />,
-    votingPower: '3,880,293.53653856 ATOM',
-    votingPowerPercentage: '7.02%',
-    signStatus: 0,
-
+    validator: {
+      rawValue: 'Forbole1',
+      display: <AvatarDisplay
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        alt="avatar image"
+        title="Forbole1"
+      />,
+    },
+    votingPower: {
+      rawValue: 3880293.53653856,
+      display: '3,880,293.53653856 ATOM',
+    },
+    votingPowerPercentage: {
+      rawValue: 7.02,
+      display: '7.02%',
+    },
+    signStatus: {
+      rawValue: 0,
+      display: 'Down',
+    },
   },
   {
-    validator: <ProposerDesktop />,
-    votingPower: '3,880,293.53653856 ATOM',
-    votingPowerPercentage: '7.02%',
-    signStatus: 0,
-
+    validator: {
+      rawValue: 'Forbole',
+      display: <AvatarDisplay
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        alt="avatar image"
+        title="Forbole"
+      />,
+    },
+    votingPower: {
+      rawValue: 3880293.53653856,
+      display: '3,880,293.53653856 ATOM',
+    },
+    votingPowerPercentage: {
+      rawValue: 7.02,
+      display: '7.02%',
+    },
+    signStatus: {
+      rawValue: 0,
+      display: 'Down',
+    },
   },
   {
-    validator: <ProposerDesktop />,
-    votingPower: '3,880,293.53653856 ATOM',
-    votingPowerPercentage: '7.02%',
-    signStatus: 0,
-
+    validator: {
+      rawValue: 'Forbole',
+      display: <AvatarDisplay
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        alt="avatar image"
+        title="Forbole"
+      />,
+    },
+    votingPower: {
+      rawValue: 4880293.53653856,
+      display: '4,880,293.53653856 ATOM',
+    },
+    votingPowerPercentage: {
+      rawValue: 7.02,
+      display: '7.02%',
+    },
+    signStatus: {
+      rawValue: 0,
+      display: 'Down',
+    },
   },
   {
-    validator: <ProposerDesktop />,
-    votingPower: '3,880,293.53653856 ATOM',
-    votingPowerPercentage: '7.02%',
-    signStatus: 1,
+    validator: {
+      rawValue: 'Forbole',
+      display: <AvatarDisplay
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        alt="avatar image"
+        title="Forbole"
+      />,
+    },
+    votingPower: {
+      rawValue: 3880293.53653856,
+      display: '3,880,293.53653856 ATOM',
+    },
+    votingPowerPercentage: {
+      rawValue: 5.02,
+      display: '5.02%',
+    },
+    signStatus: {
+      rawValue: 1,
+      display: 'Up',
+    },
   },
   {
-    validator: <ProposerDesktop />,
-    votingPower: '3,880,293.53653856 ATOM',
-    votingPowerPercentage: '7.02%',
-    signStatus: 1,
+    validator: {
+      rawValue: 'Forbole',
+      display: <AvatarDisplay
+        imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+        alt="avatar image"
+        title="Forbole"
+      />,
+    },
+    votingPower: {
+      rawValue: 3880293.53653856,
+      display: '3,880,293.53653856 ATOM',
+    },
+    votingPowerPercentage: {
+      rawValue: 7.02,
+      display: '7.02%',
+    },
+    signStatus: {
+      rawValue: 1,
+      display: 'Up',
+    },
   },
 ];
-
-

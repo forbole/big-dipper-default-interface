@@ -5,8 +5,7 @@ import { BlockDetails } from 'big-dipper-default-ui';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
 import {
-  ProposerDesktop,
-  ProposerMobile,
+  Proposer,
   signatureData,
 } from './utils';
 
@@ -32,24 +31,24 @@ const BlockDetailsTable = () => {
       }}
       proposer={{
         display: t('proposer'),
-        value: isDesktop ? <ProposerDesktop /> : <ProposerMobile />,
+        value: <Proposer />,
       }}
       signedVotingPower={{
         display: t('signedVotingPower'),
         value: '89%',
       }}
       signatures={{
-        display: t('signatures'),
+        display: 'Signatures',
         value: '100 signatures',
-        tableHead: {
-          validator: t('validator'),
-          votingPower: t('votingPower'),
-          votingPowerPercentage: t('votingPowerPercentage'),
-          signStatus: t('signStatus'),
+        labels: {
+          validator: 'Validator',
+          votingPower: 'Voting Power',
+          votingPowerPercentage: 'Voting Power (Percentage)',
+          signStatus: 'Sign Status',
         },
+        data: signatureData,
       }}
-      data={signatureData}
-      desktop={!!isDesktop}
+      desktop={isDesktop}
     />
   );
 };
