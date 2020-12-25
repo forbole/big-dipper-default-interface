@@ -9,7 +9,7 @@ import {
   signatureData,
 } from './utils';
 
-describe('NotFound', () => {
+describe('BlockDetails', () => {
   it('correctly renders component', () => {
     const { t } = useTranslation(['blocks', 'activities']);
     const wrapper = mount(

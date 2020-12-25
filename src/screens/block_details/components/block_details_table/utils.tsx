@@ -1,6 +1,3 @@
-// import {
-//   createStyles, makeStyles,
-// } from '@material-ui/styles';
 import { AvatarDisplay } from 'big-dipper-default-ui';
 
 export const Proposer = () => {
