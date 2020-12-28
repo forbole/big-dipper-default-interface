@@ -10,9 +10,9 @@ export const useGetStyles = () => {
         display: 'none',
       },
       '& .block-details': {
-        height: '500px',
-        background: 'orange',
-        border: 'solid 1px black',
+        padding: '0 1rem 0 1rem',
+        background: theme?.palette?.background?.paper,
+        borderRadius: '6px',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -26,6 +26,9 @@ export const useGetStyles = () => {
         },
         '& .mobile-tablet-header': {
           display: 'none',
+        },
+        '& .block-details': {
+          padding: '0.5rem 1.5rem 0 1.5rem',
         },
       },
     },

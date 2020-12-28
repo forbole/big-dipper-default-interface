@@ -32,7 +32,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:20 UTC',
     status: {
       current: true,
       display: 'Vote',
@@ -44,7 +44,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:21 UTC',
     status: {
       current: false,
       display: 'Passed',
@@ -67,7 +67,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:23 UTC',
     status: {
       current: false,
       display: 'Rejected',
@@ -78,7 +78,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:24 UTC',
     status: {
       current: false,
       display: 'Removed',
@@ -89,7 +89,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:25 UTC',
     status: {
       current: true,
       display: 'Vote',
@@ -101,7 +101,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:26 UTC',
     status: {
       current: true,
       display: 'Vote',
@@ -113,7 +113,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:27 UTC',
     status: {
       current: false,
       display: 'Passed',
@@ -124,7 +124,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:28 UTC',
     status: {
       current: true,
       display: 'Deposit',
@@ -136,7 +136,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:29 UTC',
     status: {
       current: false,
       display: 'Rejected',
@@ -147,7 +147,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:30 UTC',
     status: {
       current: false,
       display: 'Removed',
@@ -158,7 +158,7 @@ export const dummyProposalList: any = [
     proposer: <Proposer />,
     title: <Title />,
     content: 'Lunie Mobile now available in app stores near you! 📲 iOS - http://bit.ly/lunie-ios 📲 Android - http://bit.ly/lunie-android ❣️This proposal was sent from the Lunie iOS app 😏',
-    time: '10 Jan 2020,13:00:22 UTC',
+    time: '10 Jan 2020,13:00:31 UTC',
     status: {
       current: true,
       display: 'Vote',

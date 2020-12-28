@@ -8,5 +8,14 @@
   "time": "Time [UTC]",
   "hash": "Hash",
   "latestBlocks": "Latest Blocks",
-  "activities": "Activities"
+  "activities": "Activities",
+  "txHash": "Tx Hash",
+  "timeDisplay": "Time",
+  "noTransactions": "No of Transactions",
+  "signedVotingPower": "Signed voting power",
+  "signatures": "Signatures",
+  "validator": "Validator",
+  "votingPower": "Voting Power",
+  "votingPowerPercentage": "Voting Power (Percentage)",
+  "signStatus": "Sign Status"
 }
