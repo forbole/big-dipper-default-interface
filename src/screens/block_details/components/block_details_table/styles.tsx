@@ -20,21 +20,20 @@ export const useGetStyles = () => {
           },
         },
       },
-      '& .dialog': {
-        background: theme?.palette?.background?.paper,
-      },
-      '& .dialogTitle': {
-        color: theme?.palette?.custom?.fonts.fontOne,
-      },
-      '& .MuiTableCell-stickyHeader': {
-        backgroundColor: theme?.palette?.custom?.table?.rowOdd,
-      },
-      '& .MuiTableCell-body, & .MuiTableCell-head, & .MuiTableSortLabel-root.MuiTableSortLabel-active': {
-        color: theme?.palette?.custom?.fonts.fontTwo,
-      },
-      '& .tableRow': {
-        '&:nth-of-type(even)': {
-          background: theme?.palette?.custom?.table?.rowOdd,
+      '&.dialog': {
+        '& .tableRow': {
+          '&:nth-of-type(even)': {
+            background: theme?.palette?.custom?.table?.rowOdd,
+          },
+        },
+        '& .dialogTitle': {
+          color: theme?.palette?.custom?.fonts.fontOne,
+        },
+        '& .MuiTableCell-stickyHeader': {
+          backgroundColor: theme?.palette?.custom?.table?.rowOdd,
+        },
+        '& .MuiTableCell-body, & .MuiTableCell-head, & .MuiTableSortLabel-root.MuiTableSortLabel-active': {
+          color: theme?.palette?.custom?.fonts.fontTwo,
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
