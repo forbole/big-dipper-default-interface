@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { handleSearchbarSubmit } from '@utils';
 import { dummyLatestBlocksData } from './utils';
 
 export const useBlocksHook = () => {
@@ -68,7 +67,6 @@ export const useBlocksHook = () => {
   };
 
   return {
-    handleSearchbarSubmit,
     state,
     handleSetState,
     handleLoadMore,

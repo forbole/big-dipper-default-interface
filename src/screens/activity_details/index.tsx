@@ -9,16 +9,17 @@ import {
   HeaderBarMobile,
 } from '@components';
 import {
-  useMarketHook, useGetScreenSizeHook,
+  useMarketHook,
+  useGetScreenSizeHook,
+  useSearchbarSubmitHook,
 } from '@hooks';
-import { useActivityDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const ActivityDetails = () => {
   const { t } = useTranslation(['activities', 'common']);
   const { communityPool } = useMarketHook();
   const { isDesktop } = useGetScreenSizeHook();
-  const { handleSearchbarSubmit } = useActivityDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
   return (
     <Layout

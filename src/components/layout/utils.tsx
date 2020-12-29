@@ -8,7 +8,7 @@ import {
   CheckBoxOutlineBlankOutlined,
   SyncAltOutlined,
   EventNoteOutlined,
-  AnnouncementOutlined,
+  // AnnouncementOutlined,
   // PieChartOutlined,
 } from '@material-ui/icons';
 import { getLanguageValue } from '@utils';
@@ -55,11 +55,11 @@ export const navItems = [
     url: '/proposals',
     icon: EventNoteOutlined,
   },
-  {
-    key: 'news',
-    url: '/news',
-    icon: AnnouncementOutlined,
-  },
+  // {
+  //   key: 'news',
+  //   url: '/news',
+  //   icon: AnnouncementOutlined,
+  // },
   // {
   //   key: 'analysis',
   //   url: '/analysis',

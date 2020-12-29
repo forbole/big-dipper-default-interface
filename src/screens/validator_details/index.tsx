@@ -6,9 +6,11 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
-import { useValidatorDetailsHook } from './hooks';
 import {
   Info,
   PowerActivities,
@@ -19,7 +21,7 @@ import {
 const ValidatorDetails = () => {
   const { t } = useTranslation(['validators', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useValidatorDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
 
   return (
