@@ -21,7 +21,9 @@ import {
   useLatestActivitiesDesktopStyles,
 } from '@styles';
 import {
-  useMarketHook, useActivityLabelsHook,
+  useMarketHook,
+  useActivityLabelsHook,
+  useSearchbarSubmitHook,
 } from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
@@ -29,8 +31,8 @@ import { useGetStyles } from './styles';
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
   const { communityPool } = useMarketHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const {
-    handleSearchbarSubmit,
     handleLoadMore,
     handleClick,
     state,

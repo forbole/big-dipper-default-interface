@@ -13,7 +13,10 @@ import {
   HeaderBarMobile,
   InfiniteLoader,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import {
   useLatestBlocksDesktopStyles,
   useLatestBlocksMobileStyles,
@@ -29,14 +32,8 @@ import {
 const Blocks = () => {
   const { t } = useTranslation(['blocks', 'common']);
   const { communityPool } = useMarketHook();
-  const { classes } = useGetStyles();
-  const { classes: latestBlocksDesktopStyles } = useLatestBlocksDesktopStyles();
-  const { classes: latestBlocksMobileStyles } = useLatestBlocksMobileStyles();
-  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
-  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
-
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const {
-    handleSearchbarSubmit,
     handleLoadMore,
     handleClick,
     state,
@@ -44,6 +41,13 @@ const Blocks = () => {
   const {
     hasMore, data,
   } = state;
+
+  const { classes } = useGetStyles();
+  const { classes: latestBlocksDesktopStyles } = useLatestBlocksDesktopStyles();
+  const { classes: latestBlocksMobileStyles } = useLatestBlocksMobileStyles();
+  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
+  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
 

@@ -6,15 +6,16 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
-import { useAccountDetailsHook } from './hooks';
+import {
+  useMarketHook, useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
 import { Activities } from './components';
 
 const AccountDetails = () => {
   const { t } = useTranslation(['accounts', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useAccountDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
 
   return (

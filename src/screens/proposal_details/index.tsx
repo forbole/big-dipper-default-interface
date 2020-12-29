@@ -6,14 +6,16 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
-import { useProposalDetailsHook } from './hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
 
 const ProposalDetails = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useProposalDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
 
   return (
