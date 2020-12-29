@@ -23,7 +23,6 @@ export const useGetStyles = () => {
       },
       '&.proposalDepositMobile': {
         padding: theme?.palette?.custom?.margins?.small,
-
       },
       '&.proposalDepositDesktop': {
         display: 'none',
