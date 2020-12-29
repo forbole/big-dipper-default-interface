@@ -36,7 +36,6 @@ export const useGetStyles = () => {
         '&.proposalDepositMobile': {
           display: 'none',
         },
-
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
       },
