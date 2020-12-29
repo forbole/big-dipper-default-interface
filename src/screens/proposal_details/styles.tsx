@@ -17,9 +17,6 @@ export const useGetStyles = () => {
         border: 'solid 1px black',
       },
       '& .proposal-deposits': {
-        height: '500px',
-        background: 'lime',
-        border: 'solid 1px black',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

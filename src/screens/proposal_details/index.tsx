@@ -11,6 +11,7 @@ import {
   useSearchbarSubmitHook,
 } from '@hooks';
 import { useGetStyles } from './styles';
+import { Deposit } from './components';
 
 const ProposalDetails = () => {
   const { t } = useTranslation(['proposals', 'common']);
@@ -42,7 +43,7 @@ const ProposalDetails = () => {
           vote
         </div>
         <div className={classnames('proposal-deposits')}>
-          deposits
+          <Deposit />
         </div>
       </div>
       {/* ===================================== */}
