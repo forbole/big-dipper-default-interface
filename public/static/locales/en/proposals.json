@@ -2,5 +2,9 @@
   "title": "Proposals",
   "subTitle": "Proposal Details",
   "proposerDisplay": "Proposer",
-  "showAll": "Show All"
+  "showAll": "Show All",
+  "proposalDepositTitle": "Deposits (109.9 ATOM)",
+  "depositor": "Depositor2",
+  "amount": "Amount2",
+  "time": "Time"
 }
