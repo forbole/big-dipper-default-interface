@@ -1,7 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import {
   Layout,
   DataBlocksHeader,
@@ -17,8 +20,8 @@ import { useGetStyles } from './styles';
 const Proposals = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { communityPool } = useMarketHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const {
-    handleSearchbarSubmit,
     handleChange,
     isToggled,
     handleLoadMore,

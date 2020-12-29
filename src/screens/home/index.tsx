@@ -6,7 +6,10 @@ import {
   DataBlocksHeader,
   HeaderBarDesktop,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import {
   LatestBlocks,
   Stabilities,
@@ -14,13 +17,12 @@ import {
   Consensus,
   OnlineVotingPower,
 } from './components';
-import { useHomeHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const Home = () => {
   const { t } = useTranslation(['home', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useHomeHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
   return (
     <Layout

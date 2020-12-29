@@ -2,18 +2,16 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { Layout } from '@components';
-import { useNewsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const News = () => {
   const { t } = useTranslation(['news', 'common']);
-  const { handleSearchbarSubmit } = useNewsHook();
   const { classes } = useGetStyles();
   return (
     <Layout
       searchBar={{
         searchBarPlaceholder: t('searchbar'),
-        searchBarCallback: handleSearchbarSubmit,
+        searchBarCallback: () => {},
       }}
     >
       {/* ===================================== */}

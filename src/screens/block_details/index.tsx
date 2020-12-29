@@ -7,8 +7,10 @@ import {
   DataBlocksHeader,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
-import { useValidatorDetailsHook } from './hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
 import {
   Activities,
@@ -18,7 +20,7 @@ import {
 const BlockDetails = () => {
   const { t } = useTranslation(['blocks', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useValidatorDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
   return (
     <Layout
