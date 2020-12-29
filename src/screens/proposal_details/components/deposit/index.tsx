@@ -20,8 +20,10 @@ const Deposit = () => {
     hasMore,
     data,
   } = state;
+
   const { t } = useTranslation(['proposals', 'common']);
   const { classes } = useGetStyles();
+
   return (
     <div className={classes.root}>
       <InfiniteScroll
