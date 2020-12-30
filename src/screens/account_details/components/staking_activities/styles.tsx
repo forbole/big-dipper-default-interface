@@ -40,17 +40,15 @@ export const useGetStyles = () => {
         '& .MuiTableHead-root, & .MuiTablePagination-toolbar': {
           background: theme?.palette?.background?.paper,
         },
-        '& .validator-staking': {
-          '& .single-row': {
+        '& .user-staking': {
+          '& .MuiTablePagination-caption, & .table__label, & .table__cell': {
+            color: theme.palette.custom.fonts.fontOneToTwo,
+          },
+          '& .table__row': {
             background: theme?.palette?.background?.paper,
             '&:nth-of-type(odd)': {
               background: theme?.palette?.custom?.table?.rowOdd,
             },
-          },
-        },
-        '& .validator-staking-desktop': {
-          '& .MuiTablePagination-caption, & .label, & .cell': {
-            color: theme.palette.custom.fonts.fontTwo,
           },
           '& .MuiIconButton-root, & .pagination-actions__page': {
             background: theme?.palette?.custom?.table?.rowOdd,
