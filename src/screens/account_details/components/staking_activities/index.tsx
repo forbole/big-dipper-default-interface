@@ -8,7 +8,7 @@ import {
 import { TabPanel } from '@components';
 import { getAllyProps } from '@utils';
 import {
-  // ValidatorStakingDesktop,
+  TablePaginated,
   UserStakingMobile,
 } from 'big-dipper-default-ui';
 import {
@@ -18,9 +18,13 @@ import {
 import { useStakingActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
+  getDelegationColumns,
+  getRedelegationColumns,
+  getUnbondingColumns,
   dummyMobileData,
-  // getLabels,
-  // dummyValidatorStaking,
+  dummyDesktopDelegation,
+  dummyDesktopRedelegation,
+  dummyDesktopUnbonding,
 } from './utils';
 
 const StakingActivities = () => {
@@ -38,9 +42,11 @@ const StakingActivities = () => {
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
 
   // ==================================
-  // labels
+  // columns
   // ==================================
-  // const labels = getLabels(t);
+  const delegationColumns = getDelegationColumns(t);
+  const redelegationColumns = getRedelegationColumns(t);
+  const unbondingColumns = getUnbondingColumns(t);
 
   return (
     <div className={classnames(classes.root)}>
@@ -54,7 +60,7 @@ const StakingActivities = () => {
       >
         <Tab disableRipple label={t('delegations')} {...getAllyProps(0)} />
         <Tab disableRipple label={t('redelegations')} {...getAllyProps(1)} />
-        <Tab disableRipple label={t('undelegations')} {...getAllyProps(2)} />
+        <Tab disableRipple label={t('unbondings')} {...getAllyProps(2)} />
       </Tabs>
       {/* =================================== */}
       {/* delegation */}
@@ -71,11 +77,12 @@ const StakingActivities = () => {
           {/* ================================ */}
           {/* desktop */}
           {/* ================================ */}
-          {/* <ValidatorStakingDesktop
+          <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
-            labels={labels}
-            data={dummyValidatorStaking}
-          /> */}
+            columns={delegationColumns}
+            data={dummyDesktopDelegation}
+            initialActiveSort="validator"
+          />
         </div>
       </TabPanel>
       {/* =================================== */}
@@ -93,11 +100,12 @@ const StakingActivities = () => {
           {/* ================================ */}
           {/* desktop */}
           {/* ================================ */}
-          {/* <ValidatorStakingDesktop
+          <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
-            labels={redelegationLabels}
-            data={dummyValidatorRedelegations}
-          /> */}
+            columns={redelegationColumns}
+            data={dummyDesktopRedelegation}
+            initialActiveSort="validator"
+          />
         </div>
       </TabPanel>
       {/* =================================== */}
@@ -115,11 +123,12 @@ const StakingActivities = () => {
           {/* ================================ */}
           {/* desktop */}
           {/* ================================ */}
-          {/* <ValidatorStakingDesktop
+          <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
-            labels={labels}
-            data={dummyValidatorStaking}
-          /> */}
+            columns={unbondingColumns}
+            data={dummyDesktopUnbonding}
+            initialActiveSort="validator"
+          />
         </div>
       </TabPanel>
     </div>

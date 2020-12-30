@@ -1,4 +1,19 @@
 {
   "subTitle": "Account Details",
-  "latestActivities": "Latest Activities"
+  "latestActivities": "Latest Activities",
+  "delegations": "Delegations",
+  "redelegations": "Redelegations",
+  "unbondings": "Unbondings",
+  "validator": "Validator",
+  "delegatedAmount": "Delegated Amount",
+  "amtRatio": "Amt. Ratio",
+  "reward": "Reward",
+  "commission": "Commission",
+  "vpRatios": "VP Ratios",
+  "condition": "Condition",
+  "height": "Height",
+  "redelegatedAmount": "Redelegated Amount",
+  "remainingAmount": "Remaining Amount",
+  "expectedDelivery": "Expected Delivery",
+  "unbondedAmount": "Unbonded Amount"
 }
