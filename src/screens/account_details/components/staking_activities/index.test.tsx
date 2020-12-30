@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import {
-  ValidatorStakingMobile,
-  ValidatorStakingDesktop,
+  TablePaginated,
+  UserStakingMobile,
 } from 'big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
@@ -18,7 +18,7 @@ describe('StakingActivities', () => {
     );
 
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(1);
-    expect(wrapper.find(ValidatorStakingMobile)).toHaveLength(1);
+    expect(wrapper.find(UserStakingMobile)).toHaveLength(1);
+    expect(wrapper.find(TablePaginated)).toHaveLength(1);
   });
 });
