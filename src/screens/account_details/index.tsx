@@ -10,7 +10,10 @@ import {
   useMarketHook, useSearchbarSubmitHook,
 } from '@hooks';
 import { useGetStyles } from './styles';
-import { Activities } from './components';
+import {
+  Activities,
+  StakingActivities,
+} from './components';
 
 const AccountDetails = () => {
   const { t } = useTranslation(['accounts', 'common']);
@@ -39,7 +42,7 @@ const AccountDetails = () => {
           account details
         </div>
         <div className={classnames('account-staking')}>
-          account staking
+          <StakingActivities />
         </div>
         <div className={classnames('account-activities')}>
           <Activities />

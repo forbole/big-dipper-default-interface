@@ -11,11 +11,6 @@ export const useGetStyles = () => {
         background: 'pink',
         border: 'solid 1px black',
       },
-      '& .account-staking': {
-        height: '500px',
-        background: 'yellow',
-        border: 'solid 1px black',
-      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
