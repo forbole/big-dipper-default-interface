@@ -13,6 +13,7 @@ import {
 } from '@material-ui/icons';
 import { getLanguageValue } from '@utils';
 import { BigDipperNetwork } from '@models';
+import { HomeIcon } from '@assets';
 import { NetworkItem } from './components';
 
 export const getLanguageList = () => {
@@ -33,7 +34,7 @@ export const navItems = [
   {
     key: 'overview',
     url: '/',
-    icon: HomeOutlined,
+    icon: <HomeIcon />,
   },
   {
     key: 'validators',
