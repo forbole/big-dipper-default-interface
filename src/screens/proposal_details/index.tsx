@@ -11,7 +11,10 @@ import {
   useSearchbarSubmitHook,
 } from '@hooks';
 import { useGetStyles } from './styles';
-import { Deposit } from './components';
+import {
+  Deposit,
+  Detail,
+} from './components';
 
 const ProposalDetails = () => {
   const { t } = useTranslation(['proposals', 'common']);
@@ -37,7 +40,7 @@ const ProposalDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('proposal-details')}>
-          details
+          <Detail />
         </div>
         <div className={classnames('proposal-vote')}>
           vote
