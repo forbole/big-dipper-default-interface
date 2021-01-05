@@ -13,6 +13,7 @@ module.exports = {
   transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
   transform: {
     '^.+\\.(ts|tsx)$': 'babel-jest',
+    '^.+\\.svg$': 'jest-svg-transformer',
   },
   watchPlugins: [
     'jest-watch-typeahead/filename',
