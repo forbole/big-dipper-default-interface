@@ -91,7 +91,7 @@ export const getNavComponents = (t:any) => {
           <NavbarItem
             key={x.key}
             text={t(x.key)}
-            icon={<x.icon />}
+            icon={x.icon}
             active={isActive(x)}
           />
         </a>
