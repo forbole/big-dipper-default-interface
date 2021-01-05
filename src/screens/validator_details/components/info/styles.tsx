@@ -19,7 +19,14 @@ export const useGetStyles = () => {
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         '&.validator-info': {
+          height: '100%',
           padding: theme?.palette?.custom?.margins?.large,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        '& .validator-info__content': {
+          flex: '1',
+          gridGap: 0,
         },
       },
     },

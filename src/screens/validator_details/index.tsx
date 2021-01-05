@@ -16,6 +16,7 @@ import {
   PowerActivities,
   StakingActivities,
   MissedBlocks,
+  Profile,
 } from './components';
 
 const ValidatorDetails = () => {
@@ -43,7 +44,7 @@ const ValidatorDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('validator-bio')}>
-          validators bio
+          <Profile />
         </div>
         <div className={classnames('validator-info')}>
           <Info />
