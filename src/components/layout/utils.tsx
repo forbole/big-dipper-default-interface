@@ -2,17 +2,15 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { NavbarItem } from 'big-dipper-internal-ui';
 import Link from 'next/link';
-import {
-  PersonOutline,
-  CheckBoxOutlineBlankOutlined,
-  SyncAltOutlined,
-  EventNoteOutlined,
-  // AnnouncementOutlined,
-  // PieChartOutlined,
-} from '@material-ui/icons';
 import { getLanguageValue } from '@utils';
 import { BigDipperNetwork } from '@models';
-import { HomeIcon } from '@assets';
+import {
+  HomeIcon,
+  BlockIcon,
+  ActivityIcon,
+  ProposalIcon,
+  UserIcon,
+} from '@assets';
 import { NetworkItem } from './components';
 
 export const getLanguageList = () => {
@@ -44,22 +42,22 @@ export const getNavItems = () => {
     {
       key: 'validators',
       url: '/validators',
-      icon: <PersonOutline />,
+      icon: <UserIcon {...iconProps} />,
     },
     {
       key: 'blocks',
       url: '/blocks',
-      icon: <CheckBoxOutlineBlankOutlined />,
+      icon: <BlockIcon {...iconProps} />,
     },
     {
       key: 'activities',
       url: '/activities',
-      icon: <SyncAltOutlined />,
+      icon: <ActivityIcon {...iconProps} />,
     },
     {
       key: 'proposals',
       url: '/proposals',
-      icon: <EventNoteOutlined />,
+      icon: <ProposalIcon {...iconProps} />,
     },
   // {
   //   key: 'news',
