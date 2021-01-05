@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { NavbarItem } from 'big-dipper-internal-ui';
 import Link from 'next/link';
 import {
-  HomeOutlined,
   PersonOutline,
   CheckBoxOutlineBlankOutlined,
   SyncAltOutlined,
@@ -30,32 +29,38 @@ export const getLanguageList = () => {
 /**
  * Nav links config
  */
-export const navItems = [
-  {
-    key: 'overview',
-    url: '/',
-    icon: <HomeIcon />,
-  },
-  {
-    key: 'validators',
-    url: '/validators',
-    icon: PersonOutline,
-  },
-  {
-    key: 'blocks',
-    url: '/blocks',
-    icon: CheckBoxOutlineBlankOutlined,
-  },
-  {
-    key: 'activities',
-    url: '/activities',
-    icon: SyncAltOutlined,
-  },
-  {
-    key: 'proposals',
-    url: '/proposals',
-    icon: EventNoteOutlined,
-  },
+export const getNavItems = () => {
+  const iconProps = {
+    width: 24,
+    height: 24,
+  };
+
+  return [
+    {
+      key: 'overview',
+      url: '/',
+      icon: <HomeIcon {...iconProps} />,
+    },
+    {
+      key: 'validators',
+      url: '/validators',
+      icon: <PersonOutline />,
+    },
+    {
+      key: 'blocks',
+      url: '/blocks',
+      icon: <CheckBoxOutlineBlankOutlined />,
+    },
+    {
+      key: 'activities',
+      url: '/activities',
+      icon: <SyncAltOutlined />,
+    },
+    {
+      key: 'proposals',
+      url: '/proposals',
+      icon: <EventNoteOutlined />,
+    },
   // {
   //   key: 'news',
   //   url: '/news',
@@ -66,7 +71,8 @@ export const navItems = [
   //   url: '/analysis',
   //   icon: PieChartOutlined,
   // },
-];
+  ];
+};
 
 /**
  * Helper function to generate nav components
@@ -83,6 +89,8 @@ export const getNavComponents = (t:any) => {
     }
     return false;
   };
+
+  const navItems = getNavItems();
 
   return navItems.map((x) => {
     return (
