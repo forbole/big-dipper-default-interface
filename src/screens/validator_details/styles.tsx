@@ -6,11 +6,6 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .validator-bio': {
-        height: '500px',
-        background: 'pink',
-        border: 'solid 1px black',
-      },
       '& .validator-voting-power': {
         height: '500px',
         background: 'lime',
@@ -66,6 +61,20 @@ export const useGetStyles = () => {
         },
         '& .events-and-activities': {
           gridColumn: '1 / 8',
+        },
+      },
+    },
+    validatorProfile: {
+      background: theme?.palette?.background?.paper,
+      padding: theme?.palette?.custom?.margins?.small,
+      color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+      '& svg': {
+        fontSize: '1.375rem',
+        color: theme?.palette?.custom?.fonts?.fontThree,
+      },
+      '& .keybase__display': {
+        '& svg': {
+          color: '#15CF74',
         },
       },
     },
