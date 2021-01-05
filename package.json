@@ -18,7 +18,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "apollo-link-ws": "^1.0.20",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "big-dipper-default-ui": "git+https://github.com/forbole/big-dipper-default-ui.git",
     "big-dipper-internal-ui": "git+https://github.com/forbole/big-dipper-internal-ui.git",
     "classnames": "^2.2.6",
