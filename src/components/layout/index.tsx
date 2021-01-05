@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import validator from 'validator';
 import classnames from 'classnames';
-import { useTheme } from '@material-ui/core/styles';
 import { useTranslation } from 'i18n';
 import {
   MobileNav,
@@ -68,7 +67,6 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Theme
   // ============================
-  const theme = useTheme(); // actual theme
   const currentTheme = getThemeMode();
   const themeMode = {
     mode: currentTheme,
