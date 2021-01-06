@@ -16,12 +16,16 @@ const StabilitiesItem = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation(['home']);
   const { stabilities } = useStabilitiesHook();
-  console.log(stabilities, 'our data');
+
+  // ================================
+  // display conversions
+  // ================================
   const communityPoolDisplay = formatDenom(chainConfig.display, stabilities.communityPool.amount);
-  const totalSupplyDisplay = nFormatter(
-    formatDenom(chainConfig.display, stabilities.totalSupply.amount).raw, 1,
-  );
-  console.log(totalSupplyDisplay, 'totals');
+  const totalSupplyRaw = formatDenom(chainConfig.display, stabilities.totalSupply.amount).raw;
+  const totalSupplyDisplay = nFormatter(totalSupplyRaw, 1);
+  const unbondedTokens = formatDenom(chainConfig.display, stabilities.unbondedTokens);
+  const bondedTokens = formatDenom(chainConfig.display, stabilities.bondedTokens);
+
   return (
     <Stabilities
       className={classnames(classes.root)}
@@ -45,17 +49,21 @@ const StabilitiesItem = () => {
       }}
       data={{
         total: {
-          value: 191235.473,
-          display: '0.19 m',
+          value: totalSupplyRaw,
+          display: totalSupplyDisplay,
         },
-        detail:
-          [{
-            title: t('bonded'), value: 100000, display: '10,000',
+        detail: [
+          {
+            title: t('bonded'),
+            value: bondedTokens.raw,
+            display: bondedTokens.format,
           },
           {
-            title: t('unbonded'), value: 91235.473, display: '91,235.4',
+            title: t('unbonded'),
+            value: unbondedTokens.raw,
+            display: unbondedTokens.format,
           },
-          ],
+        ],
       }}
       colors={colors}
     />
