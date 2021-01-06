@@ -32,7 +32,7 @@ describe('DataBlocksHeader', () => {
     expect(wrap.find('.data-blocks-container')).toHaveLength(1);
     expect(wrap.find('.latest-block-height').find('h1').text()).toEqual('45,432');
     expect(wrap.find('.average-block-time').find('.MuiSelect-select').text()).toEqual('lastDay');
-    expect(wrap.find('.average-block-time').find('h1').text()).toEqual('6.09 s');
+    expect(wrap.find('.average-block-time').find('h1').text()).toEqual('6.08 s');
     expect(wrap.find('.MuiMenu-list')).toHaveLength(0);
     expect(wrap.find('.price').find('h1').text()).toEqual('$ 0.00');
     expect(wrap.find('.active-validators').find('h1').text()).toEqual('81');
