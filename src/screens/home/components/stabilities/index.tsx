@@ -3,13 +3,25 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { Stabilities } from 'big-dipper-default-ui';
 import { chainConfig } from '@src/chain_config';
+import {
+  formatDenom,
+  nFormatter,
+} from '@utils';
 import { useGetStyles } from './styles';
+import { useStabilitiesHook } from './hooks';
 
 export const colors = ['#FF7846', '#FFD800'];
 
 const StabilitiesItem = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation(['home']);
+  const { stabilities } = useStabilitiesHook();
+  console.log(stabilities, 'our data');
+  const communityPoolDisplay = formatDenom(chainConfig.display, stabilities.communityPool.amount);
+  const totalSupplyDisplay = nFormatter(
+    formatDenom(chainConfig.display, stabilities.totalSupply.amount).raw, 1,
+  );
+  console.log(totalSupplyDisplay, 'totals');
   return (
     <Stabilities
       className={classnames(classes.root)}
@@ -17,19 +29,19 @@ const StabilitiesItem = () => {
       coin={chainConfig.display}
       price={{
         title: t('priceTitle'),
-        display: '$2.756',
+        display: '$0.00',
       }}
       inflation={{
         title: t('inflationTitle'),
-        display: '7.01%',
+        display: '0.00%',
       }}
       marketCap={{
         title: t('marketCapTitle'),
-        display: '$515,551',
+        display: '$0.00',
       }}
       communityPool={{
         title: t('communityPoolTitle'),
-        display: '370,000',
+        display: communityPoolDisplay.format,
       }}
       data={{
         total: {

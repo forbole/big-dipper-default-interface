@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const STABILITIES = gql`
   query Stabilities{
-    pool: staking_pool(order_by: {height: desc}, limit: 1) {
+    pool: staking_pool_history(order_by: {height: desc}, limit: 1) {
       bonded_tokens
       not_bonded_tokens
     }
@@ -12,7 +12,7 @@ export const STABILITIES = gql`
     community_pool: community_pool(order_by: {height: desc}, limit: 1) {
       coins
     }
-    inflation: inflation(order_by: {height: desc}, limit: 1) {
+    inflation: inflation_history(order_by: {height: desc}, limit: 1) {
       value
     }
   }
