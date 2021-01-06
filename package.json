@@ -18,7 +18,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "apollo-link-ws": "^1.0.20",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "big-dipper-default-ui": "git+https://github.com/forbole/big-dipper-default-ui.git",
     "big-dipper-internal-ui": "git+https://github.com/forbole/big-dipper-internal-ui.git",
     "classnames": "^2.2.6",
@@ -43,6 +43,7 @@
     "validator": "^13.1.17"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
     "@testing-library/react": "^11.0.2",
     "@testing-library/react-hooks": "^3.4.1",
     "@types/jest": "^26.0.13",
@@ -62,6 +63,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "jest": "^26.4.2",
+    "jest-svg-transformer": "^1.0.0",
     "jest-watch-typeahead": "^0.6.1",
     "nodemon": "^2.0.4",
     "react-test-renderer": "^16.14.0",

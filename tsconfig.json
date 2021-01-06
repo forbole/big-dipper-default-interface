@@ -49,6 +49,9 @@
       "@models": [
         "src/models"
       ],
+      "@assets": [
+        "src/assets"
+      ],
       "@hooks": [
         "src/hooks"
       ],
