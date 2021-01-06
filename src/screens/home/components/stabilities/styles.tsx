@@ -13,7 +13,6 @@ export const useGetStyles = () => {
           borderRadius: '2px',
           '&.big-dipper': {
             '& h1': {
-              marginBottom: '1.5rem',
               color: colorTheme,
             },
             '& .itemTitle': {
