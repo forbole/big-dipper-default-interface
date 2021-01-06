@@ -40,6 +40,9 @@ export const useGetStyles = () => {
               '& .selected-title': {
                 fontSize: '1.5rem',
               },
+              '& .online-voting-power': {
+                height: '100%',
+              },
             },
           },
         },
