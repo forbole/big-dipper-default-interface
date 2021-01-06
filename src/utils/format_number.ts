@@ -57,6 +57,15 @@ export const convertNumber = (num: number | string, options?: {
     suffix = ` ${suffix}`
   }
 
-  results.display = `${num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}${suffix}`;
+  // Handle decimal edge case
+  if (decimal) {
+    let stringNum = num.toString();
+    const [full, decimal] = stringNum.split('.');
+    const formatFull = full.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    results.display = `${formatFull}${decimal ? '.': ''}${decimal ?? ''}${suffix}`
+  } else {
+    results.display = `${num.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}${suffix}`;
+  }
+
   return results;
 }

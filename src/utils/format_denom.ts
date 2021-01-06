@@ -1,4 +1,4 @@
-import { formatNumber } from '@utils';
+import { convertNumber } from '@utils';
 import { chainConfig } from '@src/chain_config';
 
 /**
@@ -18,8 +18,11 @@ export const formatDenom = (denom: string, value: number) => {
     return results;
   }
   const ratio = 10 ** selectedDenom.exponent;
-  results.raw = value / ratio;
-  results.format = formatNumber(results.raw, true);
+  const format = convertNumber(value / ratio, {
+    decimal: 4,
+  });
+  results.raw = format.value;
+  results.format = format.display;
 
   return results;
 };
