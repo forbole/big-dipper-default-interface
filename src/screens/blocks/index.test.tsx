@@ -14,7 +14,7 @@ import {
 } from '@components';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
-} from '@tests/utils/mock_data';
+} from '@tests/mocks';
 
 describe('Blocks', () => {
   it('it renders', async () => {

@@ -9,7 +9,7 @@ import { lightTheme } from '@styles';
 import { Layout } from '@components';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
-} from '@tests/utils/mock_data';
+} from '@tests/mocks';
 import BlockDetails from '.';
 import { Activities } from './components';
 

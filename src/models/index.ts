@@ -4,6 +4,7 @@ import LatestBlockHeight from './latest_block_height';
 import CommunityPool from './community_pool';
 import TotalActiveValidators from './total_active_validators';
 import AverageBlockTimes from './average_block_times';
+import Stabilities from './stabilities';
 
 export {
   BigDipperNetworkLink,
@@ -12,4 +13,5 @@ export {
   CommunityPool,
   TotalActiveValidators,
   AverageBlockTimes,
+  Stabilities,
 };

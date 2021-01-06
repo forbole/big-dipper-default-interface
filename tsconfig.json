@@ -64,8 +64,8 @@
       "@graphql/subscriptions": [
         "src/graphql/subscriptions"
       ],
-      "@tests/utils/*": [
-        "tests/utils/*"
+      "@tests/*": [
+        "tests/*"
       ]
     }
   },

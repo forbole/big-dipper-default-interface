@@ -1,6 +1,14 @@
 /* eslint-disable */
 
 /**
+ * Helper function to handle toFixed without rounding
+ */
+const toFixedNoRound = (num, fixed): string => {
+  var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
+  return num.toString().match(re)[0];
+}
+
+/**
  * Help function to formats numbers into a legible manner [DEPRECATED]
  * @param num the value
  * @param decimal if true whole values decimal values will be return. If a number it will fixed and round. Defaults to 0
@@ -51,7 +59,7 @@ export const convertNumber = (num: number | string, options?: {
     num = parseInt(num);
   }
   results.value = num;
-  num = num.toFixed(decimal);
+  num = toFixedNoRound(num, decimal);
 
   if (suffix) {
     suffix = ` ${suffix}`
@@ -68,4 +76,32 @@ export const convertNumber = (num: number | string, options?: {
   }
 
   return results;
+}
+
+// nFormatter(299792458, 1) = 299.8M
+
+/**
+ * Helper function to turn 1234 => 1.2K
+ * @param num
+ * @param digits
+ */
+export const nFormatter = (num, digits) => {
+
+  var si = [
+    { value: 1, symbol: "" },
+    { value: 1E3, symbol: "k" },
+    { value: 1E6, symbol: "M" },
+    { value: 1E9, symbol: "G" },
+    { value: 1E12, symbol: "T" },
+    { value: 1E15, symbol: "P" },
+    { value: 1E18, symbol: "E" }
+  ];
+  var rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  var i;
+  for (i = si.length - 1; i > 0; i--) {
+    if (num >= si[i].value) {
+      break;
+    }
+  }
+  return toFixedNoRound((num / si[i].value), digits).replace(rx, "$1") + si[i].symbol;
 }
