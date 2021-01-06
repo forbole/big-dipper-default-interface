@@ -6,5 +6,15 @@
   "proposalDepositTitle": "Deposits (109.9 ATOM)",
   "depositor": "Depositor",
   "amount": "Amount",
-  "time": "Time"
+  "time": "Time",
+  "submittedTime": "Submitted Time",
+  "votingStartTime": "Voting start Time",
+  "votingEndTime": "Voting End Time",
+  "depositEndTime": "Deposit End Time",
+  "type": "Type",
+  "description": "Description",
+  "proposalTitle": "Title",
+  "id": "Proposals ID",
+  "deposit": "Deposit",
+  "status": "Status"
 }
