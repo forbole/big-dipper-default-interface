@@ -13,7 +13,7 @@ import {
 import { useGetStyles } from './styles';
 import {
   Deposit,
-  Detail,
+  Info,
 } from './components';
 
 const ProposalDetails = () => {
@@ -40,7 +40,7 @@ const ProposalDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('proposal-details')}>
-          <Detail />
+          <Info />
         </div>
         <div className={classnames('proposal-vote')}>
           vote

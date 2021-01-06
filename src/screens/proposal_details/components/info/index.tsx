@@ -2,11 +2,11 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import {
-  ProposalDepositDesktop,
-  ProposalDepositMobile,
+  ProposalInfoDesktop,
+  ProposalInfoMobile,
 } from 'big-dipper-default-ui';
 import { useGetStyles } from './styles';
-import { depositData } from './utils';
+import { dummyData } from './utils';
 
 const Info = () => {
   const { t } = useTranslation(['proposals', 'common']);
@@ -14,20 +14,35 @@ const Info = () => {
 
   return (
     <div className={classes.root}>
-      <ProposalDepositDesktop
+      <ProposalInfoDesktop
         className={classnames(classes.root)}
-        data={depositData}
-        title={t('proposalDepositTitle')}
-        labels={{
-          depositor: t('depositor'),
-          amount: t('amount'),
-          time: t('time'),
+        data={dummyData}
+        label={{
+          proposer: t('proposerDisplay'),
+          submittedTime: t('submittedTime'),
+          votingStartTime: t('votingStartTime'),
+          votingEndTime: t('votingEndTime'),
+          depositEndTime: t('depositEndTime'),
+          type: t('type'),
+          description: t('description'),
         }}
       />
-      <ProposalDepositMobile
+      <ProposalInfoMobile
         className={classnames(classes.root)}
-        data={depositData}
-        title={t('proposalDepositTitle')}
+        data={dummyData}
+        label={{
+          title: t('proposalTitle'),
+          id: t('title'),
+          status: t('status'),
+          deposit: t('deposit'),
+          proposer: t('proposerDisplay'),
+          submittedTime: t('submittedTime'),
+          votingStartTime: t('votingStartTime'),
+          votingEndTime: t('votingEndTime'),
+          depositEndTime: t('depositEndTime'),
+          type: t('type'),
+          description: t('description'),
+        }}
       />
     </div>
   );
