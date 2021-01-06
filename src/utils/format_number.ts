@@ -3,7 +3,7 @@
 /**
  * Helper function to handle toFixed without rounding
  */
-const toFixedNoRound = (num, fixed) => {
+const toFixedNoRound = (num, fixed): string => {
   var re = new RegExp('^-?\\d+(?:\.\\d{0,' + (fixed || -1) + '})?');
   return num.toString().match(re)[0];
 }
