@@ -28,9 +28,15 @@ export const useGetStyles = () => {
             '& .selected-title': {
               color: headerColor,
             },
-          },
-          [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-            '& .select-tabs': {
+            '& .online-voting-power': {
+              height: '200px',
+            },
+            [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
+              '& .online-voting-power': {
+                height: '300px',
+              },
+            },
+            [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
               '& .selected-title': {
                 fontSize: '1.5rem',
               },
