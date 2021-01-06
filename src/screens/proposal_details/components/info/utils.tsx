@@ -25,7 +25,6 @@ export const dummyData: any = {
     current: false,
     display: 'Passed',
   },
-  // duration: '(In 12 days)',
   type: 'Text proposal',
   deposit: '520 ATOM',
 };
