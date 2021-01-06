@@ -11,7 +11,7 @@ import { awaitActions } from '@tests/utils/await_actions';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import {
   LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
-} from '@tests/utils/mock_data';
+} from '@tests/mocks';
 import { lightTheme } from '@styles';
 import {
   Layout,

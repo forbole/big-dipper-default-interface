@@ -2,54 +2,28 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import { Stabilities } from 'big-dipper-default-ui';
+import { awaitActions } from '@tests/utils/await_actions';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
+import { STABILITIES_MOCK_DATA } from '@tests/mocks';
+import StabilitiesItem from '.';
 
 describe('Stabilities', () => {
-  it('correctly renders component', () => {
+  it('correctly renders component', async () => {
     const wrapper = mount(
-      BaseWrapper({
-        component: <Stabilities
-          title="Stabilities"
-          coin="atom"
-          price={{
-            title: 'Price',
-            display: '$515,551,345.666',
-          }}
-          inflation={{
-            title: 'inflation',
-            display: '7 %',
-          }}
-          marketCap={{
-            title: 'Market Cap',
-            display: '$15,000',
-          }}
-          communityPool={{
-            title: 'Community Pool',
-            display: '370,000',
-          }}
-          data={{
-            total: {
-              value: 300000,
-              display: '0.3 m',
-            },
-            detail: [
-              {
-                title: 'Bonded',
-                value: 100000,
-                display: '100,000',
-              },
-              {
-                title: 'UnBonded',
-                value: 200000,
-                display: '200,000',
-              },
-            ],
-          }}
-          colors={['#FF7846', '#FFD800']}
-        />,
-        theme: lightTheme,
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <StabilitiesItem />,
+          theme: lightTheme,
+        }),
+        mocks: STABILITIES_MOCK_DATA,
       }),
     );
+
+    await awaitActions({
+      wrapper,
+      time: 10,
+    });
     expect(wrapper).not.toBeNull();
+    expect(wrapper.find('.amount').last().text()).toEqual('2,060.0411daric');
   });
 });

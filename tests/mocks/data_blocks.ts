@@ -1,37 +1,8 @@
 import {
-  COMMUNITY_POOL,
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
-
-export const LAYOUT_MOCK_DATA = {
-  data: [],
-};
-
-export const HEADER_BAR_MOCK = [
-  {
-    request: {
-      query: COMMUNITY_POOL,
-      variables: {
-      },
-    },
-    result: {
-      data: {
-        community_pool: [
-          {
-            coins: [
-              {
-                amount: 300000,
-                denom: 'udaric',
-              },
-            ],
-          },
-        ],
-      },
-    },
-  },
-];
 
 export const DATA_BLOCKS_HEADER_MOCK = [
   {

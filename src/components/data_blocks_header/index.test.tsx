@@ -6,7 +6,7 @@ import { awaitActions } from '@tests/utils/await_actions';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
-import { DATA_BLOCKS_HEADER_MOCK } from '@tests/utils/mock_data';
+import { DATA_BLOCKS_HEADER_MOCK } from '@tests/mocks';
 
 describe('DataBlocksHeader', () => {
   it('correctly renders component', async () => {

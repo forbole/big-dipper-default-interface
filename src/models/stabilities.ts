@@ -4,14 +4,8 @@ import { chainConfig } from '@src/chain_config';
 class Stabilities {
   public bondedTokens: number;
   public unbondedTokens: number;
-  public totalSupply: {
-    denom: string;
-    amount: number;
-  };
-  public communityPool: {
-    denom: string;
-    amount: number;
-  };
+  public totalSupply: number;
+  public communityPool: number;
 
   constructor(payload: any) {
     this.bondedTokens = payload.bondedTokens;
@@ -38,8 +32,8 @@ class Stabilities {
     return new Stabilities({
       bondedTokens: R.pathOr(0, ['pool', 0, 'bonded_tokens'], data),
       unbondedTokens: R.pathOr(0, ['pool', 0, 'not_bonded_tokens'], data),
-      totalSupply,
-      communityPool,
+      totalSupply: totalSupply?.amount ?? 0,
+      communityPool: communityPool?.amount ?? 0,
     });
   }
 }

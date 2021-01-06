@@ -20,8 +20,8 @@ const StabilitiesItem = () => {
   // ================================
   // display conversions
   // ================================
-  const communityPoolDisplay = formatDenom(chainConfig.display, stabilities.communityPool.amount);
-  const totalSupplyRaw = formatDenom(chainConfig.display, stabilities.totalSupply.amount).raw;
+  const communityPoolDisplay = formatDenom(chainConfig.display, stabilities.communityPool);
+  const totalSupplyRaw = formatDenom(chainConfig.display, stabilities.totalSupply).raw;
   const totalSupplyDisplay = nFormatter(totalSupplyRaw, 1);
   const unbondedTokens = formatDenom(chainConfig.display, stabilities.unbondedTokens);
   const bondedTokens = formatDenom(chainConfig.display, stabilities.bondedTokens);
