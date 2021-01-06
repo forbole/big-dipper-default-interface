@@ -1,79 +1,67 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useState } from 'react';
 import * as R from 'ramda';
-import { useQuery } from '@apollo/client';
-import { LATEST_BLOCK_HEIGHT_QUERY } from '@graphql/queries';
-import { LatestBlockHeight } from '@models';
+import {
+  useQuery, useSubscription,
+} from '@apollo/client';
+import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
+import {
+  TOTAL_ACTIVE_VALIDATORS,
+  AVERAGE_BLOCK_TIMES,
+} from '@graphql/queries';
+import {
+  LatestBlockHeight,
+  TotalActiveValidators,
+  AverageBlockTimes,
+} from '@models';
 import { generalConfig } from '@src/general_config';
-import { DURATION_DATA } from './utils';
 
-export const useDataBlocksHeaderHook = () => {
-  // ====================================
-  // Latest Block Height Query
-  // ====================================
-  const {
-    data: latestBlockHeightData,
-    loading: latestBlockHeightLoading,
-    error: latestBlockHeightError,
-  } = useQuery(LATEST_BLOCK_HEIGHT_QUERY, {
+export const useLatestBlockHook = () => {
+  const latestBlockHeight = useSubscription(LATEST_BLOCK_HEIGHT);
+  const formattedData = LatestBlockHeight.fromJson(R.pathOr({
+  }, ['data', 'latest_height', 0], latestBlockHeight));
+  // wingman
+  // figure out how error is handled
+  // useEffect(() => {
+  //   if (latestBlockHeight.error) {
+  //     console.error(latestBlockHeight?.error?.message);
+  //   }
+  // }, [latestBlockHeight?.data, latestBlockHeight?.error]);
+
+  return {
+    latestBlockHeight: formattedData,
+  };
+};
+
+export const useActiveValidatorsHook = () => {
+  const validators = useQuery(TOTAL_ACTIVE_VALIDATORS, {
     pollInterval: generalConfig.pollInterval,
   });
-  const latestBlockHeightRaw = R.pathOr({
-  }, ['block', 0], latestBlockHeightData);
-  const latestBlockHeightFormat = LatestBlockHeight.fromJson(latestBlockHeightRaw);
 
-  // ====================================
-  // Average Block Time
-  // ====================================
-  // To disable refetching if it's the initial fetch
-  const [intialFetchComplete, setInitialFetchComplete] = useState(false);
+  const formattedData = TotalActiveValidators.fromJson(R.pathOr({
+  }, ['data'], validators));
+
+  return {
+    validators: formattedData,
+  };
+};
+
+export const useAveragetimeBlockHook = () => {
   const [duration, setDuration] = useState('lastDay');
-  const [durationValues, setDurationData] = useState({
-    allTime: null,
-    lastMinute: null,
-    lastHour: null,
-    lastDay: null,
+
+  const averageBlockTimes = useQuery(AVERAGE_BLOCK_TIMES, {
+    pollInterval: 60000, // poll interval per minute
   });
 
-  const {
-    data: blockTimeData,
-    refetch: blockTimeRefetch,
-  } = useQuery(DURATION_DATA[duration].query);
-
-  useEffect(() => {
-    if (!durationValues[duration] && DURATION_DATA[duration]?.query && intialFetchComplete) {
-      blockTimeRefetch();
-    }
-    // If the initial duration is lastMinute we can refetch
-    const blockTimeRaw = DURATION_DATA[duration]?.getRawData(blockTimeData);
-    const blockTimeFormat = DURATION_DATA[duration].model?.fromJson(blockTimeRaw);
-    const newDurationDataState = R.mergeDeepLeft({
-      [duration]: blockTimeFormat?.averageTime?.toFixed(2) ?? null,
-    }, durationValues);
-
-    setDurationData(newDurationDataState);
-    if (!intialFetchComplete) {
-      setInitialFetchComplete(true);
-    }
-  }, [duration, blockTimeData]);
+  const formattedData = AverageBlockTimes.fromJson(R.pathOr({
+  }, ['data'], averageBlockTimes));
 
   const handleBlockTimeDurationClick = (value:string) => {
     setDuration(value);
   };
 
-  // ====================================
-  // Others
-  // ====================================
-
   return {
+    averageBlockTimes: formattedData,
     handleBlockTimeDurationClick,
     duration,
-    durationValue: durationValues[duration] ?? '0',
-    latestBlockHeight: {
-      loading: latestBlockHeightLoading,
-      error: latestBlockHeightError,
-      data: latestBlockHeightFormat,
-    },
   };
 };

@@ -2,33 +2,56 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import { DataBlock } from 'big-dipper-default-ui';
-import { formatNumber } from '@utils';
+import { convertNumber } from '@utils';
 import { useGetStyles } from './styles';
 import { getBlocktimeDurations } from './utils';
-import { useDataBlocksHeaderHook } from './hooks';
+import {
+  useLatestBlockHook,
+  useActiveValidatorsHook,
+  useAveragetimeBlockHook,
+} from './hooks';
 
 const DataBlocksHeader = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation('common');
-  const {
-    handleBlockTimeDurationClick,
-    latestBlockHeight,
-    duration,
-    durationValue,
-  } = useDataBlocksHeaderHook();
 
+  // ===============================
+  // data hooks
+  // ===============================
+  const { latestBlockHeight } = useLatestBlockHook();
+  const { validators } = useActiveValidatorsHook();
+  const {
+    averageBlockTimes,
+    handleBlockTimeDurationClick,
+    duration,
+  } = useAveragetimeBlockHook();
+
+  // ===============================
+  // utils
+  // ===============================
   const blockTimeDurations = getBlocktimeDurations(t);
-  const formatLatestBlockHeight = formatNumber(latestBlockHeight?.data?.height);
+
+  // ================================
+  // display conversions
+  // ================================
+  const latestBlockHeightValue = convertNumber(latestBlockHeight?.height);
+  const validatorsActiveValue = convertNumber(validators.active);
+  const validatorsTotalValue = convertNumber(validators.total);
+  const validatorsDisplay = `${t('outOf')} ${validatorsTotalValue.display} ${t('validators')}`.toLowerCase();
+  const durationValue = `${convertNumber(averageBlockTimes[duration] ?? 0, {
+    decimal: 2,
+  }).display} s`;
+
   return (
     <div className={classnames(classes.root, 'data-blocks-container')}>
       <DataBlock
         label={t('latestBlockHeight')}
-        value={formatLatestBlockHeight}
+        value={latestBlockHeightValue.display}
         className="latest-block-height"
       />
       <DataBlock
         label={t('averageBlockTime')}
-        value={`${durationValue} s`}
+        value={durationValue}
         durations={blockTimeDurations}
         selectedValue={duration}
         durationsCallback={handleBlockTimeDurationClick}
@@ -45,11 +68,11 @@ const DataBlocksHeader = () => {
       />
       <DataBlock
         label={t('activeValidators')}
-        value="125"
+        value={validatorsActiveValue.value}
         className="active-validators"
         durations={[{
           value: '',
-          display: 'out of 246 validators',
+          display: validatorsDisplay,
         }]}
       />
     </div>

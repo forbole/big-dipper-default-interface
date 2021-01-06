@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 import { useQuery } from '@apollo/client';
-import { COMMUNITY_POOL_QUERY } from '@graphql/queries';
+import { COMMUNITY_POOL } from '@graphql/queries';
 import { CommunityPool } from '@models';
 import { generalConfig } from '@src/general_config';
 
@@ -9,7 +9,7 @@ export const useMarketHook = () => {
     data: communityPoolData,
     loading: communityPoolLoading,
     error: communityPoolError,
-  } = useQuery(COMMUNITY_POOL_QUERY, {
+  } = useQuery(COMMUNITY_POOL, {
     pollInterval: generalConfig.pollInterval,
   });
 
