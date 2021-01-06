@@ -4,20 +4,20 @@ import { useTranslation } from 'i18n';
 import { DataBlock } from 'big-dipper-default-ui';
 import { formatNumber } from '@utils';
 import { useGetStyles } from './styles';
-import { getBlocktimeDurations } from './utils';
+// import { getBlocktimeDurations } from './utils';
 import { useDataBlocksHeaderHook } from './hooks';
 
 const DataBlocksHeader = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation('common');
   const {
-    handleBlockTimeDurationClick,
+    // handleBlockTimeDurationClick,
     latestBlockHeight,
-    duration,
-    durationValue,
+    // duration,
+    // durationValue,
   } = useDataBlocksHeaderHook();
 
-  const blockTimeDurations = getBlocktimeDurations(t);
+  // const blockTimeDurations = getBlocktimeDurations(t);
   const formatLatestBlockHeight = formatNumber(latestBlockHeight?.data?.height);
   return (
     <div className={classnames(classes.root, 'data-blocks-container')}>
@@ -26,14 +26,14 @@ const DataBlocksHeader = () => {
         value={formatLatestBlockHeight}
         className="latest-block-height"
       />
-      <DataBlock
+      {/* <DataBlock
         label={t('averageBlockTime')}
         value={`${durationValue} s`}
         durations={blockTimeDurations}
         selectedValue={duration}
         durationsCallback={handleBlockTimeDurationClick}
         className="average-block-time"
-      />
+      /> */}
       <DataBlock
         label={t('price')}
         value="$ 0.00"
