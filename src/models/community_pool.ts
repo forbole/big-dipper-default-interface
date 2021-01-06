@@ -1,4 +1,4 @@
-export class CommunityPool {
+class CommunityPool {
   public amount: number;
   public denom: string;
 
@@ -14,3 +14,5 @@ export class CommunityPool {
     });
   }
 }
+
+export default CommunityPool;
