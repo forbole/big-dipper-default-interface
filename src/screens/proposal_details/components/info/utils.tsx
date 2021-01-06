@@ -1,8 +1,7 @@
 import React from 'react';
-// import { AvatarDisplay } from 'big-dipper-default-ui';
 import { Proposer } from './components';
 
-const Proposer1 = () => {
+const ProposerDisplay = () => {
   return (
     <Proposer
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
@@ -15,7 +14,7 @@ const Proposer1 = () => {
 
 export const dummyData: any = {
   id: '01',
-  proposer: <Proposer1 />,
+  proposer: <ProposerDisplay />,
   title: 'Are Validators Charging 0% Commission Harmful to the Success of the Cosmos Hub?',
   description: 'Lunie Mobile now available in app stores near you! 📲 iOS - bit.ly 📲 Android - bit.ly ❣️This proposal was sent from the Lunie iOS app 😏Lunie Mobile now available in app stores near you! 📲 iOS - bit.ly 📲 Android - bit.ly ❣️This proposal was sent from the Lunie iOS app 😏Lunie Mobile now available in app stores near you! 📲 iOS - bit.ly 📲 Android - bit.ly ❣️This proposal was sent from the Lunie iOS app 😏Lunie Mobile now available in app stores near you! 📲 iOS - bit.ly 📲 Android - bit.ly ❣️This proposal was sent from the Lunie iOS app 😏',
   submittedTime: '12 Dec 2019, 16:22:11 UTC',

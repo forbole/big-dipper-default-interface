@@ -9,15 +9,6 @@ export const useGetStyles = () => {
       borderRadius: '6px',
       background: theme?.palette?.background?.paper,
       '&.big-dipper': {
-        // '& h1': {
-        //   color: theme?.palette?.custom?.fonts?.fontOne,
-        // },
-
-        '& .tableRow': {
-          '&:nth-of-type(odd)': {
-            background: theme?.palette?.type === 'light' ? '#F8F8F8' : '#19191D',
-          },
-        },
       },
       '&.proposalInfoMobile': {
         padding: theme?.palette?.custom?.margins?.small,
