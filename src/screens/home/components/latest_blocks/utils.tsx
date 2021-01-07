@@ -1,3 +1,6 @@
+import moment from 'moment';
+import { LatestBlock } from '@models';
+import { convertNumber } from '@utils';
 import {
   Proposer, Height,
 } from './components';
@@ -22,83 +25,26 @@ export const getLabelsDesktop = (t:any) => ({
   tx: t('txDesktop'),
 });
 
-// mobile only shows 7
-export const dummyLatestBlocksData:any[] = [
-  {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '12 Jan 2021,13:00:22 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '11 Jan 2021,13:00:22 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:27 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:21 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:22 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  }, {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:23 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  }, {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:24 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  }, {
-    proposer: <Proposer display="Forbole" id="12345563" imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg" />,
-    height: {
-      value: 20000,
-      display: <Height display="200,00" raw={20000} />,
-    },
-    time: '10 Jan 2021,13:00:20 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-];
+export const formatLatestBlocksData = (data:LatestBlock[]) => {
+  return data.map((x) => {
+    return ({
+      proposer: (
+        <Proposer
+          display={x.validator.moniker}
+          id={x.validator.validatorAddress}
+          identity={x.validator.identity}
+        />),
+      height: {
+        value: x.height,
+        display: (
+          <Height
+            display={convertNumber(x.height).display}
+            raw={x.height}
+          />),
+      },
+      time: moment(x.timestamp).format('Do MMMM YYYY, HH:mm:ss'),
+      hash: x.hash,
+      tx: convertNumber(x.tx).display,
+    });
+  });
+};

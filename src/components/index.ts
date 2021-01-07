@@ -8,6 +8,7 @@ import HeaderBarMobile from './header_bar_mobile';
 import InfiniteLoader from './infinite_loader';
 import TabPanel from './tab_panel';
 import ActivitiesFilter from './activities_filter';
+import AvatarDisplay from './avatar_display';
 
 export {
   Layout,
@@ -20,4 +21,5 @@ export {
   InfiniteLoader,
   TabPanel,
   ActivitiesFilter,
+  AvatarDisplay,
 };

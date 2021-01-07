@@ -5,6 +5,8 @@ import CommunityPool from './community_pool';
 import TotalActiveValidators from './total_active_validators';
 import AverageBlockTimes from './average_block_times';
 import Stabilities from './stabilities';
+import LatestBlock from './latest_block';
+import KeybaseProfile from './keybase_profile';
 
 export {
   BigDipperNetworkLink,
@@ -14,4 +16,6 @@ export {
   TotalActiveValidators,
   AverageBlockTimes,
   Stabilities,
+  LatestBlock,
+  KeybaseProfile,
 };

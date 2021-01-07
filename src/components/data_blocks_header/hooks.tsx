@@ -49,7 +49,7 @@ export const useAveragetimeBlockHook = () => {
   const [duration, setDuration] = useState('lastDay');
 
   const averageBlockTimes = useQuery(AVERAGE_BLOCK_TIMES, {
-    pollInterval: 60000, // poll interval per minute
+    pollInterval: generalConfig.fastInterval, // poll interval per minute
   });
 
   const formattedData = AverageBlockTimes.fromJson(R.pathOr({

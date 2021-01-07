@@ -53,6 +53,7 @@
     }
   ],
   "rules": {
+    "no-param-reassign": "warn",
     "no-restricted-globals": "warn",
     "jsx-a11y/interactive-supports-focus": "off",
     "jsx-a11y/click-events-have-key-events": "off",

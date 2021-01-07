@@ -6,9 +6,11 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { ToastContainer } from 'react-toastify';
 import { ApolloProvider } from '@apollo/client';
 import { useApollo } from '@src/graphql/client';
-import { ThemeModeContext } from '@contexts';
+import { GlobalContext } from '@contexts';
 import { appWithTranslation } from '../../../i18n';
-import { useAppHook } from './hooks';
+import {
+  useAppHook, useKeybaseHook,
+} from './hooks';
 import { useGetStyles } from './styles';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,7 +20,19 @@ import 'react-toastify/dist/ReactToastify.css';
 function MyApp({
   Component, pageProps,
 }: AppProps) {
+  // =============================
+  // global hooks
+  // =============================
   const layoutProps = useAppHook();
+  const keybaseProps = useKeybaseHook();
+  const globalState = {
+    ...layoutProps,
+    ...keybaseProps,
+  };
+
+  // =============================
+  // styles setup
+  // =============================
   const { theme } = layoutProps;
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -28,8 +42,13 @@ function MyApp({
     }
   }, []);
   const { classes } = useGetStyles();
+
+  // =============================
+  // utils
+  // =============================
   const baseUrl = process.env.NEXT_PUBLIC_URL;
   const apolloClient = useApollo(pageProps.initialApolloState);
+
   return (
     <>
       <Head>
@@ -51,7 +70,9 @@ function MyApp({
           theme={theme}
         >
           <CssBaseline />
-          <ThemeModeContext.Provider value={layoutProps}>
+          <GlobalContext.Provider
+            value={globalState}
+          >
             <Component
               {...pageProps}
             />
@@ -67,7 +88,7 @@ function MyApp({
               pauseOnHover
               className={classes.toast}
             />
-          </ThemeModeContext.Provider>
+          </GlobalContext.Provider>
         </ThemeProvider>
       </ApolloProvider>
     </>
