@@ -5,11 +5,11 @@ import { dummyLatestBlocksData } from './utils';
 
 export const useBlocksHook = () => {
   const router = useRouter();
-  const [
-    state, setState,
-  ] = useState({
+  const [state, setState] = useState({
     data: dummyLatestBlocksData,
     hasMore: true,
+    offset: 0,
+    limit: 50,
   });
 
   const handleSetState = (stateChange: any) => {

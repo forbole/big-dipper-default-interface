@@ -15,6 +15,7 @@ export const useLatestBlocksHook = () => {
     pollInterval: generalConfig.fastInterval,
     variables: {
       limit: 10,
+      offset: 0,
     },
   });
 

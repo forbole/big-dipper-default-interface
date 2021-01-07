@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const LATEST_BLOCKS = gql`
-  query LatestBlocks ($limit: Int){
-    blocks: block(limit: $limit, order_by: {height: desc}) {
+  query LatestBlocks ($limit: Int, $offset: Int){
+    blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
       height
       num_txs
       hash
