@@ -13,6 +13,7 @@ describe('AvatarDisplayHelper', () => {
         component: <AvatarDisplayHelper
           identity="1234123"
           display="forbole"
+          address="arandomaddress"
         />,
         theme: lightTheme,
       }),
