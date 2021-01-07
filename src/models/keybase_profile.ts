@@ -6,8 +6,8 @@ class KeybaseProfile {
   public username: string;
 
   constructor(payload: any) {
-    this.id = payload.string;
-    this.imageUrl = payload.url;
+    this.id = payload.id;
+    this.imageUrl = payload.imageUrl;
     this.username = payload.username;
   }
 

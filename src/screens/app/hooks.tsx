@@ -7,6 +7,7 @@ import {
   darkTheme,
   lightTheme,
 } from '@styles';
+import { KeybaseProfile } from '@models';
 import {
   i18n,
   useTranslation,
@@ -74,9 +75,14 @@ export const useKeybaseHook = () => {
   const [keybaseList, setKeybase] = useState({
   });
 
-  const handleSetKeybase = (stateChange: any) => {
-    const newState = R.mergeDeepLeft(stateChange, keybaseList);
-    setKeybase(newState);
+  const handleSetKeybase = (stateChange: {
+    [key: string]: KeybaseProfile;
+  }) => {
+    setKeybase((prevState) => {
+      return ({
+        ...prevState, ...stateChange,
+      });
+    });
   };
 
   return {
