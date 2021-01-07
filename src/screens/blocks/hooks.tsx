@@ -14,8 +14,7 @@ export const useBlocksHook = () => {
   const router = useRouter();
   const [state, setState] = useState({
     data: [],
-    hasMore: true,
-    offset: 0,
+    total: 0,
   });
 
   // ===============================
@@ -25,11 +24,13 @@ export const useBlocksHook = () => {
   // initial latest block with polling
   const latestBlock = useQuery(LATEST_BLOCKS, {
     pollInterval: generalConfig.fastInterval,
+    notifyOnNetworkStatusChange: true,
     variables: {
       limit: 1,
       offset: 0,
     },
     onCompleted: (data) => {
+      console.log('on complete in latest');
       const formattedlatestBlockData = R.uniq(
         R.concat(
           R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
@@ -48,18 +49,25 @@ export const useBlocksHook = () => {
       offset: 1,
     },
     onCompleted: (data) => {
-      console.log(state.data.length, 'in the complete');
-      const formattedlatestBlockData = R.uniq(
-        R.concat(
-          R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
-          state.data,
-        ),
-      );
-      handleSetState({
-        data: formattedlatestBlockData,
-      });
+      handleNewData(data);
     },
   });
+
+  const handleNewData = (data:any) => {
+    const formattedlatestBlockData = R.uniq(
+      R.concat(
+        state.data,
+        R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
+      ),
+    );
+
+    const total = R.pathOr(0, ['block_aggregate', 'aggregate', 'count'], data);
+
+    handleSetState({
+      total,
+      data: formattedlatestBlockData,
+    });
+  };
 
   // useEffect(() => {
   //   const formattedlatestBlockData = R.uniq(
@@ -93,16 +101,17 @@ export const useBlocksHook = () => {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  const handleLoadMore = () => {
+  const handleLoadMore = async () => {
     if (state.data.length > 10) {
-      console.log(state.data.length, 'im in load more');
-      latestBlocks?.fetchMore({
+      await latestBlocks?.fetchMore({
         variables: {
-          offset: state.data.length + 1,
+          offset: state.data.length,
         },
-      });
-      handleSetState({
-        hasMore: false,
+      }).then(({ data }) => {
+        handleNewData(data);
+        handleSetState({
+          hasMore: false,
+        });
       });
     }
   };
