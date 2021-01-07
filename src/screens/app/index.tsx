@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { ToastContainer } from 'react-toastify';
 import { ApolloProvider } from '@apollo/client';
-import client from '@graphql';
+import { useApollo } from '@src/graphql/client';
 import { ThemeModeContext } from '@contexts';
 import { appWithTranslation } from '../../../i18n';
 import { useAppHook } from './hooks';
@@ -29,7 +29,7 @@ function MyApp({
   }, []);
   const { classes } = useGetStyles();
   const baseUrl = process.env.NEXT_PUBLIC_URL;
-
+  const apolloClient = useApollo(pageProps.initialApolloState);
   return (
     <>
       <Head>
@@ -45,7 +45,7 @@ function MyApp({
         <link rel="shortcut icon" href={`${baseUrl}/images/icons/favicon.ico`} />
       </Head>
       <ApolloProvider
-        client={client}
+        client={apolloClient}
       >
         <ThemeProvider
           theme={theme}
