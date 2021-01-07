@@ -68,3 +68,13 @@ export const useAppHook = () => {
     getThemeMode,
   };
 };
+
+export const useKeybaseHook = () => {
+  const [keybaseList, setKeyBase] = useState({
+  });
+
+  return {
+    keybaseList,
+    setKeyBase,
+  };
+};

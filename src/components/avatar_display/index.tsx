@@ -1,18 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AvatarDisplay } from 'big-dipper-default-ui';
+import { GlobalContext } from '@contexts';
+import { AvatarDisplayProps } from './types';
+import { usdAvatarDisplayHelperHook } from './hooks';
+
 /**
- * Helper to get the image based on identity
+ * Component that extends AvatarDisplay and uses JazzIcon if user image could not be found
  */
-const AvatarDisplayHelper = (props:any) => {
+const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   const {
-    imageUrl,
+    identity,
     display,
   } = props;
+  const { keybaseList } = useContext(GlobalContext);
+  usdAvatarDisplayHelperHook(identity, keybaseList);
+
+  console.log(keybaseList, 'woowowow the keybase list');
+
+  if (1 === 0) {
+    return (
+      // <AvatarDisplay
+      //   imageUrl=""
+      //   title={display}
+      // />
+      <div>exist</div>
+    );
+  }
   return (
-    <AvatarDisplay
-      imageUrl={imageUrl}
-      title={display}
-    />
+    <div>placeholder</div>
+    // <AvatarDisplay
+    //   imageUrl=""
+    //   title={display}
+    // />
   );
 };
 

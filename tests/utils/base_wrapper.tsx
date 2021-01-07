@@ -1,4 +1,4 @@
-import { ThemeModeContext } from '@contexts';
+import { GlobalContext } from '@contexts';
 import { WithMockMaterialTheme } from './mock_material_theme';
 
 interface Iprops {
@@ -23,13 +23,13 @@ export const BaseWrapper = ({
   component, theme,
 }: Iprops) => {
   return (
-    <ThemeModeContext.Provider
+    <GlobalContext.Provider
       value={themeContextMock}
     >
       {WithMockMaterialTheme({
         component,
         theme,
       })}
-    </ThemeModeContext.Provider>
+    </GlobalContext.Provider>
   );
 };

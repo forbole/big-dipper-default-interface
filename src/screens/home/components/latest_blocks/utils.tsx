@@ -32,7 +32,7 @@ export const formatLatestBlocksData = (data:LatestBlock[]) => {
         <Proposer
           display={x.validator.moniker}
           id={x.validator.validatorAddress}
-          imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
+          identity={x.validator.identity}
         />),
       height: {
         value: x.height,

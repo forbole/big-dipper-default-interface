@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
-import { AvatarDisplay } from 'big-dipper-default-ui';
+import { AvatarDisplay } from '@components';
 import { ProposerProps } from './types';
 import { proposerUtils } from './utils';
 
 const Proposer = (props: ProposerProps) => {
   const {
     id,
+    identity,
     display,
-    imageUrl,
   } = props;
   const { handleClick } = proposerUtils();
 
@@ -17,8 +17,8 @@ const Proposer = (props: ProposerProps) => {
       <Link href={`/validators/${id}`}>
         <a>
           <AvatarDisplay
-            imageUrl={imageUrl}
-            title={display}
+            identity={identity}
+            display={display}
           />
         </a>
       </Link>
