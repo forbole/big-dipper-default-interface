@@ -1,6 +1,7 @@
 import {
   useEffect, useState,
 } from 'react';
+import * as R from 'ramda';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
@@ -70,11 +71,16 @@ export const useAppHook = () => {
 };
 
 export const useKeybaseHook = () => {
-  const [keybaseList, setKeyBase] = useState({
+  const [keybaseList, setKeybase] = useState({
   });
+
+  const handleSetKeybase = (stateChange: any) => {
+    const newState = R.mergeDeepLeft(stateChange, keybaseList);
+    setKeybase(newState);
+  };
 
   return {
     keybaseList,
-    setKeyBase,
+    handleSetKeybase,
   };
 };

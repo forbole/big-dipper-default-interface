@@ -3,22 +3,30 @@ import * as R from 'ramda';
 import { useEffect } from 'react';
 import { KeybaseProfile } from '@models';
 
-export const usdAvatarDisplayHelperHook = (identity: string | null | undefined, keybaseList: {
-  [ key: string ]: KeybaseProfile
-}) => {
+export const usdAvatarDisplayHelperHook = (identity: string | null | undefined, globalState) => {
   useEffect(() => {
+    const {
+      keybaseList, handleSetKeybase,
+    } = globalState;
+
     const fetchData = async () => {
       try {
         if (identity.length === 16) {
           const { data } = await axios.get(`https://keybase.io/_/api/1.0/user/lookup.json?key_suffix=${identity}&fields=basics&fields=pictures`);
-          console.log(identity, 'the id');
-          console.log(data, 'data');
 
           if (data?.status?.code === 0) {
-            // wingman
-            // might need to set state
-            keybaseList[identity] = KeybaseProfile.fromJson(R.pathOr({
-            }, ['them', 0], data));
+            // const newKeybaseList = R.clone(keybaseList);
+            // newKeybaseList[identity] = KeybaseProfile.fromJson(R.pathOr({
+            // }, ['them', 0], data));
+            // console.log(newKeybaseList, 'new list');
+            // keybaseList[identity] = KeybaseProfile.fromJson(R.pathOr({
+            // }, ['them', 0], data));
+            // console.log(keybaseList, 'well what now');
+            // setKeybase(newKeybaseList);
+            handleSetKeybase({
+              [identity]: KeybaseProfile.fromJson(R.pathOr({
+              }, ['them', 0], data)),
+            });
           }
         }
       } catch (error) {

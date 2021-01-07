@@ -12,8 +12,9 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     identity,
     display,
   } = props;
-  const { keybaseList } = useContext(GlobalContext);
-  usdAvatarDisplayHelperHook(identity, keybaseList);
+  const globalState = useContext(GlobalContext);
+  const { keybaseList } = globalState;
+  usdAvatarDisplayHelperHook(identity, globalState);
 
   console.log(keybaseList, 'woowowow the keybase list');
 
