@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as R from 'ramda';
 import { useQuery } from '@apollo/client';
@@ -11,17 +12,18 @@ export const useLatestBlocksHook = () => {
   // ===============================
   // get data
   // ===============================
-  const latestBlocks = useQuery(LATEST_BLOCKS, {
-    pollInterval: 5000,
-    // pollInterval: generalConfig.fastInterval,
-    variables: {
-      limit: 10,
-    },
-    onCompleted: () => console.log('called'),
-  });
+  // const latestBlocks = useQuery(LATEST_BLOCKS, {
+  //   pollInterval: 500,
+  //   // pollInterval: generalConfig.fastInterval,
+  //   variables: {
+  //     limit: 10,
+  //   },
+  // });
 
-  const formattedData = R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block));
+  // const formattedData = R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block));
 
+  // const formattedData = R.pathOr([], ['data', 'blocks'], {
+  // })?.map((block) => LatestBlock.fromJson(block));
   // ===============================
   // others
   // ===============================
@@ -33,6 +35,6 @@ export const useLatestBlocksHook = () => {
 
   return {
     handleClick,
-    latestBlocks: formattedData,
+    // latestBlocks: formattedData,
   };
 };
