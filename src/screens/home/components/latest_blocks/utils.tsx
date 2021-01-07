@@ -2,8 +2,9 @@ import moment from 'moment';
 import { LatestBlock } from '@models';
 import { convertNumber } from '@utils';
 import {
-  Proposer, Height,
-} from './components';
+  Proposer,
+  BlockHeight,
+} from '@components';
 
 /**
  * Helper function to get mobile labels
@@ -37,7 +38,7 @@ export const formatLatestBlocksData = (data:LatestBlock[]) => {
       height: {
         value: x.height,
         display: (
-          <Height
+          <BlockHeight
             display={convertNumber(x.height).display}
             raw={x.height}
           />),

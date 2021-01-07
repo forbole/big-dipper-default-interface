@@ -15,5 +15,10 @@ export const LATEST_BLOCKS = gql`
         }
       }
     }
+    block_aggregate {
+      aggregate {
+        count
+      }
+    }
   }
 `;

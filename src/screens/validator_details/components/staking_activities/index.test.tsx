@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount } from '@src/components/proposer/node_modules/enzyme';
 import {
   ValidatorStakingMobile,
   ValidatorStakingDesktop,

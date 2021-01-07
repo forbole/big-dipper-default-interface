@@ -26,7 +26,9 @@ import {
 import { useBlocksHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
-  getLabelsMobile, getLabelsDesktop,
+  getLabelsMobile,
+  getLabelsDesktop,
+  formatLatestBlocksData,
 } from './utils';
 
 const Blocks = () => {
@@ -50,6 +52,7 @@ const Blocks = () => {
 
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
+  const latestBlocksData = formatLatestBlocksData(data);
 
   return (
     <Layout
@@ -92,7 +95,7 @@ const Blocks = () => {
                 mobileOnlyStyles.root,
               )}
               labels={labelsMobile}
-              data={data}
+              data={latestBlocksData}
               onClick={handleClick}
             />
             {/* ================================ */}
@@ -104,7 +107,7 @@ const Blocks = () => {
                 desktopOnlyStyles.root,
               )}
               labels={labelsDesktop}
-              data={data}
+              data={latestBlocksData}
               onClick={handleClick}
             />
           </InfiniteScroll>

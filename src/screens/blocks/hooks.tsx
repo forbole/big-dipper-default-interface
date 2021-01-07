@@ -1,63 +1,86 @@
-import { useState } from 'react';
+import {
+  useEffect, useState,
+} from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { dummyLatestBlocksData } from './utils';
+import { useQuery } from '@apollo/client';
+import { LATEST_BLOCKS } from '@graphql/queries';
+import { LatestBlock } from '@models';
+import { generalConfig } from '@src/general_config';
+
+const LIMIT = 10;
 
 export const useBlocksHook = () => {
   const router = useRouter();
   const [state, setState] = useState({
-    data: dummyLatestBlocksData,
+    data: [],
     hasMore: true,
     offset: 0,
-    limit: 50,
   });
 
+  // ===============================
+  // get data
+  // ===============================
+
+  // initial latest block with polling
+  const latestBlock = useQuery(LATEST_BLOCKS, {
+    pollInterval: generalConfig.fastInterval,
+    variables: {
+      limit: 1,
+      offset: 0,
+    },
+  });
+
+  const latestBlocks = useQuery(LATEST_BLOCKS, {
+    variables: {
+      limit: LIMIT,
+      offset: 1,
+    },
+  });
+
+  useEffect(() => {
+    const formattedlatestBlockData = R.uniq(
+      R.concat(
+        R.pathOr([], ['data', 'blocks'], latestBlock)?.map((block) => LatestBlock.fromJson(block)),
+        state.data,
+      ),
+    );
+    handleSetState({
+      data: formattedlatestBlockData,
+    });
+  }, [latestBlock.data]);
+
+  useEffect(() => {
+    const formattedlatestBlockData = R.uniq(
+      R.concat(
+        state.data,
+        R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block)),
+      ),
+    );
+    handleSetState({
+      data: formattedlatestBlockData,
+    });
+  }, [latestBlocks.data]);
+
+  // ===============================
+  // utils
+  // ===============================
   const handleSetState = (stateChange: any) => {
-    const newState = R.mergeDeepLeft(stateChange, state);
-    setState(newState);
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
   const handleLoadMore = () => {
-    setTimeout(() => {
-      if (state.data.length < 10) {
-        handleSetState({
-          data: [
-            ...state.data,
-            {
-              proposer: <div>forbole</div>,
-              height: {
-                value: 20000,
-                display: <div>height</div>,
-              },
-              time: '122 Jan 2021,13:00:22 UTC',
-              hash: '89832B67F594asddw32',
-              tx: 2,
-            },
-            {
-              proposer: <div>forbole</div>,
-              height: {
-                value: 20000,
-                display: <div>height</div>,
-              },
-              time: '111 Jan 2021,13:00:22 UTC',
-              hash: '89832B67F594asddw32',
-              tx: 2,
-            },
-            {
-              proposer: <div>forbole</div>,
-              height: {
-                value: 20000,
-                display: <div>height</div>,
-              },
-              time: '101 Jan 2021,13:00:27 UTC',
-              hash: '89832B67F594asddw32',
-              tx: 2,
-            }],
-          hasMore: false,
-        });
-      }
-    }, 2500);
-    return null;
+    if (state.data.length > 10) {
+      console.log(state.data.length, 'im in load more');
+      latestBlocks?.fetchMore({
+        variables: {
+          offset: state.data.length,
+        },
+      });
+      handleSetState({
+        hasMore: false,
+      });
+    }
   };
 
   const handleClick = (data:any) => {
