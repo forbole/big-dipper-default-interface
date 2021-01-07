@@ -3,7 +3,7 @@ import * as R from 'ramda';
 import { useEffect } from 'react';
 import { KeybaseProfile } from '@models';
 
-export const usedAvatarDisplayHelperHook = (identity: string | null | undefined, globalState) => {
+export const useKeybaseHook = (identity: string | null | undefined, globalState) => {
   useEffect(() => {
     const {
       keybaseList, handleSetKeybase,
