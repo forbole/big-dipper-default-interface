@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AvatarDisplay } from 'big-dipper-default-ui';
 import { GlobalContext } from '@contexts';
-import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
+import Jazzicon from 'react-jazzicon';
 import { AvatarDisplayProps } from './types';
 import { usedAvatarDisplayHelperHook } from './hooks';
 
@@ -28,11 +28,11 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     );
   }
   return (
-    <Jazzicon diameter={48} />
-    // <AvatarDisplay
-    //   imageUrl=""
-    //   title={display}
-    // />
+    <AvatarDisplay
+      avatar={<Jazzicon diameter={24} />}
+      imageUrl=""
+      title={display}
+    />
   );
 };
 
