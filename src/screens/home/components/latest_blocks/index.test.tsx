@@ -30,23 +30,13 @@ describe('LatestBlocks', () => {
           component: <LatestBlocks />,
           theme: lightTheme,
         }),
-        mocks: [
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-          ...LATEST_BLOCKS_MOCK,
-        ],
+        mocks: LATEST_BLOCKS_MOCK,
       }),
     );
 
     await awaitActions({
       wrapper,
-      time: 5,
+      time: 10,
     });
 
     expect(wrapper).not.toBeNull();

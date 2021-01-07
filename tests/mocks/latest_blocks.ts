@@ -5,6 +5,7 @@ export const LATEST_BLOCKS_MOCK = [
     request: {
       query: LATEST_BLOCKS,
       variables: {
+        limit: 10,
       },
     },
     result: {
@@ -32,7 +33,7 @@ export const LATEST_BLOCKS_MOCK = [
               validator_description: {
                 moniker: 'ITAstakers',
                 validator_address: 'desmosvalcons1n6x4y8srfml6f4xsynyn9y0dtjrfwfhyjpapkf',
-                identity: '06E7A073C20F48EA',
+                identity: null,
               },
             },
           },
@@ -45,7 +46,7 @@ export const LATEST_BLOCKS_MOCK = [
               validator_description: {
                 moniker: 'ITAstakers',
                 validator_address: 'desmosvalcons1n6x4y8srfml6f4xsynyn9y0dtjrfwfhyjpapkf',
-                identity: '06E7A073C20F48EA',
+                identity: null,
               },
             },
           },
@@ -84,7 +85,7 @@ export const LATEST_BLOCKS_MOCK = [
               validator_description: {
                 moniker: 'KalpaTech',
                 validator_address: 'desmosvalcons1c29eyczh5lw4npe0a9n40nm5g299fq8nt5lerw',
-                identity: 'B4AD06F0EB355573',
+                identity: null,
               },
             },
           },
@@ -110,7 +111,7 @@ export const LATEST_BLOCKS_MOCK = [
               validator_description: {
                 moniker: 'DelegaNetworks',
                 validator_address: 'desmosvalcons1xvl0mr45pwqsujeradcvyxmgt2hauj0gtpjj4z',
-                identity: '1BED7C08416A619F',
+                identity: null,
               },
             },
           },
@@ -136,7 +137,7 @@ export const LATEST_BLOCKS_MOCK = [
               validator_description: {
                 moniker: 'ITAstakers',
                 validator_address: 'desmosvalcons1n6x4y8srfml6f4xsynyn9y0dtjrfwfhyjpapkf',
-                identity: '06E7A073C20F48EA',
+                identity: null,
               },
             },
           },

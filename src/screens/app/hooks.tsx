@@ -1,7 +1,6 @@
 import {
   useEffect, useState,
 } from 'react';
-import * as R from 'ramda';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
