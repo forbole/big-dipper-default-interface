@@ -41,7 +41,7 @@ const Blocks = () => {
     state,
   } = useBlocksHook();
   const {
-    hasMore, data,
+    total, data,
   } = state;
 
   const { classes } = useGetStyles();
@@ -82,7 +82,7 @@ const Blocks = () => {
           <InfiniteScroll
             pageStart={0}
             loadMore={handleLoadMore}
-            hasMore={hasMore}
+            hasMore={total > data.length}
             loader={<InfiniteLoader key={0} />}
           >
             {/* ================================ */}

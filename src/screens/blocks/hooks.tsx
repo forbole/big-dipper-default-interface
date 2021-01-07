@@ -21,8 +21,8 @@ export const useBlocksHook = () => {
   // get data
   // ===============================
 
-  // initial latest block with polling
-  const latestBlock = useQuery(LATEST_BLOCKS, {
+  // polling to get latest block
+  useQuery(LATEST_BLOCKS, {
     pollInterval: generalConfig.fastInterval,
     notifyOnNetworkStatusChange: true,
     variables: {
@@ -30,7 +30,6 @@ export const useBlocksHook = () => {
       offset: 0,
     },
     onCompleted: (data) => {
-      console.log('on complete in latest');
       const formattedlatestBlockData = R.uniq(
         R.concat(
           R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
@@ -43,6 +42,7 @@ export const useBlocksHook = () => {
     },
   });
 
+  // handles pagination to get older blocks
   const latestBlocks = useQuery(LATEST_BLOCKS, {
     variables: {
       limit: LIMIT,
@@ -53,6 +53,17 @@ export const useBlocksHook = () => {
     },
   });
 
+  // ===============================
+  // utils
+  // ===============================
+  const handleSetState = (stateChange: any) => {
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
+  };
+
+  /**
+   * Helper to sort and merge paginated data coming in
+   * @param data
+   */
   const handleNewData = (data:any) => {
     const formattedlatestBlockData = R.uniq(
       R.concat(
@@ -69,38 +80,6 @@ export const useBlocksHook = () => {
     });
   };
 
-  // useEffect(() => {
-  //   const formattedlatestBlockData = R.uniq(
-  //     R.concat(
-  //       R.pathOr([], ['data', 'blocks'], latestBlock)?.map((block) => LatestBlock.fromJson(block)),
-  //       state.data,
-  //     ),
-  //   );
-  //   handleSetState({
-  //     data: formattedlatestBlockData,
-  //   });
-  // }, [latestBlock.data]);
-
-  // useEffect(() => {
-  //   console.log(state.data.length, 'im in load more');
-  //   const formattedlatestBlockData = R.uniq(
-  //     R.concat(
-  //       state.data,
-  //       R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block)),
-  //     ),
-  //   );
-  //   handleSetState({
-  //     data: formattedlatestBlockData,
-  //   });
-  // }, [latestBlocks.data]);
-
-  // ===============================
-  // utils
-  // ===============================
-  const handleSetState = (stateChange: any) => {
-    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
-  };
-
   const handleLoadMore = async () => {
     if (state.data.length > 10) {
       await latestBlocks?.fetchMore({
@@ -109,9 +88,6 @@ export const useBlocksHook = () => {
         },
       }).then(({ data }) => {
         handleNewData(data);
-        handleSetState({
-          hasMore: false,
-        });
       });
     }
   };
