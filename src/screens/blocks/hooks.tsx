@@ -29,6 +29,17 @@ export const useBlocksHook = () => {
       limit: 1,
       offset: 0,
     },
+    onCompleted: (data) => {
+      const formattedlatestBlockData = R.uniq(
+        R.concat(
+          R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
+          state.data,
+        ),
+      );
+      handleSetState({
+        data: formattedlatestBlockData,
+      });
+    },
   });
 
   const latestBlocks = useQuery(LATEST_BLOCKS, {
@@ -36,31 +47,44 @@ export const useBlocksHook = () => {
       limit: LIMIT,
       offset: 1,
     },
+    onCompleted: (data) => {
+      console.log(state.data.length, 'in the complete');
+      const formattedlatestBlockData = R.uniq(
+        R.concat(
+          R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
+          state.data,
+        ),
+      );
+      handleSetState({
+        data: formattedlatestBlockData,
+      });
+    },
   });
 
-  useEffect(() => {
-    const formattedlatestBlockData = R.uniq(
-      R.concat(
-        R.pathOr([], ['data', 'blocks'], latestBlock)?.map((block) => LatestBlock.fromJson(block)),
-        state.data,
-      ),
-    );
-    handleSetState({
-      data: formattedlatestBlockData,
-    });
-  }, [latestBlock.data]);
+  // useEffect(() => {
+  //   const formattedlatestBlockData = R.uniq(
+  //     R.concat(
+  //       R.pathOr([], ['data', 'blocks'], latestBlock)?.map((block) => LatestBlock.fromJson(block)),
+  //       state.data,
+  //     ),
+  //   );
+  //   handleSetState({
+  //     data: formattedlatestBlockData,
+  //   });
+  // }, [latestBlock.data]);
 
-  useEffect(() => {
-    const formattedlatestBlockData = R.uniq(
-      R.concat(
-        state.data,
-        R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block)),
-      ),
-    );
-    handleSetState({
-      data: formattedlatestBlockData,
-    });
-  }, [latestBlocks.data]);
+  // useEffect(() => {
+  //   console.log(state.data.length, 'im in load more');
+  //   const formattedlatestBlockData = R.uniq(
+  //     R.concat(
+  //       state.data,
+  //       R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block)),
+  //     ),
+  //   );
+  //   handleSetState({
+  //     data: formattedlatestBlockData,
+  //   });
+  // }, [latestBlocks.data]);
 
   // ===============================
   // utils
@@ -74,7 +98,7 @@ export const useBlocksHook = () => {
       console.log(state.data.length, 'im in load more');
       latestBlocks?.fetchMore({
         variables: {
-          offset: state.data.length,
+          offset: state.data.length + 1,
         },
       });
       handleSetState({
