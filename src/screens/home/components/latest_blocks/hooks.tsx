@@ -12,18 +12,15 @@ export const useLatestBlocksHook = () => {
   // ===============================
   // get data
   // ===============================
-  // const latestBlocks = useQuery(LATEST_BLOCKS, {
-  //   pollInterval: 500,
-  //   // pollInterval: generalConfig.fastInterval,
-  //   variables: {
-  //     limit: 10,
-  //   },
-  // });
+  const latestBlocks = useQuery(LATEST_BLOCKS, {
+    pollInterval: generalConfig.fastInterval,
+    variables: {
+      limit: 10,
+    },
+  });
 
-  // const formattedData = R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block));
+  const formattedData = R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block));
 
-  // const formattedData = R.pathOr([], ['data', 'blocks'], {
-  // })?.map((block) => LatestBlock.fromJson(block));
   // ===============================
   // others
   // ===============================
@@ -35,6 +32,6 @@ export const useLatestBlocksHook = () => {
 
   return {
     handleClick,
-    // latestBlocks: formattedData,
+    latestBlocks: formattedData,
   };
 };

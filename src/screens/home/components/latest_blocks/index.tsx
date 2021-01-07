@@ -13,10 +13,6 @@ import {
   useDesktopOnlyStyles,
   useTablePreviewWrapperStyles,
 } from '@styles';
-import { useQuery } from '@apollo/client';
-import { LATEST_BLOCKS } from '@graphql/queries';
-import * as R from 'ramda';
-import { LatestBlock } from '@models';
 import { useLatestBlocksHook } from './hooks';
 import {
   getLabelsMobile,
@@ -32,7 +28,10 @@ import {
 const LatestBlocks = () => {
   const { t } = useTranslation(['home']);
   const URL = '/blocks';
-  const { handleClick } = useLatestBlocksHook();
+  const {
+    handleClick,
+    latestBlocks,
+  } = useLatestBlocksHook();
 
   // =============================
   // styles
@@ -48,17 +47,7 @@ const LatestBlocks = () => {
   // =============================
   // format data for display
   // =============================
-  const latestBlocks = useQuery(LATEST_BLOCKS, {
-    pollInterval: 500,
-    // pollInterval: generalConfig.fastInterval,
-    variables: {
-      limit: 10,
-    },
-  });
-
-  const formattedData = R.pathOr([], ['data', 'blocks'], latestBlocks)?.map((block) => LatestBlock.fromJson(block));
-  const latestBlocksData = formatLatestBlocksData(formattedData);
-  console.log(latestBlocks, 'hmmmmMmMM');
+  const latestBlocksData = formatLatestBlocksData(latestBlocks);
 
   return (
     <>
