@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AvatarDisplay } from 'big-dipper-default-ui';
 import { GlobalContext } from '@contexts';
-import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
+import Jazzicon from 'react-jazzicon';
 import { useKeybaseHook } from '@hooks';
 import { AvatarDisplayProps } from './types';
 
