@@ -19,9 +19,9 @@ import {
   ActionDesktop,
 } from './components';
 import {
-  dummyLatestBlocksData,
   getLabelsMobile,
   getLabelsDesktop,
+  formatLatestBlocksData,
 } from './utils';
 import { useLatestBlocksHook } from './hooks';
 
@@ -31,7 +31,7 @@ const LatestBlocks = () => {
   const {
     handleClick, latestBlocks,
   } = useLatestBlocksHook();
-  console.log(latestBlocks, 'block');
+
   // =============================
   // styles
   // =============================
@@ -42,6 +42,11 @@ const LatestBlocks = () => {
   const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
+
+  // =============================
+  // format data for display
+  // =============================
+  const latestBlocksData = formatLatestBlocksData(latestBlocks);
 
   return (
     <>
@@ -57,7 +62,7 @@ const LatestBlocks = () => {
         <LatestBlocksMobile
           className={classnames(latestBlocksMobileStyles.root)}
           labels={labelsMobile}
-          data={dummyLatestBlocksData}
+          data={latestBlocksData}
           onClick={handleClick}
         />
       </TablePreviewWrapper>
@@ -72,7 +77,7 @@ const LatestBlocks = () => {
         <LatestBlocksDesktop
           className={classnames(latestBlocksDesktopStyles.root)}
           labels={labelsDesktop}
-          data={dummyLatestBlocksData}
+          data={latestBlocksData}
           onClick={handleClick}
         />
       </TablePreviewWrapper>

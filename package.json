@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "graphql": "^15.3.0",
     "isomorphic-ws": "^4.0.1",
+    "moment": "^2.29.1",
     "next": "^10.0.0",
     "next-i18next": "^6.0.2",
     "next-seo": "^4.17.0",
