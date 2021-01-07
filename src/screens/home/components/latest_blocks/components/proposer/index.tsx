@@ -19,6 +19,7 @@ const Proposer = (props: ProposerProps) => {
           <AvatarDisplay
             identity={identity}
             display={display}
+            address={id}
           />
         </a>
       </Link>
