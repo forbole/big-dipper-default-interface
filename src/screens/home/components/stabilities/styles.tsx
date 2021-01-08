@@ -30,14 +30,18 @@ export const useGetStyles = () => {
             '& .line': {
               background: theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43',
             },
-            '& .bonded': {
-              background: colors[0],
-            },
-            '& .unbonded': {
-              background: colors[1],
-            },
             '& .chartBox': {
               width: '45%',
+            },
+            '& .boxSmallTop': {
+              '&:before': {
+                background: colors[0],
+              },
+            },
+            '& .boxSmallBottom': {
+              '&:before': {
+                background: colors[1],
+              },
             },
           },
         },
