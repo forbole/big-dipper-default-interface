@@ -43,7 +43,7 @@ export const formatLatestBlocksData = (data:LatestBlock[]) => {
             raw={x.height}
           />),
       },
-      time: moment(x.timestamp).format('Do MMMM YYYY, HH:mm:ss'),
+      time: moment(x.timestamp).format('DD MMM YYYY, HH:mm:ss'),
       hash: x.hash,
       tx: convertNumber(x.tx).display,
     });

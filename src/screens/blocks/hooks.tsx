@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
-import { useQuery } from '@apollo/client';
+import {
+  useQuery, useSubscription,
+} from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
+import { LATEST_BLOCK } from '@graphql/subscriptions';
 import { LatestBlock } from '@models';
-import { generalConfig } from '@src/general_config';
 
 const LIMIT = 10;
 
@@ -19,18 +21,12 @@ export const useBlocksHook = () => {
   // get data
   // ===============================
 
-  // polling to get latest block
-  useQuery(LATEST_BLOCKS, {
-    pollInterval: generalConfig.pollInterval.minute,
-    notifyOnNetworkStatusChange: true,
-    variables: {
-      limit: 1,
-      offset: 0,
-    },
-    onCompleted: (data) => {
+  // latest block subscription
+  useSubscription(LATEST_BLOCK, {
+    onSubscriptionData: (data) => {
       const formattedlatestBlockData = R.uniq(
         R.concat(
-          R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
+          R.pathOr([], ['subscriptionData', 'data', 'blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
           state.data,
         ),
       );

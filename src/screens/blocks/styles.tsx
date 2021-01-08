@@ -24,6 +24,9 @@ export const useGetStyles = () => {
           fontSize: '1.5rem',
           color: theme?.palette?.custom?.fonts?.fontOneToTwo,
         },
+        '& .hash': {
+          width: '600px',
+        },
       },
     },
     latestBlocksMobile: {
