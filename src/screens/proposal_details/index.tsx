@@ -6,14 +6,20 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
-import { useProposalDetailsHook } from './hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
+import {
+  Deposit,
+  Info,
+} from './components';
 
 const ProposalDetails = () => {
   const { t } = useTranslation(['proposals', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useProposalDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
 
   return (
@@ -34,13 +40,13 @@ const ProposalDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('proposal-details')}>
-          details
+          <Info />
         </div>
         <div className={classnames('proposal-vote')}>
           vote
         </div>
         <div className={classnames('proposal-deposits')}>
-          deposits
+          <Deposit />
         </div>
       </div>
       {/* ===================================== */}

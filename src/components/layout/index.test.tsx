@@ -7,10 +7,11 @@ import {
 } from 'big-dipper-internal-ui';
 import { Layout } from '@components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
+import { awaitActions } from '@tests/utils/await_actions';
 import { lightTheme } from '@styles';
 
 describe('Layout', () => {
-  it('correctly renders Layout component', () => {
+  it('correctly renders Layout component', async () => {
     expect(Layout).toBeTruthy();
     const wrap = mount(BaseWrapper({
       component:
@@ -20,6 +21,10 @@ describe('Layout', () => {
       theme: lightTheme,
     }));
 
+    await awaitActions({
+      wrapper: wrap,
+      time: 10,
+    });
     expect(wrap).not.toBeNull();
     expect(wrap.find('h1')).toHaveLength(1);
     expect(wrap.find('.children-wrapper')).toHaveLength(1);

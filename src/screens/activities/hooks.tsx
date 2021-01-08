@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import * as R from 'ramda';
-import { handleSearchbarSubmit } from '@utils';
 import { useRouter } from 'next/router';
 import { dummyLatestActivitiesData } from './utils';
 
@@ -43,7 +42,6 @@ export const useActivitiesHook = () => {
   };
 
   return {
-    handleSearchbarSubmit,
     state,
     handleSetState,
     handleLoadMore,

@@ -7,15 +7,17 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
-import { useValidatorHook } from './hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
 import { ValidatorList } from './components';
 
 const Validators = () => {
   const { t } = useTranslation(['validators', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useValidatorHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
 
   const { classes } = useGetStyles();
   return (

@@ -1,3 +1,11 @@
+import moment from 'moment';
+import { LatestBlock } from '@models';
+import { convertNumber } from '@utils';
+import {
+  Proposer,
+  BlockHeight,
+} from '@components';
+
 /**
  * Helper function to get mobile labels
  * @param t i18n translator
@@ -18,83 +26,26 @@ export const getLabelsDesktop = (t:any) => ({
   tx: t('txDesktop'),
 });
 
-// mobile only shows 7
-export const dummyLatestBlocksData:any[] = [
-  {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '12 Jan 2021,13:00:22 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '11 Jan 2021,13:00:22 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '10 Jan 2021,13:00:27 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '10 Jan 2021,13:00:21 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-  {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '10 Jan 2021,13:00:22 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  }, {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '10 Jan 2021,13:00:23 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  }, {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '10 Jan 2021,13:00:24 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  }, {
-    proposer: <div>forbole</div>,
-    height: {
-      value: 20000,
-      display: <div>100</div>,
-    },
-    time: '10 Jan 2021,13:00:20 UTC',
-    hash: '89832B67F594asddw32',
-    tx: 2,
-  },
-];
+export const formatLatestBlocksData = (data:LatestBlock[]) => {
+  return data.map((x) => {
+    return ({
+      proposer: (
+        <Proposer
+          display={x.validator.moniker}
+          id={x.validator.validatorAddress}
+          identity={x.validator.identity}
+        />),
+      height: {
+        value: x.height,
+        display: (
+          <BlockHeight
+            display={convertNumber(x.height).display}
+            raw={x.height}
+          />),
+      },
+      time: moment(x.timestamp).format('Do MMMM YYYY, HH:mm:ss'),
+      hash: x.hash,
+      tx: convertNumber(x.tx).display,
+    });
+  });
+};

@@ -1,3 +1,3 @@
 import { createContext } from 'react';
 
-export const ThemeModeContext = createContext(null);
+export const GlobalContext = createContext(null);

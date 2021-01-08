@@ -18,40 +18,28 @@ import {
   HeaderBarDesktop,
 } from '@components';
 import {
-  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
-} from '@tests/utils/mock_data';
+  LAYOUT_MOCK_DATA,
+  HEADER_BAR_MOCK,
+  DATA_BLOCKS_HEADER_MOCK,
+  STABILITIES_MOCK_DATA,
+  LATEST_BLOCKS_MOCK_DATA,
+} from '@tests/mocks';
 
 describe('Home', () => {
   it('it renders', async () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
-
-    expect(Home).toBeTruthy();
     const wrapper = mount(
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Home />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
-      }),
-    );
-
-    await awaitActions({
-      wrapper,
-      time: 10,
-    });
-    expect(wrapper).not.toBeNull();
-  });
-
-  it('correctly renders Home component with hooks', async () => {
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
-    const wrapper = mount(
-      WithMockApolloProvider({
-        component: BaseWrapper({
-          component: <Home />,
-          theme: lightTheme,
-        }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
+        mocks: [
+          ...HEADER_BAR_MOCK,
+          ...DATA_BLOCKS_HEADER_MOCK,
+          ...STABILITIES_MOCK_DATA,
+          ...LATEST_BLOCKS_MOCK_DATA(),
+        ],
       }),
     );
     await awaitActions({

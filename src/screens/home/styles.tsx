@@ -16,19 +16,6 @@ export const useGetStyles = () => {
         gridTemplateColumns: 'repeat(2, 1fr)',
         gridGap: theme?.palette?.custom?.gutters?.small,
       },
-      '& .data-graphs': {
-        height: '325px',
-      },
-      '& .stablities': {
-      },
-      '& .consensus': {
-      },
-      '& .latest-blocks': {
-
-      },
-      '& .latest-activites': {
-
-      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
         gridTemplateColumns: 'repeat(2, 1fr)',
         '& > *': {
@@ -39,9 +26,6 @@ export const useGetStyles = () => {
         },
         '& .consensus': {
           gridColumn: '2 / 3',
-        },
-        '& .data-graphs': {
-          height: '425px',
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
@@ -58,7 +42,6 @@ export const useGetStyles = () => {
         },
         '& .data-graphs': {
           gridColumn: '1 / 3',
-          height: '505px',
         },
         '& .stablities': {
           gridColumn: '3 / span 1',

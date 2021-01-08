@@ -49,6 +49,9 @@
       "@models": [
         "src/models"
       ],
+      "@assets": [
+        "src/assets"
+      ],
       "@hooks": [
         "src/hooks"
       ],
@@ -58,8 +61,11 @@
       "@graphql/mutations": [
         "src/graphql/mutations"
       ],
-      "@tests/utils/*": [
-        "tests/utils/*"
+      "@graphql/subscriptions": [
+        "src/graphql/subscriptions"
+      ],
+      "@tests/*": [
+        "tests/*"
       ]
     }
   },

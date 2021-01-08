@@ -9,7 +9,7 @@ import {
   Layout,
   DataBlocksHeader,
 } from '@components';
-import { LAYOUT_MOCK_DATA } from '@tests/utils/mock_data';
+import { LAYOUT_MOCK_DATA } from '@tests/mocks';
 
 describe('News', () => {
   it('it renders', async () => {

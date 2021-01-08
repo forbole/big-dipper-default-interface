@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { handleSearchbarSubmit } from '@utils';
 import { useState } from 'react';
 import * as R from 'ramda';
 import { dummyProposalList } from './utils';
@@ -44,7 +43,6 @@ export const useProposalHook = () => {
   };
 
   return {
-    handleSearchbarSubmit,
     handleChange,
     isToggled,
     handleLoadMore,

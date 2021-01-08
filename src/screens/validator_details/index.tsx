@@ -6,20 +6,23 @@ import {
   HeaderBarDesktop,
   HeaderBarMobile,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import { useGetStyles } from './styles';
-import { useValidatorDetailsHook } from './hooks';
 import {
   Info,
   PowerActivities,
   StakingActivities,
   MissedBlocks,
+  Profile,
 } from './components';
 
 const ValidatorDetails = () => {
   const { t } = useTranslation(['validators', 'common']);
   const { communityPool } = useMarketHook();
-  const { handleSearchbarSubmit } = useValidatorDetailsHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
 
   return (
@@ -41,7 +44,7 @@ const ValidatorDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('validator-bio')}>
-          validators bio
+          <Profile />
         </div>
         <div className={classnames('validator-info')}>
           <Info />

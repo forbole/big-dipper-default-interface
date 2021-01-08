@@ -9,7 +9,7 @@ import {
   DesktopNav,
 } from 'big-dipper-internal-ui';
 import { Footer } from '@components';
-import { ThemeModeContext } from '@contexts';
+import { GlobalContext } from '@contexts';
 import { useGetScreenSizeHook } from '@hooks';
 import { chainConfig } from '@src/chain_config';
 import { LayoutProps } from './types';
@@ -49,7 +49,7 @@ export const Layout = (props: LayoutProps) => {
     toggleThemeMode,
     getCurrentLanguage,
     changeLanguage,
-  } = useContext(ThemeModeContext);
+  } = useContext(GlobalContext);
 
   const { isDesktop } = useGetScreenSizeHook();
   const mobileHook = useMobileNavHook(isDesktop);

@@ -13,7 +13,10 @@ import {
   HeaderBarMobile,
   InfiniteLoader,
 } from '@components';
-import { useMarketHook } from '@hooks';
+import {
+  useMarketHook,
+  useSearchbarSubmitHook,
+} from '@hooks';
 import {
   useLatestBlocksDesktopStyles,
   useLatestBlocksMobileStyles,
@@ -23,29 +26,33 @@ import {
 import { useBlocksHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
-  getLabelsMobile, getLabelsDesktop,
+  getLabelsMobile,
+  getLabelsDesktop,
+  formatLatestBlocksData,
 } from './utils';
 
 const Blocks = () => {
   const { t } = useTranslation(['blocks', 'common']);
   const { communityPool } = useMarketHook();
+  const { handleSearchbarSubmit } = useSearchbarSubmitHook();
+  const {
+    handleLoadMore,
+    handleClick,
+    state,
+  } = useBlocksHook();
+  const {
+    total, data,
+  } = state;
+
   const { classes } = useGetStyles();
   const { classes: latestBlocksDesktopStyles } = useLatestBlocksDesktopStyles();
   const { classes: latestBlocksMobileStyles } = useLatestBlocksMobileStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
 
-  const {
-    handleSearchbarSubmit,
-    handleLoadMore,
-    handleClick,
-    state,
-  } = useBlocksHook();
-  const {
-    hasMore, data,
-  } = state;
   const labelsMobile = getLabelsMobile(t);
   const labelsDesktop = getLabelsDesktop(t);
+  const latestBlocksData = formatLatestBlocksData(data);
 
   return (
     <Layout
@@ -75,7 +82,7 @@ const Blocks = () => {
           <InfiniteScroll
             pageStart={0}
             loadMore={handleLoadMore}
-            hasMore={hasMore}
+            hasMore={total > data.length}
             loader={<InfiniteLoader key={0} />}
           >
             {/* ================================ */}
@@ -88,7 +95,7 @@ const Blocks = () => {
                 mobileOnlyStyles.root,
               )}
               labels={labelsMobile}
-              data={data}
+              data={latestBlocksData}
               onClick={handleClick}
             />
             {/* ================================ */}
@@ -100,7 +107,7 @@ const Blocks = () => {
                 desktopOnlyStyles.root,
               )}
               labels={labelsDesktop}
-              data={data}
+              data={latestBlocksData}
               onClick={handleClick}
             />
           </InfiniteScroll>

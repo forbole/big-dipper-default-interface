@@ -1,17 +1,21 @@
 import getLanguageValue from './get_language_value';
-import { handleSearchbarSubmit } from './handle_searchbar';
 import { formatDenom } from './format_denom';
-import { formatNumber } from './format_number';
+import {
+  formatNumber,
+  convertNumber,
+  nFormatter,
+} from './format_number';
 import { getBaseCommunityPool } from './get_base_community_pool';
 import { formatMiddleEllipse } from './format_middle_ellipse';
 import { getAllyProps } from './get_ally_props';
 
 export {
   getLanguageValue,
-  handleSearchbarSubmit,
   formatNumber,
+  convertNumber,
   formatDenom,
   getBaseCommunityPool,
   formatMiddleEllipse,
   getAllyProps,
+  nFormatter,
 };

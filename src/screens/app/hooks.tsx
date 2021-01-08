@@ -6,6 +6,7 @@ import {
   darkTheme,
   lightTheme,
 } from '@styles';
+import { KeybaseProfile } from '@models';
 import {
   i18n,
   useTranslation,
@@ -66,5 +67,25 @@ export const useAppHook = () => {
     changeLanguage,
     getCurrentLanguage,
     getThemeMode,
+  };
+};
+
+export const useKeybaseHook = () => {
+  const [keybaseList, setKeybase] = useState({
+  });
+
+  const handleSetKeybase = (stateChange: {
+    [key: string]: KeybaseProfile;
+  }) => {
+    setKeybase((prevState) => {
+      return ({
+        ...prevState, ...stateChange,
+      });
+    });
+  };
+
+  return {
+    keybaseList,
+    handleSetKeybase,
   };
 };
