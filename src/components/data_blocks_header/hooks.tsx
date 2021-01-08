@@ -19,13 +19,6 @@ export const useLatestBlockHook = () => {
   const latestBlockHeight = useSubscription(LATEST_BLOCK_HEIGHT);
   const formattedData = LatestBlockHeight.fromJson(R.pathOr({
   }, ['data', 'latest_height', 0], latestBlockHeight));
-  // wingman
-  // figure out how error is handled
-  // useEffect(() => {
-  //   if (latestBlockHeight.error) {
-  //     console.error(latestBlockHeight?.error?.message);
-  //   }
-  // }, [latestBlockHeight?.data, latestBlockHeight?.error]);
 
   return {
     latestBlockHeight: formattedData,
