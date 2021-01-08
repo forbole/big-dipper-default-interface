@@ -10,7 +10,7 @@ export const useMarketHook = () => {
     loading: communityPoolLoading,
     error: communityPoolError,
   } = useQuery(COMMUNITY_POOL, {
-    pollInterval: generalConfig.pollInterval,
+    pollInterval: generalConfig.pollInterval.default,
   });
 
   const communityPoolRaw = R.pathOr([], ['community_pool', 0, 'coins'], communityPoolData);

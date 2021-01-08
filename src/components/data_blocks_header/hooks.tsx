@@ -34,7 +34,7 @@ export const useLatestBlockHook = () => {
 
 export const useActiveValidatorsHook = () => {
   const validators = useQuery(TOTAL_ACTIVE_VALIDATORS, {
-    pollInterval: generalConfig.pollInterval,
+    pollInterval: generalConfig.pollInterval.default,
   });
 
   const formattedData = TotalActiveValidators.fromJson(R.pathOr({
@@ -49,7 +49,7 @@ export const useAveragetimeBlockHook = () => {
   const [duration, setDuration] = useState('lastDay');
 
   const averageBlockTimes = useQuery(AVERAGE_BLOCK_TIMES, {
-    pollInterval: generalConfig.fastInterval, // poll interval per minute
+    pollInterval: generalConfig.pollInterval.minute,
   });
 
   const formattedData = AverageBlockTimes.fromJson(R.pathOr({

@@ -13,7 +13,7 @@ export const useKeybaseHook = (identity: string | null | undefined, globalState)
         if (identity.length === 16) {
           const { data } = await axios.get(`https://keybase.io/_/api/1.0/user/lookup.json?key_suffix=${identity}&fields=basics&fields=pictures`);
 
-          if (data?.status?.code === 0) {
+          if (data?.status?.code === 0 && data?.them?.length > 0) {
             handleSetKeybase({
               [identity]: KeybaseProfile.fromJson(R.pathOr({
               }, ['them', 0], data)),

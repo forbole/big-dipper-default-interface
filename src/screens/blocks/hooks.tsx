@@ -1,6 +1,4 @@
-import {
-  useEffect, useState,
-} from 'react';
+import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
@@ -23,7 +21,7 @@ export const useBlocksHook = () => {
 
   // polling to get latest block
   useQuery(LATEST_BLOCKS, {
-    pollInterval: generalConfig.fastInterval,
+    pollInterval: generalConfig.pollInterval.minute,
     notifyOnNetworkStatusChange: true,
     variables: {
       limit: 1,
