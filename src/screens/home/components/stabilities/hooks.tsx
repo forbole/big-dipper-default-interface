@@ -6,7 +6,7 @@ import { Stabilities } from '@models';
 
 export const useStabilitiesHook = () => {
   const stabilities = useQuery(STABILITIES, {
-    pollInterval: generalConfig.pollInterval,
+    pollInterval: generalConfig.pollInterval.default,
   });
 
   const formattedData = Stabilities.fromJson(R.pathOr({

@@ -13,6 +13,7 @@ export const useLatestBlocksDesktopStyles = () => {
           color: theme?.palette?.custom?.fonts?.fontTwo,
         },
         '& .table': {
+          width: '100%',
           background: theme?.palette?.background?.paper,
         },
         '& .single-row': {
@@ -24,6 +25,17 @@ export const useLatestBlocksDesktopStyles = () => {
           },
           '& .cell': {
             color: theme?.palette?.custom?.fonts?.fontTwo,
+          },
+          '& .time': {
+            width: '250px',
+            maxWidth: '80px',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          },
+          '& .hash': {
+            width: '300px',
+            maxWidth: '80px',
           },
         },
       },

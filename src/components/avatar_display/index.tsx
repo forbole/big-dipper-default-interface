@@ -19,6 +19,7 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   const { keybaseList } = globalState;
 
   const verifiedUser = keybaseList?.[identity];
+
   if (verifiedUser) {
     return (
       <AvatarDisplay

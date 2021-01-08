@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-export const LATEST_BLOCKS = gql`
-  query LatestBlocks ($limit: Int, $offset: Int){
-    blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
+export const LATEST_BLOCK = gql`
+  subscription LatestBlock {
+    blocks: block(limit: 1, order_by: {height: desc}) {
       height
       num_txs
       hash
@@ -13,11 +13,6 @@ export const LATEST_BLOCKS = gql`
           validator_address
           identity
         }
-      }
-    }
-    block_aggregate {
-      aggregate {
-        count
       }
     }
   }

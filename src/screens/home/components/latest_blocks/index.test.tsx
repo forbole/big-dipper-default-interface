@@ -7,7 +7,7 @@ import {
 } from 'big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { awaitActions } from '@tests/utils/await_actions';
-import { LATEST_BLOCKS_MOCK } from '@tests/mocks';
+import { LATEST_BLOCKS_MOCK_DATA } from '@tests/mocks';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
 import { mockedAxios } from '@tests/utils/mock_axios';
@@ -30,7 +30,7 @@ describe('LatestBlocks', () => {
           component: <LatestBlocks />,
           theme: lightTheme,
         }),
-        mocks: LATEST_BLOCKS_MOCK,
+        mocks: LATEST_BLOCKS_MOCK_DATA(),
       }),
     );
 

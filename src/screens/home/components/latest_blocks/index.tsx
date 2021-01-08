@@ -23,7 +23,7 @@ import {
   ActionMobile,
   FooterAction,
   ActionDesktop,
-} from './components';
+} from '..';
 
 const LatestBlocks = () => {
   const { t } = useTranslation(['home']);

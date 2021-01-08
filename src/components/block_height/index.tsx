@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useGetStyles } from './styles';
 import { HeightProps } from './types';
 
-const Height = (props:HeightProps) => {
+const BlockHeight = (props:HeightProps) => {
   const { classes } = useGetStyles();
   const {
     raw,
@@ -20,4 +20,4 @@ const Height = (props:HeightProps) => {
   );
 };
 
-export default Height;
+export default BlockHeight;

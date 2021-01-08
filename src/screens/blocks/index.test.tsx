@@ -13,38 +13,45 @@ import {
   HeaderBarMobile,
 } from '@components';
 import {
-  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
+  LAYOUT_MOCK_DATA,
+  HEADER_BAR_MOCK,
+  DATA_BLOCKS_HEADER_MOCK,
+  LATEST_BLOCK_MOCK_DATA,
+  LATEST_BLOCKS_MOCK_DATA,
 } from '@tests/mocks';
 
 describe('Blocks', () => {
-  it('it renders', async () => {
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
-    expect(Blocks).toBeTruthy();
-    const wrapper = mount(
-      WithMockApolloProvider({
-        component: BaseWrapper({
-          component: <Blocks />,
-          theme: lightTheme,
-        }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
-      }),
-    );
-    await awaitActions({
-      wrapper,
-      time: 10,
-    });
-    expect(wrapper).not.toBeNull();
-  });
-
   it('correctly renders Home component with hooks', async () => {
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
+    mockedAxios?.get?.mockImplementation((url) => {
+      if (url.includes('keybase.io')) {
+        return (
+          Promise.resolve({
+            status: {
+              code: 0,
+            },
+            them: [],
+          })
+        );
+      }
+      return (
+        Promise.resolve(LAYOUT_MOCK_DATA)
+      );
+    });
     const wrapper = mount(
       WithMockApolloProvider({
         component: BaseWrapper({
           component: <Blocks />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
+        mocks: [
+          ...HEADER_BAR_MOCK,
+          ...DATA_BLOCKS_HEADER_MOCK,
+          ...LATEST_BLOCK_MOCK_DATA,
+          ...LATEST_BLOCKS_MOCK_DATA({
+            limit: 10,
+            offset: 1,
+          }),
+        ],
       }),
     );
     await awaitActions({
