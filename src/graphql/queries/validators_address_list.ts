@@ -1,5 +1,3 @@
-import { gql } from '@apollo/client';
-
 /**
  * Initial helper to get all existing validators and their address
  */

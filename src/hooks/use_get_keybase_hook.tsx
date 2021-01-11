@@ -10,7 +10,7 @@ export const useGetKeybaseHook = (identity: string | null | undefined, globalSta
     } = globalState;
     const fetchData = async () => {
       try {
-        if (identity.length === 16) {
+        if (identity?.length === 16) {
           const { data } = await axios.get(`https://keybase.io/_/api/1.0/user/lookup.json?key_suffix=${identity}&fields=basics&fields=pictures`);
 
           if (data?.status?.code === 0 && data?.them?.length > 0) {

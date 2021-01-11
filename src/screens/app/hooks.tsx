@@ -2,14 +2,17 @@ import {
   useEffect,
   useState,
 } from 'react';
-// import * as R from 'ramda';
+import * as R from 'ramda';
 import axios from 'axios';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
   lightTheme,
 } from '@styles';
-import { KeybaseProfile } from '@models';
+import {
+  KeybaseProfile,
+  ValidatorAddressList,
+} from '@models';
 import { VALIDATORS_ADDRESS_LIST_RAW } from '@graphql/queries';
 import {
   i18n,
@@ -101,7 +104,8 @@ export const useKeybaseHook = () => {
 // validators map global state
 // ================================
 /**
- * Initial global hook to fetch the current list of validators
+ * Initial global hook to fetch the current list of validators.
+ * Displays a map with self delegate address
  */
 export const useGetValidatorAddressListHook = () => {
   const [validatorsMap, setValidatorsMap] = useState({
@@ -117,7 +121,14 @@ export const useGetValidatorAddressListHook = () => {
             query: VALIDATORS_ADDRESS_LIST_RAW,
           },
         });
-        console.log(data, 'my data');
+        const newState = {
+        };
+
+        R.pathOr([], ['data', 'validator'], data).forEach((x) => {
+          const formattedData = ValidatorAddressList.fromJson(x);
+          newState[formattedData.selfDelegateAddress] = formattedData;
+        });
+        setValidatorsMap(newState);
       } catch (error) {
         console.error(error.message);
       }
@@ -125,14 +136,6 @@ export const useGetValidatorAddressListHook = () => {
 
     getData();
   }, []);
-
-  // useQuery(VALIDATORS_ADDRESS_LIST, {
-  //   onCompleted: (data) => {
-  //     console.log(data, 'my data');
-  //     // const formattedData = R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block));
-  //     // setLatestBlocksData(formattedData);
-  //   },
-  // });
 
   return {
     validators: validatorsMap,
