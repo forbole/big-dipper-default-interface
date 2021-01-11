@@ -1,4 +1,4 @@
-import { convertNumber } from '@utils';
+import numeral from 'numeral';
 import { chainConfig } from '@src/chain_config';
 
 /**
@@ -6,7 +6,7 @@ import { chainConfig } from '@src/chain_config';
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const formatDenom = (denom: string, value: number) => {
+export const formatDenom = (denom: string, value: number, format = '0,.00') => {
   const results = {
     raw: value,
     format: '-',
@@ -18,11 +18,9 @@ export const formatDenom = (denom: string, value: number) => {
     return results;
   }
   const ratio = 10 ** selectedDenom.exponent;
-  const format = convertNumber(value / ratio, {
-    decimal: 4,
-  });
-  results.raw = format.value;
-  results.format = format.display;
+
+  results.raw = value / ratio;
+  results.format = numeral(value / ratio).format(format);
 
   return results;
 };

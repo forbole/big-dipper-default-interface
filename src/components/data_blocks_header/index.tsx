@@ -38,9 +38,10 @@ const DataBlocksHeader = () => {
   const validatorsActiveValue = convertNumber(validators.active);
   const validatorsTotalValue = convertNumber(validators.total);
   const validatorsDisplay = `${t('outOf')} ${validatorsTotalValue.display} ${t('validators')}`.toLowerCase();
-  const durationValue = `${convertNumber(averageBlockTimes[duration] ?? 0, {
-    decimal: 2,
-  }).display} s`;
+  const durationValue = convertNumber(averageBlockTimes[duration] ?? 0, {
+    suffix: 's',
+    format: '0.00',
+  }).display;
 
   return (
     <div className={classnames(classes.root, 'data-blocks-container')}>
