@@ -4,7 +4,7 @@ import {
 } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
-import { formatNumber } from '@utils';
+import { convertNumber } from '@utils';
 import { useGetStyles } from './styles';
 import { fakeData } from './utils';
 import { useOnlineVotingPowerHook } from './hooks';
@@ -33,7 +33,7 @@ const OnlineVotingPower = () => {
                   cartesianGrid: {
                     stroke: cartesianGridStroke,
                   },
-                  toolTipFormatter: (value) => formatNumber(value),
+                  toolTipFormatter: (value) => convertNumber(value).display,
                 }}
               />
             ),
