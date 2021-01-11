@@ -1,12 +1,16 @@
 import {
-  useEffect, useState,
+  useEffect,
+  useState,
 } from 'react';
+// import * as R from 'ramda';
+import axios from 'axios';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
   lightTheme,
 } from '@styles';
 import { KeybaseProfile } from '@models';
+import { VALIDATORS_ADDRESS_LIST_RAW } from '@graphql/queries';
 import {
   i18n,
   useTranslation,
@@ -70,6 +74,9 @@ export const useAppHook = () => {
   };
 };
 
+// ================================
+// keybase global state
+// ================================
 export const useKeybaseHook = () => {
   const [keybaseList, setKeybase] = useState({
   });
@@ -87,5 +94,47 @@ export const useKeybaseHook = () => {
   return {
     keybaseList,
     handleSetKeybase,
+  };
+};
+
+// ================================
+// validators map global state
+// ================================
+/**
+ * Initial global hook to fetch the current list of validators
+ */
+export const useGetValidatorAddressListHook = () => {
+  const [validatorsMap, setValidatorsMap] = useState({
+  });
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios({
+          url: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+          method: 'post',
+          data: {
+            query: VALIDATORS_ADDRESS_LIST_RAW,
+          },
+        });
+        console.log(data, 'my data');
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    getData();
+  }, []);
+
+  // useQuery(VALIDATORS_ADDRESS_LIST, {
+  //   onCompleted: (data) => {
+  //     console.log(data, 'my data');
+  //     // const formattedData = R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block));
+  //     // setLatestBlocksData(formattedData);
+  //   },
+  // });
+
+  return {
+    validators: validatorsMap,
   };
 };

@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AvatarDisplay } from 'big-dipper-default-ui';
 import { GlobalContext } from '@contexts';
 import Jazzicon from 'react-jazzicon';
-import { useKeybaseHook } from '@hooks';
+import { useGetKeybaseHook } from '@hooks';
 import { AvatarDisplayProps } from './types';
 
 /**
@@ -15,7 +15,7 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     address,
   } = props;
   const globalState = useContext(GlobalContext);
-  useKeybaseHook(identity, globalState);
+  useGetKeybaseHook(identity, globalState);
   const { keybaseList } = globalState;
 
   const verifiedUser = keybaseList?.[identity];

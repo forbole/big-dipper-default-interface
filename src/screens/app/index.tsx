@@ -9,7 +9,9 @@ import { useApollo } from '@src/graphql/client';
 import { GlobalContext } from '@contexts';
 import { appWithTranslation } from '../../../i18n';
 import {
-  useAppHook, useKeybaseHook,
+  useAppHook,
+  useKeybaseHook,
+  useGetValidatorAddressListHook,
 } from './hooks';
 import { useGetStyles } from './styles';
 import 'react-toastify/dist/ReactToastify.css';
@@ -25,9 +27,15 @@ function MyApp({
   // =============================
   const layoutProps = useAppHook();
   const keybaseProps = useKeybaseHook();
+  const validatorProps = useGetValidatorAddressListHook();
+
+  // =============================
+  // global state
+  // =============================
   const globalState = {
     ...layoutProps,
     ...keybaseProps,
+    ...validatorProps,
   };
 
   // =============================
