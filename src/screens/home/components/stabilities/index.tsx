@@ -1,12 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
+import numeral from 'numeral';
 import { Stabilities } from 'big-dipper-default-ui';
 import { chainConfig } from '@src/chain_config';
-import {
-  formatDenom,
-  nFormatter,
-} from '@utils';
+import { formatDenom } from '@utils';
 import { useGetStyles } from './styles';
 import { useStabilitiesHook } from './hooks';
 
@@ -22,8 +20,10 @@ const StabilitiesItem = () => {
   // ================================
   const communityPoolDisplay = formatDenom(chainConfig.display, stabilities.communityPool);
   const totalSupplyRaw = formatDenom(chainConfig.display, stabilities.totalSupply).raw;
-  const totalSupplyDisplay = nFormatter(totalSupplyRaw, 1);
+  const totalSupplyDisplay = numeral(totalSupplyRaw).format('0.0a');
+
   const unbondedTokens = formatDenom(chainConfig.display, stabilities.unbondedTokens);
+
   const bondedTokens = formatDenom(chainConfig.display, stabilities.bondedTokens);
 
   return (
