@@ -39,7 +39,7 @@ export const useActiveValidatorsHook = () => {
 };
 
 export const useAveragetimeBlockHook = () => {
-  const [duration, setDuration] = useState('lastDay');
+  const [duration, setDuration] = useState('allTime');
 
   const averageBlockTimes = useQuery(AVERAGE_BLOCK_TIMES, {
     pollInterval: generalConfig.pollInterval.minute,
