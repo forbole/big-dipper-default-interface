@@ -6,7 +6,7 @@ import { chainConfig } from '@src/chain_config';
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const formatDenom = (denom: string, value: number, format = '0,.0000') => {
+export const formatDenom = (denom: string, value: number, format = '0,.00') => {
   const results = {
     raw: value,
     format: '-',

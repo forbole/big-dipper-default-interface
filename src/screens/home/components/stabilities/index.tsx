@@ -22,9 +22,9 @@ const StabilitiesItem = () => {
   const totalSupplyRaw = formatDenom(chainConfig.display, stabilities.totalSupply).raw;
   const totalSupplyDisplay = numeral(totalSupplyRaw).format('0.0a');
 
-  const unbondedTokens = formatDenom(chainConfig.display, stabilities.unbondedTokens);
+  const unbondedTokens = formatDenom(chainConfig.display, stabilities.unbondedTokens, '0.00a');
 
-  const bondedTokens = formatDenom(chainConfig.display, stabilities.bondedTokens);
+  const bondedTokens = formatDenom(chainConfig.display, stabilities.bondedTokens, '0.00a');
 
   return (
     <Stabilities
