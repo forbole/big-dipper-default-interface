@@ -13,7 +13,7 @@ const HeaderBarMobile = (props:HeaderBarMobileProps) => {
     title, communityPool,
   } = props;
   const baseCommunityPool = getBaseCommunityPool(chainConfig.base, communityPool.data);
-  const communityPoolValue = formatDenom(chainConfig.display, baseCommunityPool?.amount ?? 0);
+  const communityPoolValue = formatDenom(chainConfig.display, baseCommunityPool?.amount ?? 0, '0.0a');
   return (
     <HeaderBar
       title={title}
