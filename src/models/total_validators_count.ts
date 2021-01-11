@@ -1,4 +1,4 @@
-class TotalActiveValidators {
+class TotalValidatorsCount {
   public active: number;
   public inactive: string;
   public total: number;
@@ -13,7 +13,7 @@ class TotalActiveValidators {
     const active = data?.active_validators?.aggregate?.count ?? 0;
     const inactive = data?.not_active_validators?.aggregate?.count ?? 0;
     const total = active + inactive;
-    return new TotalActiveValidators({
+    return new TotalValidatorsCount({
       active,
       inactive,
       total,
@@ -21,4 +21,4 @@ class TotalActiveValidators {
   }
 }
 
-export default TotalActiveValidators;
+export default TotalValidatorsCount;

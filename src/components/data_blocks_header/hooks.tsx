@@ -5,12 +5,12 @@ import {
 } from '@apollo/client';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
 import {
-  TOTAL_ACTIVE_VALIDATORS,
+  TOTAL_VALIDATORS_COUNT,
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
 import {
   LatestBlockHeight,
-  TotalActiveValidators,
+  TotalValidatorsCount,
   AverageBlockTimes,
 } from '@models';
 import { generalConfig } from '@src/general_config';
@@ -26,11 +26,11 @@ export const useLatestBlockHook = () => {
 };
 
 export const useActiveValidatorsHook = () => {
-  const validators = useQuery(TOTAL_ACTIVE_VALIDATORS, {
+  const validators = useQuery(TOTAL_VALIDATORS_COUNT, {
     pollInterval: generalConfig.pollInterval.default,
   });
 
-  const formattedData = TotalActiveValidators.fromJson(R.pathOr({
+  const formattedData = TotalValidatorsCount.fromJson(R.pathOr({
   }, ['data'], validators));
 
   return {

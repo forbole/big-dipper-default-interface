@@ -1,5 +1,5 @@
 import {
-  TOTAL_ACTIVE_VALIDATORS,
+  TOTAL_VALIDATORS_COUNT,
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
@@ -55,7 +55,7 @@ export const DATA_BLOCKS_HEADER_MOCK = [
   },
   {
     request: {
-      query: TOTAL_ACTIVE_VALIDATORS,
+      query: TOTAL_VALIDATORS_COUNT,
       variables: {
       },
     },
