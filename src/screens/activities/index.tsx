@@ -3,8 +3,8 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
 import {
-  LatestActivitiesMobile,
-  LatestActivitiesDesktop,
+// LatestActivitiesMobile,
+// LatestActivitiesDesktop,
 } from 'big-dipper-default-ui';
 import {
   Layout,
@@ -90,7 +90,8 @@ const Activities = () => {
             {/* ================================ */}
             {/* mobile */}
             {/* ================================ */}
-            <LatestActivitiesMobile
+            mobile
+            {/* <LatestActivitiesMobile
               className={classnames(
                 mobileOnlyStyles.root,
                 classes.latestActivitiesMobile,
@@ -98,18 +99,19 @@ const Activities = () => {
               )}
               data={data}
               onClick={handleClick}
-            />
+            /> */}
             {/* ================================ */}
             {/* desktop */}
             {/* ================================ */}
-            <LatestActivitiesDesktop
+            desktop
+            {/* <LatestActivitiesDesktop
               collapsibleLabels={collapsibleLabels}
               data={data}
               className={classnames(
                 desktopOnlyStyles.root,
                 latestActivitiesDesktopStyles.root,
               )}
-            />
+            /> */}
           </InfiniteScroll>
         </div>
       </div>

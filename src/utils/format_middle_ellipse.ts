@@ -5,15 +5,16 @@ export const formatMiddleEllipse = (str:string, options?: {
   beginning?: number,
   ending?: number,
 }) => {
-  const oneThird = Math.floor(str.length / 3);
+  const oneThird = Math.floor(str.length / 4);
   const {
-    beginning = oneThird,
+    beginning = oneThird + oneThird,
     ending = oneThird,
   } = options ?? {
   };
 
-  if (str.length > 2) {
+  if (beginning + ending && beginning + ending < str.length) {
     return `${str.substr(0, beginning)}...${str.substr(str.length - ending, str.length)}`;
   }
+
   return str;
 };
