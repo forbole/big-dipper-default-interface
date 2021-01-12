@@ -6,10 +6,14 @@ import numeral from 'numeral';
  * @param options
  */
 export const convertNumber = (num: number | string, options?: {
+  prefix?: string,
   suffix?: string,
   format?: string;
 }) => {
-  const { format = null } = options ?? {
+  const {
+    format = null,
+    prefix = '',
+  } = options ?? {
   };
   let { suffix = '' } = options ?? {
   };
@@ -27,7 +31,7 @@ export const convertNumber = (num: number | string, options?: {
     suffix = ` ${suffix}`;
   }
 
-  results.display = `${numeral(num).format(format)}${suffix}`;
+  results.display = `${prefix}${numeral(num).format(format)}${suffix}`;
 
   return results;
 };

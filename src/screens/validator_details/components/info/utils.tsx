@@ -12,7 +12,6 @@ export const formatData = (data, isDesktop) => {
   // if it's mobile we want to ellipse the string
   if (!isDesktop) {
     const formatOptions = {
-      maxLength: 20,
       beginning: 8,
       ending: 8,
     };
