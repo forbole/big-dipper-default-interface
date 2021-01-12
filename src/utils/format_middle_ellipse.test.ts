@@ -9,4 +9,14 @@ test('formatMiddleEllipse', async () => {
     beginning: 5,
     ending: 6,
   })).toEqual('heel');
+
+  expect(formatMiddleEllipse('heel', {
+    beginning: 3,
+    ending: 1,
+  })).toEqual('heel');
+
+  expect(formatMiddleEllipse('heel', {
+    beginning: 2,
+    ending: 1,
+  })).toEqual('he...l');
 });

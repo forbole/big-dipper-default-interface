@@ -12,7 +12,9 @@ export const formatMiddleEllipse = (str:string, options?: {
   } = options ?? {
   };
 
-  if (beginning + ending && beginning + ending < str.length) {
+  const startEndTotal = beginning + ending;
+
+  if (startEndTotal && startEndTotal < str.length) {
     return `${str.substr(0, beginning)}...${str.substr(str.length - ending, str.length)}`;
   }
 
