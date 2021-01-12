@@ -18,7 +18,9 @@ export const useLatestActivitiesStyles = () => {
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-
+        '& .single-transaction__header': {
+          padding: `0.5rem ${theme?.palette?.custom?.margins?.large}`,
+        },
       },
     },
   }));

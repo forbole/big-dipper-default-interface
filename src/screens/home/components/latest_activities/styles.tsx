@@ -12,6 +12,9 @@ export const useGetStyles = () => {
           minHeight: '100%',
           display: 'flex',
           flexDirection: 'column',
+          '& .top-bar': {
+            paddingBottom: '2rem',
+          },
           '& .content': {
             flex: '1',
             overflow: 'auto',

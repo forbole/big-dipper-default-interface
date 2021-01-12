@@ -41,10 +41,7 @@ const dummyHashValue = 'sdfkgsfgfgjlsglgsksddlk';
 export const dummyLatestActivities:any = Array(10).fill({
   hash: {
     value: dummyHashValue,
-    display: `#${formatMiddleEllipse(dummyHashValue, {
-      beginning: 5,
-      ending: 3,
-    })}`,
+    display: `#${formatMiddleEllipse(dummyHashValue)}`,
   },
   timestamp: '10 Dec 2019 18:12',
   success: true,
