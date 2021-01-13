@@ -18,8 +18,12 @@ export const useLatestActivitiesStyles = () => {
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        '& .single-transaction__header': {
-          padding: `0.5rem ${theme?.palette?.custom?.margins?.large}`,
+        '&.activities-list': {
+          color: theme.palette.custom.fonts.fontTwo,
+          '& .single-transaction__header': {
+            padding: `0.5rem ${theme?.palette?.custom?.margins?.large}`,
+            background: theme?.palette?.custom?.table?.rowOdd,
+          },
         },
       },
     },
