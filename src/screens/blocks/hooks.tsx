@@ -13,8 +13,6 @@ import {
   latestBlocksParser, latestBlocksTotalParser,
 } from '@src/graphql/parsers/queries';
 
-const LIMIT = 10;
-
 export const useBlocksHook = () => {
   const router = useRouter();
   const [state, setState] = useState({
@@ -44,7 +42,7 @@ export const useBlocksHook = () => {
   // handles pagination to get older blocks
   const latestBlocks = useQuery(gql`${LATEST_BLOCKS}`, {
     variables: {
-      limit: LIMIT,
+      limit: 10,
       offset: 1,
     },
     onCompleted: (data) => {
