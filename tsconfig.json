@@ -55,6 +55,12 @@
       "@hooks": [
         "src/hooks"
       ],
+      "@graphql/subscriptions/parsers": [
+        "src/graphql/subscriptions/parsers"
+      ],
+      "@graphql/queries/parsers": [
+        "src/graphql/queries/parsers"
+      ],
       "@graphql/queries": [
         "src/graphql/queries"
       ],

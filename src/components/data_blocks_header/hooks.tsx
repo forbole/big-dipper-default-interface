@@ -8,20 +8,23 @@ import {
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
-import {
-  LatestBlockHeight,
-  TotalActiveValidators,
-  AverageBlockTimes,
-} from '@models';
+import { latestBlockHeightParser } from '@graphql/subscriptions/parsers';
+import { averageBlockTimesParser } from '@graphql/queries/parsers';
+import { TotalActiveValidators } from '@models';
 import { generalConfig } from '@src/general_config';
 
 export const useLatestBlockHook = () => {
-  const latestBlockHeight = useSubscription(LATEST_BLOCK_HEIGHT);
-  const formattedData = LatestBlockHeight.fromJson(R.pathOr({
-  }, ['data', 'latest_height', 0], latestBlockHeight));
+  const [blockHeight, setBlockHeight] = useState({
+  });
+
+  useSubscription(LATEST_BLOCK_HEIGHT, {
+    onSubscriptionData: (data) => {
+      setBlockHeight(latestBlockHeightParser(data));
+    },
+  });
 
   return {
-    latestBlockHeight: formattedData,
+    latestBlockHeight: blockHeight,
   };
 };
 
@@ -40,20 +43,23 @@ export const useActiveValidatorsHook = () => {
 
 export const useAveragetimeBlockHook = () => {
   const [duration, setDuration] = useState('lastDay');
-
-  const averageBlockTimes = useQuery(AVERAGE_BLOCK_TIMES, {
-    pollInterval: generalConfig.pollInterval.minute,
+  const [durationData, setDurationData] = useState({
   });
 
-  const formattedData = AverageBlockTimes.fromJson(R.pathOr({
-  }, ['data'], averageBlockTimes));
+  useQuery(AVERAGE_BLOCK_TIMES, {
+    pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
+    onCompleted: (data: any) => {
+      setDurationData(averageBlockTimesParser(data));
+    },
+  });
 
   const handleBlockTimeDurationClick = (value:string) => {
     setDuration(value);
   };
 
   return {
-    averageBlockTimes: formattedData,
+    averageBlockTimes: durationData,
     handleBlockTimeDurationClick,
     duration,
   };
