@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client';
-
-export const STABILITIES = gql`
+export const STABILITIES = `
   query Stabilities{
     pool: staking_pool_history(order_by: {height: desc}, limit: 1) {
       bonded_tokens

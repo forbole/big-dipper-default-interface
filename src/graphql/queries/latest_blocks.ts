@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client';
-
-export const LATEST_BLOCKS = gql`
+export const LATEST_BLOCKS = `
   query LatestBlocks ($limit: Int, $offset: Int){
     blocks: block(limit: $limit, offset: $offset, order_by: {height: desc}) {
       height

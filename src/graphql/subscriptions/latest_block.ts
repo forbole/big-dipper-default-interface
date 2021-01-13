@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client';
-
-export const LATEST_BLOCK = gql`
+export const LATEST_BLOCK = `
   subscription LatestBlock {
     blocks: block(limit: 1, order_by: {height: desc}) {
       height

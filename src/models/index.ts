@@ -8,6 +8,7 @@ import Stabilities from './stabilities';
 import LatestBlock from './latest_block';
 import KeybaseProfile from './keybase_profile';
 import LatestActivity from './latest_activity';
+import ValidatorAddressList from './validator_address_list';
 
 export {
   BigDipperNetworkLink,
@@ -20,4 +21,5 @@ export {
   LatestBlock,
   KeybaseProfile,
   LatestActivity,
+  ValidatorAddressList,
 };

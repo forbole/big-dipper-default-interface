@@ -70,9 +70,6 @@
       "@graphql/subscriptions": [
         "src/graphql/subscriptions"
       ],
-      "@graphql/raws": [
-        "src/graphql/raws"
-      ],
       "@tests/*": [
         "tests/*"
       ]
