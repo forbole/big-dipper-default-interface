@@ -9,8 +9,20 @@ import LatestBlock from './latest_block';
 import KeybaseProfile from './keybase_profile';
 import LatestActivity from './latest_activity';
 import ValidatorAddressList from './validator_address_list';
+
+// ================================
+// Transaction Message Types
+// ================================
 import MsgMultiSend from './msg_multi_send';
 import MsgSend from './msg_send';
+import MsgVerifyInvariant from './msg_verify_invariant';
+import MsgFundCommunityPool from './msg_fund_community_pool';
+import MsgSetWithdrawAddress from './msg_set_withdrawal_address';
+import MsgWithdrawDelegatorReward from './msg_withdrawal_delegaor_reward';
+import CommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
+import MsgParameterChangeProposal from './msg_parameter_change_proposal';
+import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
+import MsgTextProposal from './msg_text_proposal';
 
 export {
   BigDipperNetworkLink,
@@ -26,4 +38,12 @@ export {
   ValidatorAddressList,
   MsgSend,
   MsgMultiSend,
+  MsgVerifyInvariant,
+  MsgFundCommunityPool,
+  MsgSetWithdrawAddress,
+  MsgWithdrawDelegatorReward,
+  CommunityPoolSpendProposal,
+  MsgParameterChangeProposal,
+  MsgSoftwareUpgradeProposal,
+  MsgTextProposal,
 };
