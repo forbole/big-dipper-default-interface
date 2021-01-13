@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import * as R from 'ramda';
 import { useQuery } from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
-import { LatestBlock } from '@models';
 import { generalConfig } from '@src/general_config';
+import { latestBlocksParser } from '@src/graphql/parsers/queries';
 
 export const useLatestBlocksHook = () => {
   const [latestBlocksdata, setLatestBlocksData] = useState([]);
@@ -21,8 +20,7 @@ export const useLatestBlocksHook = () => {
       offset: 0,
     },
     onCompleted: (data) => {
-      const formattedData = R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block));
-      setLatestBlocksData(formattedData);
+      setLatestBlocksData(latestBlocksParser(data));
     },
   });
 
