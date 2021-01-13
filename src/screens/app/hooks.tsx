@@ -1,6 +1,7 @@
 import {
   useEffect, useState,
 } from 'react';
+import axios from 'axios';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
@@ -70,6 +71,9 @@ export const useAppHook = () => {
   };
 };
 
+// ================================
+// keybase global state
+// ================================
 export const useKeybaseHook = () => {
   const [keybaseList, setKeybase] = useState({
   });
@@ -87,5 +91,47 @@ export const useKeybaseHook = () => {
   return {
     keybaseList,
     handleSetKeybase,
+  };
+};
+
+// ================================
+// validators map global state
+// ================================
+/**
+ * Initial global hook to fetch the current list of validators.
+ * Displays a map with self delegate address
+ */
+export const useGetValidatorAddressListHook = () => {
+  const [validatorsMap, setValidatorsMap] = useState({
+  });
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios({
+          url: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+          method: 'post',
+          data: {
+            query: VALIDATORS_ADDRESS_LIST_RAW,
+          },
+        });
+        const newState = {
+        };
+
+        R.pathOr([], ['data', 'validator'], data).forEach((x) => {
+          const formattedData = ValidatorAddressList.fromJson(x);
+          newState[formattedData.selfDelegateAddress] = formattedData;
+        });
+        setValidatorsMap(newState);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    getData();
+  }, []);
+
+  return {
+    validators: validatorsMap,
   };
 };
