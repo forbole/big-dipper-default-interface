@@ -10,6 +10,9 @@ export const useGetStyles = () => {
         padding: theme?.palette?.custom?.margins?.small,
         background: theme?.palette?.background?.paper,
       },
+      '& .content-header': {
+        marginBottom: '1.5rem',
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         display: 'grid',
         padding: theme?.palette?.custom?.gutters?.medium,
@@ -30,24 +33,6 @@ export const useGetStyles = () => {
           fontSize: '1.5rem',
           whiteSpace: 'nowrap',
           color: theme?.palette?.custom?.fonts?.fontOneToTwo,
-        },
-      },
-    },
-    filterMenu: {
-      '&.MuiMenuItem-root': {
-        color: theme?.palette?.custom?.fonts?.fontOneToTwo,
-        fontSize: '1rem',
-      },
-    },
-    latestActivitiesMobile: {
-      '&.latest-activities-mobile': {
-        '& .activity': {
-          '&:first-child': {
-            borderTop: 'none',
-          },
-          '&:last-child': {
-            borderBottom: 'none',
-          },
         },
       },
     },

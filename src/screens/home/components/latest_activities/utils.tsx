@@ -1,6 +1,7 @@
 import {
   createStyles, makeStyles,
 } from '@material-ui/styles';
+import { formatMiddleEllipse } from '@utils';
 
 export const DummyContentMobile = () => {
   const useStyles = makeStyles(() => createStyles({
@@ -35,105 +36,17 @@ export const DummyContentMobile = () => {
   );
 };
 
-export const dummyLatestActivities:any = [
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
+const dummyHashValue = 'sdfkgsfgfgjlsglgsksddlk';
+
+export const dummyLatestActivities:any = Array(10).fill({
+  hash: {
+    value: dummyHashValue,
+    display: `#${formatMiddleEllipse(dummyHashValue)}`,
   },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-  },
-];
+  timestamp: '10 Dec 2019 18:12',
+  success: true,
+  messages: [
+    <div>one message</div>,
+    <div>two message</div>,
+  ],
+});

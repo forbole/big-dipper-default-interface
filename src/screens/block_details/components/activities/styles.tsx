@@ -9,6 +9,7 @@ export const useGetStyles = () => {
       padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
       '& .header__container': {
+        marginBottom: '1.5rem',
         '& h2': {
           fontSize: '1.375rem',
           fontWeight: 500,
@@ -25,19 +26,6 @@ export const useGetStyles = () => {
           justifyContent: 'space-between',
           '& h2': {
             fontSize: '1.5rem',
-          },
-        },
-      },
-    },
-    latestActivitiesMobile: {
-      '&.latest-activities-mobile': {
-        marginTop: 0,
-        '& .activity': {
-          '&:first-child': {
-            borderTop: 'none',
-          },
-          '&:last-child': {
-            borderBottom: 'none',
           },
         },
       },
