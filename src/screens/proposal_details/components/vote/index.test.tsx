@@ -2,17 +2,17 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import Deposit from '.';
+import Vote from '.';
 
-describe('Deposit', () => {
+describe('Vote', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
       BaseWrapper({
-        component: <Deposit />,
+        component: <Vote />,
         theme: lightTheme,
       }),
     );
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(Deposit)).toHaveLength(1);
+    expect(wrapper.find(Vote)).toHaveLength(1);
   });
 });

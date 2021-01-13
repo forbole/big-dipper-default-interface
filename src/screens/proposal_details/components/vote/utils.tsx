@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { AvatarDisplay } from 'big-dipper-default-ui';
 
-const ProposerData = () => {
+const ValidatorData = () => {
   return (
     <AvatarDisplay
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
@@ -16,7 +16,7 @@ export const yes = {
   validator: {
     className: 'validator',
     rawValue: 'forbole',
-    display: <ProposerData />,
+    display: <ValidatorData />,
   },
   votingPower: {
     className: 'votingPower',
@@ -44,7 +44,7 @@ export const no = {
   validator: {
     className: 'validator',
     rawValue: 'forbole',
-    display: <ProposerData />,
+    display: <ValidatorData />,
   },
   votingPower: {
     className: 'votingPower',
@@ -72,7 +72,7 @@ export const veto = {
   validator: {
     className: 'validator',
     rawValue: 'forbole',
-    display: <ProposerData />,
+    display: <ValidatorData />,
   },
   votingPower: {
     className: 'votingPower',
@@ -100,7 +100,7 @@ export const abstain = {
   validator: {
     className: 'validator',
     rawValue: 'forbole',
-    display: <ProposerData />,
+    display: <ValidatorData />,
   },
   votingPower: {
     className: 'votingPower',
@@ -128,7 +128,7 @@ export const absence = {
   validator: {
     className: 'validator',
     rawValue: 'forbole',
-    display: <ProposerData />,
+    display: <ValidatorData />,
   },
   votingPower: {
     className: 'votingPower',

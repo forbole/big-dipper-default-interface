@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import {
   ProposalResultDesktop,
@@ -9,7 +8,6 @@ import { useGetStyles } from './styles';
 import { dummyData } from './utils';
 
 const Vote = () => {
-  const { t } = useTranslation(['proposals', 'common']);
   const { classes } = useGetStyles();
 
   return (
