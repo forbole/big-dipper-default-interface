@@ -19,10 +19,12 @@ import MsgVerifyInvariant from './msg_verify_invariant';
 import MsgFundCommunityPool from './msg_fund_community_pool';
 import MsgSetWithdrawAddress from './msg_set_withdrawal_address';
 import MsgWithdrawDelegatorReward from './msg_withdrawal_delegaor_reward';
-import CommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
+import MsgCommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
 import MsgParameterChangeProposal from './msg_parameter_change_proposal';
 import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
 import MsgTextProposal from './msg_text_proposal';
+import MsgDeposit from './msg_deposit';
+import MsgVote from './msg_vote';
 
 export {
   BigDipperNetworkLink,
@@ -42,8 +44,10 @@ export {
   MsgFundCommunityPool,
   MsgSetWithdrawAddress,
   MsgWithdrawDelegatorReward,
-  CommunityPoolSpendProposal,
+  MsgCommunityPoolSpendProposal,
   MsgParameterChangeProposal,
   MsgSoftwareUpgradeProposal,
   MsgTextProposal,
+  MsgDeposit,
+  MsgVote,
 };
