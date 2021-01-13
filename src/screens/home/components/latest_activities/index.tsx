@@ -3,17 +3,11 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   TablePreviewWrapper,
-  // LatestActivitiesMobile,
-  // LatestActivitiesDesktop,
   LatestActivities as LatestActivitiesComponent,
 } from 'big-dipper-default-ui';
 import { useGetScreenSizeHook } from '@hooks';
 import {
-  useMobileOnlyStyles,
-  useDesktopOnlyStyles,
-  useLatestActivitiesMobileStyles,
   useTablePreviewWrapperStyles,
-  useLatestActivitiesDesktopStyles,
   useLatestActivitiesStyles,
 } from '@styles';
 import { dummyLatestActivities } from './utils';

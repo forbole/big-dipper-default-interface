@@ -12,19 +12,19 @@ export const useLatestActivitiesStyles = () => {
       '& .header__timestamp': {
         display: 'none',
       },
+      '&.activities-list': {
+        color: theme.palette.custom.fonts.fontTwo,
+        '& .single-transaction__header': {
+          padding: `0.5rem ${theme?.palette?.custom?.margins?.large}`,
+          background: theme?.palette?.custom?.table?.rowOdd,
+        },
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
         '& .header__timestamp': {
           display: 'block',
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-        '&.activities-list': {
-          color: theme.palette.custom.fonts.fontTwo,
-          '& .single-transaction__header': {
-            padding: `0.5rem ${theme?.palette?.custom?.margins?.large}`,
-            background: theme?.palette?.custom?.table?.rowOdd,
-          },
-        },
       },
     },
   }));
