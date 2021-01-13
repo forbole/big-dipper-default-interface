@@ -6,10 +6,10 @@ import {
 } from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
 import { LATEST_BLOCK } from '@graphql/subscriptions';
-import { latestBlockParser } from '@graphql/subscriptions/parsers';
+import { latestBlockParser } from '@src/graphql/parsers/subscriptions';
 import {
   latestBlocksParser, latestBlocksTotalParser,
-} from '@graphql/queries/parsers';
+} from '@src/graphql/parsers/queries';
 
 const LIMIT = 10;
 

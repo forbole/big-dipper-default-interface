@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useQuery } from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
-import { latestBlocksParser } from '@graphql/queries/parsers';
+import { latestBlocksParser } from '@src/graphql/parsers/queries';
 
 export const useLatestBlocksHook = () => {
   const [latestBlocksdata, setLatestBlocksData] = useState([]);

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as R from 'ramda';
 import {
   useQuery, useSubscription,
 } from '@apollo/client';
@@ -8,9 +7,10 @@ import {
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
-import { latestBlockHeightParser } from '@graphql/subscriptions/parsers';
-import { averageBlockTimesParser } from '@graphql/queries/parsers';
-import { TotalActiveValidators } from '@models';
+import { latestBlockHeightParser } from '@src/graphql/parsers/subscriptions';
+import {
+  averageBlockTimesParser, totalActiveValidatorsParser,
+} from '@src/graphql/parsers/queries';
 import { generalConfig } from '@src/general_config';
 
 export const useLatestBlockHook = () => {
@@ -29,15 +29,18 @@ export const useLatestBlockHook = () => {
 };
 
 export const useActiveValidatorsHook = () => {
-  const validators = useQuery(TOTAL_ACTIVE_VALIDATORS, {
+  const [validatorsData, setValidatorsData] = useState({
+  });
+  useQuery(TOTAL_ACTIVE_VALIDATORS, {
     pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
+    onCompleted: (data: any) => {
+      setValidatorsData(totalActiveValidatorsParser(data));
+    },
   });
 
-  const formattedData = TotalActiveValidators.fromJson(R.pathOr({
-  }, ['data'], validators));
-
   return {
-    validators: formattedData,
+    validators: validatorsData,
   };
 };
 

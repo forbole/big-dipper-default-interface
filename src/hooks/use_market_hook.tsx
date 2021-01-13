@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { COMMUNITY_POOL } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
-import { communityPoolParser } from '@graphql/queries/parsers';
+import { communityPoolParser } from '@src/graphql/parsers/queries';
 
 export const useMarketHook = () => {
   const [communityPoolData, setCommunityPoolData] = useState([]);
