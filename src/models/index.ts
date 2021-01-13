@@ -9,6 +9,8 @@ import LatestBlock from './latest_block';
 import KeybaseProfile from './keybase_profile';
 import LatestActivity from './latest_activity';
 import ValidatorAddressList from './validator_address_list';
+import MsgMultiSend from './msg_multi_send';
+import MsgSend from './msg_send';
 
 export {
   BigDipperNetworkLink,
@@ -22,4 +24,6 @@ export {
   KeybaseProfile,
   LatestActivity,
   ValidatorAddressList,
+  MsgSend,
+  MsgMultiSend,
 };
