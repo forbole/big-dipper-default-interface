@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
-  dummyLatestActivitiesData,
+  dummyLatestActivities,
   dummyPowerEvents,
 } from './utils';
 
@@ -25,7 +25,7 @@ export const useActivitiesHook = () => {
   const [
     state, setState,
   ] = useState({
-    data: dummyLatestActivitiesData,
+    data: dummyLatestActivities,
     hasMore: true,
   });
 

@@ -1,6 +1,7 @@
 import {
   createStyles, makeStyles,
 } from '@material-ui/styles';
+import { formatMiddleEllipse } from '@utils';
 
 export const DummyContentMobile = () => {
   const useStyles = makeStyles(() => createStyles({
@@ -35,276 +36,38 @@ export const DummyContentMobile = () => {
   );
 };
 
-export const dummyLatestActivitiesData:any[] = [
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: false,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-  {
-    type: {
-      display: 'Delegate',
-      className: 'delegate',
-    },
-    time: '1 hour',
-    success: true,
-    content: <div>custom content</div>,
-    hash: '12344566',
-    collapsibleData: {
-      height: <div>height</div>,
-      fee: '123 uatm',
-      gas: '1,234 / 20, 999',
-      memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
-    },
-  },
-];
+const dummyHashValue = 'sdfkgsfgfgjlsglgsksddlk';
 
-export const dummyPowerEvents = [
-  {
-    blockHeight: <div>1,233</div>,
-    date: '10 Dec 2019 18:12 UTC',
-    previousValue: '12,468,123',
-    currentValue: '12,468,123',
-    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
-    valueDifference: {
-      className: 'negative',
-      display: '-1,123',
-    },
-    value: '1,2345.03 DARIC',
-    type: {
-      className: 'delegation',
-      display: 'Delegation',
-    },
-    redelegate: {
-      from: <div>Wallet A</div>,
-      to: <div>Wallet B</div>,
-    },
+export const dummyLatestActivities:any = Array(10).fill({
+  hash: {
+    value: dummyHashValue,
+    display: `#${formatMiddleEllipse(dummyHashValue)}`,
   },
-  {
-    blockHeight: <div>1,233</div>,
-    date: '10 Dec 2009 18:12 UTC',
-    previousValue: '12,468,123',
-    currentValue: '12,468,123',
-    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
-    valueDifference: {
-      className: 'negative',
-      display: '-1,123',
-    },
-    value: '1,2345.03 DARIC',
-    type: {
-      className: 'delegation',
-      display: 'Delegation',
-    },
+  timestamp: '10 Dec 2019 18:12',
+  success: true,
+  messages: [
+    <div>one message</div>,
+    <div>two message</div>,
+  ],
+});
+
+export const dummyPowerEvents:any = Array(10).fill({
+  blockHeight: <div>1,233</div>,
+  date: '10 Dec 2019 18:12 UTC',
+  previousValue: '12,468,123',
+  currentValue: '12,468,123',
+  user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
+  valueDifference: {
+    className: 'negative',
+    display: '-1,123',
   },
-  {
-    blockHeight: <div>1,233</div>,
-    date: '10 Dec 2019 18:12 UTC',
-    previousValue: '12,468,123',
-    currentValue: '12,468,123',
-    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
-    valueDifference: {
-      className: 'negative',
-      display: '-1,123',
-    },
-    value: '1,2345.03 DARIC',
-    type: {
-      className: 'delegation',
-      display: 'Delegation',
-    },
-    redelegate: {
-      from: <div>Wallet A</div>,
-      to: <div>Wallet B</div>,
-    },
+  value: '1,2345.03 DARIC',
+  type: {
+    className: 'delegation',
+    display: 'Delegation',
   },
-  {
-    blockHeight: <div>1,233</div>,
-    date: '10 Dec 2009 18:12 UTC',
-    previousValue: '12,468,123',
-    currentValue: '12,468,123',
-    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
-    valueDifference: {
-      className: 'negative',
-      display: '-1,123',
-    },
-    value: '1,2345.03 DARIC',
-    type: {
-      className: 'delegation',
-      display: 'Delegation',
-    },
+  redelegate: {
+    from: <div>Wallet A</div>,
+    to: <div>Wallet B</div>,
   },
-  {
-    blockHeight: <div>1,233</div>,
-    date: '10 Dec 2019 18:12 UTC',
-    previousValue: '12,468,123',
-    currentValue: '12,468,123',
-    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
-    valueDifference: {
-      className: 'negative',
-      display: '-1,123',
-    },
-    value: '1,2345.03 DARIC',
-    type: {
-      className: 'delegation',
-      display: 'Delegation',
-    },
-    redelegate: {
-      from: <div>Wallet A</div>,
-      to: <div>Wallet B</div>,
-    },
-  },
-  {
-    blockHeight: <div>1,233</div>,
-    date: '10 Dec 2009 18:12 UTC',
-    previousValue: '12,468,123',
-    currentValue: '12,468,123',
-    user: <div>cosmos13pa4duhhy60vu63x…y4pq</div>,
-    valueDifference: {
-      className: 'negative',
-      display: '-1,123',
-    },
-    value: '1,2345.03 DARIC',
-    type: {
-      className: 'delegation',
-      display: 'Delegation',
-    },
-  },
-];
+});

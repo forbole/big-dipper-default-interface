@@ -9,6 +9,7 @@ export const useGetStyles = () => {
       padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
       '& .header__container': {
+        marginBottom: '1.5rem',
         '& h2': {
           fontSize: '1.375rem',
           fontWeight: 500,

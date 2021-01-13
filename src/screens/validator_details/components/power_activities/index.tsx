@@ -4,29 +4,21 @@ import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useTheme } from '@material-ui/core/styles';
 import {
-  LatestActivitiesMobile,
-  LatestActivitiesDesktop,
+  LatestActivities,
   PowerEvents,
 } from 'big-dipper-default-ui';
 import {
   Tab,
   Tabs,
 } from '@material-ui/core';
-import {
-  useGetScreenSizeHook, useActivityLabelsHook,
-} from '@hooks';
+import { useGetScreenSizeHook } from '@hooks';
 import {
   TabPanel,
   ActivitiesFilter,
   InfiniteLoader,
 } from '@components';
 import { getAllyProps } from '@utils';
-import {
-  useMobileOnlyStyles,
-  useDesktopOnlyStyles,
-  useLatestActivitiesMobileStyles,
-  useLatestActivitiesDesktopStyles,
-} from '@styles';
+import { useLatestActivitiesStyles } from '@styles';
 import {
   useValidatorDetailsHook,
   useActivitiesHook,
@@ -43,17 +35,13 @@ const PowerActivities = () => {
   const { t } = useTranslation(['validators', 'activities']);
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
-  const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
-  const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
-  const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
-  const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
+  const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
 
   // ================================
   // activities
   // ================================
   const activitiesHook = useActivitiesHook();
   const activitiesState = activitiesHook.state;
-  const { collapsibleLabels } = useActivityLabelsHook();
 
   // ================================
   // events
@@ -116,28 +104,10 @@ const PowerActivities = () => {
             hasMore={activitiesState.hasMore}
             loader={<InfiniteLoader key={0} />}
           >
-            {/* ================================ */}
-            {/* mobile */}
-            {/* ================================ */}
-            <LatestActivitiesMobile
-              className={classnames(
-                mobileOnlyStyles.root,
-                classes.latestActivitiesMobile,
-                latestActivitiesMobileStyles.root,
-              )}
-              data={activitiesState.data}
+            <LatestActivities
+              className={latestActivitiesStyles.root}
+              transactions={activitiesState.data}
               onClick={activitiesHook.handleClick}
-            />
-            {/* ================================ */}
-            {/* desktop */}
-            {/* ================================ */}
-            <LatestActivitiesDesktop
-              collapsibleLabels={collapsibleLabels}
-              data={activitiesState.data}
-              className={classnames(
-                desktopOnlyStyles.root,
-                latestActivitiesDesktopStyles.root,
-              )}
             />
           </InfiniteScroll>
         </div>
