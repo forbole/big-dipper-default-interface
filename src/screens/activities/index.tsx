@@ -2,10 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
-import {
-  LatestActivitiesMobile,
-  LatestActivitiesDesktop,
-} from 'big-dipper-default-ui';
+import { LatestActivities as LatestActivitiesComponent } from 'big-dipper-default-ui';
 import {
   Layout,
   DataBlocksHeader,
@@ -15,14 +12,12 @@ import {
   ActivitiesFilter,
 } from '@components';
 import {
+  useLatestActivitiesStyles,
   useMobileOnlyStyles,
   useDesktopOnlyStyles,
-  useLatestActivitiesMobileStyles,
-  useLatestActivitiesDesktopStyles,
 } from '@styles';
 import {
   useMarketHook,
-  useActivityLabelsHook,
   useSearchbarSubmitHook,
 } from '@hooks';
 import { useActivitiesHook } from './hooks';
@@ -44,12 +39,9 @@ const Activities = () => {
   } = state;
 
   const { classes } = useGetStyles();
+  const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
-  const { classes: latestActivitiesMobileStyles } = useLatestActivitiesMobileStyles();
-  const { classes: latestActivitiesDesktopStyles } = useLatestActivitiesDesktopStyles();
-
-  const { collapsibleLabels } = useActivityLabelsHook();
 
   return (
     <Layout
@@ -87,28 +79,10 @@ const Activities = () => {
             hasMore={hasMore}
             loader={<InfiniteLoader key={0} />}
           >
-            {/* ================================ */}
-            {/* mobile */}
-            {/* ================================ */}
-            <LatestActivitiesMobile
-              className={classnames(
-                mobileOnlyStyles.root,
-                classes.latestActivitiesMobile,
-                latestActivitiesMobileStyles.root,
-              )}
-              data={data}
+            <LatestActivitiesComponent
+              className={latestActivitiesStyles.root}
+              transactions={data}
               onClick={handleClick}
-            />
-            {/* ================================ */}
-            {/* desktop */}
-            {/* ================================ */}
-            <LatestActivitiesDesktop
-              collapsibleLabels={collapsibleLabels}
-              data={data}
-              className={classnames(
-                desktopOnlyStyles.root,
-                latestActivitiesDesktopStyles.root,
-              )}
             />
           </InfiniteScroll>
         </div>

@@ -1,18 +1,22 @@
-import * as R from 'ramda';
+import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { STABILITIES } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
+import { stabilitiesParser } from '@src/graphql/parsers/queries';
 import { Stabilities } from '@models';
 
 export const useStabilitiesHook = () => {
-  const stabilities = useQuery(STABILITIES, {
+  const [stabilities, setStabilities] = useState<Stabilities>(Stabilities.fromJson({
+  }));
+  useQuery(STABILITIES, {
     pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
+    onCompleted: (data) => {
+      setStabilities(stabilitiesParser(data));
+    },
   });
 
-  const formattedData = Stabilities.fromJson(R.pathOr({
-  }, ['data'], stabilities));
-
   return {
-    stabilities: formattedData,
+    stabilities,
   };
 };

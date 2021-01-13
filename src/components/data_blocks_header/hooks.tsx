@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import * as R from 'ramda';
 import {
   useQuery, useSubscription,
 } from '@apollo/client';
@@ -8,52 +7,67 @@ import {
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
+import { latestBlockHeightParser } from '@src/graphql/parsers/subscriptions';
 import {
-  LatestBlockHeight,
-  TotalActiveValidators,
-  AverageBlockTimes,
-} from '@models';
+  averageBlockTimesParser, totalActiveValidatorsParser,
+} from '@src/graphql/parsers/queries';
 import { generalConfig } from '@src/general_config';
+import {
+  LatestBlockHeight, TotalActiveValidators,
+} from '@models';
 
 export const useLatestBlockHook = () => {
-  const latestBlockHeight = useSubscription(LATEST_BLOCK_HEIGHT);
-  const formattedData = LatestBlockHeight.fromJson(R.pathOr({
-  }, ['data', 'latest_height', 0], latestBlockHeight));
+  const [blockHeight, setBlockHeight] = useState<LatestBlockHeight>(LatestBlockHeight.fromJson({
+  }));
+
+  useSubscription(LATEST_BLOCK_HEIGHT, {
+    onSubscriptionData: (data) => {
+      setBlockHeight(latestBlockHeightParser(data));
+    },
+  });
 
   return {
-    latestBlockHeight: formattedData,
+    latestBlockHeight: blockHeight,
   };
 };
 
 export const useActiveValidatorsHook = () => {
-  const validators = useQuery(TOTAL_ACTIVE_VALIDATORS, {
+  const [validatorsData, setValidatorsData] = useState<TotalActiveValidators>(
+    TotalActiveValidators.fromJson({
+    }),
+  );
+  useQuery(TOTAL_ACTIVE_VALIDATORS, {
     pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
+    onCompleted: (data: any) => {
+      setValidatorsData(totalActiveValidatorsParser(data));
+    },
   });
 
-  const formattedData = TotalActiveValidators.fromJson(R.pathOr({
-  }, ['data'], validators));
-
   return {
-    validators: formattedData,
+    validators: validatorsData,
   };
 };
 
 export const useAveragetimeBlockHook = () => {
   const [duration, setDuration] = useState('lastDay');
-
-  const averageBlockTimes = useQuery(AVERAGE_BLOCK_TIMES, {
-    pollInterval: generalConfig.pollInterval.minute,
+  const [durationData, setDurationData] = useState({
   });
 
-  const formattedData = AverageBlockTimes.fromJson(R.pathOr({
-  }, ['data'], averageBlockTimes));
+  useQuery(AVERAGE_BLOCK_TIMES, {
+    pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
+    onCompleted: (data: any) => {
+      setDurationData(averageBlockTimesParser(data));
+    },
+  });
 
   const handleBlockTimeDurationClick = (value:string) => {
     setDuration(value);
   };
 
   return {
-    averageBlockTimes: formattedData,
+    averageBlockTimes: durationData,
     handleBlockTimeDurationClick,
     duration,
   };
