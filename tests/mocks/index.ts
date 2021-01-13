@@ -4,6 +4,8 @@ import { LAYOUT_MOCK_DATA } from './layout';
 import { DATA_BLOCKS_HEADER_MOCK } from './data_blocks';
 import { LATEST_BLOCKS_MOCK_DATA } from './latest_blocks';
 import { LATEST_BLOCK_MOCK_DATA } from './latest_block';
+import { LATEST_ACTIVITY_MOCK_DATA } from './latest_activity';
+import { LATEST_ACTIVITIES_MOCK_DATA } from './latest_activities';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -12,4 +14,6 @@ export {
   DATA_BLOCKS_HEADER_MOCK,
   LATEST_BLOCKS_MOCK_DATA,
   LATEST_BLOCK_MOCK_DATA,
+  LATEST_ACTIVITIES_MOCK_DATA,
+  LATEST_ACTIVITY_MOCK_DATA,
 };

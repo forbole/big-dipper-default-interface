@@ -1,9 +1,10 @@
 import { COMMUNITY_POOL } from '@graphql/queries';
+import { gql } from '@apollo/client';
 
 export const HEADER_BAR_MOCK = [
   {
     request: {
-      query: COMMUNITY_POOL,
+      query: gql`${COMMUNITY_POOL}`,
       variables: {
       },
     },

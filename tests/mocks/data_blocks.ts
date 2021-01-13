@@ -3,11 +3,12 @@ import {
   AVERAGE_BLOCK_TIMES,
 } from '@graphql/queries';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
+import { gql } from '@apollo/client';
 
 export const DATA_BLOCKS_HEADER_MOCK = [
   {
     request: {
-      query: LATEST_BLOCK_HEIGHT,
+      query: gql`${LATEST_BLOCK_HEIGHT}`,
       variables: {
       },
     },
@@ -24,7 +25,7 @@ export const DATA_BLOCKS_HEADER_MOCK = [
   },
   {
     request: {
-      query: AVERAGE_BLOCK_TIMES,
+      query: gql`${AVERAGE_BLOCK_TIMES}`,
       variables: {
       },
     },
@@ -55,7 +56,7 @@ export const DATA_BLOCKS_HEADER_MOCK = [
   },
   {
     request: {
-      query: TOTAL_ACTIVE_VALIDATORS,
+      query: gql`${TOTAL_ACTIVE_VALIDATORS}`,
       variables: {
       },
     },

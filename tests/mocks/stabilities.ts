@@ -1,9 +1,10 @@
 import { STABILITIES } from '@graphql/queries';
+import { gql } from '@apollo/client';
 
 export const STABILITIES_MOCK_DATA = [
   {
     request: {
-      query: STABILITIES,
+      query: gql`${STABILITIES}`,
       variables: {
       },
     },

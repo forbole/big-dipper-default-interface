@@ -23,6 +23,7 @@ import {
   DATA_BLOCKS_HEADER_MOCK,
   STABILITIES_MOCK_DATA,
   LATEST_BLOCKS_MOCK_DATA,
+  LATEST_ACTIVITIES_MOCK_DATA,
 } from '@tests/mocks';
 
 describe('Home', () => {
@@ -39,6 +40,7 @@ describe('Home', () => {
           ...DATA_BLOCKS_HEADER_MOCK,
           ...STABILITIES_MOCK_DATA,
           ...LATEST_BLOCKS_MOCK_DATA(),
+          ...LATEST_ACTIVITIES_MOCK_DATA(),
         ],
       }),
     );
