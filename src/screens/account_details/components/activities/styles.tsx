@@ -30,19 +30,6 @@ export const useGetStyles = () => {
         },
       },
     },
-    latestActivitiesMobile: {
-      '&.latest-activities-mobile': {
-        marginTop: 0,
-        '& .activity': {
-          '&:first-child': {
-            borderTop: 'none',
-          },
-          '&:last-child': {
-            borderBottom: 'none',
-          },
-        },
-      },
-    },
   }));
 
   return {

@@ -1,9 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import {
-  LatestActivitiesMobile,
-  LatestActivitiesDesktop,
-} from 'big-dipper-default-ui';
+import { LatestActivities } from 'big-dipper-default-ui';
 import {
   ActivitiesFilter,
   InfiniteLoader,
@@ -21,8 +18,7 @@ describe('NotFound', () => {
       }),
     );
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(LatestActivitiesMobile)).toHaveLength(1);
-    expect(wrapper.find(LatestActivitiesDesktop)).toHaveLength(1);
+    expect(wrapper.find(LatestActivities)).toHaveLength(1);
     expect(wrapper.find(ActivitiesFilter)).toHaveLength(1);
     expect(wrapper.find(InfiniteLoader)).toHaveLength(1);
   });
