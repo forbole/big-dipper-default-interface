@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 class MsgVote {
   public type: string;
   public proposalId: number | string;
@@ -14,7 +16,7 @@ class MsgVote {
   static fromJson(json: any) {
     return new MsgVote({
       type: json['@type'],
-      proposalId: Number.isNaN(Number(json.proposal_id)) ? json.proposal_id : json.proposal_id,
+      proposalId: numeral(json?.proposal_id).value(),
       voter: json.voter,
       option: json.option,
     });

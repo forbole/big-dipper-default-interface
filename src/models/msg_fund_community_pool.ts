@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 class MsgFundCommunityPool {
   public type: string;
   public depositor: string;
@@ -19,7 +21,7 @@ class MsgFundCommunityPool {
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: Number.isNaN(Number(x?.amount)) ? x?.amount : Number(x?.amount),
+          amount: numeral(x?.amount).value(),
         });
       }),
     });

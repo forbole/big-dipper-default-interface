@@ -25,6 +25,12 @@ import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
 import MsgTextProposal from './msg_text_proposal';
 import MsgDeposit from './msg_deposit';
 import MsgVote from './msg_vote';
+import MsgUnjail from './msg_unjail';
+import MsgCreateValidator from './msg_create_validator';
+import MsgDelegate from './msg_delegate';
+import MsgEditValidator from './msg_edit_validator';
+import MsgBeginRedelegate from './msg_begin_redelegate';
+import MsgUndelegate from './msg_undelegate';
 
 export {
   BigDipperNetworkLink,
@@ -50,4 +56,10 @@ export {
   MsgTextProposal,
   MsgDeposit,
   MsgVote,
+  MsgUnjail,
+  MsgCreateValidator,
+  MsgDelegate,
+  MsgEditValidator,
+  MsgBeginRedelegate,
+  MsgUndelegate,
 };

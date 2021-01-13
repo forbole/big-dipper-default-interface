@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 class MsgCommunityPoolSpendProposal {
   public type: string;
   public title: string;
@@ -25,7 +27,7 @@ class MsgCommunityPoolSpendProposal {
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: Number.isNaN(Number(x?.amount)) ? x?.amount : Number(x?.amount),
+          amount: numeral(x?.amount).value(),
         });
       }),
     });

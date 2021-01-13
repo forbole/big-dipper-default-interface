@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 class MsgSoftwareUpgradeProposal {
   public type: string;
   public title: string;
@@ -25,8 +27,7 @@ class MsgSoftwareUpgradeProposal {
       plan: {
         name: json?.plan?.name,
         time: json?.plan?.time,
-        height: Number.isNaN(Number(json?.plan?.height))
-          ? json?.plan?.height : Number(json?.plan?.height),
+        height: numeral(json?.plan?.height).value(),
         info: json?.plan?.info,
         upgradedClientState: json?.plan?.upgraded_client_state,
       },

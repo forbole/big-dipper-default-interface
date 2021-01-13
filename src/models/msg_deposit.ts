@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 class MsgDeposit {
   public type: string;
   public proposalId: number | string;
@@ -17,12 +19,12 @@ class MsgDeposit {
   static fromJson(json: any) {
     return new MsgDeposit({
       type: json['@type'],
-      proposalId: Number.isNaN(Number(json.proposal_id)) ? json.proposal_id : json.proposal_id,
+      proposalId: numeral(json.proposal_id).value(),
       depositor: json.depositor,
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: Number.isNaN(Number(x?.amount)) ? x?.amount : Number(x?.amount),
+          amount: numeral(x?.amount).value(),
         });
       }),
     });

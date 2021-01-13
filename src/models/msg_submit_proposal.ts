@@ -1,3 +1,4 @@
+import numeral from 'numeral';
 import {
   MsgTextProposal,
   MsgSoftwareUpgradeProposal,
@@ -56,7 +57,7 @@ class MsgSubmitProposal {
       initialDeposit: json?.initial_deposit.map((x) => {
         return ({
           denom: x?.denom,
-          amount: Number.isNaN(Number(x?.amount)) ? x?.amount : Number(x?.amount),
+          amount: numeral(x?.amount).value(),
         });
       }),
       proposer: json.proposer,

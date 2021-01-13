@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 class MsgSend {
   public type: string;
   public fromAddress: string;
@@ -22,7 +24,7 @@ class MsgSend {
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
-          amount: Number.isNaN(Number(x?.amount)) ? x?.amount : Number(x?.amount),
+          amount: numeral(x?.amount).value(),
         });
       }),
     });

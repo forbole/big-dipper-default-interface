@@ -1,3 +1,5 @@
+import numeral from 'numeral';
+
 type Coins = {
   denom: string;
   amount: number | string;
@@ -29,7 +31,7 @@ class MsgMultiSend {
           coins: input?.coins?.map((coin) => {
             return ({
               denom: coin?.denom,
-              amount: Number.isNaN(Number(coin?.amount)) ? coin?.amount : Number(coin?.amount),
+              amount: numeral(coin?.amount).value(),
             });
           }),
         });
@@ -40,7 +42,7 @@ class MsgMultiSend {
           coins: input?.coins?.map((coin) => {
             return ({
               denom: coin?.denom,
-              amount: Number.isNaN(Number(coin?.amount)) ? coin?.amount : Number(coin?.amount),
+              amount: numeral(coin?.amount).value(),
             });
           }),
         });
