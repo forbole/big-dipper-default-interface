@@ -6,8 +6,10 @@ import {
 } from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
 import { LATEST_BLOCK } from '@graphql/subscriptions';
-import { LatestBlock } from '@models';
-import { latestBlocksParser } from '@graphql/subscriptions/parsers';
+import { latestBlockParser } from '@graphql/subscriptions/parsers';
+import {
+  latestBlocksParser, latestBlocksTotalParser,
+} from '@graphql/queries/parsers';
 
 const LIMIT = 10;
 
@@ -27,7 +29,7 @@ export const useBlocksHook = () => {
     onSubscriptionData: (data) => {
       const formattedlatestBlockData = R.uniq(
         R.concat(
-          latestBlocksParser(data),
+          latestBlockParser(data),
           state.data,
         ),
       );
@@ -63,11 +65,11 @@ export const useBlocksHook = () => {
     const formattedlatestBlockData = R.uniq(
       R.concat(
         state.data,
-        R.pathOr([], ['blocks'], data)?.map((block) => LatestBlock.fromJson(block)),
+        latestBlocksParser(data),
       ),
     );
 
-    const total = R.pathOr(0, ['block_aggregate', 'aggregate', 'count'], data);
+    const total = latestBlocksTotalParser(data);
 
     handleSetState({
       total,

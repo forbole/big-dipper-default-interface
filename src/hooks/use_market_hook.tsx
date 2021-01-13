@@ -1,26 +1,23 @@
-import * as R from 'ramda';
+import { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { COMMUNITY_POOL } from '@graphql/queries';
-import { CommunityPool } from '@models';
 import { generalConfig } from '@src/general_config';
+import { communityPoolParser } from '@graphql/queries/parsers';
 
 export const useMarketHook = () => {
-  const {
-    data: communityPoolData,
-    loading: communityPoolLoading,
-    error: communityPoolError,
-  } = useQuery(COMMUNITY_POOL, {
-    pollInterval: generalConfig.pollInterval.default,
-  });
+  const [communityPoolData, setCommunityPoolData] = useState([]);
 
-  const communityPoolRaw = R.pathOr([], ['community_pool', 0, 'coins'], communityPoolData);
-  const communityPoolFormat = communityPoolRaw.map((x) => CommunityPool.fromJson(x));
+  useQuery(COMMUNITY_POOL, {
+    pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
+    onCompleted: (data:any) => {
+      setCommunityPoolData(communityPoolParser(data));
+    },
+  });
 
   return {
     communityPool: {
-      loading: communityPoolLoading,
-      error: communityPoolError,
-      data: communityPoolFormat,
+      data: communityPoolData,
     },
   };
 };

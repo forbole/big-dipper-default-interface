@@ -1,7 +1,7 @@
 import { latestBlockHeightParser } from './latest_block_height_parser';
-import { latestBlocksParser } from './latest_blocks_parser';
+import { latestBlockParser } from './latest_block_parser';
 
 export {
   latestBlockHeightParser,
-  latestBlocksParser,
+  latestBlockParser,
 };
