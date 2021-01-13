@@ -12,10 +12,13 @@ import {
   averageBlockTimesParser, totalActiveValidatorsParser,
 } from '@src/graphql/parsers/queries';
 import { generalConfig } from '@src/general_config';
+import {
+  LatestBlockHeight, TotalActiveValidators,
+} from '@models';
 
 export const useLatestBlockHook = () => {
-  const [blockHeight, setBlockHeight] = useState({
-  });
+  const [blockHeight, setBlockHeight] = useState<LatestBlockHeight>(LatestBlockHeight.fromJson({
+  }));
 
   useSubscription(LATEST_BLOCK_HEIGHT, {
     onSubscriptionData: (data) => {
@@ -29,8 +32,10 @@ export const useLatestBlockHook = () => {
 };
 
 export const useActiveValidatorsHook = () => {
-  const [validatorsData, setValidatorsData] = useState({
-  });
+  const [validatorsData, setValidatorsData] = useState<TotalActiveValidators>(
+    TotalActiveValidators.fromJson({
+    }),
+  );
   useQuery(TOTAL_ACTIVE_VALIDATORS, {
     pollInterval: generalConfig.pollInterval.default,
     notifyOnNetworkStatusChange: true,
