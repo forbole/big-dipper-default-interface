@@ -15,7 +15,7 @@ export const useLatestActivitiesStyles = () => {
       '&.activities-list': {
         color: theme.palette.custom.fonts.fontTwo,
         '& .single-transaction__header': {
-          padding: `0.5rem ${theme?.palette?.custom?.margins?.large}`,
+          padding: '0.5rem',
           background: theme?.palette?.custom?.table?.rowOdd,
         },
       },
@@ -25,6 +25,13 @@ export const useLatestActivitiesStyles = () => {
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        '&.activities-list': {
+          '& .single-transaction__wrapper': {
+            '& .single-transaction__header': {
+              padding: '0.5rem 1rem',
+            },
+          },
+        },
       },
     },
   }));

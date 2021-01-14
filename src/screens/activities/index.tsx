@@ -22,6 +22,7 @@ import {
 } from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
+import { formatLatestActivitiesData } from './utils';
 
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
@@ -34,7 +35,7 @@ const Activities = () => {
     handleOnFilterCallback,
   } = useActivitiesHook();
   const {
-    hasMore,
+    total,
     data,
   } = state;
 
@@ -42,6 +43,8 @@ const Activities = () => {
   const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
+
+  const latestActivitiesData = formatLatestActivitiesData(data);
 
   return (
     <Layout
@@ -76,12 +79,12 @@ const Activities = () => {
           <InfiniteScroll
             pageStart={0}
             loadMore={handleLoadMore}
-            hasMore={hasMore}
+            hasMore={total > data.length}
             loader={<InfiniteLoader key={0} />}
           >
             <LatestActivitiesComponent
               className={latestActivitiesStyles.root}
-              transactions={data}
+              transactions={latestActivitiesData}
               onClick={handleClick}
             />
           </InfiniteScroll>

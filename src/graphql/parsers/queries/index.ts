@@ -5,6 +5,10 @@ import {
 } from './latest_blocks_parser';
 import { stabilitiesParser } from './stabilities_parser';
 import { totalActiveValidatorsParser } from './total_active_validators_parser';
+import { validatorAddressListParser } from './validators_address_list_parser';
+import {
+  latestActivitiesParser, latestActivitiesTotalParser,
+} from './latest_activities_parser';
 
 export {
   averageBlockTimesParser,
@@ -13,4 +17,7 @@ export {
   latestBlocksTotalParser,
   stabilitiesParser,
   totalActiveValidatorsParser,
+  validatorAddressListParser,
+  latestActivitiesTotalParser,
+  latestActivitiesParser,
 };

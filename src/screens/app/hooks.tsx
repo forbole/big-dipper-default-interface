@@ -1,12 +1,17 @@
 import {
   useEffect, useState,
 } from 'react';
+import axios from 'axios';
 import { getLanguageValue } from '@utils';
 import {
   darkTheme,
   lightTheme,
 } from '@styles';
-import { KeybaseProfile } from '@models';
+import {
+  KeybaseProfile, ValidatorAddressList,
+} from '@models';
+import { VALIDATORS_ADDRESS_LIST } from '@graphql/queries';
+import { validatorAddressListParser } from '@graphql/parsers/queries';
 import {
   i18n,
   useTranslation,
@@ -70,8 +75,13 @@ export const useAppHook = () => {
   };
 };
 
+// ================================
+// keybase global state
+// ================================
 export const useKeybaseHook = () => {
-  const [keybaseList, setKeybase] = useState({
+  const [keybaseList, setKeybase] = useState<{
+    [key: string]: KeybaseProfile
+  }>({
   });
 
   const handleSetKeybase = (stateChange: {
@@ -87,5 +97,47 @@ export const useKeybaseHook = () => {
   return {
     keybaseList,
     handleSetKeybase,
+  };
+};
+
+// ================================
+// validators map global state
+// ================================
+/**
+ * Initial global hook to fetch the current list of validators.
+ * Displays a map with self delegate address
+ */
+export const useGetValidatorAddressListHook = () => {
+  const [validatorsMap, setValidatorsMap] = useState<{
+    [key:string]: ValidatorAddressList
+  }>({
+  });
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await axios({
+          url: process.env.NEXT_PUBLIC_GRAPHQL_URL,
+          method: 'post',
+          data: {
+            query: VALIDATORS_ADDRESS_LIST,
+          },
+        });
+        const newState = {
+        };
+        validatorAddressListParser(data).forEach((x) => {
+          newState[x.selfDelegateAddress] = x;
+        });
+        setValidatorsMap(newState);
+      } catch (error) {
+        console.error(error.message);
+      }
+    };
+
+    getData();
+  }, []);
+
+  return {
+    validators: validatorsMap,
   };
 };

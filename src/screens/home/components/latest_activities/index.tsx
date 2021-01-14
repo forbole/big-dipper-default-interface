@@ -10,7 +10,7 @@ import {
   useTablePreviewWrapperStyles,
   useLatestActivitiesStyles,
 } from '@styles';
-import { dummyLatestActivities } from './utils';
+import { formatLatestActivitiesData } from './utils';
 import {
   ActionMobile, FooterAction, ActionDesktop,
 } from '..';
@@ -18,23 +18,36 @@ import { useGetStyles } from './styles';
 import { useLatestActivitiesHook } from './hooks';
 
 const LatestActivities = () => {
+  const URL = '/activities';
   const { isDesktop } = useGetScreenSizeHook();
   const { t } = useTranslation(['home']);
+  const {
+    handleClick,
+    latestActivities,
+  } = useLatestActivitiesHook();
+
+  // =============================
+  // styles
+  // =============================
   const { classes } = useGetStyles();
   const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
-  const { handleClick } = useLatestActivitiesHook();
-  const url = '/activities';
+
+  // =============================
+  // format data for display
+  // =============================
+  const latestActivitiesData = formatLatestActivitiesData(latestActivities);
+
   return (
     <TablePreviewWrapper
       className={classnames(tablePreviewWrapperStyles.root, classes.tablePreviewWrapper)}
       title={t('latestActivities')}
-      action={isDesktop ? <ActionDesktop url={url} /> : <ActionMobile url={url} />}
-      footerAction={!isDesktop ? <FooterAction url={url} /> : undefined}
+      action={isDesktop ? <ActionDesktop url={URL} /> : <ActionMobile url={URL} />}
+      footerAction={!isDesktop ? <FooterAction url={URL} /> : undefined}
     >
       <LatestActivitiesComponent
         className={latestActivitiesStyles.root}
-        transactions={dummyLatestActivities}
+        transactions={latestActivitiesData}
         onClick={handleClick}
       />
     </TablePreviewWrapper>

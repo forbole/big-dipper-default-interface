@@ -5,15 +5,20 @@ import {
   LatestActivities as LatestActivitiesComponent,
 } from 'big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
+import { LATEST_ACTIVITIES_MOCK_DATA } from '@tests/mocks';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
 import LatestActivities from '.';
 
 describe('LatestActivities', () => {
   it('correctly renders component', () => {
     const wrapper = mount(
-      BaseWrapper({
-        component: <LatestActivities />,
-        theme: lightTheme,
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <LatestActivities />,
+          theme: lightTheme,
+        }),
+        mocks: LATEST_ACTIVITIES_MOCK_DATA(),
       }),
     );
     expect(wrapper).not.toBeNull();

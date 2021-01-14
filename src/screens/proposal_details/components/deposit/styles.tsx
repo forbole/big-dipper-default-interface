@@ -31,6 +31,9 @@ export const useGetStyles = () => {
         '&.proposalDepositDesktop': {
           padding: theme?.palette?.custom?.margins?.large,
           display: 'block',
+          '& .label': {
+            color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+          },
         },
         '&.proposalDepositMobile': {
           display: 'none',
