@@ -1,6 +1,9 @@
 import React from 'react';
 import classnames from 'classnames';
-import { AvatarDisplay } from 'big-dipper-default-ui';
+import {
+  AvatarDisplay,
+  InfoPopover,
+} from 'big-dipper-default-ui';
 
 const ValidatorData = () => {
   return (
@@ -8,6 +11,14 @@ const ValidatorData = () => {
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
       alt="avatar image"
       title="Forbole"
+    />
+  );
+};
+
+const InfoPop = () => {
+  return (
+    <InfoPopover
+      detail="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co"
     />
   );
 };
@@ -245,7 +256,12 @@ export const dummyData: any = {
       },
       {
         label: 'votingPowerOverride',
-        display: 'Voting Power Override',
+        display: (
+          <div className="votingPowerOverride">
+            votingPowerOverride
+            <InfoPop />
+          </div>
+        ),
         align: 'right',
         sort: true,
       },
