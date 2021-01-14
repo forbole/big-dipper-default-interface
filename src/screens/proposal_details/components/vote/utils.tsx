@@ -258,7 +258,7 @@ export const dummyData: any = {
         label: 'votingPowerOverride',
         display: (
           <div className="votingPowerOverride">
-            votingPowerOverride
+            Voting Power Override
             <InfoPop />
           </div>
         ),

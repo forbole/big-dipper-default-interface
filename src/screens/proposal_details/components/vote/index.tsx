@@ -8,7 +8,7 @@ import { useGetStyles } from './styles';
 import { dummyData } from './utils';
 
 const Vote = () => {
-  const { classes } = useGetStyles();
+  const { classes } = useGetStyles(dummyData);
 
   return (
     <div className={classes.root}>

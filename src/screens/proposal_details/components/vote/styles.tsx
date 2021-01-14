@@ -3,7 +3,7 @@ import {
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
 
-export const useGetStyles = () => {
+export const useGetStyles = (props) => {
   const useStyles = makeStyles((theme: any) => createStyles({
     table: {
     },
@@ -43,6 +43,28 @@ export const useGetStyles = () => {
       },
       '&.proposalResultMobile': {
         padding: theme?.palette?.custom?.margins?.small,
+        '& .dataType': {
+          '&.yes': {
+            '&:before': {
+              background: props.chart.colors[0],
+            },
+          },
+          '&.abstain': {
+            '&:before': {
+              background: props.chart.colors[3],
+            },
+          },
+          '&.veto': {
+            '&:before': {
+              background: props.chart.colors[2],
+            },
+          },
+          '&.no': {
+            '&:before': {
+              background: props.chart.colors[1],
+            },
+          },
+        },
       },
       '&.proposalResultDesktop': {
         display: 'none',
