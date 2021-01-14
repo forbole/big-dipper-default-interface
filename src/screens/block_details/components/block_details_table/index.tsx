@@ -7,16 +7,15 @@ import { BlockDetails } from 'big-dipper-default-ui';
 import { AvatarDisplay } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
+import { useBlockDetailsTableHook } from './hooks';
 import {
   Proposer,
   signatureData,
 } from './utils';
-import { BlockDetailsTableProps } from './types';
 
-const BlockDetailsTable = (props:BlockDetailsTableProps) => {
-  const { data } = props;
+const BlockDetailsTable = () => {
   const { t } = useTranslation(['blocks', 'activities']);
-
+  const { data } = useBlockDetailsTableHook();
   // ========================
   // styles
   // ========================

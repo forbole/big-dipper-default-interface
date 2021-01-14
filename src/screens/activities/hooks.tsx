@@ -54,8 +54,7 @@ export const useActivitiesHook = () => {
   // utils
   // ===============================
   const handleSetState = (stateChange: any) => {
-    const newState = R.mergeDeepLeft(stateChange, state);
-    setState(newState);
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
   /**

@@ -1,6 +1,8 @@
 import React from 'react';
 import classnames from 'classnames';
+import numeral from 'numeral';
 import { useTranslation } from 'i18n';
+import { useRouter } from 'next/router';
 import {
   Layout,
   HeaderBarDesktop,
@@ -12,7 +14,6 @@ import {
   useSearchbarSubmitHook,
 } from '@hooks';
 import { useGetStyles } from './styles';
-import { useBlockDetailsHook } from './hooks';
 import {
   Activities,
   BlockDetailsTable,
@@ -20,18 +21,15 @@ import {
 
 const BlockDetails = () => {
   const { t } = useTranslation(['blocks', 'common']);
+  const router = useRouter();
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
-  const {
-    state,
-    title,
-  } = useBlockDetailsHook(t);
-  console.log(state, 'my state');
   // ========================
   // styles
   // ========================
   const { classes } = useGetStyles();
 
+  const title = `${t('subTitle')} ${numeral(router?.query?.block).format('0,0')}`;
   return (
     <Layout
       header={(
@@ -53,10 +51,10 @@ const BlockDetails = () => {
           <HeaderBarMobile title={title} communityPool={communityPool} />
         </div>
         <div className={classnames('block-details')}>
-          <BlockDetailsTable data={state.blockDetails} />
+          <BlockDetailsTable />
         </div>
         <div className={classnames('block-activities')}>
-          <Activities data={state.blockActivities} />
+          <Activities />
         </div>
       </div>
       {/* ===================================== */}

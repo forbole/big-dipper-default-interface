@@ -9,10 +9,8 @@ import {
 import { useLatestActivitiesStyles } from '@styles';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
-import { ActivitiesProps } from './types';
 
-const Activities = (props: ActivitiesProps) => {
-  const { data } = props;
+const Activities = () => {
   const {
     handleOnFilterCallback,
     state,
@@ -24,7 +22,7 @@ const Activities = (props: ActivitiesProps) => {
   const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
 
   const {
-    hasMore,
+    total,
     data,
   } = state;
 
@@ -42,7 +40,7 @@ const Activities = (props: ActivitiesProps) => {
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
-        hasMore={hasMore}
+        hasMore={total > data.length}
         loader={<InfiniteLoader key={0} />}
       >
         <LatestActivities
