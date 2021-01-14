@@ -11,6 +11,7 @@ export const BLOCK_DETAILS = `
           validator_address
         }
       }
+      height
       pre_commits
     }
   }

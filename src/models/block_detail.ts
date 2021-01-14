@@ -8,6 +8,7 @@ class BlockDetail {
     validatorAddress: string;
   }
   public preCommits: number;
+  public height: number;
 
   constructor(payload: any) {
     this.hash = payload.hash;
@@ -15,6 +16,7 @@ class BlockDetail {
     this.tx = payload.tx;
     this.validator = payload.validator;
     this.preCommits = payload.preCommits;
+    this.height = payload.height;
   }
 
   static fromJson(json: any) {
@@ -28,6 +30,7 @@ class BlockDetail {
         validatorAddress: json?.validator?.validator_description?.validator_address,
       },
       preCommits: json?.pre_commits,
+      height: json.height,
     });
   }
 }

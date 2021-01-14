@@ -1,39 +1,51 @@
 import React from 'react';
+import numeral from 'numeral';
+import moment from 'moment';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { BlockDetails } from 'big-dipper-default-ui';
+import { AvatarDisplay } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
-import { useBlockDetailsTable } from './hooks';
 import {
   Proposer,
   signatureData,
 } from './utils';
+import { BlockDetailsTableProps } from './types';
 
-const BlockDetailsTable = () => {
+const BlockDetailsTable = (props:BlockDetailsTableProps) => {
+  const { data } = props;
+  console.log(data, 'data');
   const { t } = useTranslation(['blocks', 'activities']);
+  // ========================
+  // styles
+  // ========================
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
-  const {} = useBlockDetailsTable();
+
   return (
     <BlockDetails
       className={classnames(classes.root)}
       title="Block # 2,768,644"
       hash={{
         display: t('hash'),
-        value: '73FCAFE9BAF19BB405086CFFA1C8FEC510486AFAC5CBD48A2F57A3C79ABA1255',
+        value: data.hash,
       }}
       time={{
         display: t('timeDisplay'),
-        value: '10 Jan 2020, 12:59:27 UTC',
+        value: moment(data.timestamp).format('Do MMM YYYY, HH:mm:ss UTC'),
       }}
       noTransactions={{
         display: t('noTransactions'),
-        value: '1',
+        value: numeral(data.tx).format('0,0'),
       }}
       proposer={{
         display: t('proposer'),
-        value: <Proposer />,
+        value: <AvatarDisplay
+          identity={data.validator.identity}
+          display={data.validator.moniker}
+          address={data.validator.validatorAddress}
+        />,
       }}
       signedVotingPower={{
         display: t('signedVotingPower'),
