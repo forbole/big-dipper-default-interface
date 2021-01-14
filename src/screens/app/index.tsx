@@ -38,6 +38,8 @@ function MyApp({
     ...validatorProps,
   };
 
+  console.log('globalState', globalState);
+
   // =============================
   // styles setup
   // =============================

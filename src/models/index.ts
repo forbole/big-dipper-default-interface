@@ -5,6 +5,9 @@ import CommunityPool from './community_pool';
 import TotalActiveValidators from './total_active_validators';
 import AverageBlockTimes from './average_block_times';
 import Stabilities from './stabilities';
+import ConsensusPool from './consensus_pool';
+import Consensus from './consensus';
+import Proposer from './proposer';
 import LatestBlock from './latest_block';
 import KeybaseProfile from './keybase_profile';
 import LatestActivity from './latest_activity';
@@ -40,6 +43,9 @@ export {
   TotalActiveValidators,
   AverageBlockTimes,
   Stabilities,
+  ConsensusPool,
+  Consensus,
+  Proposer,
   LatestBlock,
   KeybaseProfile,
   LatestActivity,
