@@ -25,7 +25,7 @@ const BlockDetailsTable = () => {
   return (
     <BlockDetails
       className={classnames(classes.root)}
-      title="Block # 2,768,644"
+      title={`${t('subTitle')} ${numeral(data.height).format('0,0')}`}
       hash={{
         display: t('hash'),
         value: data.hash,
