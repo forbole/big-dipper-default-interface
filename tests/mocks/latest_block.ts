@@ -1,9 +1,10 @@
 import { LATEST_BLOCK } from '@graphql/subscriptions';
+import { gql } from '@apollo/client';
 
 export const LATEST_BLOCK_MOCK_DATA = [
   {
     request: {
-      query: LATEST_BLOCK,
+      query: gql`${LATEST_BLOCK}`,
       variables: {
       },
     },

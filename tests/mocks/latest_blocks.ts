@@ -1,4 +1,5 @@
 import { LATEST_BLOCKS } from '@graphql/queries';
+import { gql } from '@apollo/client';
 
 export const LATEST_BLOCKS_MOCK_DATA = (variables?: {limit?: number, offset?: number}) => {
   const {
@@ -11,7 +12,7 @@ export const LATEST_BLOCKS_MOCK_DATA = (variables?: {limit?: number, offset?: nu
     [
       {
         request: {
-          query: LATEST_BLOCKS,
+          query: gql`${LATEST_BLOCKS}`,
           variables: {
             limit,
             offset,

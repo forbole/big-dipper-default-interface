@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-import { useQuery } from '@apollo/client';
+import {
+  useQuery, gql,
+} from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
 import { latestBlocksParser } from '@src/graphql/parsers/queries';
+import { LatestBlock } from '@models';
 
 export const useLatestBlocksHook = () => {
-  const [latestBlocksdata, setLatestBlocksData] = useState([]);
+  const [latestBlocksdata, setLatestBlocksData] = useState<LatestBlock[]>([]);
   const router = useRouter();
 
   // ===============================
   // get data
   // ===============================
-  useQuery(LATEST_BLOCKS, {
+  useQuery(gql`${LATEST_BLOCKS}`, {
     pollInterval: generalConfig.pollInterval.minute,
     notifyOnNetworkStatusChange: true,
     variables: {

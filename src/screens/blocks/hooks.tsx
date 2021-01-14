@@ -2,7 +2,9 @@ import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
-  useQuery, useSubscription,
+  useQuery,
+  useSubscription,
+  gql,
 } from '@apollo/client';
 import { LATEST_BLOCKS } from '@graphql/queries';
 import { LATEST_BLOCK } from '@graphql/subscriptions';
@@ -10,8 +12,6 @@ import { latestBlockParser } from '@src/graphql/parsers/subscriptions';
 import {
   latestBlocksParser, latestBlocksTotalParser,
 } from '@src/graphql/parsers/queries';
-
-const LIMIT = 10;
 
 export const useBlocksHook = () => {
   const router = useRouter();
@@ -25,7 +25,7 @@ export const useBlocksHook = () => {
   // ===============================
 
   // latest block subscription
-  useSubscription(LATEST_BLOCK, {
+  useSubscription(gql`${LATEST_BLOCK}`, {
     onSubscriptionData: (data) => {
       const formattedlatestBlockData = R.uniq(
         R.concat(
@@ -40,9 +40,9 @@ export const useBlocksHook = () => {
   });
 
   // handles pagination to get older blocks
-  const latestBlocks = useQuery(LATEST_BLOCKS, {
+  const latestBlocks = useQuery(gql`${LATEST_BLOCKS}`, {
     variables: {
-      limit: LIMIT,
+      limit: 10,
       offset: 1,
     },
     onCompleted: (data) => {

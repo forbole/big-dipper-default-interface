@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import {
-  useQuery, useSubscription,
+  useQuery,
+  useSubscription,
+  gql,
 } from '@apollo/client';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
 import {
@@ -20,7 +22,7 @@ export const useLatestBlockHook = () => {
   const [blockHeight, setBlockHeight] = useState<LatestBlockHeight>(LatestBlockHeight.fromJson({
   }));
 
-  useSubscription(LATEST_BLOCK_HEIGHT, {
+  useSubscription(gql`${LATEST_BLOCK_HEIGHT}`, {
     onSubscriptionData: (data) => {
       setBlockHeight(latestBlockHeightParser(data));
     },
@@ -36,7 +38,7 @@ export const useActiveValidatorsHook = () => {
     TotalActiveValidators.fromJson({
     }),
   );
-  useQuery(TOTAL_ACTIVE_VALIDATORS, {
+  useQuery(gql`${TOTAL_ACTIVE_VALIDATORS}`, {
     pollInterval: generalConfig.pollInterval.default,
     notifyOnNetworkStatusChange: true,
     onCompleted: (data: any) => {
@@ -54,7 +56,7 @@ export const useAveragetimeBlockHook = () => {
   const [durationData, setDurationData] = useState({
   });
 
-  useQuery(AVERAGE_BLOCK_TIMES, {
+  useQuery(gql`${AVERAGE_BLOCK_TIMES}`, {
     pollInterval: generalConfig.pollInterval.default,
     notifyOnNetworkStatusChange: true,
     onCompleted: (data: any) => {
