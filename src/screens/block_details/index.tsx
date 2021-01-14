@@ -1,6 +1,8 @@
 import React from 'react';
+import numeral from 'numeral';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
+import { useRouter } from 'next/router';
 import {
   Layout,
   HeaderBarDesktop,
@@ -19,13 +21,15 @@ import {
 
 const BlockDetails = () => {
   const { t } = useTranslation(['blocks', 'common']);
+  const router = useRouter();
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
+  const title = `${t('subTitle')} ${numeral(router?.query?.block).format('0,0')}`;
   return (
     <Layout
       header={(
-        <HeaderBarDesktop title={t('subTitle')} communityPool={communityPool} />
+        <HeaderBarDesktop title={title} communityPool={communityPool} />
       )}
       searchBar={{
         searchBarPlaceholder: t('common:searchbar'),
@@ -40,7 +44,7 @@ const BlockDetails = () => {
           <DataBlocksHeader />
         </div>
         <div className={classnames('mobile-tablet-header')}>
-          <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
+          <HeaderBarMobile title={title} communityPool={communityPool} />
         </div>
         <div className={classnames('block-details')}>
           <BlockDetailsTable />

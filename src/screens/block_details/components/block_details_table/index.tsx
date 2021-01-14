@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import { BlockDetails } from 'big-dipper-default-ui';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
+import { useBlockDetailsTable } from './hooks';
 import {
   Proposer,
   signatureData,
@@ -13,12 +14,13 @@ const BlockDetailsTable = () => {
   const { t } = useTranslation(['blocks', 'activities']);
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
+  const {} = useBlockDetailsTable();
   return (
     <BlockDetails
       className={classnames(classes.root)}
       title="Block # 2,768,644"
-      txHash={{
-        display: t('txHash'),
+      hash={{
+        display: t('hash'),
         value: '73FCAFE9BAF19BB405086CFFA1C8FEC510486AFAC5CBD48A2F57A3C79ABA1255',
       }}
       time={{

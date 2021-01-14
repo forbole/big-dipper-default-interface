@@ -9,7 +9,6 @@
   "hash": "Hash",
   "latestBlocks": "Latest Blocks",
   "activities": "Activities",
-  "txHash": "Tx Hash",
   "timeDisplay": "Time",
   "noTransactions": "No of Transactions",
   "signedVotingPower": "Signed voting power",
