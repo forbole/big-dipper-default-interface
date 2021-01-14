@@ -3,15 +3,14 @@ import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
   useQuery,
-  useSubscription,
   gql,
 } from '@apollo/client';
+import { formatActivitiesData } from '@utils';
 import { LATEST_ACTIVITIES } from '@graphql/queries';
 import {
   latestActivitiesParser,
   latestActivitiesTotalParser,
 } from '@src/graphql/parsers/queries';
-import { dummyLatestActivities } from './utils';
 
 export const useActivitiesHook = () => {
   const router = useRouter();
@@ -28,14 +27,12 @@ export const useActivitiesHook = () => {
   const latestActivities = useQuery(gql`${LATEST_ACTIVITIES}`, {
     variables: {
       limit: 10,
-      offset: 1,
       height: Number(router?.query?.block ?? null),
     },
     onError: (error) => {
       console.error(error);
     },
     onCompleted: (data) => {
-      console.log(data, 'the date');
       handleNewData(data);
     },
   });
@@ -64,15 +61,13 @@ export const useActivitiesHook = () => {
   };
 
   const handleLoadMore = async () => {
-    if (state.data.length > 10) {
-      await latestActivities?.fetchMore({
-        variables: {
-          offset: state.data.length,
-        },
-      }).then(({ data }) => {
-        handleNewData(data);
-      });
-    }
+    await latestActivities?.fetchMore({
+      variables: {
+        offset: state.data.length,
+      },
+    }).then(({ data }) => {
+      handleNewData(data);
+    });
   };
 
   const handleClick = (hash:string | number) => {
@@ -87,7 +82,10 @@ export const useActivitiesHook = () => {
 
   return {
     handleOnFilterCallback,
-    state,
+    state: {
+      total: state.total,
+      data: formatActivitiesData(state.data),
+    },
     handleSetState,
     handleLoadMore,
     handleClick,

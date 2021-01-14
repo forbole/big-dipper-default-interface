@@ -13,6 +13,7 @@ import {
   latestActivitiesParser,
   latestActivitiesTotalParser,
 } from '@src/graphql/parsers/queries';
+import { formatActivitiesData } from '@utils';
 
 export const useActivitiesHook = () => {
   const router = useRouter();
@@ -100,7 +101,10 @@ export const useActivitiesHook = () => {
   };
 
   return {
-    state,
+    state: {
+      total: state.total,
+      data: formatActivitiesData(state.data),
+    },
     handleSetState,
     handleLoadMore,
     handleClick,

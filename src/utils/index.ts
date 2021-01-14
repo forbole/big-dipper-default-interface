@@ -6,6 +6,11 @@ import { formatMiddleEllipse } from './format_middle_ellipse';
 import { getAllyProps } from './get_ally_props';
 import { rgbaOpacityConverter } from './rgba_opacity_converter';
 
+// ========================
+// Data parsing helpers
+// ========================
+import { formatActivitiesData } from './format_activities_data';
+
 export {
   getLanguageValue,
   convertNumber,
@@ -14,4 +19,5 @@ export {
   formatMiddleEllipse,
   getAllyProps,
   rgbaOpacityConverter,
+  formatActivitiesData,
 };
