@@ -29,7 +29,7 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     );
   }
 
-  const seed = address.split('').reduce((a, b) => {
+  const seed = address?.split('')?.reduce((a, b) => {
     return a + b.charCodeAt(0);
   }, 0);
 

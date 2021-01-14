@@ -9,8 +9,10 @@ import {
 import { useLatestActivitiesStyles } from '@styles';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
+import { ActivitiesProps } from './types';
 
-const Activities = () => {
+const Activities = (props: ActivitiesProps) => {
+  const { data } = props;
   const {
     handleOnFilterCallback,
     state,

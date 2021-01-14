@@ -26,7 +26,7 @@ const BlockDetails = () => {
     state,
     title,
   } = useBlockDetailsHook(t);
-
+  console.log(state, 'my state');
   // ========================
   // styles
   // ========================
@@ -56,7 +56,7 @@ const BlockDetails = () => {
           <BlockDetailsTable data={state.blockDetails} />
         </div>
         <div className={classnames('block-activities')}>
-          <Activities />
+          <Activities data={state.blockActivities} />
         </div>
       </div>
       {/* ===================================== */}

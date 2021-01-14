@@ -7,18 +7,24 @@ import {
   gql,
 } from '@apollo/client';
 import { BLOCK_DETAILS } from '@graphql/queries';
-import { BlockDetail } from '@models';
-import { blockDetailsParser } from '@src/graphql/parsers/queries';
+import {
+  BlockDetail, LatestActivity,
+} from '@models';
+import {
+  blockDetailsParser, latestActivitiesParser,
+} from '@src/graphql/parsers/queries';
 
 export const useBlockDetailsHook = (t:any) => {
   const router = useRouter();
   const [state, setState] = useState<{
     blockDetails: BlockDetail,
+    blockActivities: LatestActivity[],
     notFound: boolean,
   }>({
     notFound: false,
     blockDetails: BlockDetail.fromJson({
     }),
+    blockActivities: [],
   });
 
   // ===============================
@@ -29,12 +35,15 @@ export const useBlockDetailsHook = (t:any) => {
       height: router?.query?.block,
     },
     onCompleted: (data) => {
-      const parsedData = blockDetailsParser(data);
-      if (!parsedData) {
+      console.log(data, 'my data');
+      const parsedBlockData = blockDetailsParser(data);
+      const parsedActivitiesData = latestActivitiesParser(data);
+      if (!parsedBlockData) {
         router.push('/404');
       } else {
         handleSetState({
-          blockDetails: parsedData,
+          blockDetails: parsedBlockData,
+          blockActivities: parsedActivitiesData,
         });
       }
     },

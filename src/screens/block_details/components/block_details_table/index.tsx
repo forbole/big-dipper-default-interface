@@ -15,8 +15,8 @@ import { BlockDetailsTableProps } from './types';
 
 const BlockDetailsTable = (props:BlockDetailsTableProps) => {
   const { data } = props;
-  console.log(data, 'data');
   const { t } = useTranslation(['blocks', 'activities']);
+
   // ========================
   // styles
   // ========================
