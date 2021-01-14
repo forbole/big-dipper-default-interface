@@ -9,9 +9,6 @@ export const useGetStyles = () => {
       '& .proposal-details': {
       },
       '& .proposal-vote': {
-        height: '500px',
-        background: 'yellow',
-        border: 'solid 1px black',
       },
       '& .proposal-deposits': {
       },

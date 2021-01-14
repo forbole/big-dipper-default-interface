@@ -14,6 +14,7 @@ import { useGetStyles } from './styles';
 import {
   Deposit,
   Info,
+  Vote,
 } from './components';
 
 const ProposalDetails = () => {
@@ -43,7 +44,7 @@ const ProposalDetails = () => {
           <Info />
         </div>
         <div className={classnames('proposal-vote')}>
-          vote
+          <Vote />
         </div>
         <div className={classnames('proposal-deposits')}>
           <Deposit />
