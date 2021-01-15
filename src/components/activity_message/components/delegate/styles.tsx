@@ -6,6 +6,7 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
+      wordBreak: 'break-all',
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },

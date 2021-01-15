@@ -11,6 +11,7 @@ import ActivitiesFilter from './activities_filter';
 import AvatarDisplay from './avatar_display';
 import BlockHeight from './block_height';
 import ActivityMessage from './activity_message';
+import Avatar from './avatar';
 
 export {
   Layout,
@@ -26,4 +27,5 @@ export {
   AvatarDisplay,
   BlockHeight,
   ActivityMessage,
+  Avatar,
 };

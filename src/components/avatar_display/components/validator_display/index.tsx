@@ -4,10 +4,9 @@ import { AvatarDisplay } from 'big-dipper-default-ui';
 import Jazzicon from 'react-jazzicon';
 import { useKeybaseHook } from '@hooks';
 import { GlobalContext } from '@contexts';
+import { getSeed } from '@utils';
 import { AvatarDisplayProps } from '../../types';
-import {
-  handleClick, getSeed,
-} from '../../utils';
+import { handleClick } from '../../utils';
 
 const ValidatorDisplay = (props: AvatarDisplayProps) => {
   const {

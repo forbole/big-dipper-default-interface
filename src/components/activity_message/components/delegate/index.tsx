@@ -27,23 +27,18 @@ const Delegate = (props:any) => {
     },
   };
 
-  // const {
-  //   delegatorAddress,
-  //   validatorAddress,
-  //   amount,
-  // } = message;
   const validatorAddress = getAddressDisplay(message.validatorAddress, validatorsList);
   const delegatorAddress = getAddressDisplay(message.delegatorAddress, validatorsList);
 
   return (
     <div className={classnames(className, classes.root)}>
-      <span>
+      <span className="delegate__address">
         {delegatorAddress}
       </span>
       delegated
       <span>{message.amount.amount}</span>
       to
-      <span>
+      <span className="delegate__address">
         {validatorAddress}
       </span>
     </div>
