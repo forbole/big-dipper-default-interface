@@ -4,7 +4,12 @@ import { Consensus } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import { useTheme } from '@material-ui/core/styles';
 import { useGetStyles } from './styles';
-import { dummyProposerData } from './utils';
+import {
+  formatProposer,
+  toCurrency,
+  toPercentage,
+  toPercentageDisplay,
+} from './utils';
 import {
   useConsensusHook,
   useConsensusPoolHook,
@@ -19,36 +24,31 @@ const ConsensusState = () => {
   const { consensusPool } = useConsensusPoolHook();
   const { proposer } = useProposerHook();
 
-  const votingPowerPercentage = (proposer.validator.votingPower / consensusPool.bondedTokens) * 100;
-  console.log('votingPowerPercentage', votingPowerPercentage);
-
-  console.log('consensusTest', consensus);
-  console.log('consensusPoolTest', consensusPool);
-  console.log('proposerTest', proposer);
-
-
-
   return (
     <Consensus
       className={classnames(classes.root)}
       title={t('consensusTitle')}
       height={{
         title: t('height'),
-        display: '2,769,405',
+        display: toCurrency(consensus.height),
       }}
-      proposer={dummyProposerData}
+      proposer={{
+        title: t('proposer'),
+        display: formatProposer(proposer),
+      }}
       votingPower={{
         title: t('votingPowerTitle'),
-        value: votingPowerPercentage,
+        value: toPercentage(proposer.validator.votingPower, consensusPool.bondedTokens),
+        display: toPercentageDisplay(proposer.validator.votingPower, consensusPool.bondedTokens),
       }}
       colors={['#FD3B4C', theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43']}
       round={{
         title: t('roundTitle'),
-        display: '6',
+        display: consensus.round.toString(),
       }}
       step={{
         title: t('stepTitle'),
-        display: '4',
+        display: consensus.step,
       }}
     />
   );

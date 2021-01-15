@@ -6,6 +6,7 @@ subscription Proposer {
       consensus_address
       validator_description {
         moniker
+        identity
       }
 validator_voting_power {
         voting_power

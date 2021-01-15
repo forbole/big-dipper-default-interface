@@ -7,7 +7,7 @@ import AverageBlockTimes from './average_block_times';
 import Stabilities from './stabilities';
 import ConsensusPool from './consensus_pool';
 import Consensus from './consensus';
-import Proposer from './proposer';
+import Proposer from './consensus_proposer';
 import LatestBlock from './latest_block';
 import KeybaseProfile from './keybase_profile';
 import LatestActivity from './latest_activity';
