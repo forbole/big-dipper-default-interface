@@ -1,4 +1,5 @@
 import React from 'react';
+import { getAddressRole } from '@utils';
 import { AvatarDisplayProps } from './types';
 import { useAvatarDisplayHook } from './hooks';
 import {
@@ -9,13 +10,11 @@ import {
  * Component that extends AvatarDisplay and uses JazzIcon if user image could not be found
  */
 const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
-  const {
-    address, identity,
-  } = props;
+  const { address } = props;
 
   const { validator } = useAvatarDisplayHook(address);
 
-  if (identity || validator) {
+  if (getAddressRole(address) === 'validator' || validator) {
     return (
       <ValidatorDisplay {...props} {...validator} />
     );
