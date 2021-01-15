@@ -1,4 +1,5 @@
 import { LatestActivity } from '@models';
+import { ActivityMessage } from '@components';
 import { formatMiddleEllipse } from '@utils';
 import moment from 'moment';
 
@@ -19,8 +20,8 @@ export const formatActivitiesData = (data: LatestActivity[]) => {
       timestamp: moment(x.timestamp).format('DD MMM YYYY, HH:mm'),
       success: x.success,
       messages: [
-        <div>one message</div>,
-        <div>two message</div>,
+        <ActivityMessage />,
+        <ActivityMessage />,
       ],
     });
   });

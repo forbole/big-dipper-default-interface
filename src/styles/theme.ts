@@ -43,6 +43,16 @@ export const common = {
         medium: '16px',
         small: '16px',
       },
+      transactionType: {
+        bank: 'rgba(159, 70, 236, 1)',
+        crisis: 'rgba(47, 168, 206, 1)',
+        distribution: 'rgba(47, 168, 206, 1)',
+        proposal: 'rgba(255, 117, 73, 1)',
+        slashing: 'rgba(235, 58, 164, 1)',
+        staking: 'rgba(30, 196, 144, 1)',
+        redelegate: 'rgba(255, 150, 27, 1)', // exception to the staking category
+        undelegate: 'rgba(252, 106, 138, 0.3)', // exception to the staking category
+      },
     },
   },
 };
@@ -83,14 +93,6 @@ const lightThemeOverride = {
         dashTwo: 'rgba(253, 94, 31, 1)',
         dashThree: 'rgba(253, 93, 78, 1)',
         dashFour: 'rgba(253, 149, 38, 1)',
-      },
-      transactionType: {
-        delegate: 'rgba(30, 196, 144, 1)', // delegate, edt, account
-        redelegate: 'rgba(253, 59, 76, 1)', // redelegate, unjail
-        undelegate: 'rgba(255, 177, 0, 1)', // undelegate
-        withdraw: 'rgba(82, 126, 255, 1)', // withdraw
-        deposit: 'rgba(253, 117, 34, 1)', // deposit, proposal
-        send: 'rgba(157, 44, 252, 1)', // send, multisend
       },
       network: {
         mainnet: 'rgba(253, 59, 76, 1)', // primary light theme color
@@ -137,14 +139,6 @@ const darkThemeOverride = {
         dashTwo: 'rgba(253, 94, 31, 0.7)',
         dashThree: 'rgba(253, 93, 78, 0.7)',
         dashFour: 'rgba(253, 149, 38, 0.7)',
-      },
-      transactionType: {
-        delegate: 'rgba(30, 196, 144, 0.7)', // delegate, edt, account
-        redelegate: 'rgba(253, 59, 76, 0.7)', // redelegate, unjail
-        undelegate: 'rgba(255, 177, 0, 0.7)', // undelegate
-        withdraw: 'rgba(82, 126, 255, 0.7)', // withdraw
-        deposit: 'rgba(253, 117, 34, 0.7)', // deposit, proposal
-        send: 'rgba(157, 44, 252, 0.7)', // send, multisend
       },
       network: {
         mainnet: 'rgba(253, 59, 76, 0.7)', // primary dark theme color
