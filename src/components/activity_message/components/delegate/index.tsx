@@ -3,8 +3,11 @@ import * as R from 'ramda';
 import { GlobalContext } from '@contexts';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import { getAddressDisplay } from '@utils';
+import {
+  getAddressDisplay, formatDenom,
+} from '@utils';
 import { MsgDelegate } from '@models';
+import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
 
 const Delegate = (props:any) => {
@@ -23,24 +26,35 @@ const Delegate = (props:any) => {
     validatorAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
     amount: {
       denom: 'udaric',
-      amount: 1000,
+      amount: 10003400,
     },
   };
 
   const validatorAddress = getAddressDisplay(message.validatorAddress, validatorsList);
   const delegatorAddress = getAddressDisplay(message.delegatorAddress, validatorsList);
+  const parsedAmount = formatDenom(chainConfig.display, message.amount.amount, '0,0.0[000]');
 
   return (
     <div className={classnames(className, classes.root)}>
-      <span className="delegate__address">
-        {delegatorAddress}
-      </span>
-      delegated
-      <span>{message.amount.amount}</span>
-      to
-      <span className="delegate__address">
-        {validatorAddress}
-      </span>
+      <p>
+        <span className="address">
+          {delegatorAddress}
+        </span>
+        {' '}
+        delegated
+        {' '}
+        <span className="amount">
+          {parsedAmount.format}
+          {' '}
+          {chainConfig.display.toUpperCase()}
+        </span>
+        {' '}
+        to
+        {' '}
+        <span className="address">
+          {validatorAddress}
+        </span>
+      </p>
     </div>
   );
 };

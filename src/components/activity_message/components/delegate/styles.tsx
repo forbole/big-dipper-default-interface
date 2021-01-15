@@ -7,6 +7,15 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       wordBreak: 'break-all',
+      '& .address': {
+        color: theme.palette.custom.fonts.fontFive,
+        '&:hover': {
+          cursor: 'pointer',
+        },
+      },
+      '& .amount': {
+        fontWeight: 600,
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },

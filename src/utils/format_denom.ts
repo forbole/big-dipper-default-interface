@@ -6,7 +6,7 @@ import { chainConfig } from '@src/chain_config';
  * @param denom The denom you wish to convert to
  * @param value The value in base denom value
  */
-export const formatDenom = (denom: string, value: number, format = '0,.00') => {
+export const formatDenom = (denom: string, value: number | string, format = '0,0.00') => {
   const results = {
     raw: value,
     format: '-',
@@ -18,6 +18,10 @@ export const formatDenom = (denom: string, value: number, format = '0,.00') => {
     return results;
   }
   const ratio = 10 ** selectedDenom.exponent;
+
+  if (typeof value === 'string') {
+    value = numeral(value).value() as number;
+  }
 
   results.raw = value / ratio;
   results.format = numeral(value / ratio).format(format);
