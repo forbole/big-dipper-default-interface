@@ -4,7 +4,7 @@ import {
   MsgSoftwareUpgradeProposal,
   MsgParameterChangeProposal,
   MsgCommunityPoolSpendProposal,
-} from '.';
+} from '..';
 
 class MsgSubmitProposal {
   public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';

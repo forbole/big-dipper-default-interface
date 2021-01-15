@@ -15,24 +15,24 @@ import PreCommit from './pre_commit';
 // ================================
 // Transaction Message Types
 // ================================
-import MsgMultiSend from './msg_multi_send';
-import MsgSend from './msg_send';
-import MsgVerifyInvariant from './msg_verify_invariant';
-import MsgFundCommunityPool from './msg_fund_community_pool';
-import MsgSetWithdrawAddress from './msg_set_withdrawal_address';
-import MsgWithdrawDelegatorReward from './msg_withdrawal_delegaor_reward';
-import MsgCommunityPoolSpendProposal from './msg_community_pool_spend_proposal';
-import MsgParameterChangeProposal from './msg_parameter_change_proposal';
-import MsgSoftwareUpgradeProposal from './msg_software_upgrade_proposal';
-import MsgTextProposal from './msg_text_proposal';
-import MsgDeposit from './msg_deposit';
-import MsgVote from './msg_vote';
-import MsgUnjail from './msg_unjail';
-import MsgCreateValidator from './msg_create_validator';
-import MsgDelegate from './msg_delegate';
-import MsgEditValidator from './msg_edit_validator';
-import MsgBeginRedelegate from './msg_begin_redelegate';
-import MsgUndelegate from './msg_undelegate';
+import MsgMultiSend from './msg/msg_multi_send';
+import MsgSend from './msg/msg_send';
+import MsgVerifyInvariant from './msg/msg_verify_invariant';
+import MsgFundCommunityPool from './msg/msg_fund_community_pool';
+import MsgSetWithdrawAddress from './msg/msg_set_withdrawal_address';
+import MsgWithdrawDelegatorReward from './msg/msg_withdrawal_delegaor_reward';
+import MsgCommunityPoolSpendProposal from './msg/msg_community_pool_spend_proposal';
+import MsgParameterChangeProposal from './msg/msg_parameter_change_proposal';
+import MsgSoftwareUpgradeProposal from './msg/msg_software_upgrade_proposal';
+import MsgTextProposal from './msg/msg_text_proposal';
+import MsgDeposit from './msg/msg_deposit';
+import MsgVote from './msg/msg_vote';
+import MsgUnjail from './msg/msg_unjail';
+import MsgCreateValidator from './msg/msg_create_validator';
+import MsgDelegate from './msg/msg_delegate';
+import MsgEditValidator from './msg/msg_edit_validator';
+import MsgBeginRedelegate from './msg/msg_begin_redelegate';
+import MsgUndelegate from './msg/msg_undelegate';
 
 export {
   BigDipperNetworkLink,
