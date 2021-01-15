@@ -1,7 +1,6 @@
-import React from 'react';
-import { getAddressRole } from '@utils';
+import React, { useContext } from 'react';
+import { GlobalContext } from '@contexts';
 import { AvatarDisplayProps } from './types';
-import { useAvatarDisplayHook } from './hooks';
 import {
   ValidatorDisplay, UserDisplay,
 } from './components';
@@ -15,17 +14,15 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     display,
     identity,
   } = props;
+  const globalState = useContext(GlobalContext);
+  const validator = globalState?.validators?.[address];
 
-  const { validator } = useAvatarDisplayHook(address);
-
-  if (getAddressRole(address) === 'validator' || validator) {
-    return (
-      <ValidatorDisplay
-        address={address}
-        display={display ?? validator?.moniker}
-        identity={identity ?? validator?.id}
-      />
-    );
+  if (validator) {
+    <ValidatorDisplay
+      address={address}
+      display={display ?? validator?.moniker}
+      identity={identity ?? validator?.id}
+    />;
   }
 
   return (
