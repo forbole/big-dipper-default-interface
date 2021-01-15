@@ -1,49 +1,28 @@
-import React, { useContext } from 'react';
-import { AvatarDisplay } from 'big-dipper-default-ui';
-import { GlobalContext } from '@contexts';
-import Jazzicon from 'react-jazzicon';
-import { useKeybaseHook } from '@hooks';
+import React from 'react';
 import { AvatarDisplayProps } from './types';
+import { useAvatarDisplayHook } from './hooks';
+import {
+  ValidatorDisplay, UserDisplay,
+} from './components';
 
 /**
  * Component that extends AvatarDisplay and uses JazzIcon if user image could not be found
  */
 const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   const {
-    identity,
-    display,
-    address,
+    address, identity,
   } = props;
-  const globalState = useContext(GlobalContext);
-  useKeybaseHook(identity, globalState);
-  const { keybaseList } = globalState;
 
-  const verifiedUser = keybaseList?.[identity];
+  const { validator } = useAvatarDisplayHook(address);
 
-  if (verifiedUser) {
+  if (identity || validator) {
     return (
-      <AvatarDisplay
-        imageUrl={verifiedUser.imageUrl}
-        title={display}
-      />
+      <ValidatorDisplay {...props} {...validator} />
     );
   }
 
-  const seed = address?.split('')?.reduce((a, b) => {
-    return a + b.charCodeAt(0);
-  }, 0);
-
   return (
-    <AvatarDisplay
-      avatar={(
-        <Jazzicon
-          diameter={24}
-          seed={seed}
-        />
-)}
-      imageUrl=""
-      title={display}
-    />
+    <UserDisplay {...props} />
   );
 };
 

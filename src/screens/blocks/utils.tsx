@@ -2,7 +2,7 @@ import moment from 'moment';
 import { LatestBlock } from '@models';
 import { convertNumber } from '@utils';
 import {
-  ValidatorDisplay,
+  AvatarDisplay,
   BlockHeight,
 } from '@components';
 
@@ -30,7 +30,7 @@ export const formatLatestBlocksData = (data:LatestBlock[]) => {
   return data.map((x) => {
     return ({
       proposer: (
-        <ValidatorDisplay
+        <AvatarDisplay
           display={x.validator.moniker}
           address={x.validator.validatorAddress}
           identity={x.validator.identity}
