@@ -37,7 +37,7 @@ const Delegate = (props:any) => {
 
   return (
     <div className={classnames(className, classes.root)}>
-      <p>
+      <p className={classnames('body')}>
         <span className="address">
           {delegatorAddress}
         </span>
@@ -56,7 +56,10 @@ const Delegate = (props:any) => {
           {validatorAddress}
         </span>
       </p>
-      <TypeTag />
+      <TypeTag
+        type="staking"
+        display="delegate"
+      />
     </div>
   );
 };

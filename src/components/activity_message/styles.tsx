@@ -11,7 +11,17 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-
+        display: 'grid',
+        gridTemplateColumns: '160px auto',
+        gridTemplateRows: 'auto',
+        '& .body': {
+          gridColumn: '2/3',
+          gridRow: '1/2',
+        },
+        '& .type-tag__container': {
+          gridColumn: '1/2',
+          gridRow: '1/2',
+        },
       },
     },
   }));

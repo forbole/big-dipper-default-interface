@@ -1,15 +1,23 @@
 import React from 'react';
+import { useTranslation } from 'i18n';
+import classnames from 'classnames';
 import { useGetStyles } from './styles';
+import { TypeTagProps } from './types';
 
-const TypeTag = (props: { type: string;}) => {
-  const { type } = props;
+const TypeTag = (props: TypeTagProps) => {
+  const { t } = useTranslation(['activities']);
+
+  const {
+    type,
+    display,
+  } = props;
 
   const { classes } = useGetStyles();
 
   return (
-    <div className={classes.root}>
-      <div className="tag">
-        type lives here
+    <div className={classnames(classes.root, 'type-tag__container')}>
+      <div className={classnames('tag', type)}>
+        {t(display)}
       </div>
     </div>
   );
