@@ -2,7 +2,7 @@ import moment from 'moment';
 import { LatestBlock } from '@models';
 import { convertNumber } from '@utils';
 import {
-  Proposer,
+  AvatarDisplay,
   BlockHeight,
 } from '@components';
 
@@ -30,9 +30,9 @@ export const formatLatestBlocksData = (data:LatestBlock[]) => {
   return data.map((x) => {
     return ({
       proposer: (
-        <Proposer
+        <AvatarDisplay
           display={x.validator.moniker}
-          id={x.validator.validatorAddress}
+          address={x.validator.validatorAddress}
           identity={x.validator.identity}
         />),
       height: {
@@ -43,7 +43,7 @@ export const formatLatestBlocksData = (data:LatestBlock[]) => {
             raw={x.height}
           />),
       },
-      time: moment(x.timestamp).format('Do MMMM YYYY, HH:mm:ss'),
+      time: moment(x.timestamp).format('Do MMM YYYY, HH:mm:ss'),
       hash: x.hash,
       tx: convertNumber(x.tx).display,
     });

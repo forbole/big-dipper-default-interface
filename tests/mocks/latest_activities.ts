@@ -1,22 +1,35 @@
 import { LATEST_ACTIVITIES } from '@graphql/queries';
 import { gql } from '@apollo/client';
 
-export const LATEST_ACTIVITIES_MOCK_DATA = (variables?: {limit?: number, offset?: number}) => {
+export const LATEST_ACTIVITIES_MOCK_DATA = (variables?: {
+  limit?: number, offset?: number, height?: number
+}) => {
   const {
     limit = 10,
-    offset = 0,
+    offset,
+    height,
   } = variables ?? {
   };
+
+  const formatVariables:any = {
+  };
+
+  if (limit !== undefined) {
+    formatVariables.limit = limit;
+  }
+  if (offset !== undefined) {
+    formatVariables.offset = offset;
+  }
+  if (height !== undefined) {
+    formatVariables.height = height;
+  }
 
   return (
     [
       {
         request: {
           query: gql`${LATEST_ACTIVITIES}`,
-          variables: {
-            limit,
-            offset,
-          },
+          variables: formatVariables,
         },
         result: {
           data: {

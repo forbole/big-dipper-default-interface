@@ -2,7 +2,11 @@ import { LatestActivity } from '@models';
 import { formatMiddleEllipse } from '@utils';
 import moment from 'moment';
 
-export const formatLatestActivitiesData = (data: LatestActivity[]) => {
+/**
+ * Helper function to help parse and format data to be useable with UI
+ * @param data
+ */
+export const formatActivitiesData = (data: LatestActivity[]) => {
   return data.map((x) => {
     return ({
       hash: {

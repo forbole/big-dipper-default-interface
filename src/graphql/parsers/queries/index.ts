@@ -10,6 +10,8 @@ import { validatorAddressListParser } from './validators_address_list_parser';
 import {
   latestActivitiesParser, latestActivitiesTotalParser,
 } from './latest_activities_parser';
+import { blockDetailsParser } from './block_details_parser';
+import { preCommitsParser } from './pre_commit_parser';
 
 export {
   averageBlockTimesParser,
@@ -22,4 +24,6 @@ export {
   validatorAddressListParser,
   latestActivitiesTotalParser,
   latestActivitiesParser,
+  blockDetailsParser,
+  preCommitsParser,
 };

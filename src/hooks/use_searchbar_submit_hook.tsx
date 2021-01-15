@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { getAddressRole } from '@utils';
 
 /**
  * Gloabl hook to handle layout searchbar
@@ -6,9 +7,11 @@ import { useRouter } from 'next/router';
 export const useSearchbarSubmitHook = () => {
   const router = useRouter();
   const handleSearchbarSubmit = (value:string) => {
-    if (value.includes('cosmosvaloper')) {
+    const addressRole = getAddressRole(value);
+
+    if (addressRole === 'validator') {
       router.push(`/validators/${value}`);
-    } else if (value.includes('cosmos')) {
+    } else if (addressRole === 'user') {
       router.push(`/accounts/${value}`);
     } else if (!isNaN(Number(value.replace(/[^a-zA-Z0-9 -]/gi, '')))) {
       router.push(`/blocks/${value}`);

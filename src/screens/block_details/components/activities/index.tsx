@@ -22,7 +22,7 @@ const Activities = () => {
   const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
 
   const {
-    hasMore,
+    total,
     data,
   } = state;
 
@@ -40,7 +40,7 @@ const Activities = () => {
       <InfiniteScroll
         pageStart={0}
         loadMore={handleLoadMore}
-        hasMore={hasMore}
+        hasMore={total > data.length}
         loader={<InfiniteLoader key={0} />}
       >
         <LatestActivities

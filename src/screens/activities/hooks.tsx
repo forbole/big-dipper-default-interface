@@ -13,6 +13,7 @@ import {
   latestActivitiesParser,
   latestActivitiesTotalParser,
 } from '@src/graphql/parsers/queries';
+import { formatActivitiesData } from '@utils';
 
 export const useActivitiesHook = () => {
   const router = useRouter();
@@ -54,8 +55,7 @@ export const useActivitiesHook = () => {
   // utils
   // ===============================
   const handleSetState = (stateChange: any) => {
-    const newState = R.mergeDeepLeft(stateChange, state);
-    setState(newState);
+    setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
   /**
@@ -101,7 +101,10 @@ export const useActivitiesHook = () => {
   };
 
   return {
-    state,
+    state: {
+      total: state.total,
+      data: formatActivitiesData(state.data),
+    },
     handleSetState,
     handleLoadMore,
     handleClick,
