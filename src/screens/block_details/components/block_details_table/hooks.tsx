@@ -38,18 +38,14 @@ export const useBlockDetailsTableHook = (): {
     precommits: [],
   });
 
-  // const [blockData, setBlockData] = useState<BlockDetail>(BlockDetail.fromJson({
-  // }));
-
   // ===============================
   // get data
   // ===============================
   useQuery(gql`${BLOCK_DETAILS}`, {
     variables: {
-      height: router?.query?.block,
+      height: isNaN(Number(router?.query?.block)) ? null : Number(router?.query?.block),
     },
     onCompleted: (data) => {
-      console.log(data, 'the data on complete');
       const parsedBlockData = blockDetailsParser(data);
       const parsedPoolData = stabilitiesParser(data);
       const parsedPreCommitsData = preCommitsParser(data);

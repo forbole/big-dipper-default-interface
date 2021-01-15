@@ -27,10 +27,7 @@ export const useActivitiesHook = () => {
   const latestActivities = useQuery(gql`${LATEST_ACTIVITIES}`, {
     variables: {
       limit: 10,
-      height: Number(router?.query?.block ?? null),
-    },
-    onError: (error) => {
-      console.error(error);
+      height: isNaN(Number(router?.query?.block)) ? null : Number(router?.query?.block),
     },
     onCompleted: (data) => {
       handleNewData(data);

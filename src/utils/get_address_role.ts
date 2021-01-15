@@ -1,8 +1,8 @@
 export const getAddressRole = (address = ''): 'validator' | 'user' | null => {
-  if (address?.includes('desmosvalcons')) {
+  if (new RegExp(/^(desmosvalcons)/).test(address)) {
     return 'validator';
   }
-  if (address?.includes('desmos')) {
+  if (new RegExp(/^(desmos)/).test(address)) {
     return 'user';
   }
   return null;

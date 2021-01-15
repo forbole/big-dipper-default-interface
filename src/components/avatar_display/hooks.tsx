@@ -9,7 +9,11 @@ export const useAvatarDisplayHook = (address:string) => {
   const globalState = useContext(GlobalContext);
 
   useEffect(() => {
-    const { validators } = globalState;
+    const {
+      validators = {
+      },
+    } = globalState;
+
     if (validators[address]) {
       setValidator(validators[address]);
     }
