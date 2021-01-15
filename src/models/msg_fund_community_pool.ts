@@ -1,6 +1,7 @@
 import numeral from 'numeral';
 
 class MsgFundCommunityPool {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public depositor: string;
   public amount: {
@@ -9,6 +10,7 @@ class MsgFundCommunityPool {
   }[]
 
   constructor(payload: any) {
+    this.category = 'distribution';
     this.type = payload.type;
     this.depositor = payload.depositor;
     this.amount = payload.amount;

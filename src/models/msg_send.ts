@@ -1,6 +1,7 @@
 import numeral from 'numeral';
 
 class MsgSend {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public fromAddress: string;
   public toAddress: string;
@@ -10,6 +11,7 @@ class MsgSend {
   }[];
 
   constructor(payload: any) {
+    this.category = 'bank';
     this.type = payload.type;
     this.fromAddress = payload.fromAddress;
     this.toAddress = payload.toAddress;

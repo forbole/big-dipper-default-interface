@@ -7,6 +7,7 @@ import {
 } from '.';
 
 class MsgSubmitProposal {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public content: MsgTextProposal
   | MsgSoftwareUpgradeProposal
@@ -19,6 +20,7 @@ class MsgSubmitProposal {
   public proposer: string;
 
   constructor(payload: any) {
+    this.category = 'governance';
     this.type = payload.type;
     this.content = payload.content;
     this.initialDeposit = payload.initialDeposit;

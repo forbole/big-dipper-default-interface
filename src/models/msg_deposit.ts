@@ -1,6 +1,7 @@
 import numeral from 'numeral';
 
 class MsgDeposit {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public proposalId: number | string;
   public depositor: string;
@@ -10,6 +11,7 @@ class MsgDeposit {
   }[];
 
   constructor(payload: any) {
+    this.category = 'governance';
     this.type = payload.type;
     this.proposalId = payload.proposalId;
     this.depositor = payload.depositor;

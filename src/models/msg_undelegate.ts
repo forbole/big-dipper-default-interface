@@ -1,6 +1,7 @@
 import numeral from 'numeral';
 
 class MsgUndelegate {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public delegatorAddress: string;
   public validatorAddress: string;
@@ -10,6 +11,7 @@ class MsgUndelegate {
   }
 
   constructor(payload: any) {
+    this.category = 'staking';
     this.type = payload.type;
     this.delegatorAddress = payload.delegatorAddress;
     this.validatorAddress = payload.validatorAddress;

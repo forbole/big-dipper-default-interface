@@ -1,6 +1,7 @@
 import numeral from 'numeral';
 
 class MsgEditValidator {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public description: {
     moniker: string;
@@ -14,6 +15,7 @@ class MsgEditValidator {
   public minSelfDelegation: string | number;
 
   constructor(payload: any) {
+    this.category = 'staking';
     this.type = payload.type;
     this.description = payload.description;
     this.validatorAddress = payload.validatorAddress;
