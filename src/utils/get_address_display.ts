@@ -8,9 +8,8 @@ export const getAddressDisplay = (
   validators: {[key:string]:ValidatorAddressList},
 ): string => {
   const validator = validators[address];
-
   if (validator) {
-    return validator.moniker;
+    return validator.moniker ?? address;
   }
   return address;
 };
