@@ -42,7 +42,7 @@ const Delegate = (props:any) => {
           {delegatorAddress}
         </span>
         {' '}
-        delegated
+        {t('delegated')}
         {' '}
         <span className="amount">
           {parsedAmount.format}
@@ -50,7 +50,7 @@ const Delegate = (props:any) => {
           {chainConfig.display.toUpperCase()}
         </span>
         {' '}
-        to
+        {t('to')}
         {' '}
         <span className="address">
           {validatorAddress}

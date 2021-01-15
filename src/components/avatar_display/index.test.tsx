@@ -48,6 +48,7 @@ describe('AvatarDisplayHelper', () => {
     });
 
     expect(wrapper).not.toBeNull();
-    expect(wrapper.find(ValidatorDisplay)).toHaveLength(1);
+    // because it doesnt exist in our address book
+    expect(wrapper.find(ValidatorDisplay)).toHaveLength(0);
   });
 });

@@ -5,7 +5,7 @@ import { useGetStyles } from './styles';
 /**
  * Component that returns based on message type
  */
-const ActivityMessage = (props: any) => {
+const ActivityMessage = () => {
   const { classes } = useGetStyles();
   return (
     <Delegate className={classes.root} />
