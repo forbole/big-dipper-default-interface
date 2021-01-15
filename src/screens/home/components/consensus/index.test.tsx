@@ -2,37 +2,28 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import { Consensus } from 'big-dipper-default-ui';
-import { dummyProposerData } from './utils';
+import { awaitActions } from '@tests/utils/await_actions';
+import { CONSENSUS_MOCK_DATA } from '@tests/mocks';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
+import Consensus from '.';
 
 describe('Consensus', () => {
-  it('correctly renders component', () => {
+  it('correctly renders component', async () => {
     const wrapper = mount(
-      BaseWrapper({
-        component: <Consensus
-          title="Consensus State"
-          height={{
-            title: 'Height',
-            display: '2,769,405',
-          }}
-          proposer={dummyProposerData}
-          votingPower={{
-            title: 'Voting Power',
-            value: 0.85,
-          }}
-          colors={['#FD3B4C', '#E8E8E8']}
-          round={{
-            title: 'Round',
-            display: '6',
-          }}
-          step={{
-            title: 'Step',
-            display: '4',
-          }}
-        />,
-        theme: lightTheme,
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <Consensus />,
+          theme: lightTheme,
+        }),
+        mocks: CONSENSUS_MOCK_DATA,
       }),
     );
+
+    await awaitActions({
+      wrapper,
+      time: 10,
+    });
     expect(wrapper).not.toBeNull();
+    expect(wrapper.find('.amount').last().text()).toEqual('1,400,123');
   });
 });

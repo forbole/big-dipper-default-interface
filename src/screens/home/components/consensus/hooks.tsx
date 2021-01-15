@@ -21,7 +21,7 @@ import {
   Proposer,
 } from '@models';
 
-export const useConsensusPoolHook = () => {
+export const useConsensusHook = () => {
   const [consensusPool, setConsensusPool] = useState<ConsensusPool>(ConsensusPool.fromJson({
   }));
 
@@ -30,16 +30,9 @@ export const useConsensusPoolHook = () => {
     notifyOnNetworkStatusChange: true,
     onCompleted: (data) => {
       setConsensusPool(consensusPoolParser(data));
-      // console.log('dataPool', data);
     },
   });
 
-  return {
-    consensusPool,
-  };
-};
-
-export const useConsensusHook = () => {
   const [consensus, setConsensus] = useState<Consensus>(Consensus.fromJson({
   }));
 
@@ -49,12 +42,6 @@ export const useConsensusHook = () => {
     },
   });
 
-  return {
-    consensus,
-  };
-};
-
-export const useProposerHook = () => {
   const [proposer, setProposer] = useState<Proposer>(Proposer.fromJson({
   }));
 
@@ -65,6 +52,38 @@ export const useProposerHook = () => {
   });
 
   return {
+    consensusPool,
+    consensus,
     proposer,
   };
 };
+
+// export const useConsensusHook = () => {
+//   const [consensus, setConsensus] = useState<Consensus>(Consensus.fromJson({
+//   }));
+
+//   useSubscription(gql`${CONSENSUS}`, {
+//     onSubscriptionData: (data) => {
+//       setConsensus(ConsensusParser(data));
+//     },
+//   });
+
+//   return {
+//     consensus,
+//   };
+// };
+
+// export const useProposerHook = () => {
+//   const [proposer, setProposer] = useState<Proposer>(Proposer.fromJson({
+//   }));
+
+//   useSubscription(gql`${PROPOSER}`, {
+//     onSubscriptionData: (data) => {
+//       setProposer(ProposerParser(data));
+//     },
+//   });
+
+//   return {
+//     proposer,
+//   };
+// };

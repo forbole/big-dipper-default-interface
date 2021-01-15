@@ -18,10 +18,6 @@ export const toCurrency = (num) => {
 };
 
 export const toPercentage = (votingPower: number, bondedTokens: number) => {
-  return (votingPower / bondedTokens);
-};
-
-export const toPercentageDisplay = (votingPower: number, bondedTokens: number) => {
-  const toPercentageNum = (votingPower / bondedTokens);
+  const toPercentageNum = (votingPower / bondedTokens) * 100;
   return `${Math.round(toPercentageNum * 100000) / 100000} %`;
 };

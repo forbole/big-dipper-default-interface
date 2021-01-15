@@ -7,6 +7,7 @@ import { LATEST_BLOCK_MOCK_DATA } from './latest_block';
 import { LATEST_ACTIVITY_MOCK_DATA } from './latest_activity';
 import { LATEST_ACTIVITIES_MOCK_DATA } from './latest_activities';
 import { BLOCK_DETAILS_MOCK_DATA } from './block_details';
+import { CONSENSUS_MOCK_DATA } from './consensus';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -18,4 +19,5 @@ export {
   LATEST_ACTIVITIES_MOCK_DATA,
   LATEST_ACTIVITY_MOCK_DATA,
   BLOCK_DETAILS_MOCK_DATA,
+  CONSENSUS_MOCK_DATA,
 };

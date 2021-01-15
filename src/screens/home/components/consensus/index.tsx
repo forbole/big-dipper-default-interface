@@ -8,21 +8,24 @@ import {
   formatProposer,
   toCurrency,
   toPercentage,
-  toPercentageDisplay,
 } from './utils';
 import {
   useConsensusHook,
-  useConsensusPoolHook,
-  useProposerHook,
+  // useConsensusPoolHook,
+  // useProposerHook,
 } from './hooks';
 
 const ConsensusState = () => {
   const { classes } = useGetStyles();
   const { t } = useTranslation(['home']);
   const theme: any = useTheme();
-  const { consensus } = useConsensusHook();
-  const { consensusPool } = useConsensusPoolHook();
-  const { proposer } = useProposerHook();
+  const {
+    consensusPool,
+    consensus,
+    proposer,
+  } = useConsensusHook();
+  // const { consensusPool } = useConsensusPoolHook();
+  // const { proposer } = useProposerHook();
 
   return (
     <Consensus
@@ -38,8 +41,8 @@ const ConsensusState = () => {
       }}
       votingPower={{
         title: t('votingPowerTitle'),
-        value: toPercentage(proposer.validator.votingPower, consensusPool.bondedTokens),
-        display: toPercentageDisplay(proposer.validator.votingPower, consensusPool.bondedTokens),
+        value: (proposer.validator.votingPower / consensusPool.bondedTokens),
+        display: toPercentage(proposer.validator.votingPower, consensusPool.bondedTokens),
       }}
       colors={['#FD3B4C', theme?.palette?.type === 'light' ? '#E8E8E8' : '#3D3D43']}
       round={{
