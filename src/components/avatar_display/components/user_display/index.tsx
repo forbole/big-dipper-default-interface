@@ -8,7 +8,9 @@ import {
 } from '../../utils';
 
 const UserDisplay = (props: AvatarDisplayProps) => {
-  const { address } = props;
+  const {
+    address, display,
+  } = props;
 
   return (
     <span onClick={handleClick} role="button">
@@ -22,7 +24,7 @@ const UserDisplay = (props: AvatarDisplayProps) => {
               />
               )}
             imageUrl=""
-            title={address}
+            title={display ?? address}
           />
         </a>
       </Link>
