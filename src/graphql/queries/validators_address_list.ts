@@ -7,6 +7,7 @@ export const VALIDATORS_ADDRESS_LIST = `
       validator_info {
         self_delegate_address
         operator_address
+        consensus_address
       }
       validator_description {
         moniker

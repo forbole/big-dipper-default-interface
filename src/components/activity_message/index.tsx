@@ -1,11 +1,14 @@
 import React from 'react';
+import { Delegate } from './components';
+import { useGetStyles } from './styles';
 
 /**
  * Component that returns based on message type
  */
 const ActivityMessage = (props: any) => {
+  const { classes } = useGetStyles();
   return (
-    <div>ctivity mess</div>
+    <Delegate className={classes.root} />
   );
 };
 

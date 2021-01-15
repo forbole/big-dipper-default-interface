@@ -10,13 +10,21 @@ import {
  * Component that extends AvatarDisplay and uses JazzIcon if user image could not be found
  */
 const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
-  const { address } = props;
+  const {
+    address,
+    display,
+    identity,
+  } = props;
 
   const { validator } = useAvatarDisplayHook(address);
 
   if (getAddressRole(address) === 'validator' || validator) {
     return (
-      <ValidatorDisplay {...props} {...validator} />
+      <ValidatorDisplay
+        address={address}
+        display={display ?? validator?.moniker}
+        identity={identity ?? validator?.id}
+      />
     );
   }
 

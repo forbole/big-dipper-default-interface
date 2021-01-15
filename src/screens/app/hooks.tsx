@@ -126,7 +126,14 @@ export const useGetValidatorAddressListHook = () => {
         const newState = {
         };
         validatorAddressListParser(data).forEach((x) => {
+          // wingman
+          // if (x.operatorAddress === 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk') {
+          //   console.log('i got it');
+          //   console.log(x);
+          // }
           newState[x.selfDelegateAddress] = x;
+          newState[x.operatorAddress] = x;
+          newState[x.consensusAddress] = x;
         });
         setValidatorsMap(newState);
       } catch (error) {

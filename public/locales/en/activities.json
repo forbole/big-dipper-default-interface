@@ -15,5 +15,7 @@
   "slashing": "Slashing",
   "staking": "Staking",
   "none": "None",
-  "filerBy": "Filter by..."
+  "filerBy": "Filter by...",
+  "delegated": "Delegated",
+  "to": "to"
 }

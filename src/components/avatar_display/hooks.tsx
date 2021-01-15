@@ -2,22 +2,22 @@ import {
   useContext, useState, useEffect,
 } from 'react';
 import { GlobalContext } from '@contexts';
+import { ValidatorAddressList } from '@models';
 
 export const useAvatarDisplayHook = (address:string) => {
-  const [validator, setValidator] = useState(null);
+  const [validator, setValidator] = useState<ValidatorAddressList>(null);
 
   const globalState = useContext(GlobalContext);
+  const {
+    validators = {
+    },
+  } = globalState;
 
   useEffect(() => {
-    const {
-      validators = {
-      },
-    } = globalState;
-
     if (validators[address]) {
       setValidator(validators[address]);
     }
-  }, [address]);
+  }, [address, validators]);
 
   return {
     validator,
