@@ -10,6 +10,7 @@ import {
   latestActivitiesParser, latestActivitiesTotalParser,
 } from './latest_activities_parser';
 import { blockDetailsParser } from './block_details_parser';
+import { preCommitsParser } from './pre_commit_parser';
 
 export {
   averageBlockTimesParser,
@@ -22,4 +23,5 @@ export {
   latestActivitiesTotalParser,
   latestActivitiesParser,
   blockDetailsParser,
+  preCommitsParser,
 };

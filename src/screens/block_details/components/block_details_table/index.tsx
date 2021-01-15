@@ -8,14 +8,14 @@ import { AvatarDisplay } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
 import { useBlockDetailsTableHook } from './hooks';
-import {
-  Proposer,
-  signatureData,
-} from './utils';
 
 const BlockDetailsTable = () => {
   const { t } = useTranslation(['blocks', 'activities']);
-  const { data } = useBlockDetailsTableHook();
+  const {
+    block,
+    precommits,
+    votingPowerSum,
+  } = useBlockDetailsTableHook();
   // ========================
   // styles
   // ========================
@@ -25,41 +25,41 @@ const BlockDetailsTable = () => {
   return (
     <BlockDetails
       className={classnames(classes.root)}
-      title={`${t('subTitle')} ${numeral(data.height).format('0,0')}`}
+      title={`${t('subTitle')} ${numeral(block.height).format('0,0')}`}
       hash={{
         display: t('hash'),
-        value: data.hash,
+        value: block.hash,
       }}
       time={{
         display: t('timeDisplay'),
-        value: moment(data.timestamp).format('Do MMM YYYY, HH:mm:ss UTC'),
+        value: moment(block.timestamp).format('Do MMM YYYY, HH:mm:ss UTC'),
       }}
       noTransactions={{
         display: t('noTransactions'),
-        value: numeral(data.tx).format('0,0'),
+        value: numeral(block.tx).format('0,0'),
       }}
       proposer={{
         display: t('proposer'),
         value: <AvatarDisplay
-          identity={data.validator.identity}
-          display={data.validator.moniker}
-          address={data.validator.validatorAddress}
+          identity={block.validator.identity}
+          display={block.validator.moniker}
+          address={block.validator.validatorAddress}
         />,
       }}
       signedVotingPower={{
         display: t('signedVotingPower'),
-        value: '89%',
+        value: votingPowerSum,
       }}
       signatures={{
         display: 'Signatures',
-        value: '100 signatures',
+        value: numeral(precommits.length).format('0,0'),
         labels: {
           validator: 'Validator',
           votingPower: 'Voting Power',
           votingPowerPercentage: 'Voting Power (Percentage)',
           signStatus: 'Sign Status',
         },
-        data: signatureData,
+        data: precommits,
       }}
       desktop={isDesktop}
     />

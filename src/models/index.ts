@@ -10,6 +10,7 @@ import KeybaseProfile from './keybase_profile';
 import LatestActivity from './latest_activity';
 import ValidatorAddressList from './validator_address_list';
 import BlockDetail from './block_detail';
+import PreCommit from './pre_commit';
 
 // ================================
 // Transaction Message Types
@@ -64,4 +65,5 @@ export {
   MsgBeginRedelegate,
   MsgUndelegate,
   BlockDetail,
+  PreCommit,
 };
