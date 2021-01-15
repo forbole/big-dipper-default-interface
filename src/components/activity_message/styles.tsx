@@ -6,7 +6,7 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-
+      padding: theme?.palette?.custom?.margins?.small,
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },

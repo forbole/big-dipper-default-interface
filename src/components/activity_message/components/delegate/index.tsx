@@ -9,6 +9,7 @@ import {
 import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
+import { TypeTag } from '..';
 
 const Delegate = (props:any) => {
   const { t } = useTranslation(['activities']);
@@ -55,6 +56,7 @@ const Delegate = (props:any) => {
           {validatorAddress}
         </span>
       </p>
+      <TypeTag />
     </div>
   );
 };
