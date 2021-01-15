@@ -3,7 +3,7 @@ import {
 } from '@material-ui/styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles((theme: any) => createStyles({
+  const useStyles = makeStyles(() => createStyles({
     root: {
       '& .avatarDisplay': {
         '& .display': {
