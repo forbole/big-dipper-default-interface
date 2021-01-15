@@ -8,11 +8,12 @@
   "gas": "Gas (used/ wanted)",
   "status": "Status",
   "memo": "Memo",
-  "transfer": "Transfer",
-  "staking": "Staking",
+  "bank": "Bank",
+  "crisis": "Crisis",
   "distribution": "Distribution",
   "governance": "Governance",
   "slashing": "Slashing",
+  "staking": "Staking",
   "none": "None",
   "filerBy": "Filter by..."
 }
