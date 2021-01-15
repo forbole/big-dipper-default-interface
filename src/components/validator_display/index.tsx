@@ -1,25 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
 import { AvatarDisplay } from '@components';
-import { ProposerProps } from './types';
-import { proposerUtils } from './utils';
+import { ValidatorDisplayProps } from './types';
+import { validatorDisplayUtils } from './utils';
 
-const Proposer = (props: ProposerProps) => {
+const ValidatorDisplay = (props: ValidatorDisplayProps) => {
   const {
-    id,
+    address,
     identity,
     display,
   } = props;
-  const { handleClick } = proposerUtils();
+  const { handleClick } = validatorDisplayUtils();
 
   return (
     <span onClick={handleClick} role="button">
-      <Link href={`/validators/${id}`}>
+      <Link href={`/validators/${address}`}>
         <a>
           <AvatarDisplay
             identity={identity}
             display={display}
-            address={id}
+            address={address}
           />
         </a>
       </Link>
@@ -27,4 +27,4 @@ const Proposer = (props: ProposerProps) => {
   );
 };
 
-export default Proposer;
+export default ValidatorDisplay;

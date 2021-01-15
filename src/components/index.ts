@@ -9,7 +9,7 @@ import InfiniteLoader from './infinite_loader';
 import TabPanel from './tab_panel';
 import ActivitiesFilter from './activities_filter';
 import AvatarDisplay from './avatar_display';
-import Proposer from './proposer';
+import ValidatorDisplay from './validator_display';
 import BlockHeight from './block_height';
 import ActivityMessage from './activity_message';
 
@@ -25,7 +25,7 @@ export {
   TabPanel,
   ActivitiesFilter,
   AvatarDisplay,
-  Proposer,
+  ValidatorDisplay,
   BlockHeight,
   ActivityMessage,
 };
