@@ -40,7 +40,9 @@ describe('Home', () => {
           ...DATA_BLOCKS_HEADER_MOCK,
           ...STABILITIES_MOCK_DATA,
           ...LATEST_BLOCKS_MOCK_DATA(),
-          ...LATEST_ACTIVITIES_MOCK_DATA(),
+          ...LATEST_ACTIVITIES_MOCK_DATA({
+            offset: 0,
+          }),
         ],
       }),
     );

@@ -1,5 +1,5 @@
 export interface AvatarDisplayProps {
-  display: string;
+  display?: string;
   identity?: string;
   address: string;
 }

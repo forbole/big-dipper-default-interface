@@ -10,7 +10,6 @@ import {
   useTablePreviewWrapperStyles,
   useLatestActivitiesStyles,
 } from '@styles';
-import { formatLatestActivitiesData } from './utils';
 import {
   ActionMobile, FooterAction, ActionDesktop,
 } from '..';
@@ -33,11 +32,6 @@ const LatestActivities = () => {
   const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
 
-  // =============================
-  // format data for display
-  // =============================
-  const latestActivitiesData = formatLatestActivitiesData(latestActivities);
-
   return (
     <TablePreviewWrapper
       className={classnames(tablePreviewWrapperStyles.root, classes.tablePreviewWrapper)}
@@ -47,7 +41,7 @@ const LatestActivities = () => {
     >
       <LatestActivitiesComponent
         className={latestActivitiesStyles.root}
-        transactions={latestActivitiesData}
+        transactions={latestActivities}
         onClick={handleClick}
       />
     </TablePreviewWrapper>

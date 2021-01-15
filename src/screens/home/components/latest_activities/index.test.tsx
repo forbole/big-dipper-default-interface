@@ -18,7 +18,9 @@ describe('LatestActivities', () => {
           component: <LatestActivities />,
           theme: lightTheme,
         }),
-        mocks: LATEST_ACTIVITIES_MOCK_DATA(),
+        mocks: LATEST_ACTIVITIES_MOCK_DATA({
+          offset: 0,
+        }),
       }),
     );
     expect(wrapper).not.toBeNull();

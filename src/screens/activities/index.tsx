@@ -22,7 +22,6 @@ import {
 } from '@hooks';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
-import { formatLatestActivitiesData } from './utils';
 
 const Activities = () => {
   const { t } = useTranslation(['activities', 'common']);
@@ -43,8 +42,6 @@ const Activities = () => {
   const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
-
-  const latestActivitiesData = formatLatestActivitiesData(data);
 
   return (
     <Layout
@@ -84,7 +81,7 @@ const Activities = () => {
           >
             <LatestActivitiesComponent
               className={latestActivitiesStyles.root}
-              transactions={latestActivitiesData}
+              transactions={data}
               onClick={handleClick}
             />
           </InfiniteScroll>

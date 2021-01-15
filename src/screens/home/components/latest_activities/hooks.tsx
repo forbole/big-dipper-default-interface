@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import {
   useQuery, gql,
 } from '@apollo/client';
+import { formatActivitiesData } from '@utils';
 import { LATEST_ACTIVITIES } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
 import { latestActivitiesParser } from '@graphql/parsers/queries';
@@ -37,6 +38,6 @@ export const useLatestActivitiesHook = () => {
 
   return {
     handleClick,
-    latestActivities: latestActivitiesdata,
+    latestActivities: formatActivitiesData(latestActivitiesdata),
   };
 };

@@ -1,52 +1,65 @@
 import React from 'react';
+import numeral from 'numeral';
+import moment from 'moment';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { BlockDetails } from 'big-dipper-default-ui';
+import { AvatarDisplay } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';
-import {
-  Proposer,
-  signatureData,
-} from './utils';
+import { useBlockDetailsTableHook } from './hooks';
 
 const BlockDetailsTable = () => {
   const { t } = useTranslation(['blocks', 'activities']);
+  const {
+    block,
+    precommits,
+    votingPowerSum,
+  } = useBlockDetailsTableHook();
+  // ========================
+  // styles
+  // ========================
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
+
   return (
     <BlockDetails
       className={classnames(classes.root)}
-      title="Block # 2,768,644"
-      txHash={{
-        display: t('txHash'),
-        value: '73FCAFE9BAF19BB405086CFFA1C8FEC510486AFAC5CBD48A2F57A3C79ABA1255',
+      title={`${t('subTitle')} ${numeral(block.height).format('0,0')}`}
+      hash={{
+        display: t('hash'),
+        value: block.hash,
       }}
       time={{
         display: t('timeDisplay'),
-        value: '10 Jan 2020, 12:59:27 UTC',
+        value: moment(block.timestamp).format('Do MMM YYYY, HH:mm:ss UTC'),
       }}
       noTransactions={{
         display: t('noTransactions'),
-        value: '1',
+        value: numeral(block.tx).format('0,0'),
       }}
       proposer={{
         display: t('proposer'),
-        value: <Proposer />,
+        value: <AvatarDisplay
+          identity={block.validator.identity}
+          display={block.validator.moniker}
+          address={block.validator.validatorAddress}
+        />,
       }}
       signedVotingPower={{
         display: t('signedVotingPower'),
-        value: '89%',
+        value: votingPowerSum,
       }}
       signatures={{
         display: 'Signatures',
-        value: '100 signatures',
+        value: numeral(precommits.length).format('0,0'),
         labels: {
           validator: 'Validator',
           votingPower: 'Voting Power',
           votingPowerPercentage: 'Voting Power (Percentage)',
           signStatus: 'Sign Status',
         },
-        data: signatureData,
+        data: precommits,
       }}
       desktop={isDesktop}
     />
