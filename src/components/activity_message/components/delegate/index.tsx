@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import * as R from 'ramda';
+import numeral from 'numeral';
 import { GlobalContext } from '@contexts';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
@@ -33,7 +34,7 @@ const Delegate = (props:any) => {
 
   const validatorAddress = getAddressDisplay(message.validatorAddress, validatorsList);
   const delegatorAddress = getAddressDisplay(message.delegatorAddress, validatorsList);
-  const parsedAmount = formatDenom(chainConfig.display, message.amount.amount, '0,0.0[000]');
+  const parsedAmount = formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]');
 
   return (
     <div className={classnames(className, classes.root)}>
