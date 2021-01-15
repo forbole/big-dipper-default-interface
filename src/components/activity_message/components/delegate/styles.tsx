@@ -6,10 +6,8 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& p': {
-        wordBreak: 'break-all',
-        margin: 0,
-      },
+      wordBreak: 'break-all',
+      margin: 0,
       '& .address': {
         color: theme.palette.custom.fonts.fontFive,
         '&:hover': {

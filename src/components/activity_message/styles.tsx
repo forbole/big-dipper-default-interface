@@ -11,10 +11,12 @@ export const useGetStyles = () => {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+        padding: theme?.palette?.custom?.margins?.large,
         display: 'grid',
-        gridTemplateColumns: '160px auto',
+        gridTemplateColumns: '250px auto',
         gridTemplateRows: 'auto',
-        '& .body': {
+        gridGap: theme?.palette?.custom?.gutters?.large,
+        '& .content__body': {
           gridColumn: '2/3',
           gridRow: '1/2',
         },

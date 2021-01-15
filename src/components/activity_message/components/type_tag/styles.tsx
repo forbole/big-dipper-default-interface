@@ -14,6 +14,8 @@ export const useGetStyles = () => {
       '& .tag': {
         padding: '0.25rem 0.875rem',
         borderRadius: '4px',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
         background: rgbaOpacityConverter(
           theme?.palette?.custom?.fonts?.fontFour,
           0.3,
@@ -34,6 +36,7 @@ export const useGetStyles = () => {
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         marginTop: 0,
         justifyContent: 'flex-start',
+        alignItems: 'flex-start',
       },
     },
   }));

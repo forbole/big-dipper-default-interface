@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import * as R from 'ramda';
 import numeral from 'numeral';
 import { GlobalContext } from '@contexts';
-import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   getAddressDisplay, formatDenom,
@@ -10,11 +9,9 @@ import {
 import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
-import { TypeTag } from '..';
 
-const Delegate = (props:any) => {
+const Delegate = () => {
   const { t } = useTranslation(['activities']);
-  const { className } = props;
   const { classes } = useGetStyles();
   const globalState = useContext(GlobalContext);
   const validatorsList = R.pathOr({
@@ -37,31 +34,25 @@ const Delegate = (props:any) => {
   const parsedAmount = formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]');
 
   return (
-    <div className={classnames(className, classes.root)}>
-      <p className={classnames('body')}>
-        <span className="address">
-          {delegatorAddress}
-        </span>
+    <p className={classes.root}>
+      <span className="address">
+        {delegatorAddress}
+      </span>
+      {' '}
+      {t('delegated')}
+      {' '}
+      <span className="amount">
+        {parsedAmount.format}
         {' '}
-        {t('delegated')}
-        {' '}
-        <span className="amount">
-          {parsedAmount.format}
-          {' '}
-          {chainConfig.display.toUpperCase()}
-        </span>
-        {' '}
-        {t('to')}
-        {' '}
-        <span className="address">
-          {validatorAddress}
-        </span>
-      </p>
-      <TypeTag
-        type="staking"
-        display="delegate"
-      />
-    </div>
+        {chainConfig.display.toUpperCase()}
+      </span>
+      {' '}
+      {t('to')}
+      {' '}
+      <span className="address">
+        {validatorAddress}
+      </span>
+    </p>
   );
 };
 
