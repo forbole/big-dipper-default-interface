@@ -26,15 +26,19 @@ const Delegate = (props:any) => {
 
   return (
     <div className={classnames(className, classes.root)}>
-      <AvatarDisplay
-        address={delegatorAddress}
-      />
+      <span>
+        <AvatarDisplay
+          address={delegatorAddress}
+        />
+      </span>
       delegated
-      <div>{amount.amount}</div>
+      <span>{amount.amount}</span>
       to
-      <AvatarDisplay
-        address={validatorAddress}
-      />
+      <span>
+        <AvatarDisplay
+          address={validatorAddress}
+        />
+      </span>
     </div>
   );
 };

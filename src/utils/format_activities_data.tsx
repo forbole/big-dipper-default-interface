@@ -21,7 +21,6 @@ export const formatActivitiesData = (data: LatestActivity[]) => {
       success: x.success,
       messages: [
         <ActivityMessage />,
-        <ActivityMessage />,
       ],
     });
   });

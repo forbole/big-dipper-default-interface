@@ -14,6 +14,7 @@ const ValidatorDisplay = (props: AvatarDisplayProps) => {
     address,
     identity,
     display,
+    className,
   } = props;
 
   const globalState = useContext(GlobalContext);
@@ -23,7 +24,7 @@ const ValidatorDisplay = (props: AvatarDisplayProps) => {
   const verifiedUser = keybaseList?.[identity];
 
   return (
-    <span onClick={handleClick} role="button">
+    <span onClick={handleClick} role="button" className={className}>
       <Link href={`/validators/${address}`}>
         <a>
           {verifiedUser ? (

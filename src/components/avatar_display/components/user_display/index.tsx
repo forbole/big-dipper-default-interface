@@ -9,11 +9,13 @@ import {
 
 const UserDisplay = (props: AvatarDisplayProps) => {
   const {
-    address, display,
+    address,
+    display,
+    className,
   } = props;
 
   return (
-    <span onClick={handleClick} role="button">
+    <span onClick={handleClick} role="button" className={className}>
       <Link href={`/accounts/${address}`}>
         <a>
           <AvatarDisplay

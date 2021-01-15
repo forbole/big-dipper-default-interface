@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '@contexts';
 import { AvatarDisplayProps } from './types';
+import { useGetStyles } from './styles';
 import {
   ValidatorDisplay, UserDisplay,
 } from './components';
@@ -16,17 +17,20 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   } = props;
   const globalState = useContext(GlobalContext);
   const validator = globalState?.validators?.[address];
-
+  const { classes } = useGetStyles();
   if (validator) {
-    <ValidatorDisplay
-      address={address}
-      display={display ?? validator?.moniker}
-      identity={identity ?? validator?.id}
-    />;
+    return (
+      <ValidatorDisplay
+        className={classes.root}
+        address={address}
+        display={display ?? validator?.moniker}
+        identity={identity ?? validator?.id}
+      />
+    );
   }
 
   return (
-    <UserDisplay {...props} />
+    <UserDisplay {...props} className={classes.root} />
   );
 };
 
