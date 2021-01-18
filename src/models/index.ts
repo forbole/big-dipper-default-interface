@@ -31,7 +31,7 @@ import MsgUnjail from './msg/msg_unjail';
 import MsgCreateValidator from './msg/msg_create_validator';
 import MsgDelegate from './msg/msg_delegate';
 import MsgEditValidator from './msg/msg_edit_validator';
-import MsgBeginRedelegate from './msg/msg_begin_redelegate';
+import MsgRedelegate from './msg/msg_redelegate';
 import MsgUndelegate from './msg/msg_undelegate';
 
 export {
@@ -62,7 +62,7 @@ export {
   MsgCreateValidator,
   MsgDelegate,
   MsgEditValidator,
-  MsgBeginRedelegate,
+  MsgRedelegate,
   MsgUndelegate,
   BlockDetail,
   PreCommit,

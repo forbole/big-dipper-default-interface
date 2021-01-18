@@ -29,6 +29,14 @@ export const useGetStyles = () => {
           ),
           color: theme?.palette?.custom?.transactionType?.staking,
         },
+
+        '&.redelegate': {
+          background: rgbaOpacityConverter(
+            theme?.palette?.custom?.transactionType?.redelegate,
+            0.3,
+          ),
+          color: theme?.palette?.custom?.transactionType?.redelegate,
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

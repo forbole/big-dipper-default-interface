@@ -18,5 +18,8 @@
   "filerBy": "Filter by...",
   "delegated": "delegated",
   "to": "to",
-  "delegate": "Delegate"
+  "delegate": "Delegate",
+  "redelegate": "Redelegate",
+  "redelegated": "redelegated",
+  "from": "from"
 }
