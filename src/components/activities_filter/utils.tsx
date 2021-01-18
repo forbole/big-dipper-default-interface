@@ -5,12 +5,12 @@ export const getFilterLabels = () => {
       display: 'none',
     },
     {
-      key: 'transfer',
-      display: 'transfer',
+      key: 'bank',
+      display: 'bank',
     },
     {
-      key: 'staking',
-      display: 'staking',
+      key: 'crisis',
+      display: 'crisis',
     },
     {
       key: 'distribution',
@@ -23,6 +23,10 @@ export const getFilterLabels = () => {
     {
       key: 'slashing',
       display: 'slashing',
+    },
+    {
+      key: 'staking',
+      display: 'staking',
     },
   ]);
 };

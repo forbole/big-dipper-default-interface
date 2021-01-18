@@ -6,6 +6,7 @@ type Coins = {
 }
 
 class MsgMultiSend {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public inputs: {
     address: string;
@@ -17,6 +18,7 @@ class MsgMultiSend {
   }[];
 
   constructor(payload: any) {
+    this.category = 'bank';
     this.type = payload.type;
     this.inputs = payload.inputs;
     this.outputs = payload.outputs;

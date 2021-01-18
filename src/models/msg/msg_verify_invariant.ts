@@ -1,10 +1,12 @@
 class MsgVerifyInvariant {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public sender: string;
   public invariantModuleName: string;
   public invariantRoute: string;
 
   constructor(payload: any) {
+    this.category = 'crisis';
     this.type = payload.type;
     this.sender = payload.sender;
     this.invariantModuleName = payload.invariantModuleName;

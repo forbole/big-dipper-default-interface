@@ -6,6 +6,8 @@ import { formatMiddleEllipse } from './format_middle_ellipse';
 import { getAllyProps } from './get_ally_props';
 import { rgbaOpacityConverter } from './rgba_opacity_converter';
 import { getAddressRole } from './get_address_role';
+import { getAddressDisplay } from './get_address_display';
+import { getSeed } from './get_seed';
 
 // ========================
 // Data parsing helpers
@@ -22,4 +24,6 @@ export {
   rgbaOpacityConverter,
   formatActivitiesData,
   getAddressRole,
+  getAddressDisplay,
+  getSeed,
 };

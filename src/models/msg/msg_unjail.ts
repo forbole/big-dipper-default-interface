@@ -1,8 +1,10 @@
 class MsgUnjail {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public validatorAddress: string;
 
   constructor(payload: any) {
+    this.category = 'slashing';
     this.type = payload.type;
     this.validatorAddress = payload.validatorAddress;
   }

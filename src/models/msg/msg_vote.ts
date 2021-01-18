@@ -1,12 +1,14 @@
 import numeral from 'numeral';
 
 class MsgVote {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public proposalId: number | string;
   public voter: string;
   public option: 'VOTE_OPTION_YES' | 'VOTE_OPTION_ABSTAIN' | 'VOTE_OPTION_NO' | 'VOTE_OPTION_NO_WITH_VETO';
 
   constructor(payload: any) {
+    this.category = 'governance';
     this.type = payload.type;
     this.proposalId = payload.proposalId;
     this.voter = payload.voter;

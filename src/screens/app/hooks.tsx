@@ -127,6 +127,8 @@ export const useGetValidatorAddressListHook = () => {
         };
         validatorAddressListParser(data).forEach((x) => {
           newState[x.selfDelegateAddress] = x;
+          newState[x.operatorAddress] = x;
+          newState[x.consensusAddress] = x;
         });
         setValidatorsMap(newState);
       } catch (error) {

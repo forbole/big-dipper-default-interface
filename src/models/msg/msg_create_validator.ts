@@ -1,6 +1,7 @@
 import numeral from 'numeral';
 
 class MsgCreateValidator {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public description: {
     moniker: string;
@@ -27,6 +28,7 @@ class MsgCreateValidator {
   }
 
   constructor(payload: any) {
+    this.category = 'staking';
     this.type = payload.type;
     this.description = payload.description;
     this.commission = payload.commission;

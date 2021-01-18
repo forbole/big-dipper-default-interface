@@ -1,26 +1,28 @@
 import numeral from 'numeral';
 
-class MsgDeposit {
+class MsgSend {
+  public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
-  public proposalId: number | string;
-  public depositor: string;
+  public fromAddress: string;
+  public toAddress: string;
   public amount: {
     denom: string;
     amount: string | number;
   }[];
 
   constructor(payload: any) {
+    this.category = 'bank';
     this.type = payload.type;
-    this.proposalId = payload.proposalId;
-    this.depositor = payload.depositor;
+    this.fromAddress = payload.fromAddress;
+    this.toAddress = payload.toAddress;
     this.amount = payload.amount;
   }
 
   static fromJson(json: any) {
-    return new MsgDeposit({
+    return new MsgSend({
       type: json['@type'],
-      proposalId: numeral(json.proposal_id).value(),
-      depositor: json.depositor,
+      fromAddress: json.from_address,
+      toAddress: json.to_address,
       amount: json?.amount.map((x) => {
         return ({
           denom: x?.denom,
@@ -31,4 +33,4 @@ class MsgDeposit {
   }
 }
 
-export default MsgDeposit;
+export default MsgSend;

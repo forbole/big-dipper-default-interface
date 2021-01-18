@@ -3,6 +3,7 @@ import * as R from 'ramda';
 class ValidatorAddressList {
   public operatorAddress: string;
   public selfDelegateAddress: string;
+  public consensusAddress: string;
   public moniker?: string;
   public id?: string;
 
@@ -10,6 +11,7 @@ class ValidatorAddressList {
     this.id = payload.id;
     this.operatorAddress = payload.operatorAddress;
     this.selfDelegateAddress = payload.selfDelegateAddress;
+    this.consensusAddress = payload.consensusAddress;
     this.moniker = payload.moniker;
   }
 
@@ -19,6 +21,7 @@ class ValidatorAddressList {
       moniker: R.pathOr(null, ['validator_description', 'moniker'], data),
       operatorAddress: data?.validator_info?.operator_address,
       selfDelegateAddress: data?.validator_info?.self_delegate_address,
+      consensusAddress: data?.validator_info?.consensus_address,
     });
   }
 }

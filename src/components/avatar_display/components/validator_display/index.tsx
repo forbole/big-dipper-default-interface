@@ -4,16 +4,16 @@ import { AvatarDisplay } from 'big-dipper-default-ui';
 import Jazzicon from 'react-jazzicon';
 import { useKeybaseHook } from '@hooks';
 import { GlobalContext } from '@contexts';
+import { getSeed } from '@utils';
 import { AvatarDisplayProps } from '../../types';
-import {
-  handleClick, getSeed,
-} from '../../utils';
+import { handleClick } from '../../utils';
 
 const ValidatorDisplay = (props: AvatarDisplayProps) => {
   const {
     address,
     identity,
     display,
+    className,
   } = props;
 
   const globalState = useContext(GlobalContext);
@@ -23,7 +23,7 @@ const ValidatorDisplay = (props: AvatarDisplayProps) => {
   const verifiedUser = keybaseList?.[identity];
 
   return (
-    <span onClick={handleClick} role="button">
+    <span onClick={handleClick} role="button" className={className}>
       <Link href={`/validators/${address}`}>
         <a>
           {verifiedUser ? (
@@ -40,7 +40,7 @@ const ValidatorDisplay = (props: AvatarDisplayProps) => {
                 />
               )}
               imageUrl=""
-              title={display}
+              title={display ?? address}
             />
           )}
         </a>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { getAddressRole } from '@utils';
+import React, { useContext } from 'react';
+import { GlobalContext } from '@contexts';
 import { AvatarDisplayProps } from './types';
-import { useAvatarDisplayHook } from './hooks';
+import { useGetStyles } from './styles';
 import {
   ValidatorDisplay, UserDisplay,
 } from './components';
@@ -10,18 +10,27 @@ import {
  * Component that extends AvatarDisplay and uses JazzIcon if user image could not be found
  */
 const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
-  const { address } = props;
-
-  const { validator } = useAvatarDisplayHook(address);
-
-  if (getAddressRole(address) === 'validator' || validator) {
+  const {
+    address,
+    display,
+    identity,
+  } = props;
+  const globalState = useContext(GlobalContext);
+  const validator = globalState?.validators?.[address];
+  const { classes } = useGetStyles();
+  if (validator) {
     return (
-      <ValidatorDisplay {...props} {...validator} />
+      <ValidatorDisplay
+        className={classes.root}
+        address={address}
+        display={display ?? validator?.moniker}
+        identity={identity ?? validator?.id}
+      />
     );
   }
 
   return (
-    <UserDisplay {...props} />
+    <UserDisplay {...props} className={classes.root} />
   );
 };
 
