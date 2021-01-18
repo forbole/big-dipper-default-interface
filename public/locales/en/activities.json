@@ -27,5 +27,8 @@
   "createValidator": "Create Validator",
   "created": "created",
   "updated": "updated",
-  "editValidator": "Edit Validator"
+  "editValidator": "Edit Validator",
+  "send": "Send",
+  "sent": "sent",
+  "and": "and"
 }

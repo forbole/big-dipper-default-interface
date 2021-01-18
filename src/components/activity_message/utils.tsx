@@ -5,9 +5,13 @@ import {
   Undelegate,
   CreateValidator,
   EditValidator,
+  Send,
 } from './components';
 
 export const getMessageByType = (type:string) => {
+  // ========================
+  // staking
+  // ========================
   if (type === '/cosmos.staking.v1beta1.MsgDelegate') {
     return {
       content: Delegate,
@@ -45,6 +49,18 @@ export const getMessageByType = (type:string) => {
       content: EditValidator,
       tagType: 'staking',
       tagDisplay: 'editValidator',
+    };
+  }
+
+  // ========================
+  // bank
+  // ========================
+
+  if (type === '/cosmos.bank.v1beta1.MsgSend') {
+    return {
+      content: Send,
+      tagType: 'bank',
+      tagDisplay: 'send',
     };
   }
 

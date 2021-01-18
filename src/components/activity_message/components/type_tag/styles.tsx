@@ -45,6 +45,14 @@ export const useGetStyles = () => {
           ),
           color: theme?.palette?.custom?.transactionType?.undelegate,
         },
+
+        '&.bank': {
+          background: rgbaOpacityConverter(
+            theme?.palette?.custom?.transactionType?.bank,
+            0.3,
+          ),
+          color: theme?.palette?.custom?.transactionType?.bank,
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

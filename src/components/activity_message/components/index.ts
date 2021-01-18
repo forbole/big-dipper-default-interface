@@ -5,6 +5,7 @@ import Redelegate from './redelegate';
 import Undelegate from './undelegate';
 import CreateValidator from './create_validator';
 import EditValidator from './edit_validator';
+import Send from './send';
 
 export {
   Delegate,
@@ -14,4 +15,5 @@ export {
   Undelegate,
   CreateValidator,
   EditValidator,
+  Send,
 };
