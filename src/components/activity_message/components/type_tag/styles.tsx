@@ -78,7 +78,7 @@ export const useGetStyles = () => {
           color: theme?.palette?.custom?.transactionType?.distribution,
         },
 
-        '&.gov': {
+        '&.governance': {
           background: rgbaOpacityConverter(
             theme?.palette?.custom?.transactionType?.gov,
             0.3,

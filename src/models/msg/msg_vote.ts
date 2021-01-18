@@ -15,6 +15,22 @@ class MsgVote {
     this.option = payload.option;
   }
 
+  getOptionTranslationKey() {
+    if (this.option === 'VOTE_OPTION_ABSTAIN') {
+      return 'abstain';
+    }
+    if (this.option === 'VOTE_OPTION_NO') {
+      return 'no';
+    }
+    if (this.option === 'VOTE_OPTION_NO_WITH_VETO') {
+      return 'noWithVeto';
+    }
+    if (this.option === 'VOTE_OPTION_YES') {
+      return 'yes';
+    }
+    return null;
+  }
+
   static fromJson(json: any) {
     return new MsgVote({
       type: json['@type'],

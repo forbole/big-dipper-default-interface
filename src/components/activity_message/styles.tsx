@@ -10,6 +10,12 @@ export const useGetStyles = () => {
       '& p': {
         margin: 0,
       },
+      '& .link': {
+        color: theme.palette.custom.fonts.fontFive,
+        '&:hover': {
+          cursor: 'pointer',
+        },
+      },
       '& .address': {
         wordBreak: 'break-all',
         color: theme.palette.custom.fonts.fontFive,

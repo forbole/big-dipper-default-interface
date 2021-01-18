@@ -12,6 +12,8 @@ import Unjail from './unjail';
 import Fund from './fund';
 import SetWithdrawalAddress from './set_withdrawal_address';
 import WithdrawReward from './withdraw_reward';
+import DepositProposal from './deposit_proposal';
+import ProposalDisplay from './proposal_display';
 
 export {
   Delegate,
@@ -28,4 +30,6 @@ export {
   Fund,
   SetWithdrawalAddress,
   WithdrawReward,
+  DepositProposal,
+  ProposalDisplay,
 };

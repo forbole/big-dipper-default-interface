@@ -12,6 +12,7 @@ import {
   Fund,
   SetWithdrawalAddress,
   WithdrawReward,
+  DepositProposal,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -126,6 +127,18 @@ export const getMessageByType = (type:string) => {
       content: WithdrawReward,
       tagType: 'distribution',
       tagDisplay: 'withdrawReward',
+    };
+  }
+
+  // ========================
+  // governance
+  // ========================
+
+  if (type === '/cosmos.gov.v1beta1.MsgDeposit') {
+    return {
+      content: DepositProposal,
+      tagType: 'governance',
+      tagDisplay: 'deposit',
     };
   }
 

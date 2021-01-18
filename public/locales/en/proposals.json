@@ -16,5 +16,6 @@
   "proposalTitle": "Title",
   "id": "Proposals ID",
   "deposit": "Deposit",
-  "status": "Status"
+  "status": "Status",
+  "proposal": "proposal"
 }

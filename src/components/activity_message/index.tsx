@@ -7,7 +7,7 @@ import { getMessageByType } from './utils';
  */
 const ActivityMessage = () => {
   const { classes } = useGetStyles();
-  const messageInfo = getMessageByType('/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward');
+  const messageInfo = getMessageByType('/cosmos.gov.v1beta1.MsgDeposit');
   return (
     <div className={classes.root}>
       <div className="content__body">

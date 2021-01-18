@@ -44,5 +44,8 @@
   "setRewardAddress": "Set Reward Address",
   "withdrawReward": "Withdraw Reward",
   "withdrew": "withdraw",
-  "reward": "reward"
+  "reward": "reward",
+  "deposit": "Deposit",
+  "deposited": "deposited",
+  "proposal": "proposal"
 }
