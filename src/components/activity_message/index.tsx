@@ -7,7 +7,7 @@ import { getMessageByType } from './utils';
  */
 const ActivityMessage = () => {
   const { classes } = useGetStyles();
-  const messageInfo = getMessageByType('/cosmos.bank.v1beta1.MsgMultiSend');
+  const messageInfo = getMessageByType('/cosmos.crisis.v1beta1.MsgVerifyInvariant');
   return (
     <div className={classes.root}>
       <div className="content__body">

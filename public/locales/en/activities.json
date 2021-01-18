@@ -33,5 +33,7 @@
   "and": "and",
   "totheFollowingRecipients": "to the following recipients",
   "received": "received",
-  "multisend": "Multisend"
+  "multisend": "Multisend",
+  "verifyInvariant": "Verify Invariant",
+  "verifiedInvariant": "verified invariant"
 }

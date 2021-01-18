@@ -7,6 +7,7 @@ import {
   EditValidator,
   Send,
   Multisend,
+  VerifyInvariant,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -70,6 +71,18 @@ export const getMessageByType = (type:string) => {
       content: Multisend,
       tagType: 'bank',
       tagDisplay: 'multisend',
+    };
+  }
+
+  // ========================
+  // crisis
+  // ========================
+
+  if (type === '/cosmos.crisis.v1beta1.MsgVerifyInvariant') {
+    return {
+      content: VerifyInvariant,
+      tagType: 'crisis',
+      tagDisplay: 'verifyInvariant',
     };
   }
 
