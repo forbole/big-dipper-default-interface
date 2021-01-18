@@ -1,19 +1,13 @@
-import React, { useContext } from 'react';
-import * as R from 'ramda';
+import React from 'react';
 import numeral from 'numeral';
-import { GlobalContext } from '@contexts';
 import { useTranslation } from 'i18n';
-import {
-  getAddressDisplay, formatDenom,
-} from '@utils';
+import { formatDenom } from '@utils';
+import { AddressDisplay } from '@components';
 import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
 
 const Delegate = () => {
   const { t } = useTranslation(['activities']);
-  const globalState = useContext(GlobalContext);
-  const validatorsList = R.pathOr({
-  }, ['validators'], globalState);
 
   // fake
   const message: MsgDelegate = {
@@ -27,14 +21,12 @@ const Delegate = () => {
     },
   };
 
-  const validatorAddress = getAddressDisplay(message.validatorAddress, validatorsList);
-  const delegatorAddress = getAddressDisplay(message.delegatorAddress, validatorsList);
   const parsedAmount = `${formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
 
   return (
     <p>
       <span className="address">
-        {delegatorAddress}
+        <AddressDisplay address={message.delegatorAddress} />
       </span>
       {' '}
       {t('delegated')}
@@ -46,7 +38,7 @@ const Delegate = () => {
       {t('to')}
       {' '}
       <span className="address">
-        {validatorAddress}
+        <AddressDisplay address={message.validatorAddress} />
       </span>
     </p>
   );

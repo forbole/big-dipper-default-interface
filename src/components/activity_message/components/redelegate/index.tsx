@@ -1,19 +1,13 @@
-import React, { useContext } from 'react';
-import * as R from 'ramda';
+import React from 'react';
 import numeral from 'numeral';
-import { GlobalContext } from '@contexts';
 import { useTranslation } from 'i18n';
-import {
-  getAddressDisplay, formatDenom,
-} from '@utils';
+import { AddressDisplay } from '@components';
+import { formatDenom } from '@utils';
 import { MsgRedelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
 
 const Redelegate = () => {
   const { t } = useTranslation(['activities']);
-  const globalState = useContext(GlobalContext);
-  const validatorsList = R.pathOr({
-  }, ['validators'], globalState);
 
   const message: MsgRedelegate = {
     category: 'staking',
@@ -27,14 +21,13 @@ const Redelegate = () => {
     },
   };
 
-  const delegatorAddress = getAddressDisplay(message.delegatorAddress, validatorsList);
-  const validatorSrcAddress = getAddressDisplay(message.validatorSrcAddress, validatorsList);
-  const validatorDstAddress = getAddressDisplay(message.validatorDstAddress, validatorsList);
   const parsedAmount = `${formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
 
   return (
     <p>
-      <span className="address">{delegatorAddress}</span>
+      <span className="address">
+        <AddressDisplay address={message.delegatorAddress} />
+      </span>
       {' '}
       {t('redelegated')}
       {' '}
@@ -44,11 +37,15 @@ const Redelegate = () => {
       {' '}
       {t('from')}
       {' '}
-      <span className="address">{validatorSrcAddress}</span>
+      <span className="address">
+        <AddressDisplay address={message.validatorSrcAddress} />
+      </span>
       {' '}
       {t('to')}
       {' '}
-      <span className="address">{validatorDstAddress}</span>
+      <span className="address">
+        <AddressDisplay address={message.validatorDstAddress} />
+      </span>
     </p>
   );
 };
