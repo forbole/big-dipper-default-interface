@@ -4,6 +4,7 @@ import Unknown from './unknown';
 import Redelegate from './redelegate';
 import Undelegate from './undelegate';
 import CreateValidator from './create_validator';
+import EditValidator from './edit_validator';
 
 export {
   Delegate,
@@ -12,4 +13,5 @@ export {
   Redelegate,
   Undelegate,
   CreateValidator,
+  EditValidator,
 };

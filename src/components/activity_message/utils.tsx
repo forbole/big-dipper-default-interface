@@ -4,6 +4,7 @@ import {
   Redelegate,
   Undelegate,
   CreateValidator,
+  EditValidator,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -36,6 +37,14 @@ export const getMessageByType = (type:string) => {
       content: CreateValidator,
       tagType: 'staking',
       tagDisplay: 'createValidator',
+    };
+  }
+
+  if (type === '/cosmos.staking.v1beta1.MsgEditValidator') {
+    return {
+      content: EditValidator,
+      tagType: 'staking',
+      tagDisplay: 'editValidator',
     };
   }
 

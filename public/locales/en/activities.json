@@ -25,5 +25,7 @@
   "undelegate": "Undelegate",
   "undelegated": "undelegated",
   "createValidator": "Create Validator",
-  "created": "created"
+  "created": "created",
+  "updated": "updated",
+  "editValidator": "Edit Validator"
 }
