@@ -23,5 +23,7 @@
   "redelegated": "redelegated",
   "from": "from",
   "undelegate": "Undelegate",
-  "undelegated": "undelegated"
+  "undelegated": "undelegated",
+  "createValidator": "Create Validator",
+  "created": "created"
 }

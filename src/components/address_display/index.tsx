@@ -3,6 +3,7 @@ import * as R from 'ramda';
 import { ValidatorAddressList } from '@models';
 import Link from 'next/link';
 import { GlobalContext } from '@contexts';
+import { getAddressRole } from '@utils';
 import { AddressDisplayProps } from './types';
 import { handleClick } from './utils';
 
@@ -13,6 +14,7 @@ import { handleClick } from './utils';
 const AddressDisplay = (props: AddressDisplayProps) => {
   const {
     address,
+    display,
     link = true,
   } = props;
   const globalState = useContext(GlobalContext);
@@ -26,7 +28,7 @@ const AddressDisplay = (props: AddressDisplayProps) => {
       return (
         <Link href={`/validators/${address}`}>
           <a onClick={handleClick} role="button">
-            {validator.moniker ?? address}
+            {validator.moniker ?? display ?? address}
           </a>
         </Link>
       );
@@ -34,6 +36,24 @@ const AddressDisplay = (props: AddressDisplayProps) => {
     return (
       <>
         {validator.moniker ?? address}
+      </>
+    );
+  }
+
+  // Edge case in which the validator is created but not logged in to our initial address list
+  if (getAddressRole(address) === 'validator') {
+    if (link) {
+      return (
+        <Link href={`/validators/${address}`}>
+          <a onClick={handleClick} role="button">
+            {display ?? address}
+          </a>
+        </Link>
+      );
+    }
+    return (
+      <>
+        {display ?? address}
       </>
     );
   }

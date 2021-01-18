@@ -8,7 +8,7 @@ import { getMessageByType } from './utils';
  */
 const ActivityMessage = () => {
   const { classes } = useGetStyles();
-  const messageInfo = getMessageByType('/cosmos.staking.v1beta1.MsgUndelegate');
+  const messageInfo = getMessageByType('/cosmos.staking.v1beta1.MsgCreateValidator');
   return (
     <div className={classes.root}>
       <div className="content__body">

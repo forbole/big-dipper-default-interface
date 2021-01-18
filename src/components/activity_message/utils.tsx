@@ -3,6 +3,7 @@ import {
   Unknown,
   Redelegate,
   Undelegate,
+  CreateValidator,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -27,6 +28,14 @@ export const getMessageByType = (type:string) => {
       content: Undelegate,
       tagType: 'undelegate',
       tagDisplay: 'undelegate',
+    };
+  }
+
+  if (type === '/cosmos.staking.v1beta1.MsgCreateValidator') {
+    return {
+      content: CreateValidator,
+      tagType: 'staking',
+      tagDisplay: 'createValidator',
     };
   }
 

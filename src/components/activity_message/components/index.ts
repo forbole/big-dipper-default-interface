@@ -3,6 +3,7 @@ import TypeTag from './type_tag';
 import Unknown from './unknown';
 import Redelegate from './redelegate';
 import Undelegate from './undelegate';
+import CreateValidator from './create_validator';
 
 export {
   Delegate,
@@ -10,4 +11,5 @@ export {
   Unknown,
   Redelegate,
   Undelegate,
+  CreateValidator,
 };
