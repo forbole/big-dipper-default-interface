@@ -41,5 +41,8 @@
   "fund": "Fund",
   "funded": "funded",
   "toTheCommunityPool": "to the community pool",
-  "setRewardAddress": "Set Reward Address"
+  "setRewardAddress": "Set Reward Address",
+  "withdrawReward": "Withdraw Reward",
+  "withdrew": "withdraw",
+  "reward": "reward"
 }

@@ -11,6 +11,7 @@ import VerifyInvariant from './verify_invariant';
 import Unjail from './unjail';
 import Fund from './fund';
 import SetWithdrawalAddress from './set_withdrawal_address';
+import WithdrawReward from './withdraw_reward';
 
 export {
   Delegate,
@@ -26,4 +27,5 @@ export {
   Unjail,
   Fund,
   SetWithdrawalAddress,
+  WithdrawReward,
 };

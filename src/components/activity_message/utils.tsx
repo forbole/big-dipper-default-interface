@@ -11,6 +11,7 @@ import {
   Unjail,
   Fund,
   SetWithdrawalAddress,
+  WithdrawReward,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -117,6 +118,14 @@ export const getMessageByType = (type:string) => {
       content: SetWithdrawalAddress,
       tagType: 'distribution',
       tagDisplay: 'setRewardAddress',
+    };
+  }
+
+  if (type === '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward') {
+    return {
+      content: WithdrawReward,
+      tagType: 'distribution',
+      tagDisplay: 'withdrawReward',
     };
   }
 
