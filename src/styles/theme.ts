@@ -51,7 +51,7 @@ export const common = {
         slashing: 'rgba(235, 58, 164, 1)',
         staking: 'rgba(30, 196, 144, 1)',
         redelegate: 'rgba(255, 150, 27, 1)', // exception to the staking category
-        undelegate: 'rgba(252, 106, 138, 0.3)', // exception to the staking category
+        undelegate: 'rgba(252, 106, 138, 1)', // exception to the staking category
       },
     },
   },

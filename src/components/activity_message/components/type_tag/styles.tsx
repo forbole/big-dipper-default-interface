@@ -37,6 +37,14 @@ export const useGetStyles = () => {
           ),
           color: theme?.palette?.custom?.transactionType?.redelegate,
         },
+
+        '&.undelegate': {
+          background: rgbaOpacityConverter(
+            theme?.palette?.custom?.transactionType?.undelegate,
+            0.3,
+          ),
+          color: theme?.palette?.custom?.transactionType?.undelegate,
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

@@ -2,6 +2,7 @@ import {
   Delegate,
   Unknown,
   Redelegate,
+  Undelegate,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -18,6 +19,14 @@ export const getMessageByType = (type:string) => {
       content: Redelegate,
       tagType: 'redelegate',
       tagDisplay: 'redelegate',
+    };
+  }
+
+  if (type === '/cosmos.staking.v1beta1.MsgUndelegate') {
+    return {
+      content: Undelegate,
+      tagType: 'undelegate',
+      tagDisplay: 'undelegate',
     };
   }
 
