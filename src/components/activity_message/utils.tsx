@@ -9,6 +9,8 @@ import {
   Multisend,
   VerifyInvariant,
   Unjail,
+  Fund,
+  SetWithdrawalAddress,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -96,6 +98,25 @@ export const getMessageByType = (type:string) => {
       content: Unjail,
       tagType: 'slashing',
       tagDisplay: 'unjail',
+    };
+  }
+
+  // ========================
+  // distribution
+  // ========================
+  if (type === '/cosmos.distribution.v1beta1.MsgFundCommunityPool') {
+    return {
+      content: Fund,
+      tagType: 'distribution',
+      tagDisplay: 'fund',
+    };
+  }
+
+  if (type === '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress') {
+    return {
+      content: SetWithdrawalAddress,
+      tagType: 'distribution',
+      tagDisplay: 'setRewardAddress',
     };
   }
 

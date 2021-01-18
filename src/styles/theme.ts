@@ -46,7 +46,7 @@ export const common = {
       transactionType: {
         bank: 'rgba(159, 70, 236, 1)',
         crisis: 'rgba(47, 168, 206, 1)',
-        distribution: 'rgba(47, 168, 206, 1)',
+        distribution: 'rgba(73, 123, 255, 1)',
         gov: 'rgba(255, 117, 73, 1)',
         slashing: 'rgba(235, 58, 164, 1)',
         staking: 'rgba(30, 196, 144, 1)',

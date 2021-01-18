@@ -9,6 +9,8 @@ import Send from './send';
 import Multisend from './multisend';
 import VerifyInvariant from './verify_invariant';
 import Unjail from './unjail';
+import Fund from './fund';
+import SetWithdrawalAddress from './set_withdrawal_address';
 
 export {
   Delegate,
@@ -22,4 +24,6 @@ export {
   Multisend,
   VerifyInvariant,
   Unjail,
+  Fund,
+  SetWithdrawalAddress,
 };

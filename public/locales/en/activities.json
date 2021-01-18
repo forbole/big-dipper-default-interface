@@ -37,5 +37,9 @@
   "verifyInvariant": "Verify Invariant",
   "verifiedInvariant": "verified invariant",
   "unjail": "Unjail",
-  "unjailed": "unjailed"
+  "unjailed": "unjailed",
+  "fund": "Fund",
+  "funded": "funded",
+  "toTheCommunityPool": "to the community pool",
+  "setRewardAddress": "Set Reward Address"
 }
