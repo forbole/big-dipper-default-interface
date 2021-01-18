@@ -15,7 +15,7 @@ class MsgVote {
     this.option = payload.option;
   }
 
-  getOptionTranslationKey() {
+  public getOptionTranslationKey() {
     if (this.option === 'VOTE_OPTION_ABSTAIN') {
       return 'abstain';
     }

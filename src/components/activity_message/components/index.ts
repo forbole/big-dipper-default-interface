@@ -14,6 +14,7 @@ import SetWithdrawalAddress from './set_withdrawal_address';
 import WithdrawReward from './withdraw_reward';
 import DepositProposal from './deposit_proposal';
 import ProposalDisplay from './proposal_display';
+import Vote from './vote';
 
 export {
   Delegate,
@@ -32,4 +33,5 @@ export {
   WithdrawReward,
   DepositProposal,
   ProposalDisplay,
+  Vote,
 };

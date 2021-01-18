@@ -23,7 +23,7 @@ export const useGetStyles = () => {
           cursor: 'pointer',
         },
       },
-      '& .amount': {
+      '& .amount, & .bold': {
         fontWeight: 600,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {

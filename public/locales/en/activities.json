@@ -47,5 +47,12 @@
   "reward": "reward",
   "deposit": "Deposit",
   "deposited": "deposited",
-  "proposal": "proposal"
+  "proposal": "proposal",
+  "vote": "Vote",
+  "voted": "voted",
+  "on": "on",
+  "yes": "YES",
+  "no": "NO",
+  "abstain": "ABSTAIN",
+  "noWithVeto": "NO WITH VETO"
 }
