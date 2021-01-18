@@ -47,7 +47,7 @@ export const common = {
         bank: 'rgba(159, 70, 236, 1)',
         crisis: 'rgba(47, 168, 206, 1)',
         distribution: 'rgba(47, 168, 206, 1)',
-        proposal: 'rgba(255, 117, 73, 1)',
+        gov: 'rgba(255, 117, 73, 1)',
         slashing: 'rgba(235, 58, 164, 1)',
         staking: 'rgba(30, 196, 144, 1)',
         redelegate: 'rgba(255, 150, 27, 1)', // exception to the staking category

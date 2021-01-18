@@ -8,6 +8,7 @@ import {
   Send,
   Multisend,
   VerifyInvariant,
+  Unjail,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -83,6 +84,18 @@ export const getMessageByType = (type:string) => {
       content: VerifyInvariant,
       tagType: 'crisis',
       tagDisplay: 'verifyInvariant',
+    };
+  }
+
+  // ========================
+  // slashing
+  // ========================
+
+  if (type === '/cosmos.slashing.v1beta1.MsgUnjail') {
+    return {
+      content: Unjail,
+      tagType: 'slashing',
+      tagDisplay: 'unjail',
     };
   }
 

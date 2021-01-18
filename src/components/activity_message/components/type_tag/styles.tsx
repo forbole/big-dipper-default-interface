@@ -61,6 +61,30 @@ export const useGetStyles = () => {
           ),
           color: theme?.palette?.custom?.transactionType?.crisis,
         },
+
+        '&.slashing': {
+          background: rgbaOpacityConverter(
+            theme?.palette?.custom?.transactionType?.slashing,
+            0.3,
+          ),
+          color: theme?.palette?.custom?.transactionType?.slashing,
+        },
+
+        '&.distribution': {
+          background: rgbaOpacityConverter(
+            theme?.palette?.custom?.transactionType?.distribution,
+            0.3,
+          ),
+          color: theme?.palette?.custom?.transactionType?.distribution,
+        },
+
+        '&.gov': {
+          background: rgbaOpacityConverter(
+            theme?.palette?.custom?.transactionType?.gov,
+            0.3,
+          ),
+          color: theme?.palette?.custom?.transactionType?.gov,
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

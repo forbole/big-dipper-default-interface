@@ -7,7 +7,7 @@ import { getMessageByType } from './utils';
  */
 const ActivityMessage = () => {
   const { classes } = useGetStyles();
-  const messageInfo = getMessageByType('/cosmos.crisis.v1beta1.MsgVerifyInvariant');
+  const messageInfo = getMessageByType('/cosmos.slashing.v1beta1.MsgUnjail');
   return (
     <div className={classes.root}>
       <div className="content__body">

@@ -35,5 +35,7 @@
   "received": "received",
   "multisend": "Multisend",
   "verifyInvariant": "Verify Invariant",
-  "verifiedInvariant": "verified invariant"
+  "verifiedInvariant": "verified invariant",
+  "unjail": "Unjail",
+  "unjailed": "unjailed"
 }

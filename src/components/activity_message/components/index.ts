@@ -8,6 +8,7 @@ import EditValidator from './edit_validator';
 import Send from './send';
 import Multisend from './multisend';
 import VerifyInvariant from './verify_invariant';
+import Unjail from './unjail';
 
 export {
   Delegate,
@@ -20,4 +21,5 @@ export {
   Send,
   Multisend,
   VerifyInvariant,
+  Unjail,
 };
