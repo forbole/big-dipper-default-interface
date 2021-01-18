@@ -6,6 +6,7 @@ import {
   CreateValidator,
   EditValidator,
   Send,
+  Multisend,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -61,6 +62,14 @@ export const getMessageByType = (type:string) => {
       content: Send,
       tagType: 'bank',
       tagDisplay: 'send',
+    };
+  }
+
+  if (type === '/cosmos.bank.v1beta1.MsgMultiSend') {
+    return {
+      content: Multisend,
+      tagType: 'bank',
+      tagDisplay: 'multisend',
     };
   }
 

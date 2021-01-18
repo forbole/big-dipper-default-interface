@@ -30,5 +30,8 @@
   "editValidator": "Edit Validator",
   "send": "Send",
   "sent": "sent",
-  "and": "and"
+  "and": "and",
+  "totheFollowingRecipients": "to the following recipients",
+  "received": "received",
+  "multisend": "Multisend"
 }

@@ -8,10 +8,10 @@ export const useGetStyles = () => {
     root: {
       padding: theme?.palette?.custom?.margins?.small,
       '& p': {
-        wordBreak: 'break-all',
         margin: 0,
       },
       '& .address': {
+        wordBreak: 'break-all',
         color: theme.palette.custom.fonts.fontFive,
         '&:hover': {
           cursor: 'pointer',
