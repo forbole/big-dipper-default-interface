@@ -50,6 +50,7 @@ class MsgSubmitProposal {
         break;
       }
       default:
+        content = contentDetailsRaw;
         break;
     }
 

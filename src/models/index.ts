@@ -34,6 +34,7 @@ import MsgDelegate from './msg/msg_delegate';
 import MsgEditValidator from './msg/msg_edit_validator';
 import MsgRedelegate from './msg/msg_redelegate';
 import MsgUndelegate from './msg/msg_undelegate';
+import MsgUnknown from './msg/msg_unknown';
 
 export {
   BigDipperNetworkLink,
@@ -68,4 +69,5 @@ export {
   BlockDetail,
   PreCommit,
   MsgSubmitProposal,
+  MsgUnknown,
 };
