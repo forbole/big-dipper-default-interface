@@ -29,13 +29,13 @@ const Delegate = () => {
         <AddressDisplay address={message.delegatorAddress} />
       </span>
       {' '}
-      {t('delegated')}
+      {t('txDelegateOne')}
       {' '}
       <span className="amount">
         {parsedAmount}
       </span>
       {' '}
-      {t('to')}
+      {t('txDelegateTwo')}
       {' '}
       <span className="address">
         <AddressDisplay address={message.validatorAddress} />

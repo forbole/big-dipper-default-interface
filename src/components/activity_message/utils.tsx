@@ -25,7 +25,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Delegate,
       tagType: 'staking',
-      tagDisplay: 'delegate',
+      tagDisplay: 'txDelegateLabel',
     };
   }
 
@@ -33,7 +33,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Redelegate,
       tagType: 'redelegate',
-      tagDisplay: 'redelegate',
+      tagDisplay: 'txRedelegateLabel',
     };
   }
 

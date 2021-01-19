@@ -29,19 +29,19 @@ const Redelegate = () => {
         <AddressDisplay address={message.delegatorAddress} />
       </span>
       {' '}
-      {t('redelegated')}
+      {t('txRedelegateOne')}
       {' '}
       <span className="amount">
         {parsedAmount}
       </span>
       {' '}
-      {t('from')}
+      {t('txRedelegateTwo')}
       {' '}
       <span className="address">
         <AddressDisplay address={message.validatorSrcAddress} />
       </span>
       {' '}
-      {t('to')}
+      {t('txRedelegateThree')}
       {' '}
       <span className="address">
         <AddressDisplay address={message.validatorDstAddress} />

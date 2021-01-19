@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 import Jazzicon from 'react-jazzicon';
-import { getSeed } from '@utils';
+import {
+  getSeed, getAddressRole,
+} from '@utils';
 import { GlobalContext } from '@contexts';
 import { Validator } from './components';
 import { handleClick } from './utils';
@@ -20,6 +22,14 @@ export const AvatarHelper = (props:any) => {
       <Validator
         address={address}
         identity={validator?.identity}
+      />
+    );
+  }
+
+  if (getAddressRole(address) === 'validator') {
+    return (
+      <Validator
+        address={address}
       />
     );
   }
