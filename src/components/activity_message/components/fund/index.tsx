@@ -7,20 +7,11 @@ import { formatDenom } from '@utils';
 import { chainConfig } from '@src/chain_config';
 import { translationFormatter } from '../../utils';
 
-const Fund = () => {
+const Fund = (props: {
+  message : MsgFundCommunityPool;
+}) => {
   const { t } = useTranslation(['activities']);
-
-  const message:MsgFundCommunityPool = {
-    category: 'distribution',
-    type: '/cosmos.distribution.v1beta1.MsgFundCommunityPool',
-    amount: [
-      {
-        denom: 'udaric',
-        amount: '1000',
-      },
-    ],
-    depositor: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-  };
+  const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
     return `${formatDenom(chainConfig.display, numeral(x.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;

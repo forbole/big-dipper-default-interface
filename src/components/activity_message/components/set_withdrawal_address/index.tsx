@@ -4,14 +4,11 @@ import { AddressDisplay } from '@components';
 import { MsgSetWithdrawAddress } from '@models';
 import { translationFormatter } from '../../utils';
 
-const SetWithdrawalAddress = () => {
+const SetWithdrawalAddress = (props: {
+  message: MsgSetWithdrawAddress;
+}) => {
   const { t } = useTranslation(['activities']);
-  const message:MsgSetWithdrawAddress = {
-    category: 'slashing',
-    type: '/cosmos.distribution.v1beta1.MsgSetWithdrawAddress',
-    delegatorAddress: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    withdrawalAddress: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-  };
+  const { message } = props;
 
   return (
     <p>

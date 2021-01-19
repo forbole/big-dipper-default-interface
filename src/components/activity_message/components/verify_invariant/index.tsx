@@ -4,16 +4,12 @@ import { AddressDisplay } from '@components';
 import { MsgVerifyInvariant } from '@models';
 import { translationFormatter } from '../../utils';
 
-const VerifyInvariant = () => {
+const VerifyInvariant = (props: {
+  message: MsgVerifyInvariant;
+}) => {
   const { t } = useTranslation(['activities']);
+  const { message } = props;
 
-  const message:MsgVerifyInvariant = {
-    category: 'crisis',
-    type: '/cosmos.crisis.v1beta1.MsgVerifyInvariant',
-    sender: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    invariantModuleName: 'distribution',
-    invariantRoute: 'module-account',
-  };
   return (
     <p>
       <span className="address">

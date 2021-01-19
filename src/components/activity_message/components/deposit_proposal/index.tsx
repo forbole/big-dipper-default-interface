@@ -8,21 +8,11 @@ import { formatDenom } from '@utils';
 import { ProposalDisplay } from '..';
 import { translationFormatter } from '../../utils';
 
-const DepositProposal = () => {
+const DepositProposal = (props: {
+  message: MsgDeposit;
+}) => {
   const { t } = useTranslation(['activities']);
-
-  const message:MsgDeposit = {
-    category: 'governance',
-    type: '/cosmos.gov.v1beta1.MsgDeposit',
-    depositor: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    proposalId: 1,
-    amount: [
-      {
-        denom: 'udaric',
-        amount: '100',
-      },
-    ],
-  };
+  const { message } = props;
 
   const parsedAmount = message?.amount?.map((x) => {
     return `${formatDenom(chainConfig.display, numeral(x.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;

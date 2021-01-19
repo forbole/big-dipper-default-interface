@@ -4,14 +4,12 @@ import { AddressDisplay } from '@components';
 import { MsgWithdrawDelegatorReward } from '@models';
 import { translationFormatter } from '../../utils';
 
-const WithdrawReward = () => {
+const WithdrawReward = (props: {
+  message: MsgWithdrawDelegatorReward;
+}) => {
   const { t } = useTranslation(['activities']);
-  const message:MsgWithdrawDelegatorReward = {
-    category: 'slashing',
-    type: '/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward',
-    delegatorAddress: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    validatorAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
-  };
+  const { message } = props;
+
   return (
     <p>
       <span className="address">

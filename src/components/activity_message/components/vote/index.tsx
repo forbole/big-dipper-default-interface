@@ -5,15 +5,11 @@ import { MsgVote } from '@models';
 import { ProposalDisplay } from '..';
 import { translationFormatter } from '../../utils';
 
-const Vote = () => {
+const Vote = (props: {
+  message: MsgVote;
+}) => {
   const { t } = useTranslation(['activities']);
-
-  const message:MsgVote = MsgVote.fromJson({
-    '@type': '/cosmos.gov.v1beta1.MsgVote',
-    proposal_id: '1',
-    voter: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    option: 'VOTE_OPTION_NO',
-  });
+  const { message } = props;
 
   const vote = t(message.getOptionTranslationKey());
   return (

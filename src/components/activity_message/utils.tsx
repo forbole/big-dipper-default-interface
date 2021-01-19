@@ -160,11 +160,16 @@ export const getMessageByType = (type:string) => {
     };
   }
 
-  const tagDisplay = type.split('.');
+  let tagDisplay = 'txUnknownLabel';
+  if (type) {
+    const tagSplit = type?.split('.');
+    tagDisplay = tagSplit[tagSplit.length - 1];
+  }
+
   return {
     content: Unknown,
-    tagType: '',
-    tagDisplay: tagDisplay[tagDisplay.length - 1],
+    tagType: 'unknown',
+    tagDisplay,
   };
 };
 

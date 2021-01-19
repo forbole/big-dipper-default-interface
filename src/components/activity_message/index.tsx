@@ -11,11 +11,10 @@ const ActivityMessage = (props: ActivityMessageProps) => {
   const { classes } = useGetStyles();
   const { message } = props;
   const messageInfo = getMessageByType(message.type);
-
   return (
     <div className={classes.root}>
       <div className="content__body">
-        <messageInfo.content {...props} />
+        <messageInfo.content message={message as any} />
       </div>
       <TypeTag
         type={messageInfo.tagType}

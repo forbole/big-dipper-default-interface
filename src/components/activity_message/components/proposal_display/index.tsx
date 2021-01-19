@@ -1,7 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
 import { useTranslation } from 'i18n';
-
 import Link from 'next/link';
 import { handleClick } from './utils';
 import { ProposalDisplayProps } from './types';

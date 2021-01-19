@@ -57,6 +57,7 @@
   "txVoteTwo": "on",
   "txSubmitProposalLabel": "Submit Proposal",
   "txSubmitProposalOne": "submitted",
+  "txUnknownLabel": "Unknown",
   "yes": "YES",
   "no": "NO",
   "abstain": "ABSTAIN",

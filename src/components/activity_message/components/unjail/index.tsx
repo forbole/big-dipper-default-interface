@@ -4,14 +4,11 @@ import { AddressDisplay } from '@components';
 import { MsgUnjail } from '@models';
 import { translationFormatter } from '../../utils';
 
-const Unjail = () => {
+const Unjail = (props: {
+  message: MsgUnjail;
+}) => {
   const { t } = useTranslation(['activities']);
-
-  const message:MsgUnjail = {
-    category: 'slashing',
-    type: '/cosmos.slashing.v1beta1.MsgUnjail',
-    validatorAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
-  };
+  const { message } = props;
 
   return (
     <p>

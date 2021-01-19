@@ -7,20 +7,12 @@ import { MsgRedelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
 import { translationFormatter } from '../../utils';
 
-const Redelegate = () => {
+const Redelegate = (props: {
+  message: MsgRedelegate;
+}) => {
   const { t } = useTranslation(['activities']);
 
-  const message: MsgRedelegate = {
-    category: 'staking',
-    type: '/cosmos.staking.v1beta1.MsgBeginRedelegate',
-    delegatorAddress: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    validatorDstAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
-    validatorSrcAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
-    amount: {
-      denom: 'udaric',
-      amount: 1000,
-    },
-  };
+  const { message } = props;
 
   const parsedAmount = `${formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
 

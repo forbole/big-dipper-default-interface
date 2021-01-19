@@ -29,7 +29,7 @@ class LatestActivity {
     this.hash = payload.hash;
     this.timestamp = payload.timestamp;
     this.success = payload.success;
-    this.messages = payload.message;
+    this.messages = payload.messages;
   }
 
   static getModelByType(type: string) {
@@ -124,7 +124,7 @@ class LatestActivity {
       hash: json.hash,
       timestamp: json.timestamp,
       success: json.success,
-      messages: json?.messages.map((x) => {
+      messages: json?.messages?.map((x) => {
         return this.getModelByType(x?.['@type']).fromJson(x);
       }),
     });

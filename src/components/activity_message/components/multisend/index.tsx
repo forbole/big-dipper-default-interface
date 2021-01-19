@@ -9,53 +9,13 @@ import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
 import { translationFormatter } from '../../utils';
 
-const Multisend = () => {
+const Multisend = (props: {
+  message: MsgMultiSend;
+}) => {
   const { t } = useTranslation(['activities']);
   const { classes } = useGetStyles();
 
-  const message: MsgMultiSend = {
-    category: 'bank',
-    type: '/cosmos.bank.v1beta1.MsgMultiSend',
-    inputs: [
-      {
-        address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-        coins: [
-          {
-            denom: 'udaric',
-            amount: '1000',
-          },
-        ],
-      },
-    ],
-    outputs: [
-      {
-        address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-        coins: [
-          {
-            denom: 'udaric',
-            amount: '1000',
-          },
-          {
-            denom: 'udaric',
-            amount: '12400',
-          },
-          {
-            denom: 'udaric',
-            amount: '212245400',
-          },
-        ],
-      },
-      {
-        address: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-        coins: [
-          {
-            denom: 'udaric',
-            amount: '12400',
-          },
-        ],
-      },
-    ],
-  };
+  const { message } = props;
 
   const sender = R.pathOr({
   }, ['inputs', 0], message);

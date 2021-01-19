@@ -7,20 +7,11 @@ import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
 import { translationFormatter } from '../../utils';
 
-const Delegate = () => {
+const Delegate = (props: {
+  message: MsgDelegate;
+}) => {
   const { t } = useTranslation(['activities']);
-
-  // fake
-  const message: MsgDelegate = {
-    category: 'staking',
-    type: '/cosmos.staking.v1beta1.MsgDelegate',
-    delegatorAddress: 'desmos13yp2fq3tslq6mmtq4628q38xzj75ethzela9uu',
-    validatorAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
-    amount: {
-      denom: 'udaric',
-      amount: 10003400,
-    },
-  };
+  const { message } = props;
 
   const parsedAmount = `${formatDenom(chainConfig.display, numeral(message.amount.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
 

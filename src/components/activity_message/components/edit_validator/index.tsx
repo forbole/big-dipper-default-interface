@@ -4,23 +4,11 @@ import { AddressDisplay } from '@components';
 import { MsgEditValidator } from '@models';
 import { translationFormatter } from '../../utils';
 
-const EditValidator = () => {
+const EditValidator = (props: {
+  message: MsgEditValidator;
+}) => {
   const { t } = useTranslation(['activities']);
-
-  const message: MsgEditValidator = {
-    category: 'staking',
-    type: '/cosmos.staking.v1beta1.MsgEditValidator',
-    description: {
-      moniker: 'Forbole',
-      identity: '',
-      website: '',
-      securityContact: '',
-      details: '',
-    },
-    minSelfDelegation: 1,
-    validatorAddress: 'desmosvaloper1fl7nsznuz4np9tj82m2g6m0w83ztzvflpe8kyk',
-    commissionRate: null,
-  };
+  const { message } = props;
 
   return (
     <p>
@@ -30,7 +18,7 @@ const EditValidator = () => {
           display={message?.description?.moniker}
         />
       </span>
-      {translationFormatter('txEditValidatorOne', {
+      {translationFormatter(t('txEditValidatorOne'), {
         after: false,
       })}
     </p>
