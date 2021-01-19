@@ -15,7 +15,7 @@ const Unjail = (props: {
       <span className="address">
         <AddressDisplay address={message.validatorAddress} />
       </span>
-      {translationFormatter(t('unjailed'), {
+      {translationFormatter(t('txUnjailOne'), {
         after: false,
       })}
     </p>
