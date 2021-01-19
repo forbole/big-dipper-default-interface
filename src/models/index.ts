@@ -19,6 +19,7 @@ import MsgMultiSend from './msg/msg_multi_send';
 import MsgSend from './msg/msg_send';
 import MsgVerifyInvariant from './msg/msg_verify_invariant';
 import MsgFundCommunityPool from './msg/msg_fund_community_pool';
+import MsgSubmitProposal from './msg/msg_submit_proposal';
 import MsgSetWithdrawAddress from './msg/msg_set_withdrawal_address';
 import MsgWithdrawDelegatorReward from './msg/msg_withdrawal_delegaor_reward';
 import MsgCommunityPoolSpendProposal from './msg/msg_community_pool_spend_proposal';
@@ -66,4 +67,5 @@ export {
   MsgUndelegate,
   BlockDetail,
   PreCommit,
+  MsgSubmitProposal,
 };

@@ -54,5 +54,7 @@
   "yes": "YES",
   "no": "NO",
   "abstain": "ABSTAIN",
-  "noWithVeto": "NO WITH VETO"
+  "noWithVeto": "NO WITH VETO",
+  "submitProposal": "Submit Proposal",
+  "submitted": "submitted"
 }

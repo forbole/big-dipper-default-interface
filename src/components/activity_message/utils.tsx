@@ -14,6 +14,7 @@ import {
   WithdrawReward,
   DepositProposal,
   Vote,
+  SubmitProposal,
 } from './components';
 
 export const getMessageByType = (type:string) => {
@@ -148,6 +149,14 @@ export const getMessageByType = (type:string) => {
       content: Vote,
       tagType: 'governance',
       tagDisplay: 'vote',
+    };
+  }
+
+  if (type === '/cosmos.gov.v1beta1.MsgSubmitProposal') {
+    return {
+      content: SubmitProposal,
+      tagType: 'governance',
+      tagDisplay: 'submitProposal',
     };
   }
 
