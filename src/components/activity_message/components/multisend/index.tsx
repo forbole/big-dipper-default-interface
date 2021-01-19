@@ -7,6 +7,7 @@ import { AddressDisplay } from '@components';
 import { MsgMultiSend } from '@models';
 import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
+import { translationFormatter } from '../../utils';
 
 const Multisend = () => {
   const { t } = useTranslation(['activities']);
@@ -58,7 +59,7 @@ const Multisend = () => {
 
   const sender = R.pathOr({
   }, ['inputs', 0], message);
-  const senderAmount = sender?.amount?.map((x) => {
+  const senderAmount = sender?.coins?.map((x) => {
     return `${formatDenom(chainConfig.display, numeral(x.amount).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`;
   }).reduce((text, value, i, array) => text + (i < array.length - 1 ? ', ' : ` ${t('and')} `) + value);
 
@@ -79,15 +80,13 @@ const Multisend = () => {
         <span className="address">
           <AddressDisplay address={sender?.address} />
         </span>
-        {' '}
-        {t('sent')}
-        {' '}
+        {translationFormatter(t('txMultisendOne'))}
         <span className="amount">
           {senderAmount}
         </span>
-        {' '}
-        {t('totheFollowingRecipients')}
-        :
+        {translationFormatter(t('txMultisendTwo'), {
+          after: false,
+        })}
       </p>
       <div className={classes.multisend}>
         {
@@ -97,9 +96,7 @@ const Multisend = () => {
               <span className="address">
                 <AddressDisplay address={x.address} />
               </span>
-              {' '}
-              {t('received')}
-              {' '}
+              {translationFormatter(t('txMultisendThree'))}
               <span className="amount">
                 {x.parsedAmount}
               </span>

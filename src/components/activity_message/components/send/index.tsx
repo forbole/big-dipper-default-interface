@@ -5,6 +5,7 @@ import { formatDenom } from '@utils';
 import { AddressDisplay } from '@components';
 import { MsgSend } from '@models';
 import { chainConfig } from '@src/chain_config';
+import { translationFormatter } from '../../utils';
 
 const Send = () => {
   const { t } = useTranslation(['activities']);
@@ -31,15 +32,11 @@ const Send = () => {
       <span className="address">
         <AddressDisplay address={message.fromAddress} />
       </span>
-      {' '}
-      {t('sent')}
-      {' '}
+      {translationFormatter(t('txSendOne'))}
       <span className="amount">
         {parsedAmount}
       </span>
-      {' '}
-      {t('to')}
-      {' '}
+      {translationFormatter(t('txSendTwo'))}
       <span className="address">
         <AddressDisplay address={message.toAddress} />
       </span>

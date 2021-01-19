@@ -5,6 +5,7 @@ import { formatDenom } from '@utils';
 import { AddressDisplay } from '@components';
 import { MsgDelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
+import { translationFormatter } from '../../utils';
 
 const Delegate = () => {
   const { t } = useTranslation(['activities']);
@@ -28,15 +29,11 @@ const Delegate = () => {
       <span className="address">
         <AddressDisplay address={message.delegatorAddress} />
       </span>
-      {' '}
-      {t('txDelegateOne')}
-      {' '}
+      {translationFormatter(t('txDelegateOne'))}
       <span className="amount">
         {parsedAmount}
       </span>
-      {' '}
-      {t('txDelegateTwo')}
-      {' '}
+      {translationFormatter(t('txDelegateTwo'))}
       <span className="address">
         <AddressDisplay address={message.validatorAddress} />
       </span>

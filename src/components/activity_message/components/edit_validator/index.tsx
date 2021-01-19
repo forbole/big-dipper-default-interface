@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgEditValidator } from '@models';
+import { translationFormatter } from '../../utils';
 
 const EditValidator = () => {
   const { t } = useTranslation(['activities']);
@@ -29,8 +30,9 @@ const EditValidator = () => {
           display={message?.description?.moniker}
         />
       </span>
-      {' '}
-      {t('updated')}
+      {translationFormatter('txEditValidatorOne', {
+        after: false,
+      })}
     </p>
   );
 };

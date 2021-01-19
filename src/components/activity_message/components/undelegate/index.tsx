@@ -5,6 +5,7 @@ import { formatDenom } from '@utils';
 import { AddressDisplay } from '@components';
 import { MsgUndelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
+import { translationFormatter } from '../../utils';
 
 const Undelegate = () => {
   const { t } = useTranslation(['activities']);
@@ -27,15 +28,11 @@ const Undelegate = () => {
       <span className="address">
         <AddressDisplay address={message.delegatorAddress} />
       </span>
-      {' '}
-      {t('undelegated')}
-      {' '}
+      {translationFormatter(t('txUndelegateOne'))}
       <span className="amount">
         {parsedAmount}
       </span>
-      {' '}
-      {t('from')}
-      {' '}
+      {translationFormatter(t('txUndelegateTwo'))}
       <span className="address">
         <AddressDisplay address={message.validatorAddress} />
       </span>

@@ -41,7 +41,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Undelegate,
       tagType: 'undelegate',
-      tagDisplay: 'undelegate',
+      tagDisplay: 'txUndelegateLabel',
     };
   }
 
@@ -49,7 +49,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: CreateValidator,
       tagType: 'staking',
-      tagDisplay: 'createValidator',
+      tagDisplay: 'txCreateValidatorLabel',
     };
   }
 
@@ -57,7 +57,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: EditValidator,
       tagType: 'staking',
-      tagDisplay: 'editValidator',
+      tagDisplay: 'txEditValidatorLabel',
     };
   }
 
@@ -69,7 +69,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Send,
       tagType: 'bank',
-      tagDisplay: 'send',
+      tagDisplay: 'txSendLabel',
     };
   }
 
@@ -77,7 +77,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Multisend,
       tagType: 'bank',
-      tagDisplay: 'multisend',
+      tagDisplay: 'txMultisendLabel',
     };
   }
 
@@ -166,4 +166,25 @@ export const getMessageByType = (type:string) => {
     tagType: '',
     tagDisplay: tagDisplay[tagDisplay.length - 1],
   };
+};
+
+/**
+ * Helper function to deal with localisation word changes
+ * @param translation
+ */
+export const translationFormatter = (translation: string, options?: {
+  before?: boolean;
+  after?: boolean;
+}) => {
+  const {
+    before = true,
+    after = true,
+  } = options ?? {
+  };
+
+  if (translation) {
+    return `${before ? ' ' : ''}${translation}${after ? ' ' : ''}`;
+  }
+
+  return `${!before || !after ? '' : ' '}`;
 };

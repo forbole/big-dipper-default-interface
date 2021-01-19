@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgCreateValidator } from '@models';
+import { translationFormatter } from '../../utils';
 
 const CreateValidator = () => {
   const { t } = useTranslation(['activities']);
@@ -38,9 +39,7 @@ const CreateValidator = () => {
       <span className="address">
         <AddressDisplay address={message.delegatorAddress} />
       </span>
-      {' '}
-      {t('created')}
-      {' '}
+      {translationFormatter(t('txCreateValidatorOne'))}
       <span className="address">
         <AddressDisplay
           address={message.validatorAddress}

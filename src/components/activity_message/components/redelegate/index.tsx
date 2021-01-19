@@ -5,6 +5,7 @@ import { AddressDisplay } from '@components';
 import { formatDenom } from '@utils';
 import { MsgRedelegate } from '@models';
 import { chainConfig } from '@src/chain_config';
+import { translationFormatter } from '../../utils';
 
 const Redelegate = () => {
   const { t } = useTranslation(['activities']);
@@ -28,21 +29,15 @@ const Redelegate = () => {
       <span className="address">
         <AddressDisplay address={message.delegatorAddress} />
       </span>
-      {' '}
-      {t('txRedelegateOne')}
-      {' '}
+      {translationFormatter(t('txRedelegateOne'))}
       <span className="amount">
         {parsedAmount}
       </span>
-      {' '}
-      {t('txRedelegateTwo')}
-      {' '}
+      {translationFormatter(t('txRedelegateTwo'))}
       <span className="address">
         <AddressDisplay address={message.validatorSrcAddress} />
       </span>
-      {' '}
-      {t('txRedelegateThree')}
-      {' '}
+      {translationFormatter(t('txRedelegateThree'))}
       <span className="address">
         <AddressDisplay address={message.validatorDstAddress} />
       </span>
