@@ -87,6 +87,7 @@ const Multisend = () => {
         {translationFormatter(t('txMultisendTwo'), {
           after: false,
         })}
+        :
       </p>
       <div className={classes.multisend}>
         {

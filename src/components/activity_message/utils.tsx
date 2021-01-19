@@ -89,7 +89,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: VerifyInvariant,
       tagType: 'crisis',
-      tagDisplay: 'verifyInvariant',
+      tagDisplay: 'txVerifyInvariantLabel',
     };
   }
 
@@ -101,7 +101,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Unjail,
       tagType: 'slashing',
-      tagDisplay: 'unjail',
+      tagDisplay: 'txUnjailLabel',
     };
   }
 
@@ -112,7 +112,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Fund,
       tagType: 'distribution',
-      tagDisplay: 'fund',
+      tagDisplay: 'txFundLabel',
     };
   }
 
@@ -120,7 +120,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: SetWithdrawalAddress,
       tagType: 'distribution',
-      tagDisplay: 'setRewardAddress',
+      tagDisplay: 'txsetRewardAddressLabel',
     };
   }
 
@@ -128,7 +128,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: WithdrawReward,
       tagType: 'distribution',
-      tagDisplay: 'withdrawReward',
+      tagDisplay: 'txWithdrawRewardLabel',
     };
   }
 
@@ -140,7 +140,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: DepositProposal,
       tagType: 'governance',
-      tagDisplay: 'deposit',
+      tagDisplay: 'txDepositLabel',
     };
   }
 
@@ -148,7 +148,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: Vote,
       tagType: 'governance',
-      tagDisplay: 'vote',
+      tagDisplay: 'txVoteLabel',
     };
   }
 
@@ -156,7 +156,7 @@ export const getMessageByType = (type:string) => {
     return {
       content: SubmitProposal,
       tagType: 'governance',
-      tagDisplay: 'submitProposal',
+      tagDisplay: 'txSubmitProposalLabel',
     };
   }
 

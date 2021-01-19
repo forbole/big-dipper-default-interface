@@ -6,6 +6,7 @@ import { MsgDeposit } from '@models';
 import { chainConfig } from '@src/chain_config';
 import { formatDenom } from '@utils';
 import { ProposalDisplay } from '..';
+import { translationFormatter } from '../../utils';
 
 const DepositProposal = () => {
   const { t } = useTranslation(['activities']);
@@ -32,15 +33,11 @@ const DepositProposal = () => {
       <span className="address">
         <AddressDisplay address={message.depositor} />
       </span>
-      {' '}
-      {t('deposited')}
-      {' '}
+      {translationFormatter(t('txDepositOne'))}
       <span className="amount">
         {parsedAmount}
       </span>
-      {' '}
-      {t('to')}
-      {' '}
+      {translationFormatter(t('txDepositTwo'))}
       <span className="link">
         <ProposalDisplay proposalId={message.proposalId} />
       </span>

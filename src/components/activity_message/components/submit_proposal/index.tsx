@@ -3,6 +3,7 @@ import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgSubmitProposal } from '@models';
 import { ProposalDisplay } from '..';
+import { translationFormatter } from '../../utils';
 
 const SubmitProposal = () => {
   const { t } = useTranslation(['activities']);
@@ -28,9 +29,7 @@ const SubmitProposal = () => {
       <span className="address">
         <AddressDisplay address={message.proposer} />
       </span>
-      {' '}
-      {t('submitted')}
-      {' '}
+      {translationFormatter(t('txSubmitProposalOne'))}
       <span className="link">
         <ProposalDisplay proposalId={null} />
       </span>

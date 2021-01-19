@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgVerifyInvariant } from '@models';
+import { translationFormatter } from '../../utils';
 
 const VerifyInvariant = () => {
   const { t } = useTranslation(['activities']);
@@ -18,8 +19,9 @@ const VerifyInvariant = () => {
       <span className="address">
         <AddressDisplay address={message.sender} />
       </span>
-      {' '}
-      {t('verifiedInvariant')}
+      {translationFormatter(t('txVerifyInvariantOne'), {
+        after: false,
+      })}
     </p>
   );
 };

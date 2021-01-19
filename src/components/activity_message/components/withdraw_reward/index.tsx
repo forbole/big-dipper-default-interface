@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgWithdrawDelegatorReward } from '@models';
+import { translationFormatter } from '../../utils';
 
 const WithdrawReward = () => {
   const { t } = useTranslation(['activities']);
@@ -16,13 +17,7 @@ const WithdrawReward = () => {
       <span className="address">
         <AddressDisplay address={message.delegatorAddress} />
       </span>
-      {' '}
-      {t('withdrew')}
-      {' '}
-      {t('reward')}
-      {' '}
-      {t('from')}
-      {' '}
+      {translationFormatter(t('txWithdrawRewardOne'))}
       <span className="address">
         <AddressDisplay address={message.validatorAddress} />
       </span>

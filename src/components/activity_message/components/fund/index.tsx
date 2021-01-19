@@ -5,6 +5,7 @@ import { AddressDisplay } from '@components';
 import { MsgFundCommunityPool } from '@models';
 import { formatDenom } from '@utils';
 import { chainConfig } from '@src/chain_config';
+import { translationFormatter } from '../../utils';
 
 const Fund = () => {
   const { t } = useTranslation(['activities']);
@@ -30,15 +31,13 @@ const Fund = () => {
       <span className="address">
         <AddressDisplay address={message.depositor} />
       </span>
-      {' '}
-      {t('funded')}
-      {' '}
+      {translationFormatter(t('txFundOne'))}
       <span className="amount">
         {parsedAmount}
       </span>
-      {' '}
-      {t('toTheCommunityPool')}
-      {' '}
+      {translationFormatter(t('txFundTwo'), {
+        after: false,
+      })}
     </p>
   );
 };

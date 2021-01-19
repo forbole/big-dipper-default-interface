@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgUnjail } from '@models';
+import { translationFormatter } from '../../utils';
 
 const Unjail = () => {
   const { t } = useTranslation(['activities']);
@@ -17,8 +18,9 @@ const Unjail = () => {
       <span className="address">
         <AddressDisplay address={message.validatorAddress} />
       </span>
-      {' '}
-      {t('unjailed')}
+      {translationFormatter(t('unjailed'), {
+        after: false,
+      })}
     </p>
   );
 };

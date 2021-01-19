@@ -3,6 +3,7 @@ import { useTranslation } from 'i18n';
 import { AddressDisplay } from '@components';
 import { MsgVote } from '@models';
 import { ProposalDisplay } from '..';
+import { translationFormatter } from '../../utils';
 
 const Vote = () => {
   const { t } = useTranslation(['activities']);
@@ -20,15 +21,11 @@ const Vote = () => {
       <span className="address">
         <AddressDisplay address={message.voter} />
       </span>
-      {' '}
-      {t('voted')}
-      {' '}
+      {translationFormatter(t('txVoteOne'))}
       <span className="bold">
         {vote}
       </span>
-      {' '}
-      {t('on')}
-      {' '}
+      {translationFormatter(t('txVoteTwo'))}
       <span className="link">
         <ProposalDisplay proposalId={message.proposalId} />
       </span>
