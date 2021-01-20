@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import numeral from 'numeral';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
@@ -30,7 +31,7 @@ export const useActivitiesHook = () => {
   const latestActivities = useQuery(gql`${LATEST_ACTIVITIES}`, {
     variables: {
       limit: 10,
-      height: isNaN(Number(router?.query?.block)) ? null : Number(router?.query?.block),
+      height: numeral(router?.query?.block).value(),
     },
     onCompleted: (data) => {
       handleNewData(data);

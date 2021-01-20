@@ -43,7 +43,7 @@ export const useBlockDetailsTableHook = (): {
   // ===============================
   useQuery(gql`${BLOCK_DETAILS}`, {
     variables: {
-      height: isNaN(Number(router?.query?.block)) ? null : Number(router?.query?.block),
+      height: numeral(router?.query?.block).value(),
     },
     onCompleted: (data) => {
       const parsedBlockData = blockDetailsParser(data);
