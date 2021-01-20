@@ -1,4 +1,5 @@
 import React from 'react';
+import Skeleton from 'react-loading-skeleton';
 import numeral from 'numeral';
 import moment from 'moment';
 import { useTranslation } from 'i18n';
@@ -15,12 +16,23 @@ const BlockDetailsTable = () => {
     block,
     precommits,
     votingPowerSum,
+    loading,
   } = useBlockDetailsTableHook();
   // ========================
   // styles
   // ========================
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
+
+  if (loading) {
+    return (
+      <div>
+        <Skeleton width="60%" height={30} />
+        <br />
+        <Skeleton count={6} height={30} />
+      </div>
+    );
+  }
 
   return (
     <BlockDetails

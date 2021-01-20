@@ -37,6 +37,7 @@ export const useGetStyles = () => {
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
+
       },
     },
   }));

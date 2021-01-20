@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import { AppProps } from 'next/app';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -77,26 +78,31 @@ function MyApp({
         <ThemeProvider
           theme={theme}
         >
-          <CssBaseline />
-          <GlobalContext.Provider
-            value={globalState}
+          <SkeletonTheme
+            color={theme?.palette?.background?.default}
+            highlightColor={theme?.palette?.background?.paperLowOpacity}
           >
-            <Component
-              {...pageProps}
-            />
-            <ToastContainer
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              className={classes.toast}
-            />
-          </GlobalContext.Provider>
+            <CssBaseline />
+            <GlobalContext.Provider
+              value={globalState}
+            >
+              <Component
+                {...pageProps}
+              />
+              <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                className={classes.toast}
+              />
+            </GlobalContext.Provider>
+          </SkeletonTheme>
         </ThemeProvider>
       </ApolloProvider>
     </>

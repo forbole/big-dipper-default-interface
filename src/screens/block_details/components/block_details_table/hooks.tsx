@@ -24,18 +24,21 @@ export const useBlockDetailsTableHook = (): {
   votingPowerSum: string;
   block: BlockDetail;
   precommits: PreCommitsProps[];
+  loading: boolean;
 } => {
   const router = useRouter();
   const [state, setState] = useState<{
-    block: BlockDetail,
-    pool: Stabilities,
-    precommits: PreCommit[]
+    block: BlockDetail;
+    pool: Stabilities;
+    precommits: PreCommit[];
+    loading: boolean;
   }>({
     block: BlockDetail.fromJson({
     }),
     pool: Stabilities.fromJson({
     }),
     precommits: [],
+    loading: true,
   });
 
   // ===============================
@@ -43,7 +46,12 @@ export const useBlockDetailsTableHook = (): {
   // ===============================
   useQuery(gql`${BLOCK_DETAILS}`, {
     variables: {
-      height: isNaN(Number(router?.query?.block)) ? null : Number(router?.query?.block),
+      height: router?.query?.block ? numeral(router?.query?.block).value() : null,
+    },
+    onError: () => {
+      handleSetState({
+        loading: false,
+      });
     },
     onCompleted: (data) => {
       const parsedBlockData = blockDetailsParser(data);
@@ -56,6 +64,7 @@ export const useBlockDetailsTableHook = (): {
         handleSetState({
           block: parsedBlockData,
           pool: parsedPoolData,
+          loading: false,
           parsedPreCommitsData,
         });
       }
@@ -77,6 +86,7 @@ export const useBlockDetailsTableHook = (): {
   };
 
   return {
+    loading: state.loading,
     votingPowerSum: numeral(getVotingPowerSum()).format('0.00%'),
     block: state.block,
     precommits: formatPreCommitData(state.precommits, state.pool),
