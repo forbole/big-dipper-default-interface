@@ -31,7 +31,7 @@ export const useActivitiesHook = () => {
   const latestActivities = useQuery(gql`${LATEST_ACTIVITIES}`, {
     variables: {
       limit: 10,
-      height: numeral(router?.query?.block).value(),
+      height: router?.query?.block ? numeral(router?.query?.block).value() : null,
     },
     onCompleted: (data) => {
       handleNewData(data);

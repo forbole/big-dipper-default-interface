@@ -46,10 +46,9 @@ export const useBlockDetailsTableHook = (): {
   // ===============================
   useQuery(gql`${BLOCK_DETAILS}`, {
     variables: {
-      height: numeral(router?.query?.block).value(),
+      height: router?.query?.block ? numeral(router?.query?.block).value() : null,
     },
-    onError: (error) => {
-      console.error(error.message);
+    onError: () => {
       handleSetState({
         loading: false,
       });
