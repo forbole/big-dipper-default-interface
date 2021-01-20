@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
-import { LatestActivities as LatestActivitiesComponent } from 'big-dipper-default-ui';
+
 import {
   Layout,
   DataBlocksHeader,
@@ -10,9 +10,9 @@ import {
   HeaderBarMobile,
   InfiniteLoader,
   ActivitiesFilter,
+  ActivitiesList,
 } from '@components';
 import {
-  useLatestActivitiesStyles,
   useMobileOnlyStyles,
   useDesktopOnlyStyles,
 } from '@styles';
@@ -39,7 +39,6 @@ const Activities = () => {
   } = state;
 
   const { classes } = useGetStyles();
-  const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
 
@@ -79,9 +78,8 @@ const Activities = () => {
             hasMore={total > data.length}
             loader={<InfiniteLoader key={0} />}
           >
-            <LatestActivitiesComponent
-              className={latestActivitiesStyles.root}
-              transactions={data}
+            <ActivitiesList
+              data={data}
               onClick={handleClick}
             />
           </InfiniteScroll>

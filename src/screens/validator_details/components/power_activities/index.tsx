@@ -3,10 +3,7 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useTheme } from '@material-ui/core/styles';
-import {
-  LatestActivities,
-  PowerEvents,
-} from 'big-dipper-default-ui';
+import { PowerEvents } from 'big-dipper-default-ui';
 import {
   Tab,
   Tabs,
@@ -16,9 +13,9 @@ import {
   TabPanel,
   ActivitiesFilter,
   InfiniteLoader,
+  ActivitiesList,
 } from '@components';
 import { getAllyProps } from '@utils';
-import { useLatestActivitiesStyles } from '@styles';
 import {
   useValidatorDetailsHook,
   useActivitiesHook,
@@ -35,7 +32,6 @@ const PowerActivities = () => {
   const { t } = useTranslation(['validators', 'activities']);
   const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
-  const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
 
   // ================================
   // activities
@@ -104,9 +100,8 @@ const PowerActivities = () => {
             hasMore={activitiesState.hasMore}
             loader={<InfiniteLoader key={0} />}
           >
-            <LatestActivities
-              className={latestActivitiesStyles.root}
-              transactions={activitiesState.data}
+            <ActivitiesList
+              data={activitiesState.data}
               onClick={activitiesHook.handleClick}
             />
           </InfiniteScroll>
