@@ -3,10 +3,7 @@ import {
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
 
-/**
- * consistent styling for LatestActivities
- */
-export const useLatestActivitiesStyles = () => {
+export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       '& .header__timestamp': {

@@ -36,6 +36,14 @@
   "overrides": [
     {
       "files": [
+        "src/**/types.ts"
+      ],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": [
         "tests/**/*"
       ],
       "rules": {

@@ -13,6 +13,7 @@ import BlockHeight from './block_height';
 import ActivityMessage from './activity_message';
 import Avatar from './avatar';
 import AddressDisplay from './address_display';
+import ActivitiesList from './activities_list';
 
 export {
   Layout,
@@ -30,4 +31,5 @@ export {
   ActivityMessage,
   Avatar,
   AddressDisplay,
+  ActivitiesList,
 };

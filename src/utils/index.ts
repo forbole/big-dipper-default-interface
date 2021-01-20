@@ -8,11 +8,6 @@ import { rgbaOpacityConverter } from './rgba_opacity_converter';
 import { getAddressRole } from './get_address_role';
 import { getSeed } from './get_seed';
 
-// ========================
-// Data parsing helpers
-// ========================
-import { formatActivitiesData } from './format_activities_data';
-
 export {
   getLanguageValue,
   convertNumber,
@@ -21,7 +16,6 @@ export {
   formatMiddleEllipse,
   getAllyProps,
   rgbaOpacityConverter,
-  formatActivitiesData,
   getAddressRole,
   getSeed,
 };
