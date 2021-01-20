@@ -2,8 +2,10 @@ import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { ValidatorProfile } from 'big-dipper-default-ui';
 import { useGetStyles } from './styles';
+import { useProfileHook } from './hooks';
 
 const Profile = () => {
+  const { profile } = useProfileHook();
   const theme: any = useTheme();
   const { classes } = useGetStyles();
   return (
