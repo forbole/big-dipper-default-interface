@@ -7,9 +7,9 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       '& .account-details': {
-        height: '500px',
-        background: 'pink',
-        border: 'solid 1px black',
+        // height: '500px',
+        // background: 'pink',
+        // border: 'solid 1px black',
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

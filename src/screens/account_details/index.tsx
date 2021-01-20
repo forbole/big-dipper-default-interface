@@ -13,6 +13,7 @@ import { useGetStyles } from './styles';
 import {
   Activities,
   StakingActivities,
+  Detail,
 } from './components';
 
 const AccountDetails = () => {
@@ -39,7 +40,7 @@ const AccountDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('account-details')}>
-          account details
+          <Detail />
         </div>
         <div className={classnames('account-staking')}>
           <StakingActivities />
