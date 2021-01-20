@@ -11,12 +11,32 @@ import { ValidatorProps } from './types';
 const Validator = (props: ValidatorProps) => {
   const {
     address,
+    diameter,
     identity,
+    link,
   } = props;
+
   const globalState = useContext(GlobalContext);
   useKeybaseHook(identity, globalState);
   const { keybaseList } = globalState;
   const verifiedUser = keybaseList?.[identity];
+
+  if (!link) {
+    return (
+      <>
+        {verifiedUser ? (
+          <Avatar
+            imageUrl={verifiedUser.imageUrl}
+          />
+        ) : (
+          <Jazzicon
+            diameter={diameter}
+            seed={getSeed(address)}
+          />
+        )}
+      </>
+    );
+  }
 
   return (
     <span onClick={handleClick} role="button">
@@ -27,7 +47,7 @@ const Validator = (props: ValidatorProps) => {
           />
         ) : (
           <Jazzicon
-            diameter={24}
+            diameter={diameter}
             seed={getSeed(address)}
           />
         )}

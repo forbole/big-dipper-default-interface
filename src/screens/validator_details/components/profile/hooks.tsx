@@ -32,7 +32,6 @@ export const useProfileHook = () => {
       } else {
         router.push('/404');
       }
-      console.log(profile, 'wtfdsfsfdsfsdgsgd');
     },
   });
 
