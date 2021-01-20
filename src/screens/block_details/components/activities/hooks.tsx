@@ -5,7 +5,7 @@ import {
   useQuery,
   gql,
 } from '@apollo/client';
-import { formatActivitiesData } from '@utils';
+import { LatestActivity } from '@models';
 import { LATEST_ACTIVITIES } from '@graphql/queries';
 import {
   latestActivitiesParser,
@@ -14,7 +14,10 @@ import {
 
 export const useActivitiesHook = () => {
   const router = useRouter();
-  const [state, setState] = useState({
+  const [state, setState] = useState<{
+    data: LatestActivity[];
+    total: number;
+  }>({
     data: [],
     total: 0,
   });
@@ -81,7 +84,7 @@ export const useActivitiesHook = () => {
     handleOnFilterCallback,
     state: {
       total: state.total,
-      data: formatActivitiesData(state.data),
+      data: state.data,
     },
     handleSetState,
     handleLoadMore,

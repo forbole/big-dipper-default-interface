@@ -1,12 +1,11 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
-import { LatestActivities } from 'big-dipper-default-ui';
 import {
   ActivitiesFilter,
   InfiniteLoader,
+  ActivitiesList,
 } from '@components';
-import { useLatestActivitiesStyles } from '@styles';
 import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 
@@ -19,7 +18,6 @@ const Activities = () => {
   } = useActivitiesHook();
   const { t } = useTranslation(['accounts', 'activities']);
   const { classes } = useGetStyles();
-  const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
 
   const {
     hasMore,
@@ -43,9 +41,8 @@ const Activities = () => {
         hasMore={hasMore}
         loader={<InfiniteLoader key={0} />}
       >
-        <LatestActivities
-          className={latestActivitiesStyles.root}
-          transactions={data}
+        <ActivitiesList
+          data={data}
           onClick={handleClick}
         />
       </InfiniteScroll>

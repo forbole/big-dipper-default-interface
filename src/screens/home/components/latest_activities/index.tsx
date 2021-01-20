@@ -1,15 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import {
-  TablePreviewWrapper,
-  LatestActivities as LatestActivitiesComponent,
-} from 'big-dipper-default-ui';
+import { TablePreviewWrapper } from 'big-dipper-default-ui';
+import { ActivitiesList } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
-import {
-  useTablePreviewWrapperStyles,
-  useLatestActivitiesStyles,
-} from '@styles';
+import { useTablePreviewWrapperStyles } from '@styles';
 import {
   ActionMobile, FooterAction, ActionDesktop,
 } from '..';
@@ -29,7 +24,6 @@ const LatestActivities = () => {
   // styles
   // =============================
   const { classes } = useGetStyles();
-  const { classes: latestActivitiesStyles } = useLatestActivitiesStyles();
   const { classes: tablePreviewWrapperStyles } = useTablePreviewWrapperStyles();
 
   return (
@@ -39,10 +33,9 @@ const LatestActivities = () => {
       action={isDesktop ? <ActionDesktop url={URL} /> : <ActionMobile url={URL} />}
       footerAction={!isDesktop ? <FooterAction url={URL} /> : undefined}
     >
-      <LatestActivitiesComponent
-        className={latestActivitiesStyles.root}
-        transactions={latestActivities}
+      <ActivitiesList
         onClick={handleClick}
+        data={latestActivities}
       />
     </TablePreviewWrapper>
   );

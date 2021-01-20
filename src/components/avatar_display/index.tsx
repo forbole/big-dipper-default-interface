@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '@contexts';
+// import { getAddressRole } from '@utils';
 import { AvatarDisplayProps } from './types';
 import { useGetStyles } from './styles';
 import {
@@ -28,6 +29,19 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
       />
     );
   }
+
+  // Edge case in which the validator is created but not logged in to our initial address list
+  // Not sure how to fully handle this atm will come back
+  // if (getAddressRole(address) === 'validator') {
+  //   return (
+  //     <ValidatorDisplay
+  //       className={classes.root}
+  //       address={address}
+  //       display={display}
+  //       identity={identity}
+  //     />
+  //   );
+  // }
 
   return (
     <UserDisplay {...props} className={classes.root} />

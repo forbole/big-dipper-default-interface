@@ -6,11 +6,9 @@ import { useKeybaseHook } from '@hooks';
 import { GlobalContext } from '@contexts';
 import { getSeed } from '@utils';
 import { handleClick } from '../../utils';
+import { ValidatorProps } from './types';
 
-const Validator = (props: {
-  address: string;
-  identity: string;
-}) => {
+const Validator = (props: ValidatorProps) => {
   const {
     address,
     identity,
@@ -33,7 +31,6 @@ const Validator = (props: {
             seed={getSeed(address)}
           />
         )}
-
       </Link>
     </span>
   );

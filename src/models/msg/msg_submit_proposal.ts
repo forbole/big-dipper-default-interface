@@ -50,18 +50,19 @@ class MsgSubmitProposal {
         break;
       }
       default:
+        content = contentDetailsRaw;
         break;
     }
 
     return new MsgSubmitProposal({
       content,
       type: json['@type'],
-      initialDeposit: json?.initial_deposit.map((x) => {
+      initialDeposit: json?.initial_deposit?.map((x) => {
         return ({
           denom: x?.denom,
           amount: numeral(x?.amount).value(),
         });
-      }),
+      }) ?? [],
       proposer: json.proposer,
     });
   }

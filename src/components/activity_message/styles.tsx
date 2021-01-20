@@ -7,13 +7,32 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       padding: theme?.palette?.custom?.margins?.small,
+      '& p': {
+        margin: 0,
+      },
+      '& .link': {
+        color: theme.palette.custom.fonts.fontFive,
+        '&:hover': {
+          cursor: 'pointer',
+        },
+      },
+      '& .address': {
+        wordBreak: 'break-all',
+        color: theme.palette.custom.fonts.fontFive,
+        '&:hover': {
+          cursor: 'pointer',
+        },
+      },
+      '& .amount, & .bold': {
+        fontWeight: 600,
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.margins?.large,
         display: 'grid',
-        gridTemplateColumns: '250px auto',
+        gridTemplateColumns: 'minmax(150px, 200px) auto',
         gridTemplateRows: 'auto',
         gridGap: theme?.palette?.custom?.gutters?.large,
         '& .content__body': {

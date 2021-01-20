@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import * as R from 'ramda';
 import { useRouter } from 'next/router';
+import { LatestActivity } from '@models';
 import { dummyLatestActivities } from './utils';
 
 export const useActivitiesHook = () => {
   const router = useRouter();
   const [
     state, setState,
-  ] = useState({
+  ] = useState<{
+    data: LatestActivity[];
+    hasMore: boolean;
+  }>({
     data: dummyLatestActivities,
     hasMore: true,
   });

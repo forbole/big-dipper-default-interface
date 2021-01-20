@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-class MsgBeginRedelegate {
+class MsgRedelegate {
   public category: 'bank' | 'crisis' | 'distribution' | 'governance' | 'slashing' | 'staking';
   public type: string;
   public delegatorAddress: string;
@@ -21,7 +21,7 @@ class MsgBeginRedelegate {
   }
 
   static fromJson(json: any) {
-    return new MsgBeginRedelegate({
+    return new MsgRedelegate({
       type: json['@type'],
       delegatorAddress: json?.delegator_address,
       validatorSrcAddress: json?.validator_src_address,
@@ -34,4 +34,4 @@ class MsgBeginRedelegate {
   }
 }
 
-export default MsgBeginRedelegate;
+export default MsgRedelegate;
