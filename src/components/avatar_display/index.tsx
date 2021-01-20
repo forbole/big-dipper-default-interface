@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '@contexts';
 // import { getAddressRole } from '@utils';
 import { AvatarDisplayProps } from './types';
-import { useGetStyles } from './styles';
 import {
   ValidatorDisplay, UserDisplay,
 } from './components';
@@ -18,11 +17,9 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   } = props;
   const globalState = useContext(GlobalContext);
   const validator = globalState?.validators?.[address];
-  const { classes } = useGetStyles();
   if (validator) {
     return (
       <ValidatorDisplay
-        className={classes.root}
         address={address}
         display={display ?? validator?.moniker}
         identity={identity ?? validator?.id}
@@ -44,7 +41,7 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   // }
 
   return (
-    <UserDisplay {...props} className={classes.root} />
+    <UserDisplay {...props} />
   );
 };
 
