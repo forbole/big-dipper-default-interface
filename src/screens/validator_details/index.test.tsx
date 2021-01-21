@@ -11,6 +11,7 @@ import {
   HEADER_BAR_MOCK,
   DATA_BLOCKS_HEADER_MOCK,
   VALIDATOR_PROFILE_MOCK_DATA,
+  VALIDATOR_INFO_MOCK_DATA,
 } from '@tests/mocks';
 import {
   Info, MissedBlocks, PowerActivities, StakingActivities,
@@ -30,6 +31,7 @@ describe('ValidatorDetails', () => {
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
           ...VALIDATOR_PROFILE_MOCK_DATA,
+          ...VALIDATOR_INFO_MOCK_DATA,
         ],
       }),
     );

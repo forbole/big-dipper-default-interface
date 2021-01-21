@@ -12,6 +12,7 @@ import ValidatorAddressList from './validator_address_list';
 import BlockDetail from './block_detail';
 import PreCommit from './pre_commit';
 import ValidatorProfile from './validator_profile';
+import ValidatorInfo from './validator_info';
 
 // ================================
 // Transaction Message Types
@@ -72,4 +73,5 @@ export {
   MsgSubmitProposal,
   MsgUnknown,
   ValidatorProfile,
+  ValidatorInfo,
 };
