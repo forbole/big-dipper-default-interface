@@ -32,7 +32,7 @@ class ActivityDetail {
       hash: json.hash,
       height: json.height,
       fee: {
-        gas: numeral(json?.fee?.gas),
+        gas: numeral(json?.fee?.gas).value(),
       },
       gasUsed: json.gas_used,
       gasWanted: json.gas_wanted,

@@ -6,6 +6,7 @@ import { getMinMediaQuery } from '@styles';
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
+      width: '100%',
       '& .data-blocks': {
         display: 'none',
       },
@@ -19,6 +20,9 @@ export const useGetStyles = () => {
         },
         '& .activity-details__content-wrapper': {
           borderTop: `solid 1px ${theme?.palette?.divider}`,
+        },
+        '& .hash': {
+          wordBreak: 'break-all',
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
