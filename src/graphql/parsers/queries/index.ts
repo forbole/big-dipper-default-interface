@@ -12,6 +12,7 @@ import {
 import { blockDetailsParser } from './block_details_parser';
 import { preCommitsParser } from './pre_commit_parser';
 import { validatorProfileParser } from './validator_profile_parser';
+import { validatorInfoParser } from './validator_info_parser';
 
 export {
   averageBlockTimesParser,
@@ -26,4 +27,5 @@ export {
   blockDetailsParser,
   preCommitsParser,
   validatorProfileParser,
+  validatorInfoParser,
 };

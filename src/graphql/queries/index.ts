@@ -7,6 +7,7 @@ import { VALIDATORS_ADDRESS_LIST } from './validators_address_list';
 import { LATEST_ACTIVITIES } from './latest_activities';
 import { BLOCK_DETAILS } from './block_details';
 import { VALIDATOR_PROFILE } from './validator_profile';
+import { VALIDATOR_INFO } from './validator_info';
 
 export {
   TOTAL_ACTIVE_VALIDATORS,
@@ -18,4 +19,5 @@ export {
   LATEST_ACTIVITIES,
   BLOCK_DETAILS,
   VALIDATOR_PROFILE,
+  VALIDATOR_INFO,
 };

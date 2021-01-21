@@ -16,6 +16,9 @@ export const useGetStyles = () => {
         '& .validator-info__header, & .detail': {
           borderColor: theme?.palette?.divider,
         },
+        '& a': {
+          color: theme.palette.custom.fonts.fontFive,
+        },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         '&.validator-info': {

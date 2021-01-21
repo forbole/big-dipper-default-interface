@@ -1,19 +1,18 @@
 import React from 'react';
 import { ValidatorInfo } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
-import { useGetScreenSizeHook } from '@hooks';
 import { useInfoHook } from './hooks';
 import { useGetStyles } from './styles';
-import {
-  dummyData, formatData,
-} from './utils';
 
 const Info = () => {
   const { t } = useTranslation(['validators', 'common']);
-  const { isDesktop } = useGetScreenSizeHook();
   const { classes } = useGetStyles();
-  const { handleCopy } = useInfoHook(t);
-  const formatDummyData = formatData(dummyData, isDesktop);
+  const {
+    handleCopy,
+    info,
+    parsedInfo,
+    isDesktop,
+  } = useInfoHook(t);
 
   return (
     <ValidatorInfo
@@ -23,27 +22,27 @@ const Info = () => {
       copyCallback={handleCopy}
       operatorAddress={{
         label: t('operatorAddress'),
-        rawValue: '123456678',
-        display: formatDummyData.operatorAddress,
+        rawValue: info.operatorAddress,
+        display: parsedInfo.operatorAddress,
       }}
       selfDelegateAddress={{
         label: t('selfDelegateAddress'),
-        rawValue: '123456678',
-        display: formatDummyData.selfDelegateAddress,
+        rawValue: info.selfDelegateAddress,
+        display: parsedInfo.selfDelegateAddress,
       }}
       commissionRate={{
         label: t('commissionRate'),
-        display: '10%',
+        display: parsedInfo.commissionRate,
         description: t('commissionRateDescription'),
       }}
       maxChangeRate={{
         label: t('maxChangeRate'),
-        display: '2%',
+        display: parsedInfo.maxChangeRate,
         description: t('maxChangeRateDescription'),
       }}
       maxRate={{
         label: t('maxRate'),
-        display: '5%',
+        display: parsedInfo.maxRate,
         description: t('maxRateDescription'),
       }}
     />
