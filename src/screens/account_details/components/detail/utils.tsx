@@ -18,8 +18,11 @@ import {
   InfoPopover,
   InfoDialog,
 } from 'big-dipper-default-ui';
-import { Last7Days, TrendChart, } from './components';
-
+import {
+  Last7Days,
+  TrendChart,
+  Dialog,
+} from './components';
 
 const ProposerData = () => {
   return (
@@ -62,59 +65,59 @@ const InfoPop = () => {
   );
 };
 
-export interface DialogProp {
-  address: string,
-}
-const Dialog = (prop: DialogProp) => {
-  return (
-    <InfoDialog
-      title="scan for address"
-      buttonDisplay="Copy Address"
-      address={prop.address}
-      socialMedia={(
-        <div>
-          Share to ...
-          <div
-            style={{
-              marginTop: '1rem',
-            }}
-          >
-            <Facebook
-              style={{
-                height: '2rem',
-                width: '2rem',
-              }}
-            />
-            <Twitter
-              style={{
-                height: '2rem',
-                width: '2rem',
-              }}
-            />
-            <Telegram
-              style={{
-                height: '2rem',
-                width: '2rem',
-              }}
-            />
-            <WhatsApp
-              style={{
-                height: '2rem',
-                width: '2rem',
-              }}
-            />
-            <Email
-              style={{
-                height: '2rem',
-                width: '2rem',
-              }}
-            />
-          </div>
-        </div>
-      )}
-    />
-  );
-};
+// export interface DialogProp {
+//   address: string,
+// }
+// const Dialog = (prop: DialogProp) => {
+//   return (
+//     <InfoDialog
+//       title="scan for address"
+//       buttonDisplay="Copy Address"
+//       address={prop.address}
+//       socialMedia={(
+//         <div>
+//           Share to ...
+//           <div
+//             style={{
+//               marginTop: '1rem',
+//             }}
+//           >
+//             <Facebook
+//               style={{
+//                 height: '2rem',
+//                 width: '2rem',
+//               }}
+//             />
+//             <Twitter
+//               style={{
+//                 height: '2rem',
+//                 width: '2rem',
+//               }}
+//             />
+//             <Telegram
+//               style={{
+//                 height: '2rem',
+//                 width: '2rem',
+//               }}
+//             />
+//             <WhatsApp
+//               style={{
+//                 height: '2rem',
+//                 width: '2rem',
+//               }}
+//             />
+//             <Email
+//               style={{
+//                 height: '2rem',
+//                 width: '2rem',
+//               }}
+//             />
+//           </div>
+//         </div>
+//       )}
+//     />
+//   );
+// };
 
 export const delegate = {
   validator: {

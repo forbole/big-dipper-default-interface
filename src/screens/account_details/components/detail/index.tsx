@@ -5,9 +5,24 @@ import {
   UserInfoDesktop,
   UserInfoMobile,
 } from 'big-dipper-default-ui';
+import QRCode from 'qrcode.react';
 // import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 import { dummyData } from './utils';
+
+export const QRcode = () => {
+  return (
+    <QRCode
+      value="http://picturesofpeoplescanningqrcodes.tumblr.com/"
+      size={128}
+      bgColor="#ffffff"
+      fgColor="#000000"
+      level="L"
+      includeMargin={false}
+      renderAs="svg"
+    />
+  );
+};
 
 const Detail = () => {
   // const {
