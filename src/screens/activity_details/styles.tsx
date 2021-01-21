@@ -10,9 +10,10 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      '& .activity-details, & .activity-details-content': {
-        height: '100%',
-      },
+      // wingman clean up
+      // '& .activity-details, & .activity-details-content': {
+      // height: '100%',
+      // },
       '& .activity-details-content': {
         '& .activity-details': {
           color: theme.palette.custom.fonts.fontTwo,

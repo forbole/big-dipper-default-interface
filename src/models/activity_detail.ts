@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 import * as R from 'ramda';
-import { LatestActivity } from '.';
+import { getMessageModelByType } from '@utils';
 
 class ActivityDetail {
   public hash: string;
@@ -13,7 +13,7 @@ class ActivityDetail {
   public success: boolean;
   public memo: string;
   public timestamp: string;
-  public messages: LatestActivity[];
+  public messages: any[];
 
   constructor(payload) {
     this.hash = payload.hash;
@@ -39,7 +39,9 @@ class ActivityDetail {
       success: json.success,
       memo: json.memo,
       timestamp: json.timestamp,
-      messages: R.pathOr([], ['message'], json).map((x) => LatestActivity.fromJson(x)),
+      messages: R.pathOr([], ['messages'], json).map((x) => {
+        return getMessageModelByType(x?.['@type']).fromJson(x);
+      }),
     });
   }
 }

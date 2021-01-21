@@ -7,6 +7,7 @@ import { getAllyProps } from './get_ally_props';
 import { rgbaOpacityConverter } from './rgba_opacity_converter';
 import { getAddressRole } from './get_address_role';
 import { getSeed } from './get_seed';
+import { getMessageModelByType } from './get_message_model_by_type';
 
 export {
   getLanguageValue,
@@ -18,4 +19,5 @@ export {
   rgbaOpacityConverter,
   getAddressRole,
   getSeed,
+  getMessageModelByType,
 };

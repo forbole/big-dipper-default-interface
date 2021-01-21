@@ -7,6 +7,7 @@ import {
   DataBlocksHeader,
   HeaderBarDesktop,
   HeaderBarMobile,
+  ActivityMessage,
 } from '@components';
 import {
   useMarketHook,
@@ -23,6 +24,7 @@ const ActivityDetails = () => {
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
   const { detail } = useActivityDetailsHook();
+  console.log(detail, 'data real quick');
   return (
     <Layout
       className={classes.layout}
@@ -66,6 +68,15 @@ const ActivityDetails = () => {
               memo: detail.memo,
             }}
           />
+        </div>
+        <div>
+          {
+            detail.messages.map((message, i) => {
+              return (
+                <ActivityMessage key={i} message={message} />
+              );
+            })
+          }
         </div>
       </div>
       {/* ===================================== */}

@@ -7,7 +7,6 @@ import { formatDenom } from '@utils';
 import { chainConfig } from '@src/chain_config';
 
 export const formatActivityDetailsData = (data: ActivityDetail) => {
-  console.log(data, 'my data');
   return {
     time: moment(data.timestamp).format('DD MMM YYYY, HH:mm'),
     success: data.success,
@@ -21,7 +20,7 @@ export const formatActivityDetailsData = (data: ActivityDetail) => {
     ),
     fee: `${formatDenom(chainConfig.display, data?.fee?.gas, '0,0.[000000]').format} ${chainConfig.display.toUpperCase()}`,
     gas: `${numeral(data.gasUsed).format('0,0')} / ${numeral(data.gasWanted).format('0,0')}`,
-    // memo: data.memo,
-    memo: '',
+    memo: data.memo,
+    messages: data.messages,
   };
 };
