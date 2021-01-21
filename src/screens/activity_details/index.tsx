@@ -13,6 +13,7 @@ import {
   useGetScreenSizeHook,
   useSearchbarSubmitHook,
 } from '@hooks';
+import { useActivityDetailsHook } from './hooks';
 import { useGetStyles } from './styles';
 
 const ActivityDetails = () => {
@@ -21,6 +22,7 @@ const ActivityDetails = () => {
   const { isDesktop } = useGetScreenSizeHook();
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
+  const { detail } = useActivityDetailsHook();
   return (
     <Layout
       className={classes.layout}
@@ -46,22 +48,22 @@ const ActivityDetails = () => {
           <Details
             desktop={isDesktop}
             labels={{
-              hash: 'hash',
-              height: 'height',
-              fee: 'fee',
-              gas: 'Gas (used/ wanted)',
-              status: 'Status',
-              memo: 'Memo',
+              hash: t('hash'),
+              height: t('height'),
+              time: t('time'),
+              fee: t('fee'),
+              gas: t('gas'),
+              status: t('status'),
+              memo: t('memo'),
             }}
             data={{
-              time: '1 hour',
-              success: true,
-              content: <div className="details__content">custom content</div>,
-              hash: '12344566',
-              height: <div>height</div>,
-              fee: '123 uatm',
-              gas: '1,234 / 20, 999',
-              memo: 'baby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooobaby shark doo doodo dooo',
+              time: detail.time,
+              success: detail.success,
+              hash: detail.hash,
+              height: detail.height,
+              fee: detail.fee,
+              gas: detail.gas,
+              memo: detail.memo,
             }}
           />
         </div>
