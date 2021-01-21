@@ -29,8 +29,20 @@ export const useGetStyles = () => {
           color: theme?.palette?.custom?.fonts?.fontOne,
         },
       },
+      '& .header__status': {
+        color: theme?.palette?.custom?.white,
+        '&.active': {
+          background: 'rgba(30, 196, 144, 1)',
+        },
+        '&.jailed': {
+          background: 'rgba(255, 177, 42, 1)',
+        },
+      },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
         padding: theme?.palette?.custom?.margins?.large,
+        '&.validator-profile': {
+          minHeight: '250px',
+        },
       },
     },
   }));

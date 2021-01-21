@@ -6,9 +6,11 @@ export const LATEST_BLOCKS = `
       hash
       timestamp
       validator {
+        validator_info {
+          operator_address
+        }
         validator_description {
           moniker
-          validator_address
           identity
         }
       }
