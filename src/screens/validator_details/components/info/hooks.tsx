@@ -41,7 +41,6 @@ export const useInfoHook = (t:any) => {
   return {
     handleCopy,
     isDesktop,
-    info,
-    parsedInfo: formatData(info, isDesktop),
+    info: formatData(info, isDesktop),
   };
 };

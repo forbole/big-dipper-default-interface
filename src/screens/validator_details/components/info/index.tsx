@@ -10,7 +10,6 @@ const Info = () => {
   const {
     handleCopy,
     info,
-    parsedInfo,
     isDesktop,
   } = useInfoHook(t);
 
@@ -22,27 +21,27 @@ const Info = () => {
       copyCallback={handleCopy}
       operatorAddress={{
         label: t('operatorAddress'),
-        rawValue: info.operatorAddress,
-        display: parsedInfo.operatorAddress,
+        rawValue: info.operatorAddress.raw,
+        display: info.operatorAddress.display,
       }}
       selfDelegateAddress={{
         label: t('selfDelegateAddress'),
-        rawValue: info.selfDelegateAddress,
-        display: parsedInfo.selfDelegateAddress,
+        rawValue: info.selfDelegateAddress.raw,
+        display: info.selfDelegateAddress.display,
       }}
       commissionRate={{
         label: t('commissionRate'),
-        display: parsedInfo.commissionRate,
+        display: info.commissionRate,
         description: t('commissionRateDescription'),
       }}
       maxChangeRate={{
         label: t('maxChangeRate'),
-        display: parsedInfo.maxChangeRate,
+        display: info.maxChangeRate,
         description: t('maxChangeRateDescription'),
       }}
       maxRate={{
         label: t('maxRate'),
-        display: parsedInfo.maxRate,
+        display: info.maxRate,
         description: t('maxRateDescription'),
       }}
     />

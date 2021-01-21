@@ -10,18 +10,24 @@ export const formatData = (data: ValidatorInfo, isDesktop) => {
     ending: 8,
   };
   return {
-    operatorAddress: formatMiddleEllipse(data.operatorAddress ?? '', formatOptions),
-    selfDelegateAddress: (
-      <Link href={`/accounts/${data.selfDelegateAddress}`}>
-        <a>
-          <p>
-            {!isDesktop
-              ? formatMiddleEllipse(data.selfDelegateAddress ?? '', formatOptions)
-              : data.selfDelegateAddress}
-          </p>
-        </a>
-      </Link>
-    ),
+    operatorAddress: {
+      raw: data.operatorAddress,
+      display: formatMiddleEllipse(data.operatorAddress ?? '', formatOptions),
+    },
+    selfDelegateAddress: {
+      raw: data.selfDelegateAddress,
+      display: (
+        <Link href={`/accounts/${data.selfDelegateAddress}`}>
+          <a>
+            <p>
+              {!isDesktop
+                ? formatMiddleEllipse(data.selfDelegateAddress ?? '', formatOptions)
+                : data.selfDelegateAddress}
+            </p>
+          </a>
+        </Link>
+      ),
+    },
     maxChangeRate: convertNumber(data.maxChangeRate, {
       suffix: '%',
       format: '0.00',
