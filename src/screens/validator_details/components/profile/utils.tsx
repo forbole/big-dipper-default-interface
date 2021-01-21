@@ -1,9 +1,14 @@
 import { Avatar } from '@components';
 import {
-  ValidatorProfile, KeybaseProfile,
+  ValidatorProfile,
+  KeybaseProfile,
 } from '@models';
 
-export const formatProfileData = (profile:ValidatorProfile, keybase?:KeybaseProfile) => {
+export const formatProfileData = (
+  address:string,
+  profile:ValidatorProfile,
+  keybase?:KeybaseProfile,
+) => {
   const getStatus = (status: number, jailed: boolean) => {
     if (status === 2 && !jailed) {
       return ({
@@ -26,7 +31,7 @@ export const formatProfileData = (profile:ValidatorProfile, keybase?:KeybaseProf
   };
 
   return {
-    image: keybase?.imageUrl ?? <Avatar address={profile.validatorAddress} diameter={56} />,
+    image: keybase?.imageUrl ?? <Avatar address={address} diameter={56} />,
     alt: `${profile.moniker} icon`,
     name: profile.moniker,
     bio: profile.details,

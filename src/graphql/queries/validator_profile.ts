@@ -11,6 +11,9 @@ export const VALIDATOR_PROFILE = `
         status
         jailed
       }
+      validator_info {
+        operator_address
+      }
     }
   }
 `;

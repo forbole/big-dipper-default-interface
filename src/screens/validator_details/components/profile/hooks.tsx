@@ -1,6 +1,7 @@
 import {
   useState, useContext,
 } from 'react';
+import * as R from 'ramda';
 import { useRouter } from 'next/router';
 import {
   useQuery, gql,
@@ -40,6 +41,10 @@ export const useProfileHook = () => {
   const verifiedUser = keybaseList?.[profile?.identity];
 
   return {
-    profile: formatProfileData(profile, verifiedUser),
+    profile: formatProfileData(
+      profile?.validatorAddress ?? R.pathOr('', ['query', 'validator'], router),
+      profile,
+      verifiedUser,
+    ),
   };
 };
