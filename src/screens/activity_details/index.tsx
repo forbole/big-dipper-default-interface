@@ -24,7 +24,7 @@ const ActivityDetails = () => {
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
   const { detail } = useActivityDetailsHook();
-  console.log(detail, 'data real quick');
+
   return (
     <Layout
       className={classes.layout}
@@ -69,7 +69,7 @@ const ActivityDetails = () => {
             }}
           />
         </div>
-        <div>
+        <div className={classnames('messages__container')}>
           {
             detail.messages.map((message, i) => {
               return (

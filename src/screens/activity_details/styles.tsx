@@ -10,10 +10,6 @@ export const useGetStyles = () => {
       '& .data-blocks': {
         display: 'none',
       },
-      // wingman clean up
-      // '& .activity-details, & .activity-details-content': {
-      // height: '100%',
-      // },
       '& .activity-details-content': {
         '& .activity-details': {
           color: theme.palette.custom.fonts.fontTwo,
@@ -25,6 +21,9 @@ export const useGetStyles = () => {
         '& .hash': {
           wordBreak: 'break-all',
         },
+      },
+      '& .messages__container': {
+        background: theme?.palette?.background?.paper,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 
@@ -40,7 +39,7 @@ export const useGetStyles = () => {
         '& .mobile-tablet-header': {
           display: 'none',
         },
-        '& .activity-details': {
+        '& .activity-details, & .messages__container': {
           borderRadius: '6px',
         },
       },
