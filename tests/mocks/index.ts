@@ -9,6 +9,7 @@ import { LATEST_ACTIVITIES_MOCK_DATA } from './latest_activities';
 import { BLOCK_DETAILS_MOCK_DATA } from './block_details';
 import { VALIDATOR_PROFILE_MOCK_DATA } from './validator_profile';
 import { VALIDATOR_INFO_MOCK_DATA } from './validator_info';
+import { ACTIVITY_DETAILS_MOCK_DATA } from './activity_detail';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -22,4 +23,5 @@ export {
   BLOCK_DETAILS_MOCK_DATA,
   VALIDATOR_PROFILE_MOCK_DATA,
   VALIDATOR_INFO_MOCK_DATA,
+  ACTIVITY_DETAILS_MOCK_DATA,
 };
