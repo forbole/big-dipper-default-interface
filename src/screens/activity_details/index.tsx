@@ -73,7 +73,7 @@ const ActivityDetails = () => {
           {
             detail.messages.map((message, i) => {
               return (
-                <ActivityMessage key={i} message={message} />
+                <ActivityMessage key={`${message.type}-${i}`} message={message} />
               );
             })
           }

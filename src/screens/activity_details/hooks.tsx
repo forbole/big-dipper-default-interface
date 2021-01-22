@@ -23,7 +23,6 @@ export const useActivityDetailsHook = () => {
     onCompleted: (data) => {
       const parsedData = activityDetailParser(data);
       if (parsedData) {
-        console.log(parsedData, 'oarsed');
         setDetail(parsedData);
       } else {
         router.push('/404');

@@ -1,5 +1,23 @@
 import numeral from 'numeral';
 import * as R from 'ramda';
+import {
+  MsgCreateValidator,
+  MsgDelegate,
+  MsgDeposit,
+  MsgEditValidator,
+  MsgFundCommunityPool,
+  MsgMultiSend,
+  MsgRedelegate,
+  MsgSend,
+  MsgSetWithdrawAddress,
+  MsgSubmitProposal,
+  MsgUndelegate,
+  MsgUnjail,
+  MsgVerifyInvariant,
+  MsgVote,
+  MsgWithdrawDelegatorReward,
+  MsgUnknown,
+} from '@models';
 import { getMessageModelByType } from '@utils';
 
 class ActivityDetail {
@@ -13,7 +31,22 @@ class ActivityDetail {
   public success: boolean;
   public memo: string;
   public timestamp: string;
-  public messages: any[];
+  public messages: (MsgCreateValidator
+  | MsgDelegate
+  | MsgDeposit
+  | MsgEditValidator
+  | MsgFundCommunityPool
+  | MsgMultiSend
+  | MsgRedelegate
+  | MsgSend
+  | MsgSetWithdrawAddress
+  | MsgSubmitProposal
+  | MsgUndelegate
+  | MsgUnjail
+  | MsgVerifyInvariant
+  | MsgVote
+  | MsgUnknown
+  | MsgWithdrawDelegatorReward)[];
 
   constructor(payload) {
     this.hash = payload.hash;
