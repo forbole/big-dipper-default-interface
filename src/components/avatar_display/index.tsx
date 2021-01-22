@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import * as R from 'ramda';
 import { ValidatorAddressList } from '@models';
 import { GlobalContext } from '@contexts';
-import { getAddressRole } from '@utils';
+// import { getAddressRole } from '@utils';
 import { AvatarDisplayProps } from './types';
 import {
   ValidatorDisplay, UserDisplay,
