@@ -19,14 +19,13 @@ import { useGetStyles } from './styles';
 import {
   getRedelegationLabels,
   getLabels,
-  dummyValidatorStaking,
-  dummyValidatorRedelegations,
 } from './utils';
 
 const StakingActivities = () => {
   const {
     tabValue,
     handleTabChange,
+    staking,
   } = useStakingActivitiesHook();
   const { t } = useTranslation('validators');
 
@@ -67,7 +66,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <ValidatorStakingMobile
             className={classnames('validator-staking', mobileOnlyStyles.root)}
-            data={dummyValidatorStaking}
+            data={staking.delegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -75,7 +74,7 @@ const StakingActivities = () => {
           <ValidatorStakingDesktop
             className={classnames('validator-staking', desktopOnlyStyles.root)}
             labels={labels}
-            data={dummyValidatorStaking}
+            data={staking.delegations}
           />
         </div>
       </TabPanel>
@@ -89,8 +88,8 @@ const StakingActivities = () => {
           {/* ================================ */}
           <ValidatorStakingMobile
             className={classnames('validator-staking', mobileOnlyStyles.root)}
-            data={dummyValidatorRedelegations}
             labels={redelegationLabels}
+            data={staking.redelegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -98,7 +97,7 @@ const StakingActivities = () => {
           <ValidatorStakingDesktop
             className={classnames('validator-staking', desktopOnlyStyles.root)}
             labels={redelegationLabels}
-            data={dummyValidatorRedelegations}
+            data={staking.redelegations}
           />
         </div>
       </TabPanel>
@@ -112,7 +111,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <ValidatorStakingMobile
             className={classnames('validator-staking', mobileOnlyStyles.root)}
-            data={dummyValidatorStaking}
+            data={staking.undelegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -120,7 +119,7 @@ const StakingActivities = () => {
           <ValidatorStakingDesktop
             className={classnames('validator-staking', desktopOnlyStyles.root)}
             labels={labels}
-            data={dummyValidatorStaking}
+            data={staking.undelegations}
           />
         </div>
       </TabPanel>

@@ -1,15 +1,8 @@
 import React from 'react';
-import { AvatarDisplay } from 'big-dipper-default-ui';
-
-const Address = () => {
-  return (
-    <AvatarDisplay
-      imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-      alt="avatar image"
-      title="Forbole"
-    />
-  );
-};
+import { AvatarDisplay } from '@components';
+import { ValidatorStaking } from '@models';
+import { formatDenom } from '@utils';
+import { chainConfig } from '@src/chain_config';
 
 /**
  * Helper function to get mobile labels
@@ -42,143 +35,30 @@ export const getLabelsRedelegationsDesktop = (t: any) => ({
   amount: t('amount'),
 });
 
-// mobile only shows 7
-export const dummyValidatorStaking: any[] = [
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    amount: '1,000 ATOM',
-  },
-
-];
-
-export const dummyValidatorRedelegations: any[] = [
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-  {
-    address: <Address />,
-    redelegate: {
-      from: <Address />,
-      to: <Address />,
-    },
-    amount: '1,000 ATOM',
-  },
-
-];
+export const formatStakingData = (data:ValidatorStaking) => {
+  const convertAmount = (amount:number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
+  return {
+    delegations: data.delegations.map((x) => {
+      return ({
+        address: <AvatarDisplay address={x.delegatorAddress} />,
+        amount: convertAmount(x.amount.amount),
+      });
+    }),
+    undelegations: data.undelegations.map((x) => {
+      return ({
+        address: <AvatarDisplay address={x.delegatorAddress} />,
+        amount: convertAmount(x.amount.amount),
+      });
+    }),
+    redelegations: data.redelegations.map((x) => {
+      return ({
+        address: <AvatarDisplay address={x.delegatorAddress} />,
+        redelegate: {
+          from: <AvatarDisplay address={x.srcValidatorAddress} />,
+          to: <AvatarDisplay address={x.dstValidatorAddress} />,
+        },
+        amount: convertAmount(x.amount.amount),
+      });
+    }),
+  };
+};

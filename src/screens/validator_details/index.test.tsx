@@ -12,6 +12,7 @@ import {
   DATA_BLOCKS_HEADER_MOCK,
   VALIDATOR_PROFILE_MOCK_DATA,
   VALIDATOR_INFO_MOCK_DATA,
+  VALIDATOR_STAKING_MOCK_DATA,
 } from '@tests/mocks';
 import {
   Info, MissedBlocks, PowerActivities, StakingActivities,
@@ -32,6 +33,7 @@ describe('ValidatorDetails', () => {
           ...DATA_BLOCKS_HEADER_MOCK,
           ...VALIDATOR_PROFILE_MOCK_DATA,
           ...VALIDATOR_INFO_MOCK_DATA,
+          ...VALIDATOR_STAKING_MOCK_DATA,
         ],
       }),
     );

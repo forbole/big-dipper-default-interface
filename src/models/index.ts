@@ -14,6 +14,7 @@ import PreCommit from './pre_commit';
 import ValidatorProfile from './validator_profile';
 import ValidatorInfo from './validator_info';
 import ActivityDetail from './activity_detail';
+import ValidatorStaking from './validator_staking';
 
 // ================================
 // Transaction Message Types
@@ -76,4 +77,5 @@ export {
   ValidatorProfile,
   ValidatorInfo,
   ActivityDetail,
+  ValidatorStaking,
 };
