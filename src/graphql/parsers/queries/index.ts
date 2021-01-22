@@ -16,6 +16,7 @@ import { preCommitsParser } from './pre_commit_parser';
 import { validatorProfileParser } from './validator_profile_parser';
 import { validatorInfoParser } from './validator_info_parser';
 import { activityDetailParser } from './activity_details_parser';
+import { validatorStakingParser } from './validator_staking_parser';
 
 export {
   averageBlockTimesParser,
@@ -32,4 +33,5 @@ export {
   validatorProfileParser,
   validatorInfoParser,
   activityDetailParser,
+  validatorStakingParser,
 };

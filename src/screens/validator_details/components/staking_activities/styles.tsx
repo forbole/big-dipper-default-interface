@@ -8,6 +8,7 @@ export const useGetStyles = () => {
     root: {
       background: theme?.palette?.background?.paper,
       padding: theme?.palette?.custom?.margins?.small,
+      height: '100%',
       '& .MuiTab-wrapper': {
         fontSize: '1rem',
       },

@@ -26,7 +26,7 @@ const AddressDisplay = (props: AddressDisplayProps) => {
   if (validator) {
     if (link) {
       return (
-        <Link href={`/validators/${address}`}>
+        <Link href={`/validators/${validator.operatorAddress}`}>
           <a onClick={handleClick} role="button">
             {validator.moniker ?? display ?? address}
           </a>

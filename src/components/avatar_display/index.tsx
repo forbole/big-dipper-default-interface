@@ -1,4 +1,6 @@
 import React, { useContext } from 'react';
+import * as R from 'ramda';
+import { ValidatorAddressList } from '@models';
 import { GlobalContext } from '@contexts';
 // import { getAddressRole } from '@utils';
 import { AvatarDisplayProps } from './types';
@@ -16,11 +18,13 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     identity,
   } = props;
   const globalState = useContext(GlobalContext);
-  const validator = globalState?.validators?.[address];
+  const validators: {[key:string]:ValidatorAddressList} = R.pathOr({
+  }, ['validators'], globalState);
+  const validator = validators[address];
   if (validator) {
     return (
       <ValidatorDisplay
-        address={address}
+        address={validator.operatorAddress}
         display={display ?? validator?.moniker}
         identity={identity ?? validator?.id}
       />
@@ -28,11 +32,9 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   }
 
   // Edge case in which the validator is created but not logged in to our initial address list
-  // Not sure how to fully handle this atm will come back
   // if (getAddressRole(address) === 'validator') {
   //   return (
   //     <ValidatorDisplay
-  //       className={classes.root}
   //       address={address}
   //       display={display}
   //       identity={identity}
