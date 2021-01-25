@@ -1,4 +1,4 @@
-import * as R from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/ramda';
+import * as R from 'ramda';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 /** Common themes that don't change across light and dark theme */

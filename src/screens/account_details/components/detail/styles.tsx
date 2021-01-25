@@ -26,14 +26,6 @@ export const useGetStyles = (props: any) => {
           '& hr': {
             background: theme?.palette?.divider,
           },
-          // '& .tab': {
-          //   '& .MuiTab-textColorPrimary.Mui-selected': {
-          //     color: theme?.palette?.type === 'light' ? '#FD3B4C' : theme?.palette?.custom?.fonts?.fontOne,
-          //   },
-          //   '& .indicator': {
-          //     backgroundColor: theme?.palette?.type === 'light' ? '#FD3B4C' : theme?.palette?.custom?.fonts?.fontOne,
-          //   },
-          // },
         },
         '&.userInfoMobile': {
           display: 'none',
@@ -116,23 +108,22 @@ export const useGetStyles = (props: any) => {
           },
           '&.delegate': {
             '&:before': {
-              // background: props.chart.colors[1],
-              background: 'lime',
+              background: props.chart.colors[1],
             },
           },
           '&.unbonding': {
             '&:before': {
-              background: props.chart.colors[2],
+              background: theme?.palette?.type === 'light' ? props.chart.colors[2] : `${props.chart.colors[2]}b3`,
             },
           },
           '&.reward': {
             '&:before': {
-              background: props.chart.colors[3],
+              background: theme?.palette?.type === 'light' ? props.chart.colors[3] : `${props.chart.colors[3]}b3`,
             },
           },
           '&.commision': {
             '&:before': {
-              background: props.chart.colors[4],
+              background: theme?.palette?.type === 'light' ? props.chart.colors[4] : `${props.chart.colors[4]}b3`,
             },
           },
         },

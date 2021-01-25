@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import validator from 'validator';
-import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
+import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import {
   MobileNav,
