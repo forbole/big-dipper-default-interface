@@ -23,12 +23,12 @@ const Info = () => {
       copyCallback={handleCopy}
       operatorAddress={{
         label: t('operatorAddress'),
-        rawValue: '123456678',
+        rawValue: '',
         display: formatDummyData.operatorAddress,
       }}
       selfDelegateAddress={{
         label: t('selfDelegateAddress'),
-        rawValue: '123456678',
+        rawValue: '',
         display: formatDummyData.selfDelegateAddress,
       }}
       commissionRate={{

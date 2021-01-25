@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
 import Home from '@screens/home';
 import HomePage from '@src/pages/index';
 

@@ -1,50 +1,52 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import {
   AreaChart,
   Area,
 } from 'recharts';
-import {
-  ArrowDropDown,
-} from '@material-ui/icons';
+import { ArrowDropDown } from '@material-ui/icons';
 import { useGetStyles } from './styles';
 import { data } from './utils';
 
 const TrendChart = () => {
+  const { classes } = useGetStyles();
   return (
     <div
-      style={{
-        display: 'flex',
-        width: '50rem',
-      }}
+      className={classnames(classes.root, 'mainContainer')}
+      // style={{
+      //   display: 'flex',
+      //   width: '50rem',
+      // }}
     >
       <div
-        style={{
-          display: 'flex',
-          marginRight: '0.5rem',
-          position: 'relative',
-        }}
+        className={classnames('numberContainer')}
+        // style={{
+        //   display: 'flex',
+        //   marginRight: '0.5rem',
+        //   position: 'relative',
+        // }}
       >
         <div
-          style={{
-            alignSelf: 'flex-end',
-            display: 'flex',
-          }}
+          className={classnames('numberDisplay')}
+          // style={{
+          //   alignSelf: 'flex-end',
+          //   display: 'flex',
+          // }}
         >
           <ArrowDropDown
-            style={{
-              width: '1rem',
-              height: '1rem',
-              color: '#FD3B4C',
-            }}
+            className={classnames('arror-icon')}
+            // style={{
+            //   width: '1rem',
+            //   height: '1rem',
+            //   color: '#FD3B4C',
+            // }}
           />
           <p
-            style={{
-              margin: '0',
-              fontSize: '14px',
+            // style={{
+            //   margin: '0',
+            //   fontSize: '14px',
 
-            }}
+            // }}
           >
             2.86% (24h)
           </p>

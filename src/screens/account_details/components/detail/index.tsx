@@ -1,53 +1,36 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import classnames from 'classnames';
+import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
 import {
   UserInfoDesktop,
   UserInfoMobile,
 } from 'big-dipper-default-ui';
-import QRCode from 'qrcode.react';
-// import { useActivitiesHook } from './hooks';
 import { useGetStyles } from './styles';
 import { dummyData } from './utils';
-
-export const QRcode = () => {
-  return (
-    <QRCode
-      value="http://picturesofpeoplescanningqrcodes.tumblr.com/"
-      size={128}
-      bgColor="#ffffff"
-      fgColor="#000000"
-      level="L"
-      includeMargin={false}
-      renderAs="svg"
-    />
-  );
-};
+import { useDetailHook } from './hooks';
 
 const Detail = () => {
-  // const {
-  //   handleOnFilterCallback,
-  //   state,
-  //   handleLoadMore,
-  //   handleClick,
-  // } = useActivitiesHook();
   const { t } = useTranslation(['accounts', 'activities']);
-  const { classes } = useGetStyles();
-
-  // const {
-  //   hasMore,
-  //   data,
-  // } = state;
+  const { classes } = useGetStyles(dummyData);
+  const { handleCopy } = useDetailHook(t);
 
   return (
     <div className={classes.root}>
       <UserInfoMobile
         className={classnames(classes.root)}
+        classNameAddress={classnames(classes.address)}
+        classNameTable={classnames(classes.table)}
+        classNameChart={classnames(classes.chart)}
         {...dummyData}
+        copyCallback={handleCopy}
       />
       <UserInfoDesktop
         className={classnames(classes.root)}
+        classNameAddress={classnames(classes.address)}
+        classNameTable={classnames(classes.table)}
+        classNameChart={classnames(classes.chart)}
         {...dummyData}
+        copyCallback={handleCopy}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import * as R from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/ramda';
 import { CommunityPool } from '@models';
 
 export const communityPoolParser = (data:any): CommunityPool[] => {

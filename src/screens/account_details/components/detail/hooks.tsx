@@ -1,55 +1,13 @@
-import { useState } from 'react';
-import * as R from 'ramda';
-import { useRouter } from 'next/router';
-import { LatestActivity } from '@models';
-import { dummyLatestActivities } from './utils';
+import copy from 'copy-to-clipboard';
+import { toast } from 'react-toastify';
 
-export const useActivitiesHook = () => {
-  const router = useRouter();
-  const [
-    state, setState,
-  ] = useState<{
-    data: LatestActivity[];
-    hasMore: boolean;
-  }>({
-    data: dummyLatestActivities,
-    hasMore: true,
-  });
-
-  const handleSetState = (stateChange: any) => {
-    const newState = R.mergeDeepLeft(stateChange, state);
-    setState(newState);
-  };
-
-  const handleLoadMore = () => {
-    setTimeout(() => {
-      if (state.data.length < 15) {
-        handleSetState({
-          data: [
-            ...state.data,
-          ],
-          hasMore: false,
-        });
-      }
-    }, 2500);
-    return null;
-  };
-
-  const handleClick = (hash:string | number) => {
-    if (hash) {
-      router.push(`/activities/${hash}`);
-    }
-  };
-
-  const handleOnFilterCallback = (value) => {
-    console.log(`filter selected in activities: ${value.key}`);
+export const useDetailHook = (t:any) => {
+  const handleCopy = (value:string) => {
+    copy(value);
+    toast(`${t('common:copied')}!`);
   };
 
   return {
-    handleOnFilterCallback,
-    state,
-    handleSetState,
-    handleLoadMore,
-    handleClick,
+    handleCopy,
   };
 };

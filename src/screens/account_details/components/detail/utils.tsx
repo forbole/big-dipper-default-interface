@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classnames from 'classnames';
+import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
 import {
   FileCopyOutlined,
   Facebook,
@@ -12,11 +12,10 @@ import {
 import {
   AreaChart,
   Area,
-} from 'recharts';
+} from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/recharts';
 import {
   AvatarDisplay,
   InfoPopover,
-  InfoDialog,
 } from 'big-dipper-default-ui';
 import {
   Last7Days,
@@ -34,29 +33,6 @@ const ProposerData = () => {
   );
 };
 
-export interface CopyIconProp {
-  address: string,
-}
-
-const CopyIcon = (prop: CopyIconProp) => {
-  const [copySuccess, setCopySuccess] = useState('');
-  const copyToClipBoard = async (copyMe: string) => {
-    try {
-      await navigator.clipboard.writeText(copyMe);
-      setCopySuccess('Copied!');
-      setTimeout(() => setCopySuccess(''), 1500);
-    } catch (err) {
-      setCopySuccess('Failed to copy!');
-    }
-  };
-  return (
-    <div>
-      <FileCopyOutlined className={classnames('copy-icon')} onClick={() => copyToClipBoard(prop.address)} />
-      {copySuccess}
-    </div>
-  );
-};
-
 const InfoPop = () => {
   return (
     <InfoPopover
@@ -64,60 +40,6 @@ const InfoPop = () => {
     />
   );
 };
-
-// export interface DialogProp {
-//   address: string,
-// }
-// const Dialog = (prop: DialogProp) => {
-//   return (
-//     <InfoDialog
-//       title="scan for address"
-//       buttonDisplay="Copy Address"
-//       address={prop.address}
-//       socialMedia={(
-//         <div>
-//           Share to ...
-//           <div
-//             style={{
-//               marginTop: '1rem',
-//             }}
-//           >
-//             <Facebook
-//               style={{
-//                 height: '2rem',
-//                 width: '2rem',
-//               }}
-//             />
-//             <Twitter
-//               style={{
-//                 height: '2rem',
-//                 width: '2rem',
-//               }}
-//             />
-//             <Telegram
-//               style={{
-//                 height: '2rem',
-//                 width: '2rem',
-//               }}
-//             />
-//             <WhatsApp
-//               style={{
-//                 height: '2rem',
-//                 width: '2rem',
-//               }}
-//             />
-//             <Email
-//               style={{
-//                 height: '2rem',
-//                 width: '2rem',
-//               }}
-//             />
-//           </div>
-//         </div>
-//       )}
-//     />
-//   );
-// };
 
 export const delegate = {
   validator: {
@@ -169,7 +91,7 @@ export const redelegate = {
     display: '1,503,609',
   },
   amount: {
-    className: 'delegatedAmount',
+    className: 'redelegatedAmount',
     rawValue: 1602020.799998,
     display: '1,602,020.799998 ATOM',
   },
@@ -215,20 +137,25 @@ export const unbonded = {
 
 export const dummyData: any = {
   title: 'Account Details',
-  address: {
+  addressContent: {
     img: 'https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg',
     alt: '',
     address: {
       title: 'Address',
-      address: (
+      display: (
         <div className="addressDisplay">
           cosmos14kn0k…swhp
-          <CopyIcon address="cosmos14kn0k…swhp" />
-          <Dialog
-            address="cosmos14kn0k…swhp"
-          />
         </div>
       ),
+      dialog: (
+        <Dialog
+          title="scan for address"
+          buttonDisplay="Copy Address"
+          shareTo=""
+          address="cosmos14kn0k…swhp"
+        />
+      ),
+      rawValue: '123',
     },
     rewardAddress: {
       title: (
@@ -237,12 +164,12 @@ export const dummyData: any = {
           <InfoPop />
         </div>
       ),
-      address: (
+      display: (
         <div className="addressDisplay">
           cosmos14kn0k…swhp
-          <CopyIcon address="cosmos14kn0k…swhp" />
         </div>
       ),
+      rawValue: '123',
     },
   },
   chart: {

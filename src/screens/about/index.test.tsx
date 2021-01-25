@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
 import About from '@screens/about';
 import { lightTheme } from '@styles';
 import { BaseWrapper } from '@tests/utils/base_wrapper';

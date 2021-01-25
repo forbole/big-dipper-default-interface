@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
 import { HeaderBarMobile as HeaderBar } from 'big-dipper-internal-ui';
 import { HeaderBarMobile } from '@components';
 import { lightTheme } from '@styles';

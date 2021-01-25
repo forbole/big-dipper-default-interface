@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
 import { useTranslation } from 'i18n';
 import { DataBlock } from 'big-dipper-default-ui';
 import { convertNumber } from '@utils';

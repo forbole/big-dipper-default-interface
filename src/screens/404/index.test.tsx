@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { mount } from 'enzyme';
+import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import NotFound from '.';

@@ -14,6 +14,11 @@ export const useGetStyles = () => {
         position: 'absolute',
         margin: 0,
       },
+      '& .buttonDisplay': {
+        width: '2.5rem',
+        height: '2.5rem',
+        marginRight: '0.5rem',
+      },
     },
   }));
 

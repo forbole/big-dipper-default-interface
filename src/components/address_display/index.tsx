@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import * as R from 'ramda';
+import * as R from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/ramda';
 import { ValidatorAddressList } from '@models';
 import Link from 'next/link';
 import { GlobalContext } from '@contexts';

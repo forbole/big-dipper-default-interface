@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch } from '@material-ui/core';
-import classnames from 'classnames';
+import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
 import { useGetStyles } from './styles';
 import { ToggleProp } from './types';
 

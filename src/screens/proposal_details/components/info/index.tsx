@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import classnames from 'classnames';
+import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
 import {
   ProposalInfoDesktop,
   ProposalInfoMobile,

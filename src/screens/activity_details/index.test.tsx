@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
 import { ActivityDetails as Details } from 'big-dipper-default-ui';
 import Proposals from '@screens/proposals';
 import { BaseWrapper } from '@tests/utils/base_wrapper';

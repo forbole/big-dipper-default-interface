@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import numeral from 'numeral';
-import * as R from 'ramda';
+import * as R from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/ramda';
 import { useRouter } from 'next/router';
 import {
   useQuery,
