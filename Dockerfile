@@ -10,8 +10,7 @@ WORKDIR /app
 
 # Installing dependencies (productin only)
 COPY package*.json ./
-RUN npm i --save-dev typescript
-RUN npm i --only=prod
+RUN npm i
 
 # Copying source files
 COPY . .
