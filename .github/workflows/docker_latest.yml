@@ -10,21 +10,17 @@ on:
     #   - v*
 
 jobs:
-  create-envfile:
-    runs-on: ubuntu-18.04
-    steps:
-    - name: Make envfile
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_NEXT_PUBLIC_GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-        envkey_NEXT_PUBLIC_GRAPHQL_WS: ${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-        envkey_NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-        envkey_NODE_ENV: production
-        envkey_PORT: ${{ secrets.PORT }}
-
   Build-and-Publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Make envfile
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_NEXT_PUBLIC_GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
+          envkey_NEXT_PUBLIC_GRAPHQL_WS: ${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
+          envkey_NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
+          envkey_NODE_ENV: production
+          envkey_PORT: ${{ secrets.PORT }}
       - name: Checkout code
         uses: actions/checkout@v2
 
