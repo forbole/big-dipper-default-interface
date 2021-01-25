@@ -4,13 +4,10 @@ services:
     container_name: big-dipper-desmos
     ports:
       - 3000:3000
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     volumes:
       - .:/app
-      # - ./packages/landingpage:/usr/src/app
-      # - /usr/src/app/node_modules
-      # - /usr/src/app/.next
+      - /app/node_modules
+      - /app/.next
     env_file:
       - .env
