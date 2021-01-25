@@ -9,7 +9,7 @@ WORKDIR /app
 
 # Installing dependencies (productin only)
 COPY package*.json /app/
-RUN npm install --only=prod
+RUN npm i
 
 # Copying source files
 COPY . /app
