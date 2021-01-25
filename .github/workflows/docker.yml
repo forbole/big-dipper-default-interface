@@ -5,7 +5,7 @@ on:
   pull_request:
   push:
     branches:
-      - test
+      - docker-test
     tags:
       - v*
 
