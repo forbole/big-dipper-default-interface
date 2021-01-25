@@ -7,12 +7,17 @@ import {
 import { GlobalContext } from '@contexts';
 import { Validator } from './components';
 import { handleClick } from './utils';
+import { AvatarProps } from './types';
 
 /**
  * Helper component built off Avatar component to display jazz icon if user is not validated
  */
-export const AvatarHelper = (props:any) => {
-  const { address } = props;
+export const AvatarHelper = (props:AvatarProps) => {
+  const {
+    address,
+    diameter = 24,
+    link = true,
+  } = props;
 
   const globalState = useContext(GlobalContext);
   const validator = globalState?.validators?.[address];
@@ -20,8 +25,10 @@ export const AvatarHelper = (props:any) => {
   if (validator) {
     return (
       <Validator
+        diameter={diameter}
         address={address}
         identity={validator?.identity}
+        link={link}
       />
     );
   }
@@ -29,7 +36,18 @@ export const AvatarHelper = (props:any) => {
   if (getAddressRole(address) === 'validator') {
     return (
       <Validator
+        diameter={diameter}
         address={address}
+        link={link}
+      />
+    );
+  }
+
+  if (!link) {
+    return (
+      <Jazzicon
+        diameter={diameter}
+        seed={getSeed(address)}
       />
     );
   }
@@ -38,7 +56,7 @@ export const AvatarHelper = (props:any) => {
     <span onClick={handleClick} role="button">
       <Link href={`/accounts/${address}`}>
         <Jazzicon
-          diameter={24}
+          diameter={diameter}
           seed={getSeed(address)}
         />
       </Link>

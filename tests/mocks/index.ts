@@ -7,6 +7,10 @@ import { LATEST_BLOCK_MOCK_DATA } from './latest_block';
 import { LATEST_ACTIVITY_MOCK_DATA } from './latest_activity';
 import { LATEST_ACTIVITIES_MOCK_DATA } from './latest_activities';
 import { BLOCK_DETAILS_MOCK_DATA } from './block_details';
+import { VALIDATOR_PROFILE_MOCK_DATA } from './validator_profile';
+import { VALIDATOR_INFO_MOCK_DATA } from './validator_info';
+import { ACTIVITY_DETAILS_MOCK_DATA } from './activity_detail';
+import { VALIDATOR_STAKING_MOCK_DATA } from './validator_staking';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -18,4 +22,8 @@ export {
   LATEST_ACTIVITIES_MOCK_DATA,
   LATEST_ACTIVITY_MOCK_DATA,
   BLOCK_DETAILS_MOCK_DATA,
+  VALIDATOR_PROFILE_MOCK_DATA,
+  VALIDATOR_INFO_MOCK_DATA,
+  ACTIVITY_DETAILS_MOCK_DATA,
+  VALIDATOR_STAKING_MOCK_DATA,
 };

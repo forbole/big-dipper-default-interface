@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import * as R from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/ramda';
+import * as R from 'ramda';
 import { ValidatorAddressList } from '@models';
 import Link from 'next/link';
 import { GlobalContext } from '@contexts';
@@ -26,7 +26,7 @@ const AddressDisplay = (props: AddressDisplayProps) => {
   if (validator) {
     if (link) {
       return (
-        <Link href={`/validators/${address}`}>
+        <Link href={`/validators/${validator.operatorAddress}`}>
           <a onClick={handleClick} role="button">
             {validator.moniker ?? display ?? address}
           </a>

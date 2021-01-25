@@ -1,38 +1,23 @@
 import React from 'react';
 import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
 import { ActivityDetails as Details } from 'big-dipper-default-ui';
-import Proposals from '@screens/proposals';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
-import { Layout } from '@components';
 import {
-  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
+  Layout, ActivityMessage,
+} from '@components';
+import {
+  LAYOUT_MOCK_DATA,
+  HEADER_BAR_MOCK,
+  DATA_BLOCKS_HEADER_MOCK,
+  ACTIVITY_DETAILS_MOCK_DATA,
 } from '@tests/mocks';
 import ActivityDetails from '.';
 
 describe('ActivityDetails', () => {
-  it('it renders', async () => {
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
-    expect(Proposals).toBeTruthy();
-    const wrapper = mount(
-      WithMockApolloProvider({
-        component: BaseWrapper({
-          component: <ActivityDetails />,
-          theme: lightTheme,
-        }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
-      }),
-    );
-    await awaitActions({
-      wrapper,
-      time: 10,
-    });
-    expect(wrapper).not.toBeNull();
-  });
-
   it('correctly renders Home component with hooks', async () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
     const wrapper = mount(
@@ -41,7 +26,11 @@ describe('ActivityDetails', () => {
           component: <ActivityDetails />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
+        mocks: [
+          ...HEADER_BAR_MOCK,
+          ...DATA_BLOCKS_HEADER_MOCK,
+          ...ACTIVITY_DETAILS_MOCK_DATA,
+        ],
       }),
     );
     await awaitActions({
@@ -51,5 +40,7 @@ describe('ActivityDetails', () => {
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
     expect(wrapper.find(Details)).toHaveLength(1);
+    expect(wrapper.find('.messages__container')).toHaveLength(1);
+    expect(wrapper.find(ActivityMessage)).toHaveLength(1);
   });
 });

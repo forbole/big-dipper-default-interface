@@ -7,6 +7,7 @@
   "fee": "Fee",
   "gas": "Gas (used/ wanted)",
   "status": "Status",
+  "time": "Time",
   "memo": "Memo",
   "bank": "Bank",
   "crisis": "Crisis",

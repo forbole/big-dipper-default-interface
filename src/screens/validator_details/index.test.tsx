@@ -1,6 +1,5 @@
 import React from 'react';
-import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
-import Proposals from '@screens/proposals';
+import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
 import { awaitActions } from '@tests/utils/await_actions';
@@ -8,7 +7,12 @@ import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
 import { Layout } from '@components';
 import {
-  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
+  LAYOUT_MOCK_DATA,
+  HEADER_BAR_MOCK,
+  DATA_BLOCKS_HEADER_MOCK,
+  VALIDATOR_PROFILE_MOCK_DATA,
+  VALIDATOR_INFO_MOCK_DATA,
+  VALIDATOR_STAKING_MOCK_DATA,
 } from '@tests/mocks';
 import {
   Info, MissedBlocks, PowerActivities, StakingActivities,
@@ -16,25 +20,6 @@ import {
 import ValidatorDetails from '.';
 
 describe('ValidatorDetails', () => {
-  it('it renders', async () => {
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
-    expect(Proposals).toBeTruthy();
-    const wrapper = mount(
-      WithMockApolloProvider({
-        component: BaseWrapper({
-          component: <ValidatorDetails />,
-          theme: lightTheme,
-        }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
-      }),
-    );
-    await awaitActions({
-      wrapper,
-      time: 10,
-    });
-    expect(wrapper).not.toBeNull();
-  });
-
   it('correctly renders Home component with hooks', async () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
     const wrapper = mount(
@@ -43,7 +28,13 @@ describe('ValidatorDetails', () => {
           component: <ValidatorDetails />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
+        mocks: [
+          ...HEADER_BAR_MOCK,
+          ...DATA_BLOCKS_HEADER_MOCK,
+          ...VALIDATOR_PROFILE_MOCK_DATA,
+          ...VALIDATOR_INFO_MOCK_DATA,
+          ...VALIDATOR_STAKING_MOCK_DATA,
+        ],
       }),
     );
     await awaitActions({
