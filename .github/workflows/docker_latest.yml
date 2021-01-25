@@ -6,8 +6,8 @@ on:
   push:
     branches:
       - docker-test
-    tags:
-      - v*
+    # tags:
+    #   - v*
 
 jobs:
   Build-and-Publish:
