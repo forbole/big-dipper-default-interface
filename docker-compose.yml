@@ -1,0 +1,16 @@
+version: "3"
+services:
+  app:
+    container_name: big-dipper-desmos
+    ports:
+      - 3000:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      # - ./packages/landingpage:/usr/src/app
+      # - /usr/src/app/node_modules
+      # - /usr/src/app/.next
+    env_file:
+      - .env
