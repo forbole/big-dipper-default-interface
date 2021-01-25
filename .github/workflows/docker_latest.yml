@@ -12,13 +12,16 @@ on:
 jobs:
   Build-and-Publish:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_GRAPHQL_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }}
-      NEXT_PUBLIC_GRAPHQL_WS: ${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-      NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }}
-      NODE_ENV: production
-      PORT: ${{ secrets.PORT }}
     steps:
+      - name: Create env file
+        run: |
+          touch .env
+          echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
+          echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
+          echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
+          echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          cat .env
       - name: Checkout code
         uses: actions/checkout@v2
 
