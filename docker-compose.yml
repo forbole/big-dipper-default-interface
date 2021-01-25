@@ -5,9 +5,9 @@ services:
     ports:
       - 3000:3000
     build: .
-    volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+    # volumes:
+    #   - .:/app
+    #   - /app/node_modules
+    #   - /app/.next
     env_file:
       - .env
