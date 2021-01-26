@@ -26,9 +26,9 @@ class LatestBlock {
       hash: json.hash,
       timestamp: json.timestamp,
       validator: {
-        moniker: R.pathOr('', ['validator', 'validator_description', 'moniker'], json),
+        moniker: R.pathOr('', ['validator', 'validator_descriptions', 0, 'moniker'], json),
         validatorAddress: R.pathOr('', ['validator', 'validator_info', 'operator_address'], json),
-        identity: R.pathOr('', ['validator', 'validator_description', 'identity'], json),
+        identity: R.pathOr('', ['validator', 'validator_descriptions', 0, 'identity'], json),
       },
     });
   }

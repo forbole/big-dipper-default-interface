@@ -17,8 +17,8 @@ class ValidatorAddressList {
 
   static fromJson(data: any) {
     return new ValidatorAddressList({
-      id: R.pathOr(null, ['validator_description', 'identity'], data),
-      moniker: R.pathOr(null, ['validator_description', 'moniker'], data),
+      id: R.pathOr(null, ['validator_descriptions', 'identity'], data),
+      moniker: R.pathOr(null, ['validator_descriptions', 'moniker'], data),
       operatorAddress: data?.validator_info?.operator_address,
       selfDelegateAddress: data?.validator_info?.self_delegate_address,
       consensusAddress: data?.validator_info?.consensus_address,

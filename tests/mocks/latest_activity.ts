@@ -12,7 +12,9 @@ export const LATEST_ACTIVITY_MOCK_DATA = [
       data: {
         transaction: [
           {
-            timestamp: '2020-10-24T01:02:08',
+            block: {
+              timestamp: '2020-10-24T01:02:08',
+            },
             hash: 'AF262C570A577A730D8BE900AABFAFC71F9E37F27182A4E6DB0C599E0FD003C6',
             height: 273251,
             messages: [

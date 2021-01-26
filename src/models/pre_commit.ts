@@ -15,8 +15,8 @@ class PreCommit {
     return new PreCommit({
       votingPower: json.voting_power,
       validatorAddress: json.validator_address,
-      identity: json?.validator_description?.identity,
-      moniker: json?.validator_description?.moniker,
+      identity: json?.validator_descriptions?.identity,
+      moniker: json?.validator_descriptions?.moniker,
     });
   }
 }
