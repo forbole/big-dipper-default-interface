@@ -25,9 +25,9 @@ class BlockDetail {
       timestamp: json.timestamp,
       tx: json.num_txs,
       validator: {
-        moniker: json?.validator?.validator_description?.moniker,
-        identity: json?.validator?.validator_description?.identity,
-        validatorAddress: json?.validator?.validator_description?.validator_address,
+        moniker: json?.validator?.validator_descriptions?.moniker,
+        identity: json?.validator?.validator_descriptions?.identity,
+        validatorAddress: json?.validator?.validator_descriptions?.validator_address,
       },
       preCommits: json?.pre_commits,
       height: json.height,

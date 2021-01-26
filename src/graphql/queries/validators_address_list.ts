@@ -9,7 +9,7 @@ export const VALIDATORS_ADDRESS_LIST = `
         operator_address
         consensus_address
       }
-      validator_description {
+      validator_descriptions {
         moniker
         identity
       }

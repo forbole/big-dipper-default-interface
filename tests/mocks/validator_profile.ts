@@ -13,7 +13,7 @@ export const VALIDATOR_PROFILE_MOCK_DATA = [
       data: {
         validator: [
           {
-            validator_description: {
+            validator_descriptions: {
               moniker: 'blockscape',
               details: null,
               identity: null,
