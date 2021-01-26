@@ -22,11 +22,11 @@ export const BLOCK_DETAILS_MOCK_DATA = [
             timestamp: '2020-10-06T06:10:13.602618',
             num_txs: 0,
             validator: {
-              validator_descriptions: {
+              validator_descriptions: [{
                 moniker: 'Poseidon',
                 identity: null,
                 validator_address: 'desmosvalcons1mxrd5cyjgpx5vfgltrdufq9wq4ynwc799ndrg8',
-              },
+              }],
             },
             height: 123,
             pre_commits: 21,

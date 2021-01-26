@@ -1,7 +1,6 @@
 import { ReactElement } from 'react';
 
 export type searchBar = {
-  // eslint-disable-next-line
   searchBarCallback: (value:string) => void;
   searchBarPlaceholder: string;
 }

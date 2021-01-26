@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 class BlockDetail {
   public hash: string;
   public timestamp: string;
@@ -25,9 +27,9 @@ class BlockDetail {
       timestamp: json.timestamp,
       tx: json.num_txs,
       validator: {
-        moniker: json?.validator?.validator_descriptions?.moniker,
-        identity: json?.validator?.validator_descriptions?.identity,
-        validatorAddress: json?.validator?.validator_descriptions?.validator_address,
+        moniker: R.pathOr('', ['validator', 'validator_descriptions', 0, 'moniker'], json),
+        identity: R.pathOr('', ['validator', 'validator_descriptions', 0, 'identity'], json),
+        validatorAddress: R.pathOr('', ['validator', 'validator_descriptions', 0, 'validator_address'], json),
       },
       preCommits: json?.pre_commits,
       height: json.height,
