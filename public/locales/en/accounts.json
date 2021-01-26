@@ -15,5 +15,8 @@
   "redelegatedAmount": "Redelegated Amount",
   "remainingAmount": "Remaining Amount",
   "expectedDelivery": "Expected Delivery",
-  "unbondedAmount": "Unbonded Amount"
+  "unbondedAmount": "Unbonded Amount",
+  "scanAddress": "Scan for address",
+  "buttonDisplay": "Copy Address",
+  "shareTo": "Share to"
 }
