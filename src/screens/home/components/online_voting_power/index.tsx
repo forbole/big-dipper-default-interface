@@ -3,7 +3,7 @@ import {
   OnlineVotingPower as OnlineVotingPowerUi, SelectTabs,
 } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
-import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
+import classnames from 'classnames';
 import { convertNumber } from '@utils';
 import { useGetStyles } from './styles';
 import { fakeData } from './utils';

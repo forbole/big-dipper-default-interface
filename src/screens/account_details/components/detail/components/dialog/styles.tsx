@@ -5,14 +5,8 @@ import {
 export const useGetStyles = () => {
   const useStyles = makeStyles(() => createStyles({
     root: {
-      '& .chart': {
-        position: 'relative',
-      },
-      '& .chartArea': {
-        right: 0,
-        bottom: 0,
-        position: 'absolute',
-        margin: 0,
+      '& .socialMedia': {
+        marginTop: '1rem',
       },
       '& .buttonDisplay': {
         width: '2.5rem',

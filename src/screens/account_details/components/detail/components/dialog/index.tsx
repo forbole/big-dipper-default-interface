@@ -45,12 +45,13 @@ const Dialog = (props: DialogProp) => {
         />
       )}
       socialMedia={(
-        <div>
+        <div className={classnames('socialMediaContainer')}>
           {t('shareTo')}
           <div
-            style={{
-              marginTop: '1rem',
-            }}
+            className={classnames('socialMedia')}
+            // style={{
+            //   marginTop: '1rem',
+            // }}
           >
             <FacebookShareButton
               url={`https://cosmos.bigdipper.live/account/${address}`}
