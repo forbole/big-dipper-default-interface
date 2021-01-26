@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set git permissions
-        run: |
-          git config --global url."https://github.com/".insteadOf git@github.com:
-          git config --global url."https://".insteadOf git://
+        # run: |
+        #   git config --global url."https://github.com/".insteadOf git@github.com:
+        #   git config --global url."https://".insteadOf git://
       - name: Create env file
         run: |
           touch .env
@@ -28,8 +28,8 @@ jobs:
           cat .env
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+        # with:
+        #   persist-credentials: false
 
       - name: Prepare tags
         id: prep
