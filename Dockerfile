@@ -10,9 +10,10 @@ WORKDIR /app
 
 # Installing dependencies (productin only)
 COPY package*.json ./
-RUN npm i git+https://github.com/forbole/big-dipper-default-ui.git
-RUN npm i git+https://github.com/forbole/big-dipper-internal-ui.git
+# RUN npm i git+https://github.com/forbole/big-dipper-default-ui.git
+# RUN npm i git+https://github.com/forbole/big-dipper-internal-ui.git
 # RUN npm i
+RUN npm ci
 
 # Copying source files
 COPY . .
