@@ -1,6 +1,4 @@
-import React from 'react';
-
-export const data = [
+export const TrendChartdata = [
   {
     name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
   },

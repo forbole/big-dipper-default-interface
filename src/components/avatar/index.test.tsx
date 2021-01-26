@@ -1,6 +1,6 @@
 import React from 'react';
 import Jazzicon from 'react-jazzicon';
-import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
+import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { awaitActions } from '@tests/utils/await_actions';
 import { lightTheme } from '@styles';

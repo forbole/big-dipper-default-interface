@@ -3,11 +3,11 @@ import {
 } from '@material-ui/styles';
 
 export const useGetStyles = () => {
-  const useStyles = makeStyles(() => createStyles({
+  const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      '& .mainContainer': {
+      '&.mainContainer': {
         display: 'flex',
-        width: '50rem',
+        minWidth: '20rem',
       },
       '& .numberContainer': {
         display: 'flex',
@@ -26,6 +26,7 @@ export const useGetStyles = () => {
       '& p': {
         margin: '0',
         fontSize: '14px',
+        color: theme?.palette?.custom?.fonts.fontTwo,
       },
 
     },

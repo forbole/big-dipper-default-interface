@@ -9,8 +9,7 @@ export const useGetStyles = (props: any) => {
       padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
       '&.userInfoMobile': {
-        padding: theme?.palette?.custom?.margins?.small,
-        paddingTop: '0',
+        padding: '0',
       },
       '&.userInfoDesktop': {
         display: 'none',
@@ -30,8 +29,6 @@ export const useGetStyles = (props: any) => {
         '&.userInfoMobile': {
           display: 'none',
         },
-
-
       },
     },
     address: {

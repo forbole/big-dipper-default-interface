@@ -6,7 +6,11 @@ export const useGetStyles = () => {
   const useStyles = makeStyles(() => createStyles({
     root: {
       '& .socialMedia': {
+        marginBottom: '0',
+      },
+      '& .socialMediaContent': {
         marginTop: '1rem',
+        marginLeft: '0',
       },
       '& .buttonDisplay': {
         width: '2.5rem',

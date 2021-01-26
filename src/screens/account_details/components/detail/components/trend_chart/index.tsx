@@ -6,49 +6,29 @@ import {
 } from 'recharts';
 import { ArrowDropDown } from '@material-ui/icons';
 import { useGetStyles } from './styles';
-import { data } from './utils';
+import { TrendChartProps } from './types';
 
-const TrendChart = () => {
+const TrendChart = (props: TrendChartProps) => {
   const { classes } = useGetStyles();
+  const {
+    numberDisplay,
+    data,
+  } = props;
   return (
     <div
       className={classnames(classes.root, 'mainContainer')}
-      // style={{
-      //   display: 'flex',
-      //   width: '50rem',
-      // }}
     >
       <div
         className={classnames('numberContainer')}
-        // style={{
-        //   display: 'flex',
-        //   marginRight: '0.5rem',
-        //   position: 'relative',
-        // }}
       >
         <div
           className={classnames('numberDisplay')}
-          // style={{
-          //   alignSelf: 'flex-end',
-          //   display: 'flex',
-          // }}
         >
           <ArrowDropDown
             className={classnames('arror-icon')}
-            // style={{
-            //   width: '1rem',
-            //   height: '1rem',
-            //   color: '#FD3B4C',
-            // }}
           />
-          <p
-            // style={{
-            //   margin: '0',
-            //   fontSize: '14px',
-
-            // }}
-          >
-            2.86% (24h)
+          <p>
+            {numberDisplay}
           </p>
         </div>
       </div>
@@ -61,10 +41,7 @@ const TrendChart = () => {
         }}
       >
         <defs>
-          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor="#ffffff" stopOpacity={0.6} />
-            <stop offset="95%" stopColor="#ffffff" stopOpacity={0.0} />
-          </linearGradient>
+          <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1" />
         </defs>
         <Area
           type="monotone"

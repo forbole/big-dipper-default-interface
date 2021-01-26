@@ -1,18 +1,4 @@
-import React, { useState } from 'react';
-import classnames from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/classnames';
-import {
-  FileCopyOutlined,
-  Facebook,
-  Twitter,
-  Telegram,
-  WhatsApp,
-  Email,
-  ArrowDropDown,
-} from '@material-ui/icons';
-import {
-  AreaChart,
-  Area,
-} from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/recharts';
+import React from 'react';
 import {
   AvatarDisplay,
   InfoPopover,
@@ -22,6 +8,33 @@ import {
   TrendChart,
   Dialog,
 } from './components';
+
+export const TrendChartdata = {
+  numberDisplay: '2.86% (24h)',
+  data: [
+    {
+      name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
+    },
+    {
+      name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
+    },
+    {
+      name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
+    },
+    {
+      name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
+    },
+    {
+      name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
+    },
+    {
+      name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
+    },
+    {
+      name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
+    },
+  ],
+};
 
 const ProposerData = () => {
   return (
@@ -75,7 +88,7 @@ export const delegate = {
   last7Days: {
     className: 'last7Days',
     rawValue: 1,
-    display: <Last7Days />,
+    display: <Last7Days data={TrendChartdata.data} />,
   },
 };
 
@@ -142,20 +155,16 @@ export const dummyData: any = {
     alt: '',
     address: {
       title: 'Address',
-      display: (
-        <div className="addressDisplay">
-          cosmos14kn0k…swhp
-        </div>
-      ),
+      display: 'cosmos14kn0k…swhp',
       dialog: (
         <Dialog
-          title="scan for address"
-          buttonDisplay="Copy Address"
-          shareTo=""
-          address="cosmos14kn0k…swhp"
+          address={{
+            display: 'cosmos14kn0k…swhp',
+            rawValue: 'cosmos14kn0k…swhp',
+          }}
         />
       ),
-      rawValue: '123',
+      rawValue: 'cosmos14kn0k…swhp',
     },
     rewardAddress: {
       title: (
@@ -164,11 +173,7 @@ export const dummyData: any = {
           <InfoPop />
         </div>
       ),
-      display: (
-        <div className="addressDisplay">
-          cosmos14kn0k…swhp
-        </div>
-      ),
+      display: 'cosmos14kn0k…swhp',
       rawValue: '123',
     },
   },
@@ -209,7 +214,9 @@ export const dummyData: any = {
         display: '1,324.91 ATOM',
       },
     ],
-    customComponent: <TrendChart />,
+    customComponent: <TrendChart
+      {...TrendChartdata}
+    />,
   },
   tabProps: {
     delegations: 'Delegations',

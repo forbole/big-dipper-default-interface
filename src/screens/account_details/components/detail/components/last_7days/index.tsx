@@ -1,16 +1,15 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import {
   AreaChart,
   Area,
 } from 'recharts';
 import { useGetStyles } from './styles';
-import { data } from './utils';
+import { Last7DaysProps } from './types';
 
-const Last7Days = () => {
-  const { t } = useTranslation(['accounts', 'activities']);
+const Last7Days = (props: Last7DaysProps) => {
   const { classes } = useGetStyles();
+  const { data } = props;
 
   return (
     <div className={classnames(classes.root)}>

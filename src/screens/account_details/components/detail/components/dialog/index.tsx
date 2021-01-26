@@ -31,8 +31,8 @@ const Dialog = (props: DialogProp) => {
       title={t('scanAddress')}
       buttonDisplay={t('buttonDisplay')}
       address={{
-        display: address,
-        rawValue: '11111',
+        display: address.display,
+        rawValue: address.rawValue,
       }}
       copyCallback={handleCopy}
       qrCode={(
@@ -48,14 +48,11 @@ const Dialog = (props: DialogProp) => {
         <div className={classnames('socialMediaContainer')}>
           {t('shareTo')}
           <div
-            className={classnames('socialMedia')}
-            // style={{
-            //   marginTop: '1rem',
-            // }}
+            className={classnames('socialMediaContent')}
           >
             <FacebookShareButton
               url={`https://cosmos.bigdipper.live/account/${address}`}
-              quote={address}
+              quote={address.rawValue}
               hashtag="#forbole"
               className={classnames('buttonDisplay')}
             >
@@ -66,7 +63,7 @@ const Dialog = (props: DialogProp) => {
             </FacebookShareButton>
             <TwitterShareButton
               url={`https://cosmos.bigdipper.live/account/${address}`}
-              title={address}
+              title={address.rawValue}
               hashtags={['#forbole']}
               className={classnames('buttonDisplay')}
             >
@@ -78,7 +75,7 @@ const Dialog = (props: DialogProp) => {
 
             <TelegramShareButton
               url={`https://cosmos.bigdipper.live/account/${address}`}
-              title={address}
+              title={address.rawValue}
               className={classnames('buttonDisplay')}
             >
               <TelegramIcon
@@ -89,7 +86,7 @@ const Dialog = (props: DialogProp) => {
 
             <WhatsappShareButton
               url={`https://cosmos.bigdipper.live/account/${address}`}
-              title={address}
+              title={address.rawValue}
               separator=":: "
               className={classnames('buttonDisplay')}
             >
@@ -101,7 +98,7 @@ const Dialog = (props: DialogProp) => {
             <EmailShareButton
               url={`https://cosmos.bigdipper.live/account/${address}`}
               subject="address"
-              body={address}
+              body={address.rawValue}
               separator=":: "
               className={classnames('buttonDisplay')}
             >

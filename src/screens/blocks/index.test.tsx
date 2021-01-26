@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from '@src/screens/account_details/components/detail/components/trend_chart/node_modules/enzyme';
+import { mount } from 'enzyme';
 import Blocks from '@screens/blocks';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';
