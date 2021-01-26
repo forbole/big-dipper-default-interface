@@ -13,11 +13,7 @@ jobs:
   Build-and-Publish:
     runs-on: ubuntu-latest
     steps:
-      # - name: Setup ssh private key
-      #   uses: webfactory/ssh-agent@v0.4.1
-      #   with:
-      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Setting git permissions
+      - name: Set git permissions
         run: git config --global url."https://".insteadOf git://
       - name: Create env file
         run: |
@@ -30,6 +26,8 @@ jobs:
           cat .env
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       - name: Prepare tags
         id: prep
