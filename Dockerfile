@@ -8,12 +8,9 @@ RUN apk add --no-cache git
 # Set app directory
 WORKDIR /app
 
-# Installing dependencies (productin only)
-COPY package*.json ./
+# Installing dependencies
+COPY package*.json .
 RUN npm i
-RUN npm i git+https://github.com/forbole/big-dipper-default-ui.git
-RUN npm i git+https://github.com/forbole/big-dipper-internal-ui.git
-# RUN npm ci
 
 # Copying source files
 COPY . .

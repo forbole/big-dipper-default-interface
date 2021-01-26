@@ -17,6 +17,8 @@ jobs:
       #   uses: webfactory/ssh-agent@v0.4.1
       #   with:
       #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Setting git permissions
+        run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
       - name: Create env file
         run: |
           touch .env
