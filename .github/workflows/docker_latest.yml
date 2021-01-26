@@ -18,7 +18,7 @@ jobs:
       #   with:
       #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       - name: Setting git permissions
-        run: git config --global url."https://${{ secrets.PAT }}@github.com/".insteadOf ssh://git@github.com/
+        run: git config --global url."https://".insteadOf git://
       - name: Create env file
         run: |
           touch .env
