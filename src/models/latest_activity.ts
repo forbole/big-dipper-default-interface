@@ -19,7 +19,7 @@ class LatestActivity {
     return new LatestActivity({
       height: json.height,
       hash: json.hash,
-      timestamp: json.timestamp,
+      timestamp: json?.block?.timestamp,
       success: json.success,
       messages: json?.messages?.map((x) => {
         return getMessageModelByType(x?.['@type']).fromJson(x);

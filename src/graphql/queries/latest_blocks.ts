@@ -9,7 +9,7 @@ export const LATEST_BLOCKS = `
         validator_info {
           operator_address
         }
-        validator_description {
+        validator_descriptions {
           moniker
           identity
         }

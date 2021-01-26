@@ -12,4 +12,5 @@ query AverageBlockTime{
   average_block_time_per_day(limit: 1, order_by: {height: desc}){
     average_time
   }
-}`;
+}
+`;

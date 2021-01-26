@@ -22,14 +22,14 @@ class ValidatorProfile {
 
   static fromJson(data: any) {
     return new ValidatorProfile({
-      moniker: R.pathOr(null, ['validator_description', 'moniker'], data),
-      details: R.pathOr(null, ['validator_description', 'details'], data),
-      identity: R.pathOr(null, ['validator_description', 'identity'], data),
-      website: R.pathOr(null, ['validator_description', 'website'], data),
+      moniker: R.pathOr(null, ['validator_descriptions', 0, 'moniker'], data),
+      details: R.pathOr(null, ['validator_descriptions', 0, 'details'], data),
+      identity: R.pathOr(null, ['validator_descriptions', 0, 'identity'], data),
+      website: R.pathOr(null, ['validator_descriptions', 0, 'website'], data),
       validatorAddress: R.pathOr(null, ['validator_info', 'operator_address'], data),
       validatorStatus: {
-        status: R.pathOr(0, ['validator_status', 'status'], data),
-        jailed: R.pathOr(false, ['validator_status', 'jailed'], data),
+        status: R.pathOr(0, ['validator_statuses', 0, 'status'], data),
+        jailed: R.pathOr(false, ['validator_statuses', 0, 'jailed'], data),
       },
     });
   }
