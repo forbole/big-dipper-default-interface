@@ -7,9 +7,10 @@ query ValidatorProfile($address: String) {
       identity
       website
     }
-    validator_statuses {
+    validator_statuses(order_by: {height: desc}, limit: 1) {
       status
       jailed
+      height
     }
     validator_info {
       operator_address
