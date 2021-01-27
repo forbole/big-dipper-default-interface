@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import * as R from 'ramda';
 import { ValidatorAddressList } from '@models';
 import { GlobalContext } from '@contexts';
-// import { getAddressRole } from '@utils';
+import { getAddressRole } from '@utils';
 import { AvatarDisplayProps } from './types';
 import {
   ValidatorDisplay, UserDisplay,
@@ -32,15 +32,15 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
   }
 
   // Edge case in which the validator is created but not logged in to our initial address list
-  // if (getAddressRole(address) === 'validator') {
-  //   return (
-  //     <ValidatorDisplay
-  //       address={address}
-  //       display={display}
-  //       identity={identity}
-  //     />
-  //   );
-  // }
+  if (getAddressRole(address) === 'validator') {
+    return (
+      <ValidatorDisplay
+        address={address}
+        display={display}
+        identity={identity}
+      />
+    );
+  }
 
   return (
     <UserDisplay {...props} />

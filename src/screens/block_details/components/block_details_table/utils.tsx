@@ -10,8 +10,9 @@ import { PreCommitsProps } from './types';
 
 export const formatPreCommitData = (data:PreCommit[], pool: Stabilities): PreCommitsProps[] => {
   return data.map((x) => {
-    const votingPower = formatDenom(chainConfig.display, x.votingPower);
+    const votingPower = formatDenom(chainConfig.display, x.votingPower, '0,0.00[0000]');
     const votingPercentage = (x.votingPower / pool.bondedTokens) * 100;
+    console.log(x.validatorAddress, 'moniker');
     return ({
       validator: {
         rawValue: x.moniker,
@@ -27,7 +28,7 @@ export const formatPreCommitData = (data:PreCommit[], pool: Stabilities): PreCom
       },
       votingPowerPercentage: {
         rawValue: votingPercentage,
-        display: numeral(votingPercentage).format('0.00%'),
+        display: numeral(votingPercentage).format('0.00[0000]%'),
       },
       signStatus: {
         rawValue: 0,
@@ -35,4 +36,11 @@ export const formatPreCommitData = (data:PreCommit[], pool: Stabilities): PreCom
       },
     });
   });
+};
+
+export const getVotingPowerSum = (precommits: PreCommit[], pool: Stabilities) => {
+  const votingPowerSum = precommits.reduce((a, b) => {
+    return a + b.votingPower;
+  }, 0);
+  return (votingPowerSum / pool.bondedTokens) * 100;
 };
