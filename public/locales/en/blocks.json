@@ -16,5 +16,7 @@
   "validator": "Validator",
   "votingPower": "Voting Power",
   "votingPowerPercentage": "Voting Power (Percentage)",
-  "signStatus": "Sign Status"
+  "signStatus": "Sign Status",
+  "up": "Up",
+  "down": "Down"
 }

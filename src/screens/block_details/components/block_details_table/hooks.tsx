@@ -17,10 +17,12 @@ import {
   stabilitiesParser,
   preCommitsParser,
 } from '@src/graphql/parsers/queries';
-import { formatPreCommitData } from './utils';
+import {
+  formatPreCommitData, getVotingPowerSum,
+} from './utils';
 import { PreCommitsProps } from './types';
 
-export const useBlockDetailsTableHook = (): {
+export const useBlockDetailsTableHook = (t:any): {
   votingPowerSum: string;
   block: BlockDetail;
   precommits: PreCommitsProps[];
@@ -57,7 +59,6 @@ export const useBlockDetailsTableHook = (): {
       const parsedBlockData = blockDetailsParser(data);
       const parsedPoolData = stabilitiesParser(data);
       const parsedPreCommitsData = preCommitsParser(data);
-
       if (!parsedBlockData) {
         router.push('/404');
       } else {
@@ -65,7 +66,7 @@ export const useBlockDetailsTableHook = (): {
           block: parsedBlockData,
           pool: parsedPoolData,
           loading: false,
-          parsedPreCommitsData,
+          precommits: parsedPreCommitsData,
         });
       }
     },
@@ -78,17 +79,10 @@ export const useBlockDetailsTableHook = (): {
     setState((prevState) => R.mergeDeepLeft(stateChange, prevState));
   };
 
-  const getVotingPowerSum = () => {
-    const votingPowerSum = state.precommits.reduce((a, b) => {
-      return a + b.votingPower;
-    }, 0);
-    return (votingPowerSum / state.pool.bondedTokens) * 100;
-  };
-
   return {
     loading: state.loading,
-    votingPowerSum: numeral(getVotingPowerSum()).format('0.00%'),
+    votingPowerSum: numeral(getVotingPowerSum(state.precommits, state.pool)).format('0.00[0000]%'),
     block: state.block,
-    precommits: formatPreCommitData(state.precommits, state.pool),
+    precommits: formatPreCommitData(state.precommits, state.pool, t),
   };
 };

@@ -25,6 +25,7 @@ query BlockDetail($height: bigint) {
         moniker
       }
     }
+    proposer_priority
     validator_address
   }
 }

@@ -40,7 +40,7 @@ const ValidatorDisplay = (props: AvatarDisplayProps) => {
                 />
               )}
               imageUrl=""
-              title={display ?? address}
+              title={display || address}
             />
           )}
         </a>

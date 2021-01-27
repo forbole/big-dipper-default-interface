@@ -17,7 +17,7 @@ const BlockDetailsTable = () => {
     precommits,
     votingPowerSum,
     loading,
-  } = useBlockDetailsTableHook();
+  } = useBlockDetailsTableHook(t);
   // ========================
   // styles
   // ========================
