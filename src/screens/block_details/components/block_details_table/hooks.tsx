@@ -22,7 +22,7 @@ import {
 } from './utils';
 import { PreCommitsProps } from './types';
 
-export const useBlockDetailsTableHook = (): {
+export const useBlockDetailsTableHook = (t:any): {
   votingPowerSum: string;
   block: BlockDetail;
   precommits: PreCommitsProps[];
@@ -83,6 +83,6 @@ export const useBlockDetailsTableHook = (): {
     loading: state.loading,
     votingPowerSum: numeral(getVotingPowerSum(state.precommits, state.pool)).format('0.00[0000]%'),
     block: state.block,
-    precommits: formatPreCommitData(state.precommits, state.pool),
+    precommits: formatPreCommitData(state.precommits, state.pool, t),
   };
 };
