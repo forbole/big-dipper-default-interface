@@ -57,7 +57,6 @@ export const useBlockDetailsTableHook = (): {
       const parsedBlockData = blockDetailsParser(data);
       const parsedPoolData = stabilitiesParser(data);
       const parsedPreCommitsData = preCommitsParser(data);
-
       if (!parsedBlockData) {
         router.push('/404');
       } else {
@@ -65,7 +64,7 @@ export const useBlockDetailsTableHook = (): {
           block: parsedBlockData,
           pool: parsedPoolData,
           loading: false,
-          parsedPreCommitsData,
+          precommits: parsedPreCommitsData,
         });
       }
     },
