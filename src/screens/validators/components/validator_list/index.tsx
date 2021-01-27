@@ -38,7 +38,10 @@ const ValidatorList = () => {
     handleSearchSubmit,
     searchValue,
     handleRowClick,
+    validatorList,
   } = useValidatorListHook();
+
+  console.log('index', validatorList);
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
