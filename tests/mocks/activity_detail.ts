@@ -13,25 +13,39 @@ export const ACTIVITY_DETAILS_MOCK_DATA = [
       data: {
         transaction: [
           {
-            hash: 'FA6236379AB6698125AAB780557F125D4DF07014A2524287C71A2B2EC170054E',
-            height: 512287,
+            hash: '90448290BA200674649128E37FE2E35FDA38B5882A3B3B4EA610B2D3F6933EE0',
+            height: 103348,
             fee: {
-              gas: '200000',
-              amount: [],
+              payer: '',
+              amount: [
+                {
+                  denom: 'udaric',
+                  amount: '5000',
+                },
+              ],
+              granter: '',
+              gas_limit: '200000',
             },
-            gas_used: 36682,
+            gas_used: 69277,
             gas_wanted: 200000,
-            success: false,
+            success: true,
             memo: '',
             messages: [
               {
-                type: 'cosmos-sdk/MsgUnjail',
-                value: {
-                  address: 'desmosvaloper1f20swevd5veqywv9h6rcxqzs8xxll6pkyp430t',
-                },
+                '@type': '/cosmos.bank.v1beta1.MsgSend',
+                amount: [
+                  {
+                    denom: 'udaric',
+                    amount: '1000000',
+                  },
+                ],
+                to_address: 'desmos1w35tkwvmd3q3zp0erdjvsw9e0avvulwqhe6gmu',
+                from_address: 'desmos14dm0zdemeymhayucp7gchuus3k5m344f3v8nln',
               },
             ],
-            timestamp: '2020-11-09T15:03:54',
+            block: {
+              timestamp: '2021-01-27T09:11:56.523297',
+            },
           },
         ],
       },

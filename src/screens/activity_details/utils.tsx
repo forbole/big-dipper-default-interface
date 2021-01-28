@@ -18,7 +18,7 @@ export const formatActivityDetailsData = (data: ActivityDetail) => {
         </a>
       </Link>
     ),
-    fee: `${formatDenom(chainConfig.display, data?.fee?.gas, '0,0.[000000]').format} ${chainConfig.display.toUpperCase()}`,
+    fee: `${formatDenom(chainConfig.display, data?.fee?.amount, '0,0.[000000]').format} ${chainConfig.display.toUpperCase()}`,
     gas: `${numeral(data.gasUsed).format('0,0')} / ${numeral(data.gasWanted).format('0,0')}`,
     memo: data.memo,
     messages: data.messages,
