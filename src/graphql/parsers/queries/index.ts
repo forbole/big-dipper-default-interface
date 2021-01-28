@@ -17,6 +17,7 @@ import { validatorProfileParser } from './validator_profile_parser';
 import { validatorInfoParser } from './validator_info_parser';
 import { activityDetailParser } from './activity_details_parser';
 import { validatorStakingParser } from './validator_staking_parser';
+import { userInfoParser } from './user_info_parser';
 
 export {
   averageBlockTimesParser,
@@ -34,4 +35,5 @@ export {
   validatorInfoParser,
   activityDetailParser,
   validatorStakingParser,
+  userInfoParser,
 };

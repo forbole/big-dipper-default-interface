@@ -10,6 +10,7 @@ import { VALIDATOR_PROFILE } from './validator_profile';
 import { VALIDATOR_INFO } from './validator_info';
 import { ACTIVITY_DETAILS } from './activity_details';
 import { VALIDATOR_STAKING } from './validator_staking';
+import { USERINFO } from './user_info';
 
 export {
   TOTAL_ACTIVE_VALIDATORS,
@@ -24,4 +25,5 @@ export {
   VALIDATOR_INFO,
   ACTIVITY_DETAILS,
   VALIDATOR_STAKING,
+  USERINFO,
 };
