@@ -12,7 +12,9 @@ export const formatData = (data: ValidatorInfo, isDesktop) => {
   return {
     operatorAddress: {
       raw: data.operatorAddress,
-      display: formatMiddleEllipse(data.operatorAddress ?? '', formatOptions),
+      display: !isDesktop
+        ? formatMiddleEllipse(data.operatorAddress ?? '', formatOptions)
+        : data.operatorAddress,
     },
     selfDelegateAddress: {
       raw: data.selfDelegateAddress,
