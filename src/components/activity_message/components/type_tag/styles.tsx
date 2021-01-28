@@ -17,7 +17,7 @@ export const useGetStyles = () => {
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         background: rgbaOpacityConverter(
-          theme?.palette?.custom?.fonts?.fontFour,
+          theme?.palette?.divider,
           0.3,
         ),
         color: theme?.palette?.custom?.fonts?.fontFour,
