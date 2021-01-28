@@ -5,7 +5,10 @@ import {
   latestBlocksTotalParser,
 } from './latest_blocks_parser';
 import { stabilitiesParser } from './stabilities_parser';
-import { totalActiveValidatorsParser } from './total_active_validators_parser';
+import {
+  totalActiveValidatorsParser,
+  latestValidatorStatusHeightParser,
+} from './total_active_validators_parser';
 import { validatorAddressListParser } from './validators_address_list_parser';
 import {
   latestActivitiesParser,
@@ -37,4 +40,5 @@ export {
   activityDetailParser,
   validatorStakingParser,
   validatorStakingLatestHeightParser,
+  latestValidatorStatusHeightParser,
 };

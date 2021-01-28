@@ -2,16 +2,20 @@ import { useState } from 'react';
 import {
   useQuery,
   useSubscription,
+  useLazyQuery,
   gql,
 } from '@apollo/client';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
 import {
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
+  LATEST_VALIDATOR_STATUS_HEIGHT,
 } from '@graphql/queries';
 import { latestBlockHeightParser } from '@src/graphql/parsers/subscriptions';
 import {
-  averageBlockTimesParser, totalActiveValidatorsParser,
+  averageBlockTimesParser,
+  totalActiveValidatorsParser,
+  latestValidatorStatusHeightParser,
 } from '@src/graphql/parsers/queries';
 import { generalConfig } from '@src/general_config';
 import {
@@ -38,11 +42,26 @@ export const useActiveValidatorsHook = () => {
     TotalActiveValidators.fromJson({
     }),
   );
-  useQuery(gql`${TOTAL_ACTIVE_VALIDATORS}`, {
-    pollInterval: generalConfig.pollInterval.default,
-    notifyOnNetworkStatusChange: true,
+
+  const [getTotalValidators] = useLazyQuery(
+    gql`${TOTAL_ACTIVE_VALIDATORS}`,
+    {
+      onCompleted: (data: any) => {
+        setValidatorsData(totalActiveValidatorsParser(data));
+      },
+    },
+  );
+
+  useQuery(gql`${LATEST_VALIDATOR_STATUS_HEIGHT}`, {
     onCompleted: (data: any) => {
-      setValidatorsData(totalActiveValidatorsParser(data));
+      const height = latestValidatorStatusHeightParser(data);
+      if (height !== null) {
+        getTotalValidators({
+          variables: {
+            height,
+          },
+        });
+      }
     },
   });
 
