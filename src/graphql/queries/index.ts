@@ -11,7 +11,9 @@ import { BLOCK_DETAILS } from './block_details';
 import { VALIDATOR_PROFILE } from './validator_profile';
 import { VALIDATOR_INFO } from './validator_info';
 import { ACTIVITY_DETAILS } from './activity_details';
-import { VALIDATOR_STAKING } from './validator_staking';
+import {
+  VALIDATOR_STAKING, VALIDATOR_STAKING_LATEST_HEIGHT,
+} from './validator_staking';
 
 export {
   LATEST_VALIDATOR_STATUS_HEIGHT,
@@ -27,4 +29,5 @@ export {
   VALIDATOR_INFO,
   ACTIVITY_DETAILS,
   VALIDATOR_STAKING,
+  VALIDATOR_STAKING_LATEST_HEIGHT,
 };
