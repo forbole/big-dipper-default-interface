@@ -14,6 +14,7 @@ import {
   validatorStakingParser,
   validatorStakingLatestHeightParser,
 } from '@src/graphql/parsers/queries';
+import { useGetScreenSizeHook } from '@hooks';
 import { ValidatorStaking } from '@models';
 import { formatStakingData } from './utils';
 
@@ -22,6 +23,7 @@ export const useStakingActivitiesHook = () => {
   const [tabValue, setTabValue] = useState(0);
   const [staking, setStaking] = useState<ValidatorStaking>(ValidatorStaking.fromJson({
   }));
+  const { isTablet } = useGetScreenSizeHook();
 
   // ===============================
   // get data
@@ -60,6 +62,6 @@ export const useStakingActivitiesHook = () => {
   return {
     tabValue,
     handleTabChange,
-    staking: formatStakingData(staking),
+    staking: formatStakingData(staking, isTablet),
   };
 };
