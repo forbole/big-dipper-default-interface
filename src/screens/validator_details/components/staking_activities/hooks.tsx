@@ -26,30 +26,27 @@ export const useStakingActivitiesHook = () => {
   // ===============================
   // get data
   // ===============================
-
-  // useQuery(gql`${VALIDATOR_STAKING}`, {
-  //   variables: {
-  //     address: router?.query?.validator ?? null,
-  //   },
-  //   onCompleted: (data) => {
-  //     const parsedData = validatorStakingParser(data);
-  //     setStaking(parsedData);
-  //   },
-  // });
-
-  const [getStaking] = useLazyQuery(gql`${VALIDATOR_STAKING_LATEST_HEIGHT}`);
+  const [getStaking] = useLazyQuery(gql`${VALIDATOR_STAKING}`, {
+    onCompleted: (data) => {
+      const parsedData = validatorStakingParser(data);
+      setStaking(parsedData);
+    },
+  });
 
   useQuery(gql`${VALIDATOR_STAKING_LATEST_HEIGHT}`, {
     variables: {
       address: router?.query?.validator ?? null,
     },
     onCompleted: (data) => {
-      const parsedData = validatorStakingLatestHeightParser(data);
-      getStaking({
-        variables: {
-
-        },
-      });
+      const height = validatorStakingLatestHeightParser(data);
+      if (height) {
+        getStaking({
+          variables: {
+            address: router?.query?.validator ?? null,
+            height,
+          },
+        });
+      }
     },
   });
 
