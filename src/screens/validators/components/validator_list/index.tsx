@@ -34,6 +34,12 @@ const ValidatorList = () => {
     handleRowClick,
     validators,
   } = useValidatorListHook();
+  if (validators.active.desktop.length) {
+    // console.log(validators.active.desktop[0]);
+    // console.dir(validators.active.desktop[0].toString());
+    console.log(JSON.stringify(validators.active.desktop[0], null, 4));
+    // console.log(JSON.stringify(validators.active.desktop[0]), 'fuck');
+  }
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
