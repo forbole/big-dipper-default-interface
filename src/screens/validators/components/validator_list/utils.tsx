@@ -21,6 +21,12 @@ export const parseValidators = (data: {
     desktop: [],
   };
 
+  // =============================
+  // 0 - unspecified
+  // 1 - unbonded
+  // 2 - unbonding
+  // 3 - bonded
+  // =============================
   const activeStatus = [2, 3];
   const inactiveStatus = [0, 1];
 
@@ -35,12 +41,7 @@ export const parseValidators = (data: {
       let votingPowerPercentage = `${numeral(votingPower).format('0.00[0000]')}%`;
       // edge case when the number gets too small
       if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0.00%';
-      if (x.validatorAddress === 'desmosvaloper1txdthvutrrfzzf9htelcnfz655afu4yh0zhrr2') {
-      // console.log(votingPowerPercentage, 'expect 0.000008');
-      // console.log(x.votingPower, 'VP');
-      // console.log(data.bonded, 'data bonded');
-      // console.log((x.votingPower / data.bonded) * 100, 'the deci');
-      }
+
       // health display
       const condition = (x.missedBlockCounter / data.signedBlockWindow) * 100;
       let conditionClass = '';
@@ -51,62 +52,106 @@ export const parseValidators = (data: {
       } else {
         conditionClass = 'red';
       }
+
+      const defaultBase = {
+        operatorAddress: x.validatorAddress,
+        self: {
+          rawValue: self,
+          display: numeral(self).format('0.00%'),
+        },
+        votingPower: {
+          rawValue: x.votingPower,
+          display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
+          percentDisplay: votingPowerPercentage,
+        },
+      };
       // ==============================
       // active
       // ==============================
       if (activeStatus.includes(x.status.status)) {
-        const base = {
-          operatorAddress: x.validatorAddress,
-          self: {
-            rawValue: self,
-            display: numeral(self).format('0%'),
-          },
-          status: {
-            rawValue: x.status.status,
-            className: x.status.jailed ? 'jailed' : 'active',
-            display: x.status.jailed ? 'jailed' : 'active',
-          },
+        const activeBase = {
+          ...defaultBase,
           commission: {
             rawValue: x.commission,
-            display: numeral(x.commission).format('0%'),
-          },
-          votingPower: {
-            rawValue: x.votingPower,
-            display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
-            percentDisplay: votingPowerPercentage,
+            display: numeral(x.commission).format('0.00%'),
           },
         };
 
         // mobile conversion
         active.mobile.push({
-          ...base,
+          ...activeBase,
           moniker: {
             rawValue: x.moniker,
-            avatar: <Avatar
-              address={x.validatorAddress}
-              diameter={50}
-            />,
+            avatar: (
+              <Avatar
+                address={x.validatorAddress}
+                diameter={50}
+              />
+            ),
             display: x.moniker,
           },
         });
 
-      // desktop conversion
-      // active.desktop.push({
-      //   ...base,
-      //   moniker: {
-      //     rawValue: x.moniker,
-      //     display: (
-      //       <AvatarDisplay
-      //         address={x.validatorAddress}
-      //         display={x.moniker}
-      //       />
-      //     ),
-      //   },
-      //   condition: {
-      //     rawValue: condition,
-      //     className: conditionClass,
-      //   },
-      // });
+        // desktop conversion
+        active.desktop.push({
+          ...activeBase,
+          moniker: {
+            rawValue: x.moniker,
+            display: (
+              <AvatarDisplay
+                address={x.validatorAddress}
+                display={x.moniker}
+              />
+            ),
+          },
+          condition: {
+            rawValue: condition,
+            className: conditionClass,
+          },
+        });
+      }
+
+      // ==============================
+      // inactive
+      // ==============================
+      if (inactiveStatus.includes(x.status.status)) {
+        const inactiveBase = {
+          ...defaultBase,
+          status: {
+            rawValue: x.status.status,
+            className: 'inactive',
+            display: 'inactive',
+          },
+        };
+
+        // mobile
+        inactive.mobile.push({
+          ...inactiveBase,
+          moniker: {
+            rawValue: x.moniker,
+            avatar: (
+              <Avatar
+                address={x.validatorAddress}
+                diameter={50}
+              />
+            ),
+            display: x.moniker,
+          },
+        });
+
+        // desktop
+        inactive.desktop.push({
+          ...inactiveBase,
+          moniker: {
+            rawValue: x.moniker,
+            display: (
+              <AvatarDisplay
+                address={x.validatorAddress}
+                display={x.moniker}
+              />
+            ),
+          },
+        });
       }
     });
 
@@ -115,112 +160,6 @@ export const parseValidators = (data: {
     inactive,
   };
 };
-
-// export const dummyActiveMobileData = Array(10).fill({
-//   moniker: {
-//     rawValue: 'Forbole',
-//     avatar: <div>hello</div>,
-//     display: 'Forbole',
-//   },
-//   operatorAddress: '3s12',
-//   commission: {
-//     rawValue: 90,
-//     display: '90%',
-//   },
-//   self: {
-//     rawValue: 11,
-//     display: '11%',
-//   },
-//   votingPower: {
-//     rawValue: 10,
-//     display: '10',
-//     percentDisplay: '45%',
-//   },
-//   status: {
-//     rawValue: 'active',
-//     className: 'active',
-//     display: 'active',
-//   },
-// });
-
-// export const dummyActiveDesktopData = Array(10).fill({
-//   operatorAddress: 'forbole12345',
-//   moniker: {
-//     rawValue: 'forbole',
-//     display: <div>forbole</div>,
-//   },
-//   self: {
-//     rawValue: 100,
-//     display: '100%',
-//   },
-//   status: {
-//     className: 'jailed',
-//     rawValue: 'jailed',
-//     display: 'jailed',
-//   },
-//   commission: {
-//     rawValue: 100,
-//     display: '100',
-//   },
-//   votingPower: {
-//     rawValue: 100,
-//     display: '100',
-//     percentDisplay: '100%',
-//   },
-//   condition: {
-//     rawValue: 'healthy',
-//     className: 'healthy',
-//   },
-// });
-
-export const dummyInactiveMobileData = Array(10).fill({
-  moniker: {
-    rawValue: 'Forbole',
-    avatar: <div>hello</div>,
-    display: 'forbole',
-  },
-  operatorAddress: '31afsdff2',
-  self: {
-    rawValue: 10,
-    display: '10%',
-  },
-  votingPower: {
-    rawValue: 1000,
-    display: '110',
-    percentDisplay: '106%',
-  },
-  status: {
-    rawValue: 'active',
-    className: 'active',
-    display: 'active',
-  },
-});
-
-export const dummyInactiveDesktopData = Array(10).fill({
-  moniker: {
-    rawValue: 'Forbole',
-    display: <div>Forbole</div>,
-  },
-  operatorAddress: '31afsdff2',
-  self: {
-    rawValue: 10,
-    display: '10%',
-  },
-  votingPower: {
-    rawValue: 1000,
-    display: '110',
-    percentDisplay: '106%',
-  },
-  status: {
-    rawValue: 'active',
-    className: 'active',
-    display: 'active',
-  },
-  condition: {
-    rawValue: 'healthy',
-    className: 'healthy',
-  },
-});
 
 export const getLabels = (t:any) => {
   return {

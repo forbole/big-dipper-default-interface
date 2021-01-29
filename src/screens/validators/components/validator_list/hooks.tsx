@@ -12,7 +12,7 @@ import { parseValidators } from './utils';
 
 export const useValidatorListHook = () => {
   const router = useRouter();
-  const [tabValue, setTabValue] = useState(0);
+  const [tabValue, setTabValue] = useState(1);
   const [searchValue, setSearch] = useState('');
   const [state, setState] = useState<{
     validators: ValidatorList[];

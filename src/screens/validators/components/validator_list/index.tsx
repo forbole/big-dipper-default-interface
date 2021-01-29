@@ -34,11 +34,10 @@ const ValidatorList = () => {
     handleRowClick,
     validators,
   } = useValidatorListHook();
-
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
-  console.log(validators, 'well goddamn');
+
   // ===========================
   // ui data parse
   // ===========================
