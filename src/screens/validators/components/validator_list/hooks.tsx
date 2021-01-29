@@ -10,9 +10,9 @@ import { ValidatorList } from '@models';
 import { VALIDATOR_LIST } from '@graphql/queries';
 import { parseValidators } from './utils';
 
-export const useValidatorListHook = () => {
+export const useValidatorListHook = (t:any) => {
   const router = useRouter();
-  const [tabValue, setTabValue] = useState(1);
+  const [tabValue, setTabValue] = useState(0);
   const [searchValue, setSearch] = useState('');
   const [state, setState] = useState<{
     validators: ValidatorList[];
@@ -69,6 +69,6 @@ export const useValidatorListHook = () => {
     handleSearchSubmit,
     searchValue,
     handleRowClick,
-    validators: parseValidators(state),
+    validators: parseValidators(t, state),
   };
 };

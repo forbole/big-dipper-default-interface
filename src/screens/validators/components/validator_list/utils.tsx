@@ -7,7 +7,7 @@ import {
 import { chainConfig } from '@src/chain_config';
 import { formatDenom } from '@utils';
 
-export const parseValidators = (data: {
+export const parseValidators = (t:any, data: {
   validators: ValidatorList[];
   bonded: number;
   signedBlockWindow: number;
@@ -43,7 +43,7 @@ export const parseValidators = (data: {
       if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0.00%';
 
       // health display
-      const condition = (x.missedBlockCounter / data.signedBlockWindow) * 100;
+      const condition = (1 - (x.missedBlockCounter / data.signedBlockWindow)) * 100;
       let conditionClass = '';
       if (condition > 90) {
         conditionClass = 'green';
@@ -120,7 +120,7 @@ export const parseValidators = (data: {
           status: {
             rawValue: x.status.status,
             className: 'inactive',
-            display: 'inactive',
+            display: t('inactive'),
           },
         };
 

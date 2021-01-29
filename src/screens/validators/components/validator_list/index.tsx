@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Search } from '@material-ui/icons';
+// import { Search } from '@material-ui/icons';
 import {
   ValidatorListMobile, ValidatorListDesktop,
 } from 'big-dipper-default-ui';
@@ -8,8 +8,8 @@ import { useTranslation } from 'i18n';
 import {
   Tab,
   Tabs,
-  InputAdornment,
-  OutlinedInput,
+  // InputAdornment,
+  // OutlinedInput,
 } from '@material-ui/core';
 import { useGetScreenSizeHook } from '@hooks';
 import { TabPanel } from '@components';
@@ -28,12 +28,12 @@ const ValidatorList = () => {
   const {
     tabValue,
     handleTabChange,
-    handleSearchChange,
-    handleSearchSubmit,
-    searchValue,
+    // handleSearchChange,
+    // handleSearchSubmit,
+    // searchValue,
     handleRowClick,
     validators,
-  } = useValidatorListHook();
+  } = useValidatorListHook(t);
 
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
@@ -43,9 +43,9 @@ const ValidatorList = () => {
   // ui data parse
   // ===========================
   const labels = getLabels(t);
-  const placeholderValue = tabValue === 0
-    ? t('searchActiveValidator')
-    : t('searchInactiveValidator');
+  // const placeholderValue = tabValue === 0
+  //   ? t('searchActiveValidator')
+  //   : t('searchInactiveValidator');
   return (
     <div className={classnames(classes.root)}>
       <div className={classnames('flex')}>
@@ -61,7 +61,7 @@ const ValidatorList = () => {
           <Tab disableRipple label={t('active')} {...getAllyProps(0)} />
           <Tab disableRipple label={t('inactive')} {...getAllyProps(1)} />
         </Tabs>
-        <form
+        {/* <form
           onSubmit={handleSearchSubmit}
           className={classnames(desktopOnlyStyles.root)}
         >
@@ -75,7 +75,7 @@ const ValidatorList = () => {
               </InputAdornment>
               )}
           />
-        </form>
+        </form> */}
       </div>
       {/* =================================== */}
       {/* active */}
