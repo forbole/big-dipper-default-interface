@@ -30,7 +30,7 @@ export const useGetStyles = () => {
         },
       },
       '& .header__status': {
-        color: theme?.palette?.custom?.white,
+        color: theme?.palette?.custom?.fonts?.fontFour,
         '&.active': {
           background: 'rgba(30, 196, 144, 1)',
         },

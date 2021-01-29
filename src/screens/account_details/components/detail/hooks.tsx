@@ -20,6 +20,7 @@ export const useDetailHook = (t:any) => {
   useQuery(gql`${USERINFO}`, {
     pollInterval: generalConfig.pollInterval.default,
     notifyOnNetworkStatusChange: true,
+    onError:(error) => {console.log(error.message)},
     onCompleted: (data) => {
       setUserInfo(userInfoParser(data));
     },

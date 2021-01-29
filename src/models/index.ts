@@ -16,6 +16,7 @@ import ValidatorInfo from './validator_info';
 import ActivityDetail from './activity_detail';
 import ValidatorStaking from './validator_staking';
 import UserInfo from './user_info';
+import ValidatorLatestBlock from './validator_latest_block';
 
 // ================================
 // Transaction Message Types
@@ -79,5 +80,9 @@ export {
   ValidatorInfo,
   ActivityDetail,
   ValidatorStaking,
+<<<<<<< HEAD
   UserInfo,
+=======
+  ValidatorLatestBlock,
+>>>>>>> eb9aa103727b1b33fd36a882984e98dc99c5c98d
 };

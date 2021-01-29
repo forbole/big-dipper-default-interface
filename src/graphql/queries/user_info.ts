@@ -1,22 +1,18 @@
 export const USERINFO = `
 query UserInfo {
-  validator {
-    validator_info {
-      account {
-        address
-        delegations {
-          amount
-        }
-        redelegations {
-          amount
-        }
-        account_balances {
-          coins
-        }
-        unbonding_delegations {
-          amount
-        }
-      }
+  account(where: {address: {_eq: "desmos1ympu6mhnusc2l8egneyg4lvahwk064harllz5g"}}) {
+    address
+    account_balances {
+      coins
+    }
+    delegations {
+      amount
+    }
+    redelegations {
+      amount
+    }
+    unbonding_delegations {
+      amount
     }
   }
 }

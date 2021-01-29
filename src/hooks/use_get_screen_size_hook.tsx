@@ -16,6 +16,7 @@ function useGetScreenSizeHook() {
   const [windowSize, setWindowSize] = useState(getSize);
   const [isDesktop, setIsDesktop] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const theme:any = useTheme();
 
   useEffect((): any => {
@@ -33,6 +34,12 @@ function useGetScreenSizeHook() {
 
   useEffect(() => {
     const width = windowSize?.width ?? 0;
+    // is mobile
+    if (width < theme?.breakpoints?.values?.tablet) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
     // is tablet
     if (width >= theme?.breakpoints?.values?.tablet
       && width < theme?.breakpoints?.values?.desktop) {
@@ -53,6 +60,7 @@ function useGetScreenSizeHook() {
     windowSize,
     isDesktop,
     isTablet,
+    isMobile,
   };
 }
 
