@@ -22,6 +22,7 @@ import { activityDetailParser } from './activity_details_parser';
 import {
   validatorStakingParser, validatorStakingLatestHeightParser,
 } from './validator_staking_parser';
+import { validatorLatestBlockParser } from './validator_latest_block_parser';
 
 export {
   averageBlockTimesParser,
@@ -41,4 +42,5 @@ export {
   validatorStakingParser,
   validatorStakingLatestHeightParser,
   latestValidatorStatusHeightParser,
+  validatorLatestBlockParser,
 };
