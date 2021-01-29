@@ -6,15 +6,28 @@ import { useRouter } from 'next/router';
 import {
   validatorListParser, slashingParamParser, stabilitiesParser,
 } from '@src/graphql/parsers/queries';
-import { ValidatorList } from '@models';
+import {
+  ValidatorList,
+  Stabilities,
+  SlashingParam,
+} from '@models';
 import { VALIDATOR_LIST } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
+import { parse } from 'dotenv/types';
 
 export const useValidatorListHook = () => {
   const router = useRouter();
   const [tabValue, setTabValue] = useState(0);
   const [searchValue, setSearch] = useState('');
-  const [validators, setValidators] = useState<ValidatorList[]>([]);
+  const [state, setState] = useState<{
+    validators: ValidatorList[];
+    bonded: number;
+    signedBlockWindow: number;
+  }>({
+    validators: [],
+    bonded: 0,
+    signedBlockWindow: 0,
+  });
 
   // ===============================
   // get data
@@ -24,9 +37,11 @@ export const useValidatorListHook = () => {
       const parsedValidators = validatorListParser(data);
       const parsedStabilities = stabilitiesParser(data);
       const parsedSlashing = slashingParamParser(data);
-      console.log(parsedSlashing, 'validators');
-      // const parsedData = validatorInfoParser(data);
-      // setInfo(parsedData);
+      setState({
+        validators: parsedValidators,
+        bonded: parsedStabilities.bondedTokens,
+        signedBlockWindow: parsedSlashing.signedBlockWindow,
+      });
     },
   });
 

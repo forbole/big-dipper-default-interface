@@ -25,7 +25,7 @@ import {
   dummyActiveDesktopData,
   dummyInactiveMobileData,
   dummyInactiveDesktopData,
-  dummyLabels,
+  getLabels,
 } from './utils';
 
 const ValidatorList = () => {
@@ -44,6 +44,11 @@ const ValidatorList = () => {
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
+
+  // ===========================
+  // ui data parse
+  // ===========================
+  const labels = getLabels(t);
   const placeholderValue = tabValue === 0
     ? t('searchActiveValidator')
     : t('searchInactiveValidator');
@@ -87,14 +92,14 @@ const ValidatorList = () => {
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
             data={dummyActiveMobileData}
-            labels={dummyLabels}
+            labels={labels}
             onClick={handleRowClick}
           />
           <ValidatorListDesktop
             onClick={handleRowClick}
             className={classnames(desktopOnlyStyles.root)}
             data={dummyActiveDesktopData}
-            labels={dummyLabels}
+            labels={labels}
           />
         </div>
       </TabPanel>
@@ -106,7 +111,7 @@ const ValidatorList = () => {
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
             onClick={handleRowClick}
-            labels={dummyLabels}
+            labels={labels}
             data={dummyInactiveMobileData}
           />
           <ValidatorListDesktop
@@ -114,7 +119,7 @@ const ValidatorList = () => {
             onClick={handleRowClick}
             className={classnames(desktopOnlyStyles.root)}
             data={dummyInactiveDesktopData}
-            labels={dummyLabels}
+            labels={labels}
           />
         </div>
       </TabPanel>

@@ -382,14 +382,16 @@ export const dummyInactiveDesktopData = [
   },
 ];
 
-export const dummyLabels:any = {
-  moniker: 'moniker',
-  votingPower: 'voting power',
-  self: 'self',
-  commission: 'commission',
-  status: 'status',
-  condition: {
-    display: 'Condition',
-    description: 'hello world',
-  },
+export const getLabels = (t:any) => {
+  return {
+    moniker: t('moniker'),
+    votingPower: t('votingPower'),
+    self: t('self'),
+    commission: t('commission'),
+    status: t('status'),
+    condition: {
+      display: t('condition'),
+      description: t('conditionDescription'),
+    },
+  };
 };
