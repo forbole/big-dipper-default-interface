@@ -21,8 +21,6 @@ import { getAllyProps } from '@utils';
 import { useValidatorListHook } from './hooks';
 import { useGetStyles } from './styles';
 import {
-  dummyActiveMobileData,
-  dummyActiveDesktopData,
   dummyInactiveMobileData,
   dummyInactiveDesktopData,
   getLabels,
@@ -38,7 +36,7 @@ const ValidatorList = () => {
     handleSearchSubmit,
     searchValue,
     handleRowClick,
-    // validatorList,
+    validators,
   } = useValidatorListHook();
 
   const { classes } = useGetStyles();
@@ -91,14 +89,14 @@ const ValidatorList = () => {
           {/* <ActiveList /> */}
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
-            data={dummyActiveMobileData}
+            data={validators.active.mobile}
             labels={labels}
             onClick={handleRowClick}
           />
           <ValidatorListDesktop
             onClick={handleRowClick}
             className={classnames(desktopOnlyStyles.root)}
-            data={dummyActiveDesktopData}
+            data={validators.active.desktop}
             labels={labels}
           />
         </div>

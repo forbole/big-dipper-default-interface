@@ -8,8 +8,7 @@ import {
 } from '@src/graphql/parsers/queries';
 import { ValidatorList } from '@models';
 import { VALIDATOR_LIST } from '@graphql/queries';
-import { generalConfig } from '@src/general_config';
-import { parse } from 'dotenv/types';
+import { parseValidators } from './utils';
 
 export const useValidatorListHook = () => {
   const router = useRouter();
@@ -70,6 +69,6 @@ export const useValidatorListHook = () => {
     handleSearchSubmit,
     searchValue,
     handleRowClick,
-    // validatorList,
+    validators: parseValidators(state),
   };
 };
