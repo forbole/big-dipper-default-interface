@@ -1,11 +1,15 @@
 export const VALIDATOR_LIST = `
 query Validators {
+  pool: staking_pool(order_by: {height: desc}, limit: 1) {
+    bonded_tokens
+  }
   validator {
     validator_info {
       operator_address
     }
     validator_descriptions(order_by: {height: desc}, limit: 1) {
       moniker
+      identity
     }
     validator_voting_powers(order_by: {height: desc}, limit: 1) {
       voting_power
@@ -14,6 +18,7 @@ query Validators {
       commission
     }
     validator_statuses(order_by: {height: desc}, limit: 1) {
+      height
       jailed
       status
     }

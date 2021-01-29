@@ -1,5 +1,4 @@
 import * as R from 'ramda';
-// import { chainConfig } from '@src/chain_config';
 
 class ValidatorList {
   public moniker: number;
@@ -7,7 +6,6 @@ class ValidatorList {
   public votingPower: number;
   public selfDelegations: number;
   public commission: number;
-  public condition: number;
   public status: {
     status: number;
     jailed: boolean;
@@ -18,29 +16,20 @@ class ValidatorList {
     this.votingPower = payload.votingPower;
     this.selfDelegations = payload.selfDelegations;
     this.commission = payload.commission;
-    this.condition = payload.condition;
     this.status = payload.status;
   }
 
   static fromJson(json: any) {
-    // const totalSupply = R.pathOr([], ['total_tokens', 0, 'coins'], data).reduce((a, b) => {
-    //   if (b.denom === chainConfig.base) {
-    //     return b;
-    //   }
-    //   return a;
-    // }, null);
-
-    // const communityPool = R.pathOr([], ['community_pool', 0, 'coins'], data).reduce((a, b) => {
-    //   if (b.denom === chainConfig.base) {
-    //     return b;
-    //   }
-    //   return a;
-    // }, null);
-
     return new ValidatorList({
-      moniker: R.pathOr('', ['validator_descriptions', 'moniker'], json),
+      moniker: R.pathOr('', ['validator_descriptions', 0, 'moniker'], json),
       validatorAddress: R.pathOr('', ['validator_info', 'operator_address'], json),
-      // votingPower
+      votingPower: R.pathOr(0, ['validator_voting_powers', 0, 'voting_power']),
+      selfDelegations: R.pathOr(0, ['self_delegations', 0, 'amount'], json),
+      commission: R.pathOr(0, ['validator_commissions', 0, 'commission'], json),
+      status: {
+        status: R.pathOr(null, ['validator_statuses', 0, 'status'], json),
+        jailed: R.pathOr(null, ['validator_statuses', 0, 'jailed'], json),
+      },
     });
   }
 }
