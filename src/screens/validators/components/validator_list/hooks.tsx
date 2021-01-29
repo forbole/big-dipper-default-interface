@@ -6,11 +6,7 @@ import { useRouter } from 'next/router';
 import {
   validatorListParser, slashingParamParser, stabilitiesParser,
 } from '@src/graphql/parsers/queries';
-import {
-  ValidatorList,
-  Stabilities,
-  SlashingParam,
-} from '@models';
+import { ValidatorList } from '@models';
 import { VALIDATOR_LIST } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
 import { parse } from 'dotenv/types';
