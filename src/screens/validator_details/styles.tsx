@@ -18,6 +18,7 @@ export const useGetStyles = () => {
       },
       '& .missed-blocks': {
         height: '550px',
+        zIndex: 30,
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
 

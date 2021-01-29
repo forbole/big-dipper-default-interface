@@ -8,13 +8,12 @@ export const useGetStyles = () => {
     root: {
       background: theme?.palette?.background?.paper,
       height: '100%',
+      '& a': {
+        whiteSpace: 'nowrap',
+      },
       '&.validator-blocks': {
         display: 'flex',
         flexDirection: 'column',
-        '& .validator-blocks__bar-chart': {
-          overflowY: 'auto',
-          overflowX: 'hidden',
-        },
         '& .validator-blocks__title': {
           color: theme?.palette?.custom?.fonts?.fontOne,
         },

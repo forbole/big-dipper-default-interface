@@ -1,6 +1,6 @@
 export const VALIDATOR_LATEST_BLOCKS = `
 query LastHundredBlocks($address: String) {
-  block(order_by: {height: desc}, limit: 2) {
+  block(order_by: {height: desc}, limit: 100) {
     height
     proposer_address
     validator_voting_powers_aggregate {

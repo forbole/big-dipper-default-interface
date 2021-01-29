@@ -37,11 +37,11 @@ export const getLabelsRedelegationsDesktop = (t: any) => ({
   amount: t('amount'),
 });
 
-export const formatStakingData = (data:ValidatorStaking, isTablet: boolean) => {
+export const formatStakingData = (data:ValidatorStaking, isMobile: boolean) => {
   const convertAmount = (amount:number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
 
   const formatAddress = (address:string) => {
-    return isTablet ? address : formatMiddleEllipse(address, {
+    return !isMobile ? address : formatMiddleEllipse(address, {
       beginning: 3,
       ending: 5,
     });

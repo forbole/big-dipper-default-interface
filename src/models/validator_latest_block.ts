@@ -26,7 +26,7 @@ class ValidatorLatestBlock {
   static fromJson(json: any) {
     const blockVotingPower = R.pathOr(0, ['validator_voting_powers_aggregate', 'aggregate', 'sum', 'voting_power'], json);
     const signedVotingPower = R.pathOr(0, ['pre_commits_aggregate', 'aggregate', 'sum', 'voting_power'], json);
-    const votingPower = (signedVotingPower / blockVotingPower) * 100;
+    const votingPower = (signedVotingPower / blockVotingPower);
     return new ValidatorLatestBlock({
       height: R.pathOr(0, ['height'], json),
       proposerAddress: R.pathOr(0, ['proposer_address'], json),

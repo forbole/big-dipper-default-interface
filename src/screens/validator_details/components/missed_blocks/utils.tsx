@@ -16,25 +16,12 @@ export const getLabels = (t:any) => {
   });
 };
 
-export const getAspect = ({
-  isDesktop = false,
-  isTablet = false,
-}) => {
-  if (isTablet) {
-    return 1;
-  }
-  if (isDesktop) {
-    return 0.5;
-  }
-  return 0.5;
-};
-
 export const formatBlockInfo = (data: ValidatorLatestBlock[]) => {
   return data.map((x) => {
     return {
       proposer: <AvatarDisplay address={x.proposerAddress} />,
       height: numeral(x.height).format('0,0'),
-      votingPower: numeral(x.votingPower).format('0.00[00]%'),
+      votingPower: numeral(x.votingPower).format('0.00%'),
       gas: `${numeral(x.gasUsed).format('0,0.00[00]')} / ${numeral(x.gasWanted).format('0,0.00[00]')}`,
       voted: x.voted,
       signatures: {
