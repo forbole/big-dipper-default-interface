@@ -14,6 +14,7 @@ import { ACTIVITY_DETAILS } from './activity_details';
 import {
   VALIDATOR_STAKING, VALIDATOR_STAKING_LATEST_HEIGHT,
 } from './validator_staking';
+import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
 
 export {
   LATEST_VALIDATOR_STATUS_HEIGHT,
@@ -30,4 +31,5 @@ export {
   ACTIVITY_DETAILS,
   VALIDATOR_STAKING,
   VALIDATOR_STAKING_LATEST_HEIGHT,
+  VALIDATOR_LATEST_BLOCKS,
 };

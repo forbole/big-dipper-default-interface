@@ -3,9 +3,11 @@ import { ValidatorBlocks } from 'big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import { useGetScreenSizeHook } from '@hooks';
 import {
-  dummyData, getAspect, getLabels,
+  getAspect,
+  getLabels,
 } from './utils';
 import { useGetStyles } from './styles';
+import { useValidatorBlocksHook } from './hooks';
 
 const MissedBlocks = () => {
   const { t } = useTranslation(['validators', 'common']);
@@ -14,7 +16,7 @@ const MissedBlocks = () => {
     isTablet,
     isDesktop,
   } = useGetScreenSizeHook();
-
+  const { blockInfo } = useValidatorBlocksHook();
   const rechartsAspect = getAspect({
     isDesktop,
     isTablet,
@@ -35,7 +37,7 @@ const MissedBlocks = () => {
       recharts={{
         gridAspect: rechartsAspect,
       }}
-      data={dummyData}
+      data={blockInfo}
     />
   );
 };
