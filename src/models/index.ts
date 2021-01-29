@@ -15,8 +15,8 @@ import ValidatorProfile from './validator_profile';
 import ValidatorInfo from './validator_info';
 import ActivityDetail from './activity_detail';
 import ValidatorStaking from './validator_staking';
-import ValidatorList from './validator_list';
 import ValidatorLatestBlock from './validator_latest_block';
+import ValidatorList from './validator_list';
 
 // ================================
 // Transaction Message Types

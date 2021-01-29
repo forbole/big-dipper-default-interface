@@ -19,7 +19,6 @@ import { preCommitsParser } from './pre_commit_parser';
 import { validatorProfileParser } from './validator_profile_parser';
 import { validatorInfoParser } from './validator_info_parser';
 import { activityDetailParser } from './activity_details_parser';
-import { validatorListParser } from './validator_list_parser';
 import {
   validatorStakingParser, validatorStakingLatestHeightParser,
 } from './validator_staking_parser';
@@ -41,7 +40,6 @@ export {
   validatorInfoParser,
   activityDetailParser,
   validatorStakingParser,
-  validatorListParser,
   validatorStakingLatestHeightParser,
   latestValidatorStatusHeightParser,
   validatorLatestBlockParser,

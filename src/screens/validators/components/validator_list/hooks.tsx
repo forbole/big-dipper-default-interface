@@ -4,8 +4,8 @@ import {
 } from '@apollo/client';
 import { useRouter } from 'next/router';
 import { validatorListParser } from '@src/graphql/parsers/queries';
-import { ValidatorList } from '@models';
-import { VALIDATORLIST } from '@graphql/queries';
+// import { ValidatorList } from '@models';
+// import { VALIDATORLIST } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
 
 export const useValidatorListHook = () => {
@@ -32,20 +32,20 @@ export const useValidatorListHook = () => {
     }
   };
 
-  const [validatorList, setValidatorList] = useState<ValidatorList>(ValidatorList.fromJson({
-  }));
+  // const [validatorList, setValidatorList] = useState<ValidatorList>(ValidatorList.fromJson({
+  // }));
 
-  useQuery(gql`${VALIDATORLIST}`, {
-    pollInterval: generalConfig.pollInterval.default,
-    notifyOnNetworkStatusChange: true,
-    onCompleted: (data) => {
-      setValidatorList(validatorListParser(data));
-      console.log('data', data);
-      console.log('complete');
-    },
+  // useQuery(gql`${VALIDATORLIST}`, {
+  //   pollInterval: generalConfig.pollInterval.default,
+  //   notifyOnNetworkStatusChange: true,
+  //   onCompleted: (data) => {
+  //     setValidatorList(validatorListParser(data));
+  //     console.log('data', data);
+  //     console.log('complete');
+  //   },
 
-  });
-  console.log('validatorList2', validatorList);
+  // });
+  // console.log('validatorList2', validatorList);
 
   return {
     tabValue,
@@ -54,6 +54,6 @@ export const useValidatorListHook = () => {
     handleSearchSubmit,
     searchValue,
     handleRowClick,
-    validatorList,
+    // validatorList,
   };
 };

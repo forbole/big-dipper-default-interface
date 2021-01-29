@@ -1,28 +1,31 @@
-export const VALIDATORLIST = `
-query ValidatorListQuery {
+export const VALIDATOR_LIST = `
+query Validators {
   validator {
-    self_delegations(order_by:{height:desc}, limit:1) {
-      delegator_address
-      amount
-    }
-    descriptions: validator_descriptions(limit: 1, order_by: {height: desc}) {
-      moniker
-      identity
-    }
-    validator_voting_powers(limit: 1, order_by: {height: desc}) {
-      voting_power
-    }
     validator_info {
       operator_address
     }
-    validator_commissions(limit: 1, order_by: {height: desc}) {
+    validator_descriptions(order_by: {height: desc}, limit: 1) {
+      moniker
+    }
+    validator_voting_powers(order_by: {height: desc}, limit: 1) {
+      voting_power
+    }
+    validator_commissions(order_by: {height: desc}, limit: 1) {
       commission
     }
-    validator_statuses(limit: 1, order_by: {height: desc}) {
-      height
+    validator_statuses(order_by: {height: desc}, limit: 1) {
       jailed
       status
     }
+    validator_signing_infos(order_by: {height: desc}, limit: 1) {
+      missed_blocks_counter
+    }
+    self_delegations(limit: 1, order_by: {height: desc}) {
+      amount
+    }
+  }
+  slashing_params(order_by: {height: desc}, limit: 1) {
+    signed_block_window
   }
 }
 `;
