@@ -1,4 +1,7 @@
-import { VALIDATOR_STAKING } from '@graphql/queries';
+import {
+  VALIDATOR_STAKING,
+  VALIDATOR_STAKING_LATEST_HEIGHT,
+} from '@graphql/queries';
 import { gql } from '@apollo/client';
 
 export const VALIDATOR_STAKING_MOCK_DATA = [
@@ -27,6 +30,29 @@ export const VALIDATOR_STAKING_MOCK_DATA = [
                   amount: 5950000000,
                 },
                 delegator_address: 'desmos1uj9c9929scde78wu3u5r99wcavf2fzl7rdesmh',
+              },
+            ],
+            redelegations: [],
+            unbonding_delegations: [],
+          },
+        ],
+      },
+    },
+  },
+  {
+    request: {
+      query: gql`${VALIDATOR_STAKING_LATEST_HEIGHT}`,
+      variables: {
+        address: null,
+      },
+    },
+    result: {
+      data: {
+        validator: [
+          {
+            delegations: [
+              {
+                height: 1,
               },
             ],
             redelegations: [],

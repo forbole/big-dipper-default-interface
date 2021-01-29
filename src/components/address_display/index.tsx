@@ -20,11 +20,7 @@ const AddressDisplay = (props: AddressDisplayProps) => {
   const globalState = useContext(GlobalContext);
   const validators: {[key:string]:ValidatorAddressList} = R.pathOr({
   }, ['validators'], globalState);
-  // wingman
-  if (address === 'desmosvaloper1txq3455qap287etak00m4gppdsnsyqu353stq6') {
-    console.log(validators[address], 'why you no exist');
-  }
-  // wingman
+
   const validator = validators[address];
 
   if (validator) {

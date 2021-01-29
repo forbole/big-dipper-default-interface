@@ -24,7 +24,7 @@ class ActivityDetail {
   public hash: string;
   public height: number;
   public fee: {
-    gas: number;
+    amount: number;
   }
   public gasUsed: number;
   public gasWanted: number;
@@ -65,13 +65,13 @@ class ActivityDetail {
       hash: json.hash,
       height: json.height,
       fee: {
-        gas: numeral(json?.fee?.gas).value(),
+        amount: numeral(R.pathOr(0, ['fee', 'amount', 0, 'amount'], json)).value(),
       },
       gasUsed: json.gas_used,
       gasWanted: json.gas_wanted,
       success: json.success,
       memo: json.memo,
-      timestamp: json.timestamp,
+      timestamp: json?.block?.timestamp,
       messages: R.pathOr([], ['messages'], json).map((x) => {
         return getMessageModelByType(x?.['@type']).fromJson(x);
       }),

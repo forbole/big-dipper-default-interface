@@ -9,7 +9,9 @@ export const ACTIVITY_DETAILS = `
       success
       memo
       messages
-      timestamp
+      block {
+        timestamp
+      }
     }
   }
 `;

@@ -1,4 +1,6 @@
-import { TOTAL_ACTIVE_VALIDATORS } from './total_active_validators';
+import {
+  TOTAL_ACTIVE_VALIDATORS, LATEST_VALIDATOR_STATUS_HEIGHT,
+} from './total_active_validators';
 import { STABILITIES } from './stabilities';
 import { COMMUNITY_POOL } from './community_pool';
 import { AVERAGE_BLOCK_TIMES } from './average_block_times';
@@ -9,10 +11,14 @@ import { BLOCK_DETAILS } from './block_details';
 import { VALIDATOR_PROFILE } from './validator_profile';
 import { VALIDATOR_INFO } from './validator_info';
 import { ACTIVITY_DETAILS } from './activity_details';
-import { VALIDATOR_STAKING } from './validator_staking';
 import { VALIDATORLIST } from './validator_list';
+import {
+  VALIDATOR_STAKING, VALIDATOR_STAKING_LATEST_HEIGHT,
+} from './validator_staking';
+import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
 
 export {
+  LATEST_VALIDATOR_STATUS_HEIGHT,
   TOTAL_ACTIVE_VALIDATORS,
   STABILITIES,
   COMMUNITY_POOL,
@@ -26,4 +32,6 @@ export {
   ACTIVITY_DETAILS,
   VALIDATOR_STAKING,
   VALIDATORLIST,
+  VALIDATOR_STAKING_LATEST_HEIGHT,
+  VALIDATOR_LATEST_BLOCKS,
 };
