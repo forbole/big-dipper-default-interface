@@ -24,11 +24,15 @@ export const parseValidators = (data: {
   const activeStatus = [2, 3];
   const inactiveStatus = [0, 1];
 
-  data.validators.forEach((x) => {
+  data.validators.filter((x) => x.validatorAddress).forEach((x) => {
     // % of self within your own voting power
     const self = x.selfDelegations / x.votingPower;
     // % of voting power over bonded tokens
     const votingPower = x.votingPower / data.bonded;
+    let votingPowerPercentage = numeral(votingPower).format('0%');
+    if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0%';
+
+    console.log(votingPower, 'voting power');
     // health display
     const condition = (x.missedBlockCounter / data.signedBlockWindow) * 100;
     let conditionClass = '';
@@ -61,7 +65,7 @@ export const parseValidators = (data: {
         votingPower: {
           rawValue: x.votingPower,
           display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
-          percentDisplay: numeral(votingPower).format('0%'),
+          percentDisplay: votingPowerPercentage,
         },
       };
 
@@ -76,22 +80,22 @@ export const parseValidators = (data: {
       });
 
       // desktop conversion
-      active.desktop.push({
-        ...base,
-        moniker: {
-          rawValue: x.moniker,
-          display: (
-            <AvatarDisplay
-              address={x.validatorAddress}
-              display={x.moniker}
-            />
-          ),
-        },
-        condition: {
-          rawValue: condition,
-          className: conditionClass,
-        },
-      });
+      // active.desktop.push({
+      //   ...base,
+      //   moniker: {
+      //     rawValue: x.moniker,
+      //     display: (
+      //       <AvatarDisplay
+      //         address={x.validatorAddress}
+      //         display={x.moniker}
+      //       />
+      //     ),
+      //   },
+      //   condition: {
+      //     rawValue: condition,
+      //     className: conditionClass,
+      //   },
+      // });
     }
   });
 

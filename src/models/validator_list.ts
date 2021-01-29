@@ -25,7 +25,7 @@ class ValidatorList {
     return new ValidatorList({
       moniker: R.pathOr('', ['validator_descriptions', 0, 'moniker'], json),
       validatorAddress: R.pathOr('', ['validator_info', 'operator_address'], json),
-      votingPower: R.pathOr(0, ['validator_voting_powers', 0, 'voting_power']),
+      votingPower: R.pathOr(0, ['validator_voting_powers', 0, 'voting_power'], json),
       selfDelegations: R.pathOr(0, ['self_delegations', 0, 'amount'], json),
       commission: R.pathOr(0, ['validator_commissions', 0, 'commission'], json),
       missedBlockCounter: R.pathOr(0, ['validator_signing_infos', 0, 'missed_blocks_counter'], json),

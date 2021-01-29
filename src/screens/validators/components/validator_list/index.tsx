@@ -20,11 +20,7 @@ import {
 import { getAllyProps } from '@utils';
 import { useValidatorListHook } from './hooks';
 import { useGetStyles } from './styles';
-import {
-  dummyInactiveMobileData,
-  dummyInactiveDesktopData,
-  getLabels,
-} from './utils';
+import { getLabels } from './utils';
 
 const ValidatorList = () => {
   const { t } = useTranslation('validators');
@@ -42,7 +38,7 @@ const ValidatorList = () => {
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
-
+  console.log(validators, 'well goddamn');
   // ===========================
   // ui data parse
   // ===========================
@@ -110,13 +106,13 @@ const ValidatorList = () => {
             className={classnames(mobileOnlyStyles.root)}
             onClick={handleRowClick}
             labels={labels}
-            data={dummyInactiveMobileData}
+            data={validators.inactive.mobile}
           />
           <ValidatorListDesktop
             inactive
             onClick={handleRowClick}
             className={classnames(desktopOnlyStyles.root)}
-            data={dummyInactiveDesktopData}
+            data={validators.inactive.desktop}
             labels={labels}
           />
         </div>
