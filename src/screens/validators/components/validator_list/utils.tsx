@@ -24,60 +24,71 @@ export const parseValidators = (data: {
   const activeStatus = [2, 3];
   const inactiveStatus = [0, 1];
 
-  data.validators.filter((x) => x.validatorAddress).forEach((x) => {
+  data.validators
+    .filter((x) => x.validatorAddress)
+    .sort((a, b) => ((a.moniker.toLowerCase() > b.moniker.toLowerCase()) ? 1 : -1))
+    .forEach((x) => {
     // % of self within your own voting power
-    const self = x.selfDelegations / x.votingPower;
-    // % of voting power over bonded tokens
-    const votingPower = x.votingPower / data.bonded;
-    let votingPowerPercentage = numeral(votingPower).format('0%');
-    if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0%';
+      const self = x.selfDelegations / x.votingPower;
+      // % of voting power over bonded tokens
+      const votingPower = (x.votingPower / data.bonded) * 100;
+      let votingPowerPercentage = `${numeral(votingPower).format('0.00[0000]')}%`;
+      // edge case when the number gets too small
+      if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0.00%';
+      if (x.validatorAddress === 'desmosvaloper1txdthvutrrfzzf9htelcnfz655afu4yh0zhrr2') {
+      // console.log(votingPowerPercentage, 'expect 0.000008');
+      // console.log(x.votingPower, 'VP');
+      // console.log(data.bonded, 'data bonded');
+      // console.log((x.votingPower / data.bonded) * 100, 'the deci');
+      }
+      // health display
+      const condition = (x.missedBlockCounter / data.signedBlockWindow) * 100;
+      let conditionClass = '';
+      if (condition > 90) {
+        conditionClass = 'green';
+      } else if (condition > 70 && condition < 90) {
+        conditionClass = 'yellow';
+      } else {
+        conditionClass = 'red';
+      }
+      // ==============================
+      // active
+      // ==============================
+      if (activeStatus.includes(x.status.status)) {
+        const base = {
+          operatorAddress: x.validatorAddress,
+          self: {
+            rawValue: self,
+            display: numeral(self).format('0%'),
+          },
+          status: {
+            rawValue: x.status.status,
+            className: x.status.jailed ? 'jailed' : 'active',
+            display: x.status.jailed ? 'jailed' : 'active',
+          },
+          commission: {
+            rawValue: x.commission,
+            display: numeral(x.commission).format('0%'),
+          },
+          votingPower: {
+            rawValue: x.votingPower,
+            display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
+            percentDisplay: votingPowerPercentage,
+          },
+        };
 
-    console.log(votingPower, 'voting power');
-    // health display
-    const condition = (x.missedBlockCounter / data.signedBlockWindow) * 100;
-    let conditionClass = '';
-    if (condition > 90) {
-      conditionClass = 'green';
-    } else if (condition > 70 && condition < 90) {
-      conditionClass = 'yellow';
-    } else {
-      conditionClass = 'red';
-    }
-    // ==============================
-    // active
-    // ==============================
-    if (activeStatus.includes(x.status.status)) {
-      const base = {
-        operatorAddress: x.validatorAddress,
-        self: {
-          rawValue: self,
-          display: numeral(self).format('0%'),
-        },
-        status: {
-          rawValue: x.status.status,
-          className: x.status.jailed ? 'jailed' : 'active',
-          display: x.status.jailed ? 'jailed' : 'active',
-        },
-        commission: {
-          rawValue: x.commission,
-          display: numeral(x.commission).format('0%'),
-        },
-        votingPower: {
-          rawValue: x.votingPower,
-          display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
-          percentDisplay: votingPowerPercentage,
-        },
-      };
-
-      // mobile conversion
-      active.mobile.push({
-        ...base,
-        moniker: {
-          rawValue: x.moniker,
-          avatar: <Avatar address={x.validatorAddress} />,
-          display: x.moniker,
-        },
-      });
+        // mobile conversion
+        active.mobile.push({
+          ...base,
+          moniker: {
+            rawValue: x.moniker,
+            avatar: <Avatar
+              address={x.validatorAddress}
+              diameter={50}
+            />,
+            display: x.moniker,
+          },
+        });
 
       // desktop conversion
       // active.desktop.push({
@@ -96,8 +107,8 @@ export const parseValidators = (data: {
       //     className: conditionClass,
       //   },
       // });
-    }
-  });
+      }
+    });
 
   return {
     active,

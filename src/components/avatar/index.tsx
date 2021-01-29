@@ -27,7 +27,7 @@ export const AvatarHelper = (props:AvatarProps) => {
       <Validator
         diameter={diameter}
         address={address}
-        identity={validator?.identity}
+        identity={validator?.id}
         link={link}
       />
     );
