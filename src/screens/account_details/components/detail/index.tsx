@@ -6,13 +6,25 @@ import {
   UserInfoMobile,
 } from 'big-dipper-default-ui';
 import { useGetStyles } from './styles';
-import { dummyData } from './utils';
+import {
+  dummyData,
+  toCurrency,
+} from './utils';
 import { useDetailHook } from './hooks';
 
 const Detail = () => {
   const { t } = useTranslation(['accounts', 'activities']);
-  const { classes } = useGetStyles(dummyData);
-  const { handleCopy } = useDetailHook(t);
+  const colors = ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'];
+  const { classes } = useGetStyles(colors);
+  const {
+    handleCopy,
+    userInfo,
+  } = useDetailHook(t);
+
+  const test = toCurrency(userInfo.delegate.amount ? userInfo.delegate.amount : 0);
+  console.log('test', test);
+
+  /* total atom means amount or price per coin? */
 
   return (
     <div className={classes.root}>
@@ -22,6 +34,45 @@ const Detail = () => {
         classNameTable={classnames(classes.table)}
         classNameChart={classnames(classes.chart)}
         {...dummyData}
+        chart={{
+          total: {
+            title: `Total ${userInfo.unit}`,
+            subTitle: '$3.22/ATOM',
+          },
+          totalDollar: {
+            title: '6,574,315.38',
+            subTitle: '$21,169,295.52',
+          },
+          colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
+          data: [
+            {
+              title: 'Available',
+              value: 111189.15,
+              display: '111,189.15 ATOM',
+            },
+            {
+              title: 'Delegate',
+              value: userInfo.delegate.amount,
+              display: `${toCurrency(userInfo.delegate.amount ? userInfo.delegate.amount : 0)} ${userInfo.delegate.denom}`,
+            },
+            {
+              title: 'Unbonding',
+              value: userInfo.unbonding.amount,
+              display: `${toCurrency(userInfo.unbonding.amount ? userInfo.unbonding.amount : 0)} ${userInfo.unbonding.denom}`,
+            },
+            {
+              title: 'Reward',
+              value: 5122.96,
+              display: '5,122.96 ATOM',
+            },
+            {
+              title: 'Commission',
+              value: 1324.91,
+              display: '1,324.91 ATOM',
+            },
+          ],
+
+        }}
         copyCallback={handleCopy}
       />
       <UserInfoDesktop
@@ -30,6 +81,44 @@ const Detail = () => {
         classNameTable={classnames(classes.table)}
         classNameChart={classnames(classes.chart)}
         {...dummyData}
+        chart={{
+          total: {
+            title: 'Total ATOM',
+            subTitle: '$3.22/ATOM',
+          },
+          totalDollar: {
+            title: '6,574,315.38',
+            subTitle: '$21,169,295.52',
+          },
+          colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
+          data: [
+            {
+              title: 'Available',
+              value: 111189.15,
+              display: '111,189.15 ATOM',
+            },
+            {
+              title: 'Delegate',
+              value: userInfo.delegate.amount,
+              display: `${toCurrency(userInfo.delegate.amount ? userInfo.delegate.amount : 0)} ${userInfo.delegate.denom}`,
+            },
+            {
+              title: 'Unbonding',
+              value: userInfo.unbonding.amount,
+              display: `${toCurrency(userInfo.unbonding.amount ? userInfo.unbonding.amount : 0)} ${userInfo.unbonding.denom}`,
+            },
+            {
+              title: 'Reward',
+              value: 5122.96,
+              display: '5,122.96 ATOM',
+            },
+            {
+              title: 'Commission',
+              value: 1324.91,
+              display: '1,324.91 ATOM',
+            },
+          ],
+        }}
         copyCallback={handleCopy}
       />
     </div>

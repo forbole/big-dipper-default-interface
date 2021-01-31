@@ -11,15 +11,11 @@ import { BLOCK_DETAILS } from './block_details';
 import { VALIDATOR_PROFILE } from './validator_profile';
 import { VALIDATOR_INFO } from './validator_info';
 import { ACTIVITY_DETAILS } from './activity_details';
-<<<<<<< HEAD
-import { VALIDATOR_STAKING } from './validator_staking';
-import { USERINFO } from './user_info';
-=======
 import {
   VALIDATOR_STAKING, VALIDATOR_STAKING_LATEST_HEIGHT,
 } from './validator_staking';
 import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
->>>>>>> eb9aa103727b1b33fd36a882984e98dc99c5c98d
+import { USERINFO, getUserInfoQuery } from './user_info';
 
 export {
   LATEST_VALIDATOR_STATUS_HEIGHT,
@@ -35,10 +31,8 @@ export {
   VALIDATOR_INFO,
   ACTIVITY_DETAILS,
   VALIDATOR_STAKING,
-<<<<<<< HEAD
   USERINFO,
-=======
+  getUserInfoQuery,
   VALIDATOR_STAKING_LATEST_HEIGHT,
   VALIDATOR_LATEST_BLOCKS,
->>>>>>> eb9aa103727b1b33fd36a882984e98dc99c5c98d
 };

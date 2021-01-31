@@ -3,13 +3,12 @@ import {
 } from '@material-ui/styles';
 import { getMinMediaQuery } from '@styles';
 
-export const useGetStyles = (props: any) => {
+export const useGetStyles = (props: string[]) => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
-      padding: theme?.palette?.custom?.margins?.small,
       background: theme?.palette?.background?.paper,
       '&.userInfoMobile': {
-        padding: '0',
+        padding: theme?.palette?.custom?.margins?.small,
       },
       '&.userInfoDesktop': {
         display: 'none',
@@ -100,27 +99,28 @@ export const useGetStyles = (props: any) => {
         '& .dataType': {
           '&.available': {
             '&:before': {
-              background: theme?.palette?.type === 'light' ? props.chart.colors[0] : `${props.chart.colors[0]}b3`,
+              background: theme?.palette?.type === 'light' ? props[0] : `${props[0]}b3`,
+              // background: props[0],
             },
           },
           '&.delegate': {
             '&:before': {
-              background: props.chart.colors[1],
+              background: props[1],
             },
           },
           '&.unbonding': {
             '&:before': {
-              background: theme?.palette?.type === 'light' ? props.chart.colors[2] : `${props.chart.colors[2]}b3`,
+              background: theme?.palette?.type === 'light' ? props[2] : `${props[2]}b3`,
             },
           },
           '&.reward': {
             '&:before': {
-              background: theme?.palette?.type === 'light' ? props.chart.colors[3] : `${props.chart.colors[3]}b3`,
+              background: theme?.palette?.type === 'light' ? props[3] : `${props[3]}b3`,
             },
           },
           '&.commision': {
             '&:before': {
-              background: theme?.palette?.type === 'light' ? props.chart.colors[4] : `${props.chart.colors[4]}b3`,
+              background: theme?.palette?.type === 'light' ? props[4] : `${props[4]}b3`,
             },
           },
         },

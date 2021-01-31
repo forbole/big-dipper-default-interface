@@ -80,9 +80,6 @@ export {
   ValidatorInfo,
   ActivityDetail,
   ValidatorStaking,
-<<<<<<< HEAD
   UserInfo,
-=======
   ValidatorLatestBlock,
->>>>>>> eb9aa103727b1b33fd36a882984e98dc99c5c98d
 };

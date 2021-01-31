@@ -19,7 +19,6 @@ import { preCommitsParser } from './pre_commit_parser';
 import { validatorProfileParser } from './validator_profile_parser';
 import { validatorInfoParser } from './validator_info_parser';
 import { activityDetailParser } from './activity_details_parser';
-import { validatorStakingParser } from './validator_staking_parser';
 import { userInfoParser } from './user_info_parser';
 import {
   validatorStakingParser, validatorStakingLatestHeightParser,
@@ -42,11 +41,8 @@ export {
   validatorInfoParser,
   activityDetailParser,
   validatorStakingParser,
-<<<<<<< HEAD
   userInfoParser,
-=======
   validatorStakingLatestHeightParser,
   latestValidatorStatusHeightParser,
   validatorLatestBlockParser,
->>>>>>> eb9aa103727b1b33fd36a882984e98dc99c5c98d
 };
