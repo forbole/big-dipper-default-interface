@@ -28,8 +28,8 @@ jobs:
           cat .env
       - name: Checkout code
         uses: actions/checkout@v2
-        # with:
-        #   persist-credentials: false
+        with:
+          persist-credentials: false
 
       - name: Prepare tags
         id: prep
