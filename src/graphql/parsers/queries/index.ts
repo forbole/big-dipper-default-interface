@@ -23,6 +23,8 @@ import {
   validatorStakingParser, validatorStakingLatestHeightParser,
 } from './validator_staking_parser';
 import { validatorLatestBlockParser } from './validator_latest_block_parser';
+import { slashingParamParser } from './slashing_param_parser';
+import { validatorListParser } from './validator_list_parser';
 
 export {
   averageBlockTimesParser,
@@ -43,4 +45,6 @@ export {
   validatorStakingLatestHeightParser,
   latestValidatorStatusHeightParser,
   validatorLatestBlockParser,
+  slashingParamParser,
+  validatorListParser,
 };

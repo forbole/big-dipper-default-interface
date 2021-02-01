@@ -12,6 +12,7 @@ import { VALIDATOR_INFO_MOCK_DATA } from './validator_info';
 import { ACTIVITY_DETAILS_MOCK_DATA } from './activity_detail';
 import { VALIDATOR_STAKING_MOCK_DATA } from './validator_staking';
 import { VALIDATOR_LATEST_BLOCKS_MOCK_DATA } from './validator_blocks';
+import { VALIDATOR_LIST_MOCK_DATA } from './validator_list';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -28,4 +29,5 @@ export {
   ACTIVITY_DETAILS_MOCK_DATA,
   VALIDATOR_STAKING_MOCK_DATA,
   VALIDATOR_LATEST_BLOCKS_MOCK_DATA,
+  VALIDATOR_LIST_MOCK_DATA,
 };

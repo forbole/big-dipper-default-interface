@@ -5,6 +5,9 @@ import {
   Tabs,
 } from '@material-ui/core';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
+import { awaitActions } from '@tests/utils/await_actions';
+import { VALIDATOR_LIST_MOCK_DATA } from '@tests/mocks';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
 import {
   ValidatorListMobile, ValidatorListDesktop,
@@ -12,13 +15,22 @@ import {
 import ValidatorList from '.';
 
 describe('ValidatorList', () => {
-  it('correctly renders component', () => {
+  it('correctly renders component', async () => {
     const wrapper = mount(
-      BaseWrapper({
-        component: <ValidatorList />,
-        theme: lightTheme,
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <ValidatorList />,
+          theme: lightTheme,
+        }),
+        mocks: VALIDATOR_LIST_MOCK_DATA,
       }),
     );
+
+    await awaitActions({
+      wrapper,
+      time: 10,
+    });
+
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(ValidatorListMobile)).toHaveLength(1);
     expect(wrapper.find(ValidatorListDesktop)).toHaveLength(1);

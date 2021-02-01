@@ -32,5 +32,11 @@
   "yes": "Yes",
   "no": "No",
   "signatures": "Signatures",
-  "jailed": "Jailed"
+  "jailed": "Jailed",
+  "moniker": "Moniker",
+  "self": "Self",
+  "commission": "Commission",
+  "status": "Status",
+  "condition": "Condition",
+  "conditionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ornare interdum purus, et tincidunt metus tempor bibendum."
 }

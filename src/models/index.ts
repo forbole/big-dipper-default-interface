@@ -16,6 +16,8 @@ import ValidatorInfo from './validator_info';
 import ActivityDetail from './activity_detail';
 import ValidatorStaking from './validator_staking';
 import ValidatorLatestBlock from './validator_latest_block';
+import ValidatorList from './validator_list';
+import SlashingParam from './slashing_param';
 
 // ================================
 // Transaction Message Types
@@ -79,5 +81,7 @@ export {
   ValidatorInfo,
   ActivityDetail,
   ValidatorStaking,
+  ValidatorList,
   ValidatorLatestBlock,
+  SlashingParam,
 };
