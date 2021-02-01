@@ -5,10 +5,7 @@ import {
   latestBlocksTotalParser,
 } from './latest_blocks_parser';
 import { stabilitiesParser } from './stabilities_parser';
-import {
-  totalActiveValidatorsParser,
-  latestValidatorStatusHeightParser,
-} from './total_active_validators_parser';
+import { totalActiveValidatorsParser } from './total_active_validators_parser';
 import { validatorAddressListParser } from './validators_address_list_parser';
 import {
   latestActivitiesParser,
@@ -24,6 +21,8 @@ import {
   validatorStakingParser, validatorStakingLatestHeightParser,
 } from './validator_staking_parser';
 import { validatorLatestBlockParser } from './validator_latest_block_parser';
+import { slashingParamParser } from './slashing_param_parser';
+import { validatorListParser } from './validator_list_parser';
 
 export {
   averageBlockTimesParser,
@@ -43,6 +42,7 @@ export {
   validatorStakingParser,
   userInfoParser,
   validatorStakingLatestHeightParser,
-  latestValidatorStatusHeightParser,
   validatorLatestBlockParser,
+  slashingParamParser,
+  validatorListParser,
 };

@@ -35,6 +35,6 @@ describe('DataBlocksHeader', () => {
     expect(wrap.find('.average-block-time').find('h1').text()).toEqual('6.09 s');
     expect(wrap.find('.MuiMenu-list')).toHaveLength(0);
     expect(wrap.find('.price').find('h1').text()).toEqual('$ 0.00');
-    expect(wrap.find('.active-validators').find('h1').text()).toEqual('81');
+    expect(wrap.find('.active-validators').find('h1').text()).toEqual('1');
   });
 });

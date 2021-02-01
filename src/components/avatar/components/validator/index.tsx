@@ -41,16 +41,18 @@ const Validator = (props: ValidatorProps) => {
   return (
     <span onClick={handleClick} role="button">
       <Link href={`/validators/${address}`}>
-        {verifiedUser ? (
-          <Avatar
-            imageUrl={verifiedUser.imageUrl}
-          />
-        ) : (
-          <Jazzicon
-            diameter={diameter}
-            seed={getSeed(address)}
-          />
-        )}
+        <a>
+          {verifiedUser ? (
+            <Avatar
+              imageUrl={verifiedUser.imageUrl}
+            />
+          ) : (
+            <Jazzicon
+              diameter={diameter}
+              seed={getSeed(address)}
+            />
+          )}
+        </a>
       </Link>
     </span>
   );
