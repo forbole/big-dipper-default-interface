@@ -27,11 +27,9 @@ export const parseValidators = (t:any, data: {
   // 2 - unbonding
   // 3 - bonded
   // =============================
-  const activeStatus = [2, 3];
-  const inactiveStatus = [0, 1];
 
   data.validators
-    .filter((x) => x.validatorAddress)
+    .filter((x) => x.validatorAddress && x.status.status !== null)
     .sort((a, b) => ((a.moniker.toLowerCase() > b.moniker.toLowerCase()) ? 1 : -1))
     .forEach((x) => {
     // % of self within your own voting power
@@ -68,7 +66,7 @@ export const parseValidators = (t:any, data: {
       // ==============================
       // active
       // ==============================
-      if (activeStatus.includes(x.status.status)) {
+      if (x.status.status === 3 && !x.status.jailed) {
         const activeBase = {
           ...defaultBase,
           commission: {
@@ -114,7 +112,7 @@ export const parseValidators = (t:any, data: {
       // ==============================
       // inactive
       // ==============================
-      if (inactiveStatus.includes(x.status.status)) {
+      if (x.status.status !== 3 || (x.status.status === 3 && x.status.jailed)) {
         const inactiveBase = {
           ...defaultBase,
           status: {
