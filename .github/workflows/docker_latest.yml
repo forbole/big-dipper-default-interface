@@ -16,8 +16,9 @@ jobs:
     steps:
       - name: Initial Clean Up #https://github.com/actions/checkout/issues/211
         run: |
+          sudo chown -R $USER:$USER $GITHUB_WORKSPACE
           sudo usermod -a -G root <USER_NAME>
-      - name: Create env file #sudo chown -R $USER:$USER $GITHUB_WORKSPACE
+      - name: Create env file
         run: |
           touch .env
           echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
