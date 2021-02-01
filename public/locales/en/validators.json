@@ -38,5 +38,7 @@
   "commission": "Commission",
   "status": "Status",
   "condition": "Condition",
-  "conditionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ornare interdum purus, et tincidunt metus tempor bibendum."
+  "conditionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ornare interdum purus, et tincidunt metus tempor bibendum.",
+  "unbonded": "Unbonded",
+  "unbonding": "Unbonding"
 }

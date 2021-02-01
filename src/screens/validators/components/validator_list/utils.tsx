@@ -112,12 +112,31 @@ export const parseValidators = (t:any, data: {
         // ==============================
         // inactive
         // ==============================
+        const inactiveStatus = {
+          0: {
+            className: 'inactive',
+            display: t('inactive'),
+          },
+          1: {
+            className: 'unbonded',
+            display: t('unbonded'),
+          },
+          2: {
+            className: 'unbonding',
+            display: t('unbonding'),
+          },
+          3: {
+            className: 'jailed',
+            display: t('jailed'),
+          },
+        };
+
         const inactiveBase = {
           ...defaultBase,
           status: {
             rawValue: x.status.status,
-            className: 'inactive',
-            display: t('inactive'),
+            className: inactiveStatus[x.status.status].className ?? 'inactive',
+            display: inactiveStatus[x.status.status].display ?? t('inactive'),
           },
         };
 
