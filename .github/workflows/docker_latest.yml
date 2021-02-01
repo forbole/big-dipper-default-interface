@@ -10,13 +10,10 @@ on:
       - v*
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  Build-and-Publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: setup env
+      - name: Create env file
         run: |
           touch .env
           echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
@@ -25,104 +22,51 @@ jobs:
           echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
           echo PORT=${{ secrets.PORT }} >> .env
           cat .env
-      - name: npm i
-        run: npm i
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Prepare tags
+        id: prep
+        run: |
+          DOCKER_IMAGE=bigdipper/desmos
+          VERSION=edge
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+          elif [[ $GITHUB_REF == refs/heads/* ]]; then
+            VERSION=$(echo ${GITHUB_REF#refs/heads/} | sed -r 's#/+#-#g')
+          elif [[ $GITHUB_REF == refs/pull/* ]]; then
+            VERSION=pr-${{ github.event.number }}
+          fi
+          TAGS="${DOCKER_IMAGE}:${VERSION}"
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TAGS="$TAGS,${DOCKER_IMAGE}:sha-${GITHUB_SHA::8}"
+          fi
+          echo ::set-output name=version::${VERSION}
+          echo ::set-output name=tags::${TAGS}
+          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      # - name: Login to DockerHub
-      #   uses: docker/login-action@v1
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Login to DockerHub
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build and push
-        id: docker_build
         uses: docker/build-push-action@v2
         with:
-          push: false
-          # tags: forbole/forbole-portal:latest
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
-
-  # Build-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v2
-    # - name: setup env
-    #   run: |
-    #     touch .env
-    #     echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
-    #     echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
-    #     echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
-    #     echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
-    #     echo PORT=${{ secrets.PORT }} >> .env
-    #     cat .env
-  #   - name: Install modules
-  #     run: npm install
-  #   - name: Run build check
-  #     run: npm run build
-  # Build-and-Publish:
-  #   runs-on: ubuntu-latest
-  #   # runs-on: [self-hosted, staging, linux, X64]
-  #   steps:
-  #     # - name: Initial Clean Up #https://github.com/actions/checkout/issues/211
-  #     #   run: |
-  #     #     sudo chown -R $USER:$USER $GITHUB_WORKSPACE
-  #     - name: Create env file
-        # run: |
-        #   touch .env
-        #   echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
-        #   echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
-        #   echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
-        #   echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
-        #   echo PORT=${{ secrets.PORT }} >> .env
-        #   cat .env
-  #     - name: Checkout code
-  #       uses: actions/checkout@v2
-  #       with:
-  #         persist-credentials: false
-
-  #     - name: Prepare tags
-  #       id: prep
-  #       run: |
-  #         DOCKER_IMAGE=bigdipper/desmos
-  #         VERSION=edge
-  #         if [[ $GITHUB_REF == refs/tags/* ]]; then
-  #           VERSION=${GITHUB_REF#refs/tags/}
-  #         elif [[ $GITHUB_REF == refs/heads/* ]]; then
-  #           VERSION=$(echo ${GITHUB_REF#refs/heads/} | sed -r 's#/+#-#g')
-  #         elif [[ $GITHUB_REF == refs/pull/* ]]; then
-  #           VERSION=pr-${{ github.event.number }}
-  #         fi
-  #         TAGS="${DOCKER_IMAGE}:${VERSION}"
-  #         if [ "${{ github.event_name }}" = "push" ]; then
-  #           TAGS="$TAGS,${DOCKER_IMAGE}:sha-${GITHUB_SHA::8}"
-  #         fi
-  #         echo ::set-output name=version::${VERSION}
-  #         echo ::set-output name=tags::${TAGS}
-  #         echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-
-  #     - name: Set up Docker Buildx
-  #       uses: docker/setup-buildx-action@v1
-
-  #     - name: Login to DockerHub
-  #       if: github.event_name != 'pull_request'
-  #       uses: docker/login-action@v1
-  #       with:
-  #         username: ${{ secrets.DOCKER_USERNAME }}
-  #         password: ${{ secrets.DOCKER_PASSWORD }}
-
-  #     - name: Build and push
-  #       uses: docker/build-push-action@v2
-  #       with:
-  #         context: .
-  #         file: ./Dockerfile
-  #         push: ${{ github.event_name != 'pull_request' }}
-  #         tags: ${{ steps.prep.outputs.tags }}
-  #         secrets: |
-  #           GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}
-  #         labels: |
-  #           org.opencontainers.image.source=${{ github.event.repository.html_url }}
-  #           org.opencontainers.image.created=${{ steps.prep.outputs.created }}
-  #           org.opencontainers.image.revision=${{ github.sha }}
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.prep.outputs.tags }}
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}
+          labels: |
+            org.opencontainers.image.source=${{ github.event.repository.html_url }}
+            org.opencontainers.image.created=${{ steps.prep.outputs.created }}
+            org.opencontainers.image.revision=${{ github.sha }}
