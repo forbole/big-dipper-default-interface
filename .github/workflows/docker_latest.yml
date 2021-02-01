@@ -11,15 +11,12 @@ on:
 
 jobs:
   Build-and-Publish:
-    # runs-on: ubuntu-latest
-    runs-on: [self-hosted, staging, linux, X64]
+    runs-on: ubuntu-latest
+    # runs-on: [self-hosted, staging, linux, X64]
     steps:
-      - name: Initial Clean Up #https://github.com/actions/checkout/issues/211
-        run: |
-          sudo chown -R $USER:$USER $GITHUB_WORKSPACE
-      # - name: Docker Permissions
+      # - name: Initial Clean Up #https://github.com/actions/checkout/issues/211
       #   run: |
-      #     sudo usermod -a -G docker $USER
+      #     sudo chown -R $USER:$USER $GITHUB_WORKSPACE
       - name: Create env file
         run: |
           touch .env
@@ -72,7 +69,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.prep.outputs.tags }}
           secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN }}
+            GIT_AUTH_TOKEN=${{ secrets.GIT_AUTH_TOKEN }}
           labels: |
             org.opencontainers.image.source=${{ github.event.repository.html_url }}
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
