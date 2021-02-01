@@ -63,6 +63,7 @@ export const parseValidators = (t:any, data: {
           percentDisplay: votingPowerPercentage,
         },
       };
+
       // ==============================
       // active
       // ==============================
@@ -107,12 +108,10 @@ export const parseValidators = (t:any, data: {
             className: conditionClass,
           },
         });
-      }
-
-      // ==============================
-      // inactive
-      // ==============================
-      if (x.status.status !== 3 || (x.status.status === 3 && x.status.jailed)) {
+      } else if (x.status.status !== null || (x.status.status === 3 && x.status.jailed)) {
+        // ==============================
+        // inactive
+        // ==============================
         const inactiveBase = {
           ...defaultBase,
           status: {
