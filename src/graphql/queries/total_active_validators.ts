@@ -3,12 +3,12 @@
  */
 export const TOTAL_ACTIVE_VALIDATORS = `
 query Validators($height: bigint) {
-  active_validators: validator_status_aggregate(where: {height: {_eq: $height}, status: {_eq: 2}}) {
+  active_validators: validator_status_aggregate(where: {height: {_eq: $height}, _or: [{status: {_eq: 2}}, {status: {_eq: 3}}]}) {
     aggregate {
       count
     }
   }
-  not_active_validators: validator_status_aggregate(where: {height: {_eq: $height}, status: {_neq: 2}}) {
+  not_active_validators: validator_status_aggregate(where: {height: {_eq: $height}, _or: [{status: {_eq: 0}}, {status: {_eq: 1}}]}) {
     aggregate {
       count
     }
