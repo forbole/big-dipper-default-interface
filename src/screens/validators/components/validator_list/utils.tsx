@@ -27,11 +27,9 @@ export const parseValidators = (t:any, data: {
   // 2 - unbonding
   // 3 - bonded
   // =============================
-  const activeStatus = [2, 3];
-  const inactiveStatus = [0, 1];
 
   data.validators
-    .filter((x) => x.validatorAddress)
+    .filter((x) => x.validatorAddress && x.status.status !== null)
     .sort((a, b) => ((a.moniker.toLowerCase() > b.moniker.toLowerCase()) ? 1 : -1))
     .forEach((x) => {
     // % of self within your own voting power
@@ -65,10 +63,11 @@ export const parseValidators = (t:any, data: {
           percentDisplay: votingPowerPercentage,
         },
       };
+
       // ==============================
       // active
       // ==============================
-      if (activeStatus.includes(x.status.status)) {
+      if (x.status.status === 3 && !x.status.jailed) {
         const activeBase = {
           ...defaultBase,
           commission: {
@@ -109,18 +108,35 @@ export const parseValidators = (t:any, data: {
             className: conditionClass,
           },
         });
-      }
+      } else if (x.status.status !== null || (x.status.status === 3 && x.status.jailed)) {
+        // ==============================
+        // inactive
+        // ==============================
+        const inactiveStatus = {
+          0: {
+            className: 'inactive',
+            display: t('inactive'),
+          },
+          1: {
+            className: 'unbonded',
+            display: t('unbonded'),
+          },
+          2: {
+            className: 'unbonding',
+            display: t('unbonding'),
+          },
+          3: {
+            className: 'jailed',
+            display: t('jailed'),
+          },
+        };
 
-      // ==============================
-      // inactive
-      // ==============================
-      if (inactiveStatus.includes(x.status.status)) {
         const inactiveBase = {
           ...defaultBase,
           status: {
             rawValue: x.status.status,
-            className: 'inactive',
-            display: t('inactive'),
+            className: inactiveStatus[x.status.status].className ?? 'inactive',
+            display: inactiveStatus[x.status.status].display ?? t('inactive'),
           },
         };
 

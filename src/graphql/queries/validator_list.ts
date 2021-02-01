@@ -3,7 +3,7 @@ query Validators {
   pool: staking_pool(order_by: {height: desc}, limit: 1) {
     bonded_tokens
   }
-  validator {
+  validator (where: {validator_info: {operator_address: {_is_null: false}}}){
     validator_info {
       operator_address
     }

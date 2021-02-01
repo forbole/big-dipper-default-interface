@@ -1,6 +1,4 @@
-import {
-  TOTAL_ACTIVE_VALIDATORS, LATEST_VALIDATOR_STATUS_HEIGHT,
-} from './total_active_validators';
+import { TOTAL_ACTIVE_VALIDATORS } from './total_active_validators';
 import { STABILITIES } from './stabilities';
 import { COMMUNITY_POOL } from './community_pool';
 import { AVERAGE_BLOCK_TIMES } from './average_block_times';
@@ -18,7 +16,6 @@ import {
 import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
 
 export {
-  LATEST_VALIDATOR_STATUS_HEIGHT,
   TOTAL_ACTIVE_VALIDATORS,
   STABILITIES,
   COMMUNITY_POOL,

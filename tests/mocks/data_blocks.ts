@@ -1,7 +1,6 @@
 import {
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
-  LATEST_VALIDATOR_STATUS_HEIGHT,
 } from '@graphql/queries';
 import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
 import { gql } from '@apollo/client';
@@ -59,35 +58,26 @@ export const DATA_BLOCKS_HEADER_MOCK = [
     request: {
       query: gql`${TOTAL_ACTIVE_VALIDATORS}`,
       variables: {
-        height: 103385,
       },
     },
     result: {
       data: {
-        active_validators: {
-          aggregate: {
-            count: 81,
-          },
-        },
-        not_active_validators: {
-          aggregate: {
-            count: 0,
-          },
-        },
-      },
-    },
-  },
-  {
-    request: {
-      query: gql`${LATEST_VALIDATOR_STATUS_HEIGHT}`,
-      variables: {
-      },
-    },
-    result: {
-      data: {
-        validator_status: [
+        validator: [
           {
-            height: 103385,
+            validator_statuses: [
+              {
+                jailed: true,
+                status: 1,
+              },
+            ],
+          },
+          {
+            validator_statuses: [
+              {
+                jailed: false,
+                status: 3,
+              },
+            ],
           },
         ],
       },
