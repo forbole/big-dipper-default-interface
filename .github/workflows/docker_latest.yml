@@ -16,6 +16,15 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: setup env
+        run: |
+          touch .env
+          echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
+          echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
+          echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
+          echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
+          echo PORT=${{ secrets.PORT }} >> .env
+          cat .env
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -38,15 +47,15 @@ jobs:
   #   runs-on: ubuntu-latest
   #   steps:
   #   - uses: actions/checkout@v2
-  #   - name: setup env
-  #     run: |
-  #       touch .env
-  #       echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
-  #       echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
-  #       echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
-  #       echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
-  #       echo PORT=${{ secrets.PORT }} >> .env
-  #       cat .env
+    # - name: setup env
+    #   run: |
+    #     touch .env
+    #     echo NEXT_PUBLIC_GRAPHQL_URL=${{ secrets.NEXT_PUBLIC_GRAPHQL_URL }} >> .env
+    #     echo NEXT_PUBLIC_GRAPHQL_WS=${{ secrets.NEXT_PUBLIC_GRAPHQL_WS }} >> .env
+    #     echo NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }} >> .env
+    #     echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
+    #     echo PORT=${{ secrets.PORT }} >> .env
+    #     cat .env
   #   - name: Install modules
   #     run: npm install
   #   - name: Run build check
