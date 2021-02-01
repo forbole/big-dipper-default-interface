@@ -21,7 +21,7 @@ jobs:
           cat .env
       - name: Checkout code
         uses: actions/checkout@v2
-        - name: Prepare tags
+      - name: Prepare tags
         id: prep
         run: |
           echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
