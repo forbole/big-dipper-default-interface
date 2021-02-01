@@ -17,9 +17,9 @@ jobs:
       - name: Initial Clean Up #https://github.com/actions/checkout/issues/211
         run: |
           sudo chown -R $USER:$USER $GITHUB_WORKSPACE
-      # - name: Docker Permissions
-      #   run: |
-      #     sudo usermod -a -G docker $USER:$USER
+      - name: Docker Permissions
+        run: |
+          sudo usermod -a -G docker $USER
       - name: Create env file
         run: |
           touch .env
