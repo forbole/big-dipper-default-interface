@@ -31,7 +31,7 @@ jobs:
       - name: Prepare tags
         id: prep
         run: |
-          DOCKER_IMAGE=bigdipper/desmos
+          DOCKER_IMAGE=forbole/big-dipper-desmos
           VERSION=edge
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
