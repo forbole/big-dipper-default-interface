@@ -19,7 +19,7 @@ jobs:
           sudo chown -R $USER:$USER $GITHUB_WORKSPACE
       - name: Docker Permissions
         run: |
-          sudo usermod -a -G docker <USER>
+          sudo usermod -a -G docker $USER:$USER
       - name: Create env file
         run: |
           touch .env
