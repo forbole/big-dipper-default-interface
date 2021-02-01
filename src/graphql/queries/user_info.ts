@@ -1,25 +1,41 @@
-export const USERINFO = `query USERINFO($address: String) {
-  pool: account(where: {address: {_eq: $address}}) {
-    address
-    account_balances {
-      coins
-    }
-    delegations {
-      amount
-    }
-    redelegations {
-      amount
-    }
-    unbonding_delegations {
-      amount
-    }
-  }
-  token_price(limit: 1, order_by: {timestamp: desc}) {
-    price
-  }
-}`;
+// export const USERINFO = `query USERINFO($address: String) {
+//   pool: account(where: {address: {_eq: $address}}) {
+//     address
+//     account_balances {
+//       coins
+//     }
+//     delegations {
+//       amount
+//     }
+//     redelegations {
+//       amount
+//     }
+//     unbonding_delegations {
+//       amount
+//     }
+//   }
+//   token_price(limit: 1, order_by: {timestamp: desc}) {
+//     price
+//   }
+// }`;
 
-export const USERINFO1 = `
+export const USERINFO_LATEST_HEIGHT = `
+query UserInfoLatestHeight($address: String) {
+  account(where: {address: {_eq: "desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d"}}) {
+    delegations(limit: 1, order_by: {height: desc}) {
+      height
+    }
+    redelegations(limit: 1, order_by: {height: desc}) {
+      height
+    }
+    unbonding_delegations(limit: 1, order_by: {height: desc}) {
+      height
+    }
+  }
+}
+`;
+
+export const USERINFO = `
 query UserInfo($address: String, $height: bigint) {
   account(where: {address: {_eq: $address}}) {
     address
