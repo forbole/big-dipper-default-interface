@@ -10,7 +10,7 @@ WORKDIR /app
 
 # Installing dependencies
 COPY package*.json ./
-# RUN npm i
+RUN npm i
 
 # Copying source files
 COPY . .
