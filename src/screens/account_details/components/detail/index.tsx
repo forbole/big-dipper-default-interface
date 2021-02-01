@@ -21,11 +21,6 @@ const Detail = () => {
     userInfo,
   } = useDetailHook(t);
 
-  const test = toCurrency(userInfo.delegate.amount ? userInfo.delegate.amount : 0);
-  console.log('test', test);
-
-  /* total atom means amount or price per coin? */
-
   return (
     <div className={classes.root}>
       <UserInfoMobile
@@ -37,10 +32,10 @@ const Detail = () => {
         chart={{
           total: {
             title: `Total ${userInfo.unit}`,
-            subTitle: '$3.22/ATOM',
+            subTitle: `${toCurrency(userInfo.price)} / ${userInfo.delegate.denom}`,
           },
           totalDollar: {
-            title: '6,574,315.38',
+            title: `${toCurrency(userInfo.totalAmount)}`,
             subTitle: '$21,169,295.52',
           },
           colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
@@ -53,12 +48,12 @@ const Detail = () => {
             {
               title: 'Delegate',
               value: userInfo.delegate.amount,
-              display: `${toCurrency(userInfo.delegate.amount ? userInfo.delegate.amount : 0)} ${userInfo.delegate.denom}`,
+              display: `${toCurrency(userInfo.delegate.amount)} ${userInfo.delegate.denom}`,
             },
             {
               title: 'Unbonding',
               value: userInfo.unbonding.amount,
-              display: `${toCurrency(userInfo.unbonding.amount ? userInfo.unbonding.amount : 0)} ${userInfo.unbonding.denom}`,
+              display: `${toCurrency(userInfo.unbonding.amount)} ${userInfo.unbonding.denom}`,
             },
             {
               title: 'Reward',
@@ -83,11 +78,11 @@ const Detail = () => {
         {...dummyData}
         chart={{
           total: {
-            title: 'Total ATOM',
-            subTitle: '$3.22/ATOM',
+            title: `Total ${userInfo.unit}`,
+            subTitle: `${toCurrency(userInfo.price)} / ${userInfo.delegate.denom}`,
           },
           totalDollar: {
-            title: '6,574,315.38',
+            title: `${toCurrency(userInfo.totalAmount)}`,
             subTitle: '$21,169,295.52',
           },
           colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
@@ -100,12 +95,12 @@ const Detail = () => {
             {
               title: 'Delegate',
               value: userInfo.delegate.amount,
-              display: `${toCurrency(userInfo.delegate.amount ? userInfo.delegate.amount : 0)} ${userInfo.delegate.denom}`,
+              display: `${toCurrency(userInfo.delegate.amount)} ${userInfo.delegate.denom}`,
             },
             {
               title: 'Unbonding',
               value: userInfo.unbonding.amount,
-              display: `${toCurrency(userInfo.unbonding.amount ? userInfo.unbonding.amount : 0)} ${userInfo.unbonding.denom}`,
+              display: `${toCurrency(userInfo.unbonding.amount)} ${userInfo.unbonding.denom}`,
             },
             {
               title: 'Reward',

@@ -17,6 +17,8 @@ export const useInfoHook = (t:any) => {
   const [info, setInfo] = useState<ValidatorInfo>(ValidatorInfo.fromJson({
   }));
 
+  console.log('validator', router?.query?.validator);
+
   // ===============================
   // get data
   // ===============================

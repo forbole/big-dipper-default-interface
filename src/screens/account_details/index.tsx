@@ -16,11 +16,16 @@ import {
   Detail,
 } from './components';
 
-const AccountDetails = () => {
+export type AccountDetailsType = {
+  address: string
+}
+
+const AccountDetails = (props: AccountDetailsType) => {
   const { t } = useTranslation(['accounts', 'common']);
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
+  const { address } = props;
 
   return (
     <Layout
@@ -40,6 +45,7 @@ const AccountDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('account-details')}>
+          {/* <Detail address="desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d" /> */}
           <Detail />
         </div>
         <div className={classnames('account-staking')}>
