@@ -21,7 +21,7 @@
 
 export const USERINFO_LATEST_HEIGHT = `
 query UserInfoLatestHeight($address: String) {
-  account(where: {address: {_eq: "desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d"}}) {
+  account(where: {address: {_eq: $address}}) {
     delegations(limit: 1, order_by: {height: desc}) {
       height
     }
@@ -37,12 +37,12 @@ query UserInfoLatestHeight($address: String) {
 
 export const USERINFO = `
 query UserInfo($address: String, $height: bigint) {
-  account(where: {address: {_eq: $address}}) {
+  account(where: {address: {_eq: $address}} limit:1) {
     address
     available: account_balances(where: {height: {_eq: $height}}) {
       coins
     }
-    delegated: delegations(where: {height: {_eq: $height}}) {
+    delegations(where: {height: {_eq: $height}}) {
       amount
     }
     redelegations: redelegations(where: {height: {_eq: $height}}) {
@@ -64,6 +64,9 @@ query UserInfo($address: String, $height: bigint) {
         }
       }
     }
+  }
+  token_price(limit: 1, order_by: {timestamp: desc}) {
+     price
   }
 }
 `;

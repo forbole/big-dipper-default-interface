@@ -23,26 +23,26 @@ export const useDetailHook = (t: any) => {
 
   const [getStaking] = useLazyQuery(gql`${USERINFO}`, {
     onCompleted: (data) => {
-      console.log('actual', data);
+      // console.log('actual', data);
       const parsedData = userInfoParser(data);
+      console.log('parsedData', parsedData);
       setUserInfo(parsedData);
     },
   });
-  console.log('query', `${USERINFO}`);
+  // console.log('query', `${USERINFO}`);
 
   useQuery(gql`${USERINFO_LATEST_HEIGHT}`, {
     variables: {
       address: router?.query?.address ?? null,
     },
-    onError: (error) => { console.log(error.message)},
+    onError: (error) => { console.log(error.message); },
     onCompleted: (data) => {
-      console.log('heightData', data);
       const height = userInfoLatestHeightParser(data);
-      console.log('height', height);
+      console.log('variables', height, router?.query?.address ?? null);
       if (height) {
         getStaking({
           variables: {
-            address: router?.query?.validator ?? null,
+            address: router?.query?.address,
             height,
           },
         });

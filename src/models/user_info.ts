@@ -6,8 +6,8 @@ export type dataType = {
 }
 
 class UserInfo {
-  public address: number;
-  public rewardAddress: number;
+  public address: string;
+  public rewardAddress: string;
   public totalAmount: number;
   public price: number;
   public unit: string;
@@ -36,31 +36,32 @@ class UserInfo {
     console.log('model', data);
 
     return new UserInfo({
-      address: R.pathOr(0, ['pool', 0, 'address'], data),
-      totalAmount: R.pathOr(0, ['pool', 0, 'account_balances', 0, 'coins', 0, 'amount'], data),
-      unit: R.pathOr('', ['pool', 0, 'account_balances', 0, 'coins', 0, 'denom'], data),
-      price: R.pathOr(0.00, ['token_price', 0, 'price'], data),
-      delegate: R.pathOr({
-        denom: '', amount: 0,
-      }, ['pool', 0, 'delegations', 0, 'amount'], data),
-      redelegate: R.pathOr({
-        denom: '', amount: 0,
-      }, ['pool', 0, 'redelegations', 0, 'amount'], data),
-      unbonding: R.pathOr({
-        denom: '', amount: 0,
-      }, ['pool', 0, 'unbonding_delegations', 0, 'amount'], data),
-
-      /* data not ready */
-      rewardAddress: R.pathOr(0, ['pool', 0, 'rewardAddress'], data),
+      address: R.pathOr(0, ['account', 0, 'address'], data),
       avaliable: R.pathOr({
         denom: '', amount: 0,
-      }, ['pool', 0, 'unbonding_delegations', 0, 'amount'], data),
+      }, ['account', 0, 'available', 0, 'coins'], data),
+      delegate: R.pathOr({
+        denom: '', amount: 0,
+      }, ['account', 0, 'delegations', 0, 'amount'], data),
+      redelegate: R.pathOr({
+        denom: '', amount: 0,
+      }, ['account', 0, 'redelegations', 0, 'amount'], data),
+      unbonding: R.pathOr({
+        denom: '', amount: 0,
+      }, ['account', 0, 'unbonding_delegations', 0, 'amount'], data),
       reward: R.pathOr({
         denom: '', amount: 0,
-      }, ['pool', 0, 'unbonding_delegations', 0, 'amount'], data),
+      }, ['account', 0, 'rewards', 0, 'amount'], data),
+      price: R.pathOr('0.00', ['token_price', 0, 'price'], data),
       commission: R.pathOr({
         denom: '', amount: 0,
-      }, ['pool', 0, 'unbonding_delegations', 0, 'amount'], data),
+      }, ['account', 0, 'validator', 0, 'validator', 0, 'commissions', 0, 'amount'], data),
+
+      totalAmount: R.pathOr(0, ['pool', 0, 'account_balances', 0, 'coins', 0, 'amount'], data),
+      unit: R.pathOr('', ['account', 0, 'account_balances', 0, 'coins', 0, 'denom'], data),
+      /* data not ready */
+      rewardAddress: R.pathOr(0, ['pool', 0, 'rewardAddress'], data),
+
     });
   }
 }

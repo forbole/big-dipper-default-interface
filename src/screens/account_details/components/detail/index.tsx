@@ -43,7 +43,7 @@ const Detail = () => {
             {
               title: 'Available',
               value: 111189.15,
-              display: '111,189.15 ATOM',
+              display: `${toCurrency(userInfo.avaliable.amount)} ${userInfo.avaliable.denom}`,
             },
             {
               title: 'Delegate',
@@ -58,12 +58,12 @@ const Detail = () => {
             {
               title: 'Reward',
               value: 5122.96,
-              display: '5,122.96 ATOM',
+              display: `${toCurrency(userInfo.reward.amount)} ${userInfo.reward.denom}`,
             },
             {
               title: 'Commission',
               value: 1324.91,
-              display: '1,324.91 ATOM',
+              display: `${toCurrency(userInfo.commission.amount)} ${userInfo.commission.denom}`,
             },
           ],
 
