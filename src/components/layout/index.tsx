@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import validator from 'validator';
 import classnames from 'classnames';
@@ -88,7 +87,15 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Meta Tags
   // ============================
-  const router = useRouter();
+  let baseUrl = '';
+  let currentPath = '';
+
+  if (typeof window === 'object') {
+    baseUrl = window?.location?.origin || '';
+    currentPath = window?.location?.href || '';
+  }
+
+  const imageUrl = validator.isURL(image) ? image : `${baseUrl}${image}`;
 
   return (
     <>
@@ -102,11 +109,11 @@ export const Layout = (props: LayoutProps) => {
           type,
           title,
           site_name: 'Big Dipper',
-          url: router.basePath,
+          url: currentPath,
           description,
           images: [
             {
-              url: image,
+              url: imageUrl,
               alt: imageAlt ?? description,
             },
           ],
@@ -121,7 +128,7 @@ export const Layout = (props: LayoutProps) => {
           },
           {
             name: 'msapplication-config',
-            content: '/images/icons/browserconfig.xml',
+            content: `${baseUrl}/images/icons/browserconfig.xml`,
           },
           {
             name: 'theme-color',
