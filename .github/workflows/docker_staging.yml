@@ -10,6 +10,12 @@ jobs:
   Build-and-Publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Prepare tags
+        id: prep
+        run: |
+          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
       - name: Create env file
         run: |
           touch .env
@@ -18,23 +24,14 @@ jobs:
           echo NODE_ENV=${{ secrets.NODE_ENV }} >> .env
           echo PORT=${{ secrets.PORT_STAGING }} >> .env
           cat .env
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Prepare tags
-        id: prep
-        run: |
-          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-
       - name: Login to DockerHub
         if: github.event_name != 'pull_request'
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
