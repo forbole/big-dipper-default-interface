@@ -4,7 +4,7 @@ import { useTranslation } from 'i18n';
 import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
-import { Grid } from 'big-dipper-internal-ui';
+import { Grid } from '@forbole/big-dipper-internal-ui';
 import { useGetStyles } from './styles';
 import getFaqDetails from './utils';
 

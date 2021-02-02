@@ -2,7 +2,7 @@ import React from 'react';
 import {
   AvatarDisplay,
   InfoPopover,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import {
   Last7Days,
   TrendChart,

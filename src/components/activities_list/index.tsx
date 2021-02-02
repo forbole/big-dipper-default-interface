@@ -1,5 +1,5 @@
 import React from 'react';
-import { LatestActivities } from 'big-dipper-default-ui';
+import { LatestActivities } from '@forbole/big-dipper-default-ui';
 import { useGetScreenSizeHook } from '@hooks';
 import { ActivitiesListProps } from './types';
 import { formatActivitiesData } from './utils';

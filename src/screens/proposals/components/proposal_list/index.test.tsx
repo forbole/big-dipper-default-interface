@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import { ProposalList } from 'big-dipper-default-ui';
+import { ProposalList } from '@forbole/big-dipper-default-ui';
 import { dummyProposalList } from './utils';
 
 describe('ProposalList', () => {

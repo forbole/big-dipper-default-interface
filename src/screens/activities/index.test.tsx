@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { LatestActivities } from 'big-dipper-default-ui';
+import { LatestActivities } from '@forbole/big-dipper-default-ui';
 import Activities from '@screens/activities';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { mockedAxios } from '@tests/utils/mock_axios';

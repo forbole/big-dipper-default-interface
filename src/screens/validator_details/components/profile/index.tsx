@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
 import { useTheme } from '@material-ui/core/styles';
-import { ValidatorProfile } from 'big-dipper-default-ui';
+import { ValidatorProfile } from '@forbole/big-dipper-default-ui';
 import { useGetStyles } from './styles';
 import { useProfileHook } from './hooks';
 

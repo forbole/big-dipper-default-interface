@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Consensus } from 'big-dipper-default-ui';
+import { Consensus } from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import { useTheme } from '@material-ui/core/styles';
 import { useGetStyles } from './styles';

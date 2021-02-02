@@ -4,7 +4,7 @@ import {
   MobileNav,
   DesktopNav,
   Footer,
-} from 'big-dipper-internal-ui';
+} from '@forbole/big-dipper-internal-ui';
 import { Layout } from '@components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { awaitActions } from '@tests/utils/await_actions';

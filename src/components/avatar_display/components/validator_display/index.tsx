@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
-import { AvatarDisplay } from 'big-dipper-default-ui';
+import { AvatarDisplay } from '@forbole/big-dipper-default-ui';
 import Jazzicon from 'react-jazzicon';
 import { useKeybaseHook } from '@hooks';
 import { GlobalContext } from '@contexts';
