@@ -37,9 +37,8 @@ export const Layout = (props: LayoutProps) => {
     type = 'website',
     title = t('bigDipper'),
     imageAlt,
+    image = '/images/icons/favicon-32x32.png',
   } = props;
-
-  let { image = '/images/icons/favicon-32x32.png' } = props;
 
   // ============================
   // Global props
@@ -90,11 +89,7 @@ export const Layout = (props: LayoutProps) => {
   // Meta Tags
   // ============================
   const router = useRouter();
-  const baseUrl = process.env.NEXT_PUBLIC_URL;
-  const currentPath = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
-  if (!validator.isURL(image)) {
-    image = `${baseUrl}${image}`;
-  }
+
   return (
     <>
       {/* ========================================= */}
@@ -107,7 +102,7 @@ export const Layout = (props: LayoutProps) => {
           type,
           title,
           site_name: 'Big Dipper',
-          url: currentPath,
+          url: router.basePath,
           description,
           images: [
             {
@@ -126,7 +121,7 @@ export const Layout = (props: LayoutProps) => {
           },
           {
             name: 'msapplication-config',
-            content: `${baseUrl}/images/icons/browserconfig.xml`,
+            content: '/images/icons/browserconfig.xml',
           },
           {
             name: 'theme-color',
