@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import {
   TablePreviewWrapper,
   LatestActivities as LatestActivitiesComponent,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { LATEST_ACTIVITIES_MOCK_DATA } from '@tests/mocks';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useTheme } from '@material-ui/core/styles';
-import { PowerEvents } from 'big-dipper-default-ui';
+import { PowerEvents } from '@forbole/big-dipper-default-ui';
 import {
   Tab,
   Tabs,

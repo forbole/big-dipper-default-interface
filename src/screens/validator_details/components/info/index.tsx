@@ -1,5 +1,5 @@
 import React from 'react';
-import { ValidatorInfo } from 'big-dipper-default-ui';
+import { ValidatorInfo } from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import { useInfoHook } from './hooks';
 import { useGetStyles } from './styles';

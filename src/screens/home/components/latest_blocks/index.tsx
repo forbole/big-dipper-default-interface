@@ -5,7 +5,7 @@ import {
   LatestBlocksMobile,
   TablePreviewWrapper,
   LatestBlocksDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import {
   useLatestBlocksDesktopStyles,
   useLatestBlocksMobileStyles,

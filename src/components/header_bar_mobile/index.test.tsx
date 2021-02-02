@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { HeaderBarMobile as HeaderBar } from 'big-dipper-internal-ui';
+import { HeaderBarMobile as HeaderBar } from '@forbole/big-dipper-internal-ui';
 import { HeaderBarMobile } from '@components';
 import { lightTheme } from '@styles';
 import { BaseWrapper } from '@tests/utils/base_wrapper';

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import { ActivityDetails as Details } from 'big-dipper-default-ui';
+import { ActivityDetails as Details } from '@forbole/big-dipper-default-ui';
 import {
   Layout,
   DataBlocksHeader,

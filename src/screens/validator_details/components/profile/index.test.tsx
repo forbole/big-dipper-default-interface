@@ -1,5 +1,5 @@
 import React from 'react';
-import { ValidatorProfile } from 'big-dipper-default-ui';
+import { ValidatorProfile } from '@forbole/big-dipper-default-ui';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { awaitActions } from '@tests/utils/await_actions';

@@ -9,7 +9,7 @@ import { TabPanel } from '@components';
 import { getAllyProps } from '@utils';
 import {
   ValidatorStakingDesktop, ValidatorStakingMobile,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import {
   useMobileOnlyStyles,
   useDesktopOnlyStyles,

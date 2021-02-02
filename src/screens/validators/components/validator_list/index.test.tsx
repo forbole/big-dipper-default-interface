@@ -11,7 +11,7 @@ import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
 import {
   ValidatorListMobile, ValidatorListDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import ValidatorList from '.';
 
 describe('ValidatorList', () => {

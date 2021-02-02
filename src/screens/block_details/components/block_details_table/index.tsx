@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import moment from 'moment';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
-import { BlockDetails } from 'big-dipper-default-ui';
+import { BlockDetails } from '@forbole/big-dipper-default-ui';
 import { AvatarDisplay } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
 import { useGetStyles } from './styles';

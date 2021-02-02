@@ -4,7 +4,7 @@ import { Tab } from '@material-ui/core';
 import {
   LatestActivities,
   PowerEvents,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import {
   ActivitiesFilter,
   InfiniteLoader,

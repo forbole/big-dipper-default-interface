@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeaderBarMobile as HeaderBar } from 'big-dipper-internal-ui';
+import { HeaderBarMobile as HeaderBar } from '@forbole/big-dipper-internal-ui';
 import { useTranslation } from 'i18n';
 import {
   formatDenom, getBaseCommunityPool,

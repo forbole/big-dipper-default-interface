@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import { DataBlock } from 'big-dipper-default-ui';
+import { DataBlock } from '@forbole/big-dipper-default-ui';
 import { convertNumber } from '@utils';
 import { useGetStyles } from './styles';
 import { getBlocktimeDurations } from './utils';

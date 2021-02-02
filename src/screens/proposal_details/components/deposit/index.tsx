@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import {
   ProposalDepositDesktop,
   ProposalDepositMobile,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useGetStyles } from './styles';
 import { depositData } from './utils';
 

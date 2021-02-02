@@ -3,7 +3,7 @@ import classnames from 'classnames';
 // import { Search } from '@material-ui/icons';
 import {
   ValidatorListMobile, ValidatorListDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import {
   Tab,

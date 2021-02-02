@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import {
   ProposalInfoDesktop,
   ProposalInfoMobile,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useGetStyles } from './styles';
 import { dummyData } from './utils';
 
