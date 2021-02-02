@@ -8,7 +8,7 @@ import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
 import { lightTheme } from '@styles';
 import { Layout } from '@components';
 import {
-  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK,
+  LAYOUT_MOCK_DATA, HEADER_BAR_MOCK, DATA_BLOCKS_HEADER_MOCK, USERINFO_MOCK_DATA,
 } from '@tests/mocks';
 import AccountDetails from '.';
 import { Activities } from './components';
@@ -23,7 +23,7 @@ describe('AccountDetails', () => {
           component: <AccountDetails />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
+        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK, ...USERINFO_MOCK_DATA],
       }),
     );
     await awaitActions({
@@ -41,7 +41,7 @@ describe('AccountDetails', () => {
           component: <AccountDetails />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK],
+        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK, ...USERINFO_MOCK_DATA],
       }),
     );
     await awaitActions({

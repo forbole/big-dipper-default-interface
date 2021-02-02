@@ -10,7 +10,7 @@ import {
   USERINFO,
   USERINFO_LATEST_HEIGHT,
 } from '@graphql/queries';
-import { generalConfig } from '@src/general_config';
+// import { generalConfig } from '@src/general_config';
 import {
   userInfoParser,
   userInfoLatestHeightParser,
@@ -26,7 +26,7 @@ export const useDetailHook = (t: any) => {
   }));
   const router = useRouter();
 
-  const [getStaking] = useLazyQuery(gql`${USERINFO}`, {
+  const [getUserInfo] = useLazyQuery(gql`${USERINFO}`, {
     onCompleted: (data) => {
       const parsedData = userInfoParser(data);
       setUserInfo(parsedData);
@@ -40,7 +40,7 @@ export const useDetailHook = (t: any) => {
     onCompleted: (data) => {
       const height = userInfoLatestHeightParser(data);
       if (height) {
-        getStaking({
+        getUserInfo({
           variables: {
             address: router?.query?.address,
             height,
@@ -48,8 +48,8 @@ export const useDetailHook = (t: any) => {
         });
       }
     },
-    pollInterval: generalConfig.pollInterval.default,
-    notifyOnNetworkStatusChange: true,
+    // pollInterval: generalConfig.pollInterval.default,
+    // notifyOnNetworkStatusChange: true,
   });
 
   return {
