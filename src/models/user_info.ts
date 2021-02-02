@@ -2,7 +2,7 @@ import * as R from 'ramda';
 
 export type dataType = {
   denom?: string,
-  amount?: number,
+  amount?: bigint,
 }
 
 class UserInfo {

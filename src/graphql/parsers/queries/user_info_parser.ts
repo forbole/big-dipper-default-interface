@@ -2,9 +2,6 @@ import * as R from 'ramda';
 import { UserInfo } from '@models';
 
 export const userInfoParser = (data:any): UserInfo => {
-  console.log('userInfoParser', data);
-  console.log('return', UserInfo.fromJson(data ?? {
-  }));
   return (
     UserInfo.fromJson(data ?? {
     })
