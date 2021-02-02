@@ -10,7 +10,7 @@ import {
   USERINFO,
   USERINFO_LATEST_HEIGHT,
 } from '@graphql/queries';
-// import { generalConfig } from '@src/general_config';
+import { generalConfig } from '@src/general_config';
 import {
   userInfoParser,
   userInfoLatestHeightParser,
@@ -48,8 +48,8 @@ export const useDetailHook = (t: any) => {
         });
       }
     },
-    // pollInterval: generalConfig.pollInterval.default,
-    // notifyOnNetworkStatusChange: true,
+    pollInterval: generalConfig.pollInterval.default,
+    notifyOnNetworkStatusChange: true,
   });
 
   return {

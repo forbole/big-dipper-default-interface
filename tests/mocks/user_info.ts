@@ -10,12 +10,16 @@ export const USERINFO_MOCK_DATA = [
       variables: {
         // address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
         address: null,
-        // height: 1,
+        height: 1,
       },
     },
     result: {
       data: {
-        token_price: [],
+        token_price: [
+          {
+            price: 20,
+          },
+        ],
         account: [
           {
             address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
@@ -61,7 +65,27 @@ export const USERINFO_MOCK_DATA = [
                 },
               },
             ],
-            validator: [],
+            validator: [
+              {
+                consensus_address: '',
+              },
+              {
+                operator_address: '',
+              },
+              {
+                self_delegate_address: '',
+              },
+              {
+                consensus_address: '',
+              },
+              {
+                validator: {
+                  commissions: {
+                    amount: 0,
+                  },
+                },
+              },
+            ],
           },
         ],
       },
@@ -84,8 +108,16 @@ export const USERINFO_MOCK_DATA = [
                 height: 1,
               },
             ],
-            redelegations: [],
-            unbonding_delegations: [],
+            redelegations: [
+              {
+                height: 1,
+              },
+            ],
+            unbonding_delegations: [
+              {
+                height: 1,
+              },
+            ],
           },
         ],
       },
