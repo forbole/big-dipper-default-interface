@@ -2,7 +2,6 @@
   "name": "big-dipper-default-interface",
   "version": "0.1.0",
   "author": "forbole",
-  "private": true,
   "scripts": {
     "dev": "ENV=development nodemon",
     "build": "npm run build:next && npm run build:server",
