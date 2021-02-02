@@ -8,6 +8,9 @@ RUN apk add --no-cache git
 # Set app directory
 WORKDIR /app
 
+# Add PM2
+RUN npm install pm2 -g
+
 # Installing dependencies
 COPY package*.json ./
 RUN npm i
@@ -20,4 +23,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Running the app
-CMD [ "npm", "start" ]
+CMD ["pm2-runtime", "dist/index.js"]
