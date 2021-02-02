@@ -16,16 +16,11 @@ import {
   Detail,
 } from './components';
 
-export type AccountDetailsType = {
-  address: string
-}
-
-const AccountDetails = (props: AccountDetailsType) => {
+const AccountDetails = () => {
   const { t } = useTranslation(['accounts', 'common']);
   const { communityPool } = useMarketHook();
   const { handleSearchbarSubmit } = useSearchbarSubmitHook();
   const { classes } = useGetStyles();
-  const { address } = props;
 
   return (
     <Layout

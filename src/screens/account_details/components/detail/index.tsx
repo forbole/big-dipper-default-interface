@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import {
   UserInfoDesktop,
   UserInfoMobile,
-  AvatarDisplay,
   InfoPopover,
 } from '@forbole/big-dipper-default-ui';
 import { Avatar } from '@components';
@@ -15,7 +14,6 @@ import {
 } from './utils';
 import { Dialog } from './components';
 import { useDetailHook } from './hooks';
-
 
 const Detail = () => {
   const { t } = useTranslation(['accounts', 'activities']);

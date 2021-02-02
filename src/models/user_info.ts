@@ -31,8 +31,6 @@ class UserInfo {
   }
 
   static fromJson(data: any) {
-    console.log('model', data);
-
     return new UserInfo({
       address: R.pathOr(0, ['account', 0, 'address'], data),
       avaliable: R.pathOr({
@@ -54,7 +52,6 @@ class UserInfo {
       commission: R.pathOr({
         denom: '', amount: 0,
       }, ['account', 0, 'validator', 0, 'validator', 0, 'commissions', 0, 'amount'], data),
-      /* data not ready */
       rewardAddress: R.pathOr(0, ['account', 0, 'address'], data),
 
     });

@@ -1,51 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'i18n';
-import {
-  AvatarDisplay,
-  InfoPopover,
-} from '@forbole/big-dipper-default-ui';
-import {
-  Last7Days,
-  TrendChart,
-  Dialog,
-} from './components';
-import { useUserInfoHook } from './hooks';
-import { userInfoParser } from '@src/graphql/parsers/queries';
-
-// const { t } = useTranslation(['accounts', 'activities']);
-// const { userInfo } = useUserInfoHook();
+import { AvatarDisplay } from '@forbole/big-dipper-default-ui';
 
 export const toCurrency = (num) => {
   const parts = num.toString().split('.');
   parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   return parts.join('.');
-};
-
-export const TrendChartdata = {
-  numberDisplay: '2.86% (24h)',
-  data: [
-    {
-      name: 'Page A', uv: 4000, pv: 2400, amt: 2400,
-    },
-    {
-      name: 'Page B', uv: 3000, pv: 1398, amt: 2210,
-    },
-    {
-      name: 'Page C', uv: 2000, pv: 9800, amt: 2290,
-    },
-    {
-      name: 'Page D', uv: 2780, pv: 3908, amt: 2000,
-    },
-    {
-      name: 'Page E', uv: 1890, pv: 4800, amt: 2181,
-    },
-    {
-      name: 'Page F', uv: 2390, pv: 3800, amt: 2500,
-    },
-    {
-      name: 'Page G', uv: 3490, pv: 4300, amt: 2100,
-    },
-  ],
 };
 
 const ProposerData = () => {
@@ -54,14 +13,6 @@ const ProposerData = () => {
       imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
       alt="avatar image"
       title="Forbole"
-    />
-  );
-};
-
-const InfoPop = () => {
-  return (
-    <InfoPopover
-      detail="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co"
     />
   );
 };
@@ -97,11 +48,6 @@ export const delegate = {
     rawValue: 0.18,
     display: '0.18%',
   },
-  last7Days: {
-    className: 'last7Days',
-    rawValue: 1,
-    display: <Last7Days data={TrendChartdata.data} />,
-  },
 };
 
 export const redelegate = {
@@ -119,11 +65,6 @@ export const redelegate = {
     className: 'redelegatedAmount',
     rawValue: 1602020.799998,
     display: '1,602,020.799998 ATOM',
-  },
-  remainAmount: {
-    className: 'remainAmount',
-    rawValue: 4602020.799998,
-    display: '4,602,020.799998 ATOM',
   },
   expectedDelivery: {
     className: 'expectedDelivery',
@@ -147,11 +88,6 @@ export const unbonded = {
     className: 'amount',
     rawValue: 7202020.799998,
     display: '7,202,020.799998 ATOM',
-  },
-  remainAmount: {
-    className: 'remainAmount',
-    rawValue: 4602020.799998,
-    display: '4,602,020.799998 ATOM',
   },
   expectedDelivery: {
     className: 'expectedDelivery',
@@ -198,12 +134,6 @@ export const dummyData: any = {
         align: 'right',
         sort: true,
       },
-      {
-        label: 'last7Days',
-        display: 'Last 7 days',
-        align: 'right',
-        sort: true,
-      },
     ],
     redelegatedColumns: [
       {
@@ -219,12 +149,6 @@ export const dummyData: any = {
       {
         label: 'amount',
         display: 'redelegated Amount',
-        align: 'right',
-        sort: true,
-      },
-      {
-        label: 'remainAmount',
-        display: 'Remain Amount',
         align: 'right',
         sort: true,
       },
@@ -249,12 +173,6 @@ export const dummyData: any = {
       {
         label: 'amount',
         display: 'Unbonded Amount',
-        align: 'right',
-        sort: true,
-      },
-      {
-        label: 'remainAmount',
-        display: 'Remain Amount',
         align: 'right',
         sort: true,
       },
