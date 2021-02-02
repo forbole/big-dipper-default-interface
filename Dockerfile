@@ -24,4 +24,4 @@ EXPOSE 3000
 
 # Running the app
 # CMD [ "npm", "start" ]
-CMD ["ENV=production", "node", "dist/index.js"]
+CMD ["pm2-runtime", "dist/index.js"]
