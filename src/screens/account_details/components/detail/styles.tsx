@@ -9,6 +9,9 @@ export const useGetStyles = (props: string[]) => {
       background: theme?.palette?.background?.paper,
       '&.userInfoMobile': {
         padding: theme?.palette?.custom?.margins?.small,
+        '& .image': {
+          marginTop: '5px',
+        },
       },
       '&.userInfoDesktop': {
         display: 'none',
@@ -23,6 +26,9 @@ export const useGetStyles = (props: string[]) => {
           },
           '& hr': {
             background: theme?.palette?.divider,
+          },
+          '& .image': {
+            marginTop: '2px',
           },
         },
         '&.userInfoMobile': {

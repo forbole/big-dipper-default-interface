@@ -8,8 +8,7 @@ export type dataType = {
 class UserInfo {
   public address: string;
   public rewardAddress: string;
-  public totalAmount: number;
-  public price: number;
+  public price: bigint;
   public unit: string;
   public avaliable: dataType;
   public delegate: dataType;
@@ -21,7 +20,6 @@ class UserInfo {
   constructor(payload: any) {
     this.address = payload.address;
     this.rewardAddress = payload.rewardAddress;
-    this.totalAmount = payload.totalAmount;
     this.price = payload.price;
     this.unit = payload.unit;
     this.avaliable = payload.avaliable;
@@ -39,7 +37,7 @@ class UserInfo {
       address: R.pathOr(0, ['account', 0, 'address'], data),
       avaliable: R.pathOr({
         denom: '', amount: 0,
-      }, ['account', 0, 'available', 0, 'coins'], data),
+      }, ['account', 0, 'available', 0, 'coins', 0], data),
       delegate: R.pathOr({
         denom: '', amount: 0,
       }, ['account', 0, 'delegations', 0, 'amount'], data),
@@ -52,15 +50,12 @@ class UserInfo {
       reward: R.pathOr({
         denom: '', amount: 0,
       }, ['account', 0, 'rewards', 0, 'amount'], data),
-      price: R.pathOr('0.00', ['token_price', 0, 'price'], data),
+      price: R.pathOr(0.00, ['token_price', 0, 'price'], data),
       commission: R.pathOr({
         denom: '', amount: 0,
       }, ['account', 0, 'validator', 0, 'validator', 0, 'commissions', 0, 'amount'], data),
-
-      totalAmount: R.pathOr(0, ['pool', 0, 'account_balances', 0, 'coins', 0, 'amount'], data),
-      unit: R.pathOr('', ['account', 0, 'account_balances', 0, 'coins', 0, 'denom'], data),
       /* data not ready */
-      rewardAddress: R.pathOr(0, ['pool', 0, 'rewardAddress'], data),
+      rewardAddress: R.pathOr(0, ['account', 0, 'address'], data),
 
     });
   }
