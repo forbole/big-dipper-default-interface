@@ -1,8 +1,8 @@
 name: Docker-Production
 
 on:
-  push:
   pull_request:
+  push:
     tags:
       - v*
 
