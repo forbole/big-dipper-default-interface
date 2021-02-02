@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
-import { Consensus } from 'big-dipper-default-ui';
+import { Consensus } from '@forbole/big-dipper-default-ui';
 import { dummyProposerData } from './utils';
 
 describe('Consensus', () => {

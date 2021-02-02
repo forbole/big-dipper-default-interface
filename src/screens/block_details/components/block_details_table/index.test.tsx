@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { BlockDetails } from 'big-dipper-default-ui';
+import { BlockDetails } from '@forbole/big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';

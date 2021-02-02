@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   OnlineVotingPower as OnlineVotingPowerUi, SelectTabs,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { convertNumber } from '@utils';

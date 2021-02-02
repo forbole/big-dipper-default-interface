@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { DataBlock } from 'big-dipper-default-ui';
+import { DataBlock } from '@forbole/big-dipper-default-ui';
 import { DataBlocksHeader } from '@components';
 import { awaitActions } from '@tests/utils/await_actions';
 import { BaseWrapper } from '@tests/utils/base_wrapper';

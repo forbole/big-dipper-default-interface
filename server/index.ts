@@ -4,7 +4,7 @@ import express, { Request, Response } from 'express';
 import next from 'next';
 import cors from 'cors';
 
-const dev = process.env.ENV !== 'production';
+const dev = process.env.NODE_ENV !== 'production';
 const app = next({
   dev,
 });
@@ -25,7 +25,7 @@ const port = process.env.PORT;
       if (err) throw err;
       console.log('> Blast Off Ready On:');
       console.log(`> URL: ${process.env.NEXT_PUBLIC_URL}`);
-      console.log(`> ENV: ${process.env.ENV}`);
+      console.log(`> ENV: ${process.env.NODE_ENV}`);
       console.log(`> PORT: ${process.env.PORT}`);
     });
   } catch (e) {

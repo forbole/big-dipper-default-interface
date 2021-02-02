@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { AvatarDisplay } from 'big-dipper-default-ui';
+import { AvatarDisplay } from '@forbole/big-dipper-default-ui';
 import { ProposerProps } from './types';
 
 const Proposer = (props: ProposerProps) => {

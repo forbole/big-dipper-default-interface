@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { LatestActivities } from 'big-dipper-default-ui';
+import { LatestActivities } from '@forbole/big-dipper-default-ui';
 import { ActivitiesFilter } from '@components';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';

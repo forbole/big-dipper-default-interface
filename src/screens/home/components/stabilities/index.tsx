@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
 import numeral from 'numeral';
-import { Stabilities } from 'big-dipper-default-ui';
+import { Stabilities } from '@forbole/big-dipper-default-ui';
 import { chainConfig } from '@src/chain_config';
 import { formatDenom } from '@utils';
 import { useGetStyles } from './styles';

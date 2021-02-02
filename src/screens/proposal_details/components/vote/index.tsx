@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import {
   ProposalResultDesktop,
   ProposalResultMobile,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useGetStyles } from './styles';
 import { dummyData } from './utils';
 

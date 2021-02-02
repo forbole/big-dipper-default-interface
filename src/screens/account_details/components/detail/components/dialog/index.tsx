@@ -13,7 +13,7 @@ import {
   EmailIcon,
 } from 'react-share';
 import { useTranslation } from 'i18n';
-import { InfoDialog } from 'big-dipper-default-ui';
+import { InfoDialog } from '@forbole/big-dipper-default-ui';
 import classnames from 'classnames';
 import { DialogProp } from './types';
 import { useGetStyles } from './styles';

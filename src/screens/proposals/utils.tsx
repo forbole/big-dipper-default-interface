@@ -1,5 +1,5 @@
 import React from 'react';
-import { AvatarDisplay } from 'big-dipper-default-ui';
+import { AvatarDisplay } from '@forbole/big-dipper-default-ui';
 import { useTheme } from '@material-ui/core/styles';
 
 const Proposer = () => {

@@ -7,7 +7,7 @@ import { useTranslation } from 'i18n';
 import {
   MobileNav,
   DesktopNav,
-} from 'big-dipper-internal-ui';
+} from '@forbole/big-dipper-internal-ui';
 import { Footer } from '@components';
 import { GlobalContext } from '@contexts';
 import { useGetScreenSizeHook } from '@hooks';

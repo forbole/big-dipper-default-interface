@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import {
   OnlineVotingPower as OnlineVotingPowerUi, SelectTabs,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { lightTheme } from '@styles';
 import OnlineVotingPower from '.';
