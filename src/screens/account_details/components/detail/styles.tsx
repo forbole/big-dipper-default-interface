@@ -1,7 +1,6 @@
 import {
   makeStyles, createStyles,
 } from '@material-ui/styles';
-import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = (props: string[]) => {
   const useStyles = makeStyles((theme: any) => createStyles({
