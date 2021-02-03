@@ -7,6 +7,7 @@ import {
   InfoPopover,
 } from '@forbole/big-dipper-default-ui';
 import { Avatar } from '@components';
+import { chainConfig } from '@src/chain_config';
 import { useGetStyles } from './styles';
 import {
   dummyData,
@@ -29,6 +30,8 @@ const Detail = () => {
   + userInfo.unbonding.amount
   + userInfo.reward.amount
   + userInfo.commission.amount;
+
+  const unit = chainConfig.display.toUpperCase();
 
   return (
     <div className={classes.root}>
@@ -74,8 +77,8 @@ const Detail = () => {
         }}
         chart={{
           total: {
-            title: `Total ${t('unit')}`,
-            subTitle: `${toCurrency(userInfo.price) === '0' ? '0.00' : toCurrency(userInfo.price)} / ${t('unit')}`,
+            title: `Total ${unit}`,
+            subTitle: `${toCurrency(userInfo.price) === '0' ? '0.00' : toCurrency(userInfo.price)} / ${unit}`,
           },
           totalDollar: {
             title: `${toCurrency(totalAmount)}`,
@@ -86,27 +89,27 @@ const Detail = () => {
             {
               title: 'Available',
               value: userInfo.avaliable.amount,
-              display: `${toCurrency(userInfo.avaliable.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.avaliable.amount)} ${unit}`,
             },
             {
               title: 'Delegate',
               value: userInfo.delegate.amount,
-              display: `${toCurrency(userInfo.delegate.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.delegate.amount)} ${unit}`,
             },
             {
               title: 'Unbonding',
               value: userInfo.unbonding.amount,
-              display: `${toCurrency(userInfo.unbonding.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.unbonding.amount)} ${unit}`,
             },
             {
               title: 'Reward',
               value: userInfo.reward.amount,
-              display: `${toCurrency(userInfo.reward.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.reward.amount)} ${unit}`,
             },
             {
               title: 'Commission',
               value: userInfo.commission.amount,
-              display: `${toCurrency(userInfo.commission.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.commission.amount)} ${unit}`,
             },
           ],
 
@@ -157,8 +160,8 @@ const Detail = () => {
         }}
         chart={{
           total: {
-            title: `Total ${t('unit')}`,
-            subTitle: `${toCurrency(userInfo.price) === '0' ? '0.00' : toCurrency(userInfo.price)} / ${t('unit')}`,
+            title: `Total ${unit}`,
+            subTitle: `${toCurrency(userInfo.price) === '0' ? '0.00' : toCurrency(userInfo.price)} / ${unit}`,
           },
           totalDollar: {
             title: `${toCurrency(totalAmount)}`,
@@ -169,27 +172,27 @@ const Detail = () => {
             {
               title: 'Available',
               value: userInfo.avaliable.amount,
-              display: `${toCurrency(userInfo.avaliable.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.avaliable.amount)} ${unit}`,
             },
             {
               title: 'Delegate',
               value: userInfo.delegate.amount,
-              display: `${toCurrency(userInfo.delegate.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.delegate.amount)} ${unit}`,
             },
             {
               title: 'Unbonding',
               value: userInfo.unbonding.amount,
-              display: `${toCurrency(userInfo.unbonding.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.unbonding.amount)} ${unit}`,
             },
             {
               title: 'Reward',
               value: userInfo.reward.amount,
-              display: `${toCurrency(userInfo.reward.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.reward.amount)} ${unit}`,
             },
             {
               title: 'Commission',
               value: userInfo.commission.amount,
-              display: `${toCurrency(userInfo.commission.amount)} ${t('unit')}`,
+              display: `${toCurrency(userInfo.commission.amount)} ${unit}`,
             },
           ],
         }}
