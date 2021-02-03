@@ -1,6 +1,6 @@
 import {
   VALIDATOR_STAKING,
-  VALIDATOR_STAKING_LATEST_HEIGHT,
+  LATEST_BLOCK_HEIGHT,
 } from '@graphql/queries';
 import { gql } from '@apollo/client';
 
@@ -41,22 +41,13 @@ export const VALIDATOR_STAKING_MOCK_DATA = [
   },
   {
     request: {
-      query: gql`${VALIDATOR_STAKING_LATEST_HEIGHT}`,
-      variables: {
-        address: null,
-      },
+      query: gql`${LATEST_BLOCK_HEIGHT}`,
     },
     result: {
       data: {
-        validator: [
+        block: [
           {
-            delegations: [
-              {
-                height: 1,
-              },
-            ],
-            redelegations: [],
-            unbonding_delegations: [],
+            height: 204592,
           },
         ],
       },
