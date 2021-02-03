@@ -16,6 +16,7 @@ import {
   latestBlockHeightParser,
 } from '@src/graphql/parsers/queries';
 import { UserInfo } from '@models';
+import { formatData } from './utils';
 
 export const useDetailHook = (t: any) => {
   const [userInfo, setUserInfo] = useState<UserInfo>(UserInfo.fromJson({
@@ -29,7 +30,11 @@ export const useDetailHook = (t: any) => {
   const [getUserInfo] = useLazyQuery(gql`${USER_INFO}`, {
     onCompleted: (data) => {
       const parsedData = userInfoParser(data);
-      setUserInfo(parsedData);
+      if (!parsedData) {
+        router.push('/404');
+      } else {
+        setUserInfo(parsedData);
+      }
     },
   });
 
@@ -41,8 +46,8 @@ export const useDetailHook = (t: any) => {
           variables: {
             address: router?.query?.address,
             // height,
-            height: 1,
-            // height: 2,
+            // height: 1,
+            height: 2,
           },
         });
       }
@@ -58,7 +63,7 @@ export const useDetailHook = (t: any) => {
   };
 
   return {
-    userInfo,
+    userInfo: formatData(userInfo),
     handleCopy,
   };
 };

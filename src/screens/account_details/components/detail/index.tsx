@@ -1,15 +1,18 @@
 import React from 'react';
+import numeral from 'numeral';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { useTheme } from '@material-ui/core/styles';
 import {
   UserInfo,
-  // InfoPopover,
+  InfoPopover,
 } from '@forbole/big-dipper-default-ui';
 import { Avatar } from '@components';
-// import { chainConfig } from '@src/chain_config';
+import { chainConfig } from '@src/chain_config';
+import { useGetScreenSizeHook } from '@hooks';
+import { formatMiddleEllipse } from '@utils';
 import { useGetStyles } from './styles';
-// import { Dialog } from './components';
+import { Dialog } from './components';
 import { useDetailHook } from './hooks';
 
 const Detail = () => {
@@ -19,112 +22,98 @@ const Detail = () => {
   const { classes } = useGetStyles(colors);
   const {
     handleCopy,
-    // userInfo,
+    userInfo,
   } = useDetailHook(t);
+  const { isMobile } = useGetScreenSizeHook();
+  const denom = chainConfig.display.toUpperCase();
 
-  // const totalAmount = userInfo.avaliable.amount
-  // + userInfo.delegate.amount
-  // + userInfo.unbonding.amount
-  // + userInfo.reward.amount
-  // + userInfo.commission.amount;
-
-  // const unit = chainConfig.display.toUpperCase();
-
+  // ===============================
+  // ui utils
+  // ===============================
+  const formatAddress = (address: string) => {
+    if (isMobile) {
+      return formatMiddleEllipse(address, {
+        beginning: 8,
+        ending: 6,
+      });
+    }
+    return address;
+  };
   return (
-    <div className={classes.root}>
-      <UserInfo
-        desktop={theme?.breakpoints?.values?.desktop}
-        className={classnames(classes.root)}
-        title={t('accountDetails')}
-        addressContent={{
-          image: (<Avatar
-            address="cosmos14kn0k…swhp"
-            diameter={50}
-          />),
-          address: {
-            title: 'Address',
-            display: 'cosmos14kn0k…swhp',
-            rawValue: 'cosmos14kn0k…swhp',
+    <UserInfo
+      desktop={theme?.breakpoints?.values?.desktop}
+      className={classnames(classes.root)}
+      addressContent={{
+        image: (<Avatar
+          address={userInfo.address}
+          diameter={40}
+        />),
+        address: {
+          title: t('rewardAddress'),
+          display: formatAddress(userInfo.address),
+          dialog: (
+            <Dialog
+              address={{
+                display: userInfo.address,
+                rawValue: userInfo.address,
+              }}
+            />
+          ),
+          rawValue: userInfo.address,
+        },
+        rewardAddress: {
+          title: (
+            <div className="rewardAddress">
+              {t('rewardAddress')}
+              <InfoPopover
+                detail={t('rewardAddressInfo')}
+              />
+            </div>
+          ),
+          display: formatAddress(userInfo.rewardAddress),
+          rawValue: userInfo.rewardAddress,
+        },
+      }}
+      chart={{
+        total: {
+          title: `${t('total')} ${denom}`,
+          subTitle: `$${numeral(userInfo.price).format('0,0.00')} / ${denom}`,
+        },
+        totalDollar: {
+          title: `${userInfo.total.format} ${denom}`,
+          subTitle: `$${numeral(userInfo.price * userInfo.total.raw).format('0,0.00')}`,
+        },
+        colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
+        data: [
+          {
+            title: t('available'),
+            value: userInfo.available.raw,
+            display: `${userInfo.available.format} ${denom}`,
           },
-          rewardAddress: {
-            title: 'Reward Address',
-            display: 'cosmos14kn0k…swhp',
-            rawValue: 'cosmos14kn0k…swhp',
+          {
+            title: t('delegate'),
+            value: userInfo.delegate.raw,
+            display: `${userInfo.delegate.format} ${denom}`,
           },
-        }}
-        // addressContent={{
-          // image: (<Avatar
-          //   address={userInfo.address ? userInfo.address : ''}
-          //   diameter={60}
-
-          // />),
-        //   address: {
-        //     title: t('rewardAddress'),
-        //     display: userInfo.address,
-        //     dialog: (
-        //       <Dialog
-        //         address={{
-        //           display: userInfo.address,
-        //           rawValue: userInfo.address,
-        //         }}
-        //       />
-        //     ),
-        //     rawValue: userInfo.address,
-        //   },
-        //   rewardAddress: {
-        //     title: (
-        //       <div className="rewardAddress">
-        //         {t('rewardAddress')}
-        //         <InfoPopover
-        //           detail="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co"
-        //         />
-        //       </div>
-        //     ),
-        //     display: userInfo.rewardAddress,
-        //     rawValue: '123',
-        //   },
-        // }}
-        chart={{
-          total: {
-            title: 'Total ATOM',
-            subTitle: '$3.22/ATOM',
+          {
+            title: t('unbonding'),
+            value: userInfo.unbonding.raw,
+            display: `${userInfo.unbonding.format} ${denom}`,
           },
-          totalDollar: {
-            title: '6,574,315.38',
-            subTitle: '$21,169,295.52',
+          {
+            title: t('reward'),
+            value: userInfo.reward.raw,
+            display: `${userInfo.reward.format} ${denom}`,
           },
-          colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
-          data: [
-            {
-              title: 'Available',
-              value: 111189.15,
-              display: '111,189.15 ATOM',
-            },
-            {
-              title: 'Delegate',
-              value: 458003.25,
-              display: '6,458,003.25 ATOM',
-            },
-            {
-              title: 'Unbonding',
-              value: 156.00,
-              display: '156.00 ATOM',
-            },
-            {
-              title: 'Reward',
-              value: 5122.96,
-              display: '5,122.96 ATOM',
-            },
-            {
-              title: 'Commission',
-              value: 1324.91,
-              display: '1,324.91 ATOM',
-            },
-          ],
-        }}
-        copyCallback={handleCopy}
-      />
-    </div>
+          {
+            title: t('commission'),
+            value: userInfo.commission.raw,
+            display: `${userInfo.commission.format} ${denom}`,
+          },
+        ],
+      }}
+      copyCallback={handleCopy}
+    />
   );
 };
 

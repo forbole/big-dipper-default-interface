@@ -11,6 +11,7 @@ class UserInfo {
   public unbonding: number;
   public reward: number;
   public commission: number;
+  public total: number;
 
   constructor(payload: any) {
     this.address = payload.address;
@@ -22,6 +23,7 @@ class UserInfo {
     this.unbonding = payload.unbonding;
     this.reward = payload.reward;
     this.commission = payload.commission;
+    this.total = payload.total;
   }
 
   static fromJson(data: any) {
@@ -72,8 +74,9 @@ class UserInfo {
       R.pathOr([], ['validator', 0, 'commissions', 0, 'amount'], data)
         .filter((x) => x?.denom === chainConfig.base));
 
+    const total = available + delegate + redelegate + unbonding + reward + commission;
     return new UserInfo({
-      address: R.pathOr(0, ['account', 0, 'address'], data),
+      address: R.pathOr('', ['account', 0, 'address'], data),
       rewardAddress: R.pathOr(0, ['account', 0, 'address'], data), // update later
       available,
       delegate,
@@ -81,6 +84,7 @@ class UserInfo {
       unbonding,
       reward,
       commission,
+      total,
       price: 0,
       // price: R.pathOr(0, ['token_price', 0, 'price'], data),
     });
