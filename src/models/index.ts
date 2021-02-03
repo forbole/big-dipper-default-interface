@@ -19,6 +19,8 @@ import UserInfo from './user_info';
 import ValidatorLatestBlock from './validator_latest_block';
 import ValidatorList from './validator_list';
 import SlashingParam from './slashing_param';
+import UserStaking from './user_staking';
+import TotalVotingPower from './total_voting_power';
 
 // ================================
 // Transaction Message Types
@@ -86,4 +88,6 @@ export {
   ValidatorList,
   ValidatorLatestBlock,
   SlashingParam,
+  UserStaking,
+  TotalVotingPower,
 };

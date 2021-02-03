@@ -29,6 +29,8 @@ import {
 
 const StakingActivities = () => {
   const {
+    userStaking,
+    totalVotingPower,
     tabValue,
     handleTabChange,
   } = useStakingActivitiesHook();
@@ -72,7 +74,20 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={dummyMobileData}
+            data={[
+              {
+                address: 'address',
+                amount: '1,000 ATOM',
+              },
+              {
+                address: 'address',
+                amount: '1,000 ATOM',
+              },
+              {
+                address: 'address',
+                amount: '1,000 ATOM',
+              },
+            ]}
           />
           {/* ================================ */}
           {/* desktop */}
