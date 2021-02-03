@@ -17,9 +17,7 @@ import { validatorProfileParser } from './validator_profile_parser';
 import { validatorInfoParser } from './validator_info_parser';
 import { activityDetailParser } from './activity_details_parser';
 import { userInfoParser } from './user_info_parser';
-import {
-  validatorStakingParser, validatorStakingLatestHeightParser,
-} from './validator_staking_parser';
+import { validatorStakingParser } from './validator_staking_parser';
 import { validatorLatestBlockParser } from './validator_latest_block_parser';
 import { slashingParamParser } from './slashing_param_parser';
 import { validatorListParser } from './validator_list_parser';
@@ -42,7 +40,6 @@ export {
   activityDetailParser,
   validatorStakingParser,
   userInfoParser,
-  validatorStakingLatestHeightParser,
   validatorLatestBlockParser,
   slashingParamParser,
   validatorListParser,
