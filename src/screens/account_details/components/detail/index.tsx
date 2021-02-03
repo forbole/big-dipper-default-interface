@@ -1,206 +1,119 @@
 import React from 'react';
+import numeral from 'numeral';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
+import { useTheme } from '@material-ui/core/styles';
 import {
-  UserInfoDesktop,
-  UserInfoMobile,
+  UserInfo,
   InfoPopover,
 } from '@forbole/big-dipper-default-ui';
 import { Avatar } from '@components';
+import { chainConfig } from '@src/chain_config';
+import { useGetScreenSizeHook } from '@hooks';
+import { formatMiddleEllipse } from '@utils';
 import { useGetStyles } from './styles';
-import {
-  dummyData,
-  toCurrency,
-} from './utils';
 import { Dialog } from './components';
 import { useDetailHook } from './hooks';
 
 const Detail = () => {
-  const { t } = useTranslation(['accounts', 'activities']);
+  const theme:any = useTheme();
+  const { t } = useTranslation('accounts');
   const colors = ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'];
   const { classes } = useGetStyles(colors);
   const {
     handleCopy,
     userInfo,
   } = useDetailHook(t);
+  const { isMobile } = useGetScreenSizeHook();
+  const denom = chainConfig.display.toUpperCase();
 
-  const totalAmount = userInfo.avaliable.amount
-  + userInfo.delegate.amount
-  + userInfo.unbonding.amount
-  + userInfo.reward.amount
-  + userInfo.commission.amount;
-
+  // ===============================
+  // ui utils
+  // ===============================
+  const formatAddress = (address: string) => {
+    if (isMobile) {
+      return formatMiddleEllipse(address, {
+        beginning: 8,
+        ending: 6,
+      });
+    }
+    return address;
+  };
   return (
-    <div className={classes.root}>
-
-      <UserInfoMobile
-        className={classnames(classes.root)}
-        classNameAddress={classnames(classes.address)}
-        classNameTable={classnames(classes.table)}
-        classNameChart={classnames(classes.chart)}
-        {...dummyData}
-        title={t('accountDetails')}
-        addressContent={{
-          image: (<Avatar
-            address={userInfo.address ? userInfo.address : ''}
-            diameter={60}
-
-          />),
-          address: {
-            title: t('rewardAddress'),
-            display: userInfo.address,
-            dialog: (
-              <Dialog
-                address={{
-                  display: userInfo.address,
-                  rawValue: userInfo.address,
-                }}
+    <UserInfo
+      desktop={theme?.breakpoints?.values?.desktop}
+      className={classnames(classes.root)}
+      addressContent={{
+        image: (<Avatar
+          address={userInfo.address}
+          diameter={40}
+        />),
+        address: {
+          title: t('rewardAddress'),
+          display: formatAddress(userInfo.address),
+          dialog: (
+            <Dialog
+              address={{
+                display: userInfo.address,
+                rawValue: userInfo.address,
+              }}
+            />
+          ),
+          rawValue: userInfo.address,
+        },
+        rewardAddress: {
+          title: (
+            <div className="rewardAddress">
+              {t('rewardAddress')}
+              <InfoPopover
+                detail={t('rewardAddressInfo')}
               />
-            ),
-            rawValue: userInfo.address,
+            </div>
+          ),
+          display: formatAddress(userInfo.rewardAddress),
+          rawValue: userInfo.rewardAddress,
+        },
+      }}
+      chart={{
+        total: {
+          title: `${t('total')} ${denom}`,
+          subTitle: `$${numeral(userInfo.price).format('0,0.00')} / ${denom}`,
+        },
+        totalDollar: {
+          title: `${userInfo.total.format} ${denom}`,
+          subTitle: `$${numeral(userInfo.price * userInfo.total.raw).format('0,0.00')}`,
+        },
+        colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
+        data: [
+          {
+            title: t('available'),
+            value: userInfo.available.raw,
+            display: `${userInfo.available.format} ${denom}`,
           },
-          rewardAddress: {
-            title: (
-              <div className="rewardAddress">
-                {t('rewardAddress')}
-                <InfoPopover
-                  detail="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co"
-                />
-              </div>
-            ),
-            display: userInfo.rewardAddress,
-            rawValue: '123',
+          {
+            title: t('delegate'),
+            value: userInfo.delegate.raw,
+            display: `${userInfo.delegate.format} ${denom}`,
           },
-        }}
-        chart={{
-          total: {
-            title: `Total ${t('unit')}`,
-            subTitle: `${toCurrency(userInfo.price) === '0' ? '0.00' : toCurrency(userInfo.price)} / ${t('unit')}`,
+          {
+            title: t('unbonding'),
+            value: userInfo.unbonding.raw,
+            display: `${userInfo.unbonding.format} ${denom}`,
           },
-          totalDollar: {
-            title: `${toCurrency(totalAmount)}`,
-            subTitle: '$0',
+          {
+            title: t('reward'),
+            value: userInfo.reward.raw,
+            display: `${userInfo.reward.format} ${denom}`,
           },
-          colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
-          data: [
-            {
-              title: 'Available',
-              value: userInfo.avaliable.amount,
-              display: `${toCurrency(userInfo.avaliable.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Delegate',
-              value: userInfo.delegate.amount,
-              display: `${toCurrency(userInfo.delegate.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Unbonding',
-              value: userInfo.unbonding.amount,
-              display: `${toCurrency(userInfo.unbonding.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Reward',
-              value: userInfo.reward.amount,
-              display: `${toCurrency(userInfo.reward.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Commission',
-              value: userInfo.commission.amount,
-              display: `${toCurrency(userInfo.commission.amount)} ${t('unit')}`,
-            },
-          ],
-
-        }}
-        copyCallback={handleCopy}
-        tabProps={{
-          delegations: t('delegations'),
-          redelegations: t('redelegations'),
-          unbondings: t('unbondings'),
-        }}
-      />
-      <UserInfoDesktop
-        className={classnames(classes.root)}
-        classNameAddress={classnames(classes.address)}
-        classNameTable={classnames(classes.table)}
-        classNameChart={classnames(classes.chart)}
-        {...dummyData}
-        addressContent={{
-          image: (<Avatar
-            address={userInfo.address ? userInfo.address : ''}
-            diameter={40}
-          />),
-          address: {
-            title: t('address'),
-            display: userInfo.address,
-            dialog: (
-              <Dialog
-                address={{
-                  display: userInfo.address,
-                  rawValue: userInfo.address,
-                }}
-              />
-            ),
-            rawValue: userInfo.address,
+          {
+            title: t('commission'),
+            value: userInfo.commission.raw,
+            display: `${userInfo.commission.format} ${denom}`,
           },
-          rewardAddress: {
-            title: (
-              <div className="rewardAddress">
-                {t('rewardAddress')}
-                <InfoPopover
-                  detail="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co"
-                />
-              </div>
-            ),
-            display: userInfo.rewardAddress,
-            rawValue: '123',
-          },
-        }}
-        chart={{
-          total: {
-            title: `Total ${t('unit')}`,
-            subTitle: `${toCurrency(userInfo.price) === '0' ? '0.00' : toCurrency(userInfo.price)} / ${t('unit')}`,
-          },
-          totalDollar: {
-            title: `${toCurrency(totalAmount)}`,
-            subTitle: '$0',
-          },
-          colors: ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'],
-          data: [
-            {
-              title: 'Available',
-              value: userInfo.avaliable.amount,
-              display: `${toCurrency(userInfo.avaliable.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Delegate',
-              value: userInfo.delegate.amount,
-              display: `${toCurrency(userInfo.delegate.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Unbonding',
-              value: userInfo.unbonding.amount,
-              display: `${toCurrency(userInfo.unbonding.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Reward',
-              value: userInfo.reward.amount,
-              display: `${toCurrency(userInfo.reward.amount)} ${t('unit')}`,
-            },
-            {
-              title: 'Commission',
-              value: userInfo.commission.amount,
-              display: `${toCurrency(userInfo.commission.amount)} ${t('unit')}`,
-            },
-          ],
-        }}
-        copyCallback={handleCopy}
-        tabProps={{
-          delegations: t('delegations'),
-          redelegations: t('redelegations'),
-          unbondings: t('unbondings'),
-        }}
-      />
-    </div>
+        ],
+      }}
+      copyCallback={handleCopy}
+    />
   );
 };
 

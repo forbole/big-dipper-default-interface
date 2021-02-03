@@ -1,59 +1,92 @@
 import * as R from 'ramda';
-
-export type dataType = {
-  denom?: string,
-  amount?: bigint,
-}
+import { chainConfig } from '@src/chain_config';
 
 class UserInfo {
   public address: string;
   public rewardAddress: string;
-  public price: bigint;
-  public unit: string;
-  public avaliable: dataType;
-  public delegate: dataType;
-  public redelegate: dataType;
-  public unbonding: dataType;
-  public reward: dataType;
-  public commission: dataType;
+  public price: number;
+  public available: number;
+  public delegate: number;
+  public redelegate: number;
+  public unbonding: number;
+  public reward: number;
+  public commission: number;
+  public total: number;
 
   constructor(payload: any) {
     this.address = payload.address;
     this.rewardAddress = payload.rewardAddress;
     this.price = payload.price;
-    this.unit = payload.unit;
-    this.avaliable = payload.avaliable;
+    this.available = payload.available;
     this.delegate = payload.delegate;
     this.redelegate = payload.redelegate;
     this.unbonding = payload.unbonding;
     this.reward = payload.reward;
     this.commission = payload.commission;
+    this.total = payload.total;
   }
 
   static fromJson(data: any) {
-    return new UserInfo({
-      address: R.pathOr(0, ['account', 0, 'address'], data),
-      avaliable: R.pathOr({
-        denom: '', amount: 0,
-      }, ['account', 0, 'available', 0, 'coins', 0], data),
-      delegate: R.pathOr({
-        denom: '', amount: 0,
-      }, ['account', 0, 'delegations', 0, 'amount'], data),
-      redelegate: R.pathOr({
-        denom: '', amount: 0,
-      }, ['account', 0, 'redelegations', 0, 'amount'], data),
-      unbonding: R.pathOr({
-        denom: '', amount: 0,
-      }, ['account', 0, 'unbonding_delegations', 0, 'amount'], data),
-      reward: R.pathOr({
-        denom: '', amount: 0,
-      }, ['account', 0, 'rewards', 0, 'amount'], data),
-      price: R.pathOr(0.00, ['token_price', 0, 'price'], data),
-      commission: R.pathOr({
-        denom: '', amount: 0,
-      }, ['account', 0, 'validator', 0, 'validator', 0, 'commissions', 0, 'amount'], data),
-      rewardAddress: R.pathOr(0, ['account', 0, 'address'], data),
+    // ==========================
+    // base
+    // ==========================
+    const account = R.pathOr({
+    }, ['account', 0], data);
 
+    // ==========================
+    // available
+    // ==========================
+    const available = R.pathOr(0, [0, 'amount'],
+      R.pathOr([], ['available', 0, 'coins'], account).filter((x) => x.denom === chainConfig.base));
+
+    // ==========================
+    // delegate
+    // ==========================
+    const delegate = R.pathOr([], ['delegations'], account).filter((x) => x?.amount?.denom === chainConfig.base).reduce((a, b) => {
+      return a + b?.amount?.amount;
+    }, 0);
+
+    // ==========================
+    // redelegate
+    // ==========================
+    const redelegate = R.pathOr([], ['redelegations'], account).filter((x) => x?.amount?.denom === chainConfig.base).reduce((a, b) => {
+      return a + b?.amount?.amount;
+    }, 0);
+
+    // ==========================
+    // unbonding
+    // ==========================
+    const unbonding = R.pathOr([], ['unbonding'], account).filter((x) => x?.amount?.denom === chainConfig.base).reduce((a, b) => {
+      return a + b?.amount?.amount;
+    }, 0);
+
+    // ==========================
+    // rewards
+    // ==========================
+    const reward = R.pathOr([], ['rewards'], account).filter((x) => x?.amount?.denom === chainConfig.base).reduce((a, b) => {
+      return a + b?.amount?.amount;
+    }, 0);
+
+    // ==========================
+    // commissions
+    // ==========================
+    const commission = R.pathOr(0, [0, 'amount'],
+      R.pathOr([], ['validator', 0, 'commissions', 0, 'amount'], data)
+        .filter((x) => x?.denom === chainConfig.base));
+
+    const total = available + delegate + redelegate + unbonding + reward + commission;
+    return new UserInfo({
+      address: R.pathOr('', ['account', 0, 'address'], data),
+      rewardAddress: R.pathOr(0, ['account', 0, 'address'], data), // update later
+      available,
+      delegate,
+      redelegate,
+      unbonding,
+      reward,
+      commission,
+      total,
+      price: 0,
+      // price: R.pathOr(0, ['token_price', 0, 'price'], data),
     });
   }
 }

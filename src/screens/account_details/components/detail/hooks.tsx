@@ -4,56 +4,64 @@ import copy from 'copy-to-clipboard';
 import { toast } from 'react-toastify';
 import {
   useLazyQuery,
-  useQuery, gql,
+  useQuery,
+  gql,
 } from '@apollo/client';
 import {
-  USERINFO,
-  USERINFO_LATEST_HEIGHT,
+  USER_INFO,
+  LATEST_BLOCK_HEIGHT,
 } from '@graphql/queries';
-import { generalConfig } from '@src/general_config';
 import {
   userInfoParser,
-  userInfoLatestHeightParser,
+  latestBlockHeightParser,
 } from '@src/graphql/parsers/queries';
 import { UserInfo } from '@models';
+import { formatData } from './utils';
 
 export const useDetailHook = (t: any) => {
-  const handleCopy = (value: string) => {
-    copy(value);
-    toast(`${t('common:copied')}!`);
-  };
   const [userInfo, setUserInfo] = useState<UserInfo>(UserInfo.fromJson({
   }));
   const router = useRouter();
 
-  const [getUserInfo] = useLazyQuery(gql`${USERINFO}`, {
+  // ===============================
+  // get data
+  // ===============================
+
+  const [getUserInfo] = useLazyQuery(gql`${USER_INFO}`, {
     onCompleted: (data) => {
       const parsedData = userInfoParser(data);
-      setUserInfo(parsedData);
+      if (!parsedData) {
+        router.push('/404');
+      } else {
+        setUserInfo(parsedData);
+      }
     },
   });
 
-  useQuery(gql`${USERINFO_LATEST_HEIGHT}`, {
-    variables: {
-      address: router?.query?.address ?? null,
-    },
+  useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
     onCompleted: (data) => {
-      const height = userInfoLatestHeightParser(data);
+      const height = latestBlockHeightParser(data);
       if (height) {
         getUserInfo({
           variables: {
-            address: router?.query?.address,
+            address: router?.query?.address ?? null,
             height,
           },
         });
       }
     },
-    pollInterval: generalConfig.pollInterval.default,
-    notifyOnNetworkStatusChange: true,
   });
 
+  // ===============================
+  // utils
+  // ===============================
+  const handleCopy = (value: string) => {
+    copy(value);
+    toast(`${t('common:copied')}!`);
+  };
+
   return {
-    userInfo,
+    userInfo: formatData(userInfo),
     handleCopy,
   };
 };
