@@ -18,5 +18,13 @@
   "unbondedAmount": "Unbonded Amount",
   "scanAddress": "Scan for address",
   "buttonDisplay": "Copy Address",
-  "shareTo": "Share to"
+  "rewardAddress": "Reward Address",
+  "accountDetails": "Account Details",
+  "address": "Address",
+  "shareTo": "Share to",
+  "rewardAddressInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co",
+  "total": "Total",
+  "available": "Available",
+  "delegate": "Delegate",
+  "unbonding": "Unbonding"
 }

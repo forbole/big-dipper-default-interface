@@ -40,6 +40,7 @@ const AccountDetails = () => {
           <HeaderBarMobile title={t('subTitle')} communityPool={communityPool} />
         </div>
         <div className={classnames('account-details')}>
+          {/* <Detail address="desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d" /> */}
           <Detail />
         </div>
         <div className={classnames('account-staking')}>
