@@ -1,12 +1,12 @@
 import {
-  USERINFO, USERINFO_LATEST_HEIGHT,
+  USER_INFO, USER_INFO_LATEST_HEIGHT,
 } from '@graphql/queries';
 import { gql } from '@apollo/client';
 
 export const USERINFO_MOCK_DATA = [
   {
     request: {
-      query: gql`${USERINFO}`,
+      query: gql`${USER_INFO}`,
       variables: {
         // address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
         address: null,
@@ -93,7 +93,7 @@ export const USERINFO_MOCK_DATA = [
   },
   {
     request: {
-      query: gql`${USERINFO_LATEST_HEIGHT}`,
+      query: gql`${USER_INFO_LATEST_HEIGHT}`,
       variables: {
         // address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
         address: null,

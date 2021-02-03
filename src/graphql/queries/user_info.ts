@@ -1,4 +1,4 @@
-export const USERINFO_LATEST_HEIGHT = `
+export const USER_INFO_LATEST_HEIGHT = `
 query UserInfoLatestHeight($address: String) {
   account(where: {address: {_eq: $address}}) {
     delegations(limit: 1, order_by: {height: desc}) {
@@ -14,7 +14,7 @@ query UserInfoLatestHeight($address: String) {
 }
 `;
 
-export const USERINFO = `
+export const USER_INFO = `
 query UserInfo($address: String, $height: bigint) {
   account(where: {address: {_eq: $address}} limit:1) {
     address

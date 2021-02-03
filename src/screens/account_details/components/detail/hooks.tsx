@@ -7,8 +7,8 @@ import {
   useQuery, gql,
 } from '@apollo/client';
 import {
-  USERINFO,
-  USERINFO_LATEST_HEIGHT,
+  USER_INFO,
+  USER_INFO_LATEST_HEIGHT,
 } from '@graphql/queries';
 import { generalConfig } from '@src/general_config';
 import {
@@ -26,14 +26,14 @@ export const useDetailHook = (t: any) => {
   }));
   const router = useRouter();
 
-  const [getUserInfo] = useLazyQuery(gql`${USERINFO}`, {
+  const [getUserInfo] = useLazyQuery(gql`${USER_INFO}`, {
     onCompleted: (data) => {
       const parsedData = userInfoParser(data);
       setUserInfo(parsedData);
     },
   });
 
-  useQuery(gql`${USERINFO_LATEST_HEIGHT}`, {
+  useQuery(gql`${USER_INFO_LATEST_HEIGHT}`, {
     variables: {
       address: router?.query?.address ?? null,
     },

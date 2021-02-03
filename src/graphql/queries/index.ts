@@ -15,7 +15,7 @@ import {
 } from './validator_staking';
 import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
 import {
-  USERINFO, USERINFO_LATEST_HEIGHT,
+  USER_INFO, USER_INFO_LATEST_HEIGHT,
 } from './user_info';
 
 export {
@@ -31,8 +31,8 @@ export {
   VALIDATOR_INFO,
   ACTIVITY_DETAILS,
   VALIDATOR_STAKING,
-  USERINFO_LATEST_HEIGHT,
-  USERINFO,
+  USER_INFO_LATEST_HEIGHT,
+  USER_INFO,
   VALIDATOR_LIST,
   VALIDATOR_STAKING_LATEST_HEIGHT,
   VALIDATOR_LATEST_BLOCKS,
