@@ -1,5 +1,6 @@
 import {
-  USER_INFO, USER_INFO_LATEST_HEIGHT,
+  USER_INFO,
+  LATEST_BLOCK_HEIGHT,
 } from '@graphql/queries';
 import { gql } from '@apollo/client';
 
@@ -8,116 +9,62 @@ export const USERINFO_MOCK_DATA = [
     request: {
       query: gql`${USER_INFO}`,
       variables: {
-        // address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
         address: null,
-        height: 1,
+        height: 204592,
       },
     },
     result: {
       data: {
-        token_price: [
-          {
-            price: 20,
-          },
-        ],
         account: [
           {
-            address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
+            address: 'desmos1uj9c9929scde78wu3u5r99wcavf2fzl7rdesmh',
             available: [
               {
                 coins: [
                   {
                     denom: 'udaric',
-                    amount: 9000155,
+                    amount: 1000000,
+                  },
+                  {
+                    denom: 'upotin',
+                    amount: 3157,
                   },
                 ],
               },
             ],
-            delegated: [
+            delegations: [
               {
                 amount: {
                   denom: 'udaric',
-                  amount: 9000155,
+                  amount: 1000000,
                 },
               },
-            ],
-            redelegations: [
               {
                 amount: {
                   denom: 'udaric',
-                  amount: 9000155,
+                  amount: 1000000,
                 },
               },
             ],
-            unbonding: [
-              {
-                amount: {
-                  denom: 'udaric',
-                  amount: 9000155,
-                },
-              },
-            ],
-            rewards: [
-              {
-                amount: {
-                  denom: 'udaric',
-                  amount: 9000155,
-                },
-              },
-            ],
-            validator: [
-              {
-                consensus_address: '',
-              },
-              {
-                operator_address: '',
-              },
-              {
-                self_delegate_address: '',
-              },
-              {
-                consensus_address: '',
-              },
-              {
-                validator: {
-                  commissions: {
-                    amount: 0,
-                  },
-                },
-              },
-            ],
+            redelegations: [],
+            unbonding: [],
+            rewards: [],
           },
         ],
+        validator: [],
+        token_price: [],
       },
     },
   },
   {
     request: {
-      query: gql`${USER_INFO_LATEST_HEIGHT}`,
-      variables: {
-        // address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
-        address: null,
-      },
+      query: gql`${LATEST_BLOCK_HEIGHT}`,
     },
     result: {
       data: {
-        account: [
+        block: [
           {
-            delegations: [
-              {
-                height: 1,
-              },
-            ],
-            redelegations: [
-              {
-                height: 1,
-              },
-            ],
-            unbonding_delegations: [
-              {
-                height: 1,
-              },
-            ],
+            height: 204592,
           },
         ],
       },

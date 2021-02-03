@@ -44,10 +44,8 @@ export const useDetailHook = (t: any) => {
       if (height) {
         getUserInfo({
           variables: {
-            address: router?.query?.address,
-            // height,
-            // height: 1,
-            height: 2,
+            address: router?.query?.address ?? null,
+            height,
           },
         });
       }

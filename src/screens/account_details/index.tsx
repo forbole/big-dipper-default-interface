@@ -11,8 +11,7 @@ import {
 } from '@hooks';
 import { useGetStyles } from './styles';
 import {
-  // wingman
-  // Activities,
+  Activities,
   StakingActivities,
   Detail,
 } from './components';
@@ -47,9 +46,9 @@ const AccountDetails = () => {
         <div className={classnames('account-staking')}>
           <StakingActivities />
         </div>
-        {/* <div className={classnames('account-activities')}>
+        <div className={classnames('account-activities')}>
           <Activities />
-        </div> */}
+        </div>
       </div>
       {/* ===================================== */}
       {/* content end */}
