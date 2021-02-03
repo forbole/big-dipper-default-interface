@@ -16,15 +16,14 @@ import { preCommitsParser } from './pre_commit_parser';
 import { validatorProfileParser } from './validator_profile_parser';
 import { validatorInfoParser } from './validator_info_parser';
 import { activityDetailParser } from './activity_details_parser';
-import {
-  userInfoParser, userInfoLatestHeightParser,
-} from './user_info_parser';
+import { userInfoParser } from './user_info_parser';
 import {
   validatorStakingParser, validatorStakingLatestHeightParser,
 } from './validator_staking_parser';
 import { validatorLatestBlockParser } from './validator_latest_block_parser';
 import { slashingParamParser } from './slashing_param_parser';
 import { validatorListParser } from './validator_list_parser';
+import { latestBlockHeightParser } from './latest_block_height_parser';
 
 export {
   averageBlockTimesParser,
@@ -43,9 +42,9 @@ export {
   activityDetailParser,
   validatorStakingParser,
   userInfoParser,
-  userInfoLatestHeightParser,
   validatorStakingLatestHeightParser,
   validatorLatestBlockParser,
   slashingParamParser,
   validatorListParser,
+  latestBlockHeightParser,
 };

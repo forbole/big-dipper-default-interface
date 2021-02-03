@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { useTheme } from '@material-ui/core/styles';
-import { useGetScreenSizeHook } from '@hooks';
 import {
   UserInfo,
   // InfoPopover,
@@ -18,7 +17,6 @@ const Detail = () => {
   const { t } = useTranslation('accounts');
   const colors = ['#FD248C', '#1D86FF', '#FFA716', '#1EC490', '#9D2DFF'];
   const { classes } = useGetStyles(colors);
-  const { isDesktop } = useGetScreenSizeHook();
   const {
     handleCopy,
     // userInfo,
