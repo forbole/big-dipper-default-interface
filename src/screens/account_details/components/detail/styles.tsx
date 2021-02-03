@@ -7,7 +7,7 @@ export const useGetStyles = (props: string[]) => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       background: theme?.palette?.background?.paper,
-      '&.userInfoMobile': {
+      '&.userInfo': {
         padding: theme?.palette?.custom?.margins?.small,
         '& .image': {
           marginTop: '5px',
