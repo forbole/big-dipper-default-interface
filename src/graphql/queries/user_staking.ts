@@ -20,18 +20,6 @@ query TotalVotingPower($height: bigint) {
 export const USER_STAKING = `
 query MyQuery($address: String) {
   account(where: {address: {_eq: $address}}) {
-    self_delegations: delegations(order_by: {height: desc}, where: {delegator_address: {_eq: $address}}) {
-      validator_address
-      amount
-      delegator_address
-      height
-      validator {
-        validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-      }
-
-    }
     delegations(order_by: {height: desc}) {
       validator_address
       amount
@@ -49,32 +37,24 @@ query MyQuery($address: String) {
         validator_commissions(limit: 1, order_by: {height: desc}) {
           commission
         }
+        validator_voting_powers(limit: 1, order_by: {height: desc} where: {validator_address: {_eq: $address}}) {
+          voting_power
+        }
       }
     }
     redelegations(order_by: {height: desc}) {
       amount
-      delegator_address
       height
+      delegator_address
       dst_validator_address
       src_validator_address
       completion_time
-      validator {
-        validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-      }
     }
     unbonding_delegations(order_by: {height: desc}) {
       amount
       validator_address
-      delegator_address
       height
       completion_timestamp
-      validator {
-        validator_commissions(limit: 1, order_by: {height: desc}) {
-          commission
-        }
-      }
     }
   }
 }

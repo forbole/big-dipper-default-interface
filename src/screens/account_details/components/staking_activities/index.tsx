@@ -21,16 +21,12 @@ import {
   getDelegationColumns,
   getRedelegationColumns,
   getUnbondingColumns,
-  dummyMobileData,
-  dummyDesktopDelegation,
-  dummyDesktopRedelegation,
-  dummyDesktopUnbonding,
 } from './utils';
 
 const StakingActivities = () => {
   const {
-    userStaking,
-    totalVotingPower,
+    userStakingDesktop,
+    userStakingMobile,
     tabValue,
     handleTabChange,
   } = useStakingActivitiesHook();
@@ -74,20 +70,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={[
-              {
-                address: 'address',
-                amount: '1,000 ATOM',
-              },
-              {
-                address: 'address',
-                amount: '1,000 ATOM',
-              },
-              {
-                address: 'address',
-                amount: '1,000 ATOM',
-              },
-            ]}
+            data={userStakingMobile.delegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -95,7 +78,7 @@ const StakingActivities = () => {
           <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
             columns={delegationColumns}
-            data={dummyDesktopDelegation}
+            data={userStakingDesktop.delegations}
             initialActiveSort="validator"
           />
         </div>
@@ -110,7 +93,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={dummyMobileData}
+            data={userStakingMobile.redelegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -118,7 +101,7 @@ const StakingActivities = () => {
           <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
             columns={redelegationColumns}
-            data={dummyDesktopRedelegation}
+            data={userStakingDesktop.redelegations}
             initialActiveSort="validator"
           />
         </div>
@@ -133,7 +116,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={dummyMobileData}
+            data={userStakingMobile.unbonding}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -141,7 +124,7 @@ const StakingActivities = () => {
           <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
             columns={unbondingColumns}
-            data={dummyDesktopUnbonding}
+            data={userStakingDesktop.unbonding}
             initialActiveSort="validator"
           />
         </div>

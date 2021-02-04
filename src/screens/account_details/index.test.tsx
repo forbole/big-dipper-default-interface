@@ -11,6 +11,7 @@ import {
   HEADER_BAR_MOCK,
   DATA_BLOCKS_HEADER_MOCK,
   USERINFO_MOCK_DATA,
+  USER_STAKING_MOCK_DATA,
 } from '@tests/mocks';
 import AccountDetails from '.';
 import {
@@ -27,7 +28,10 @@ describe('AccountDetails', () => {
           component: <AccountDetails />,
           theme: lightTheme,
         }),
-        mocks: [...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK, ...USERINFO_MOCK_DATA],
+        mocks: [
+          ...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK,
+          ...USERINFO_MOCK_DATA, ...USER_STAKING_MOCK_DATA,
+        ],
       }),
     );
     await awaitActions({

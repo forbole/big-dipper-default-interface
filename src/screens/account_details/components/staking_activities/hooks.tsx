@@ -9,11 +9,14 @@ import {
   USER_STAKING, LATEST_BLOCK_HEIGHT, TOTAL_VOTING_POWER,
 } from '@graphql/queries';
 import {
-  userStakingParser, userStakingLatestHeightParser, totalVotingPowerParser,
+  userStakingParser, latestBlockHeightParser, totalVotingPowerParser,
 } from '@src/graphql/parsers/queries';
 import {
   UserStaking, TotalVotingPower,
 } from '@models';
+import {
+  formatStakingDataDesktop, formatStakingDataMobile,
+} from './utils';
 
 export const useStakingActivitiesHook = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -26,44 +29,35 @@ export const useStakingActivitiesHook = () => {
   const [userStaking, setUserStaking] = useState<UserStaking>(UserStaking.fromJson({
   }));
 
-  const [totalVotingPower, setTotalVotingPower] =
-    useState<TotalVotingPower>(TotalVotingPower.fromJson({
-    }));
+  const [
+    totalVotingPower, setTotalVotingPower,
+  ] = useState<TotalVotingPower>(TotalVotingPower.fromJson({
+  }));
 
   // ===============================
   // get data
   // ===============================
   const [getUserStaking] = useLazyQuery(gql`${USER_STAKING}`, {
-    onError: (error) => { console.log('ErrorUS', error.message)},
     onCompleted: (data) => {
-      console.log('userStaking', data);
       const parsedData = userStakingParser(data);
       setUserStaking(parsedData);
     },
   });
 
   const [getTotalVotingPower] = useLazyQuery(gql`${TOTAL_VOTING_POWER}`, {
-    onError: (error) => { console.log('ERRORvotingPower', error.message) },
     onCompleted: (data) => {
-      // console.log('votingPower', data);
       const parsedData = totalVotingPowerParser(data);
-
-      console.log('votingPowerParsed', data);
       setTotalVotingPower(parsedData);
     },
   });
 
   useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
-    onError: (error) => { console.log('heightError', error.message); },
     onCompleted: (data) => {
-      // console.log('height', data);
-      const height = userStakingLatestHeightParser(data);
-      console.log('height', height);
+      const height = latestBlockHeightParser(data);
       if (height) {
         getUserStaking({
           variables: {
-            address: router?.query?.address ?? null,
-            height,
+            address: router?.query?.address,
           },
         });
         getTotalVotingPower({
@@ -75,12 +69,12 @@ export const useStakingActivitiesHook = () => {
     },
   });
 
-  console.log('userStaking', UserStaking);
-
   return {
-    userStaking,
-    totalVotingPower,
     tabValue,
     handleTabChange,
+    userStakingDesktop:
+    formatStakingDataDesktop(userStaking, totalVotingPower.totalVotingPower),
+    userStakingMobile:
+    formatStakingDataMobile(userStaking),
   };
 };

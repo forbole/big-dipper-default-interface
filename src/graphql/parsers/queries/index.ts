@@ -25,7 +25,7 @@ import { slashingParamParser } from './slashing_param_parser';
 import { validatorListParser } from './validator_list_parser';
 import { latestBlockHeightParser } from './latest_block_height_parser';
 import {
-  userStakingParser, userStakingLatestHeightParser, totalVotingPowerParser,
+  userStakingParser, totalVotingPowerParser,
 } from './user_staking_parser';
 
 export {
@@ -51,6 +51,5 @@ export {
   validatorListParser,
   latestBlockHeightParser,
   userStakingParser,
-  userStakingLatestHeightParser,
   totalVotingPowerParser,
 };

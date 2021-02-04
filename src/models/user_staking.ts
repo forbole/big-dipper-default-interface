@@ -6,7 +6,6 @@ type DefaultDelegationType = {
       denom: string;
       amount: number;
   }
-  height?: number;
   selfDelegatedAmount?: {
     denom: string;
     amount: number;
@@ -15,12 +14,24 @@ type DefaultDelegationType = {
     denom: string;
     amount: number;
   };
-  comission: bigint;
+  comission: number;
+  votingPower: number;
+}
+
+type DefaultUnbondingType = {
+  validatorAddress: string;
+  amount: {
+      denom: string;
+      amount: number;
+  }
+  height?: number;
+  expectedTime: string;
 }
 
 type DefaultRedelegationType = {
   srcValidatorAddress: string;
   dstValidatorAddress: string;
+  delegatorAddress: string;
   amount: {
       denom: string;
       amount: number;
@@ -32,7 +43,7 @@ type DefaultRedelegationType = {
 class UserStaking {
   public delegations: DefaultDelegationType[];
   public redelegations: DefaultRedelegationType[];
-  public unbonding: DefaultDelegationType[];
+  public unbonding: DefaultUnbondingType[];
 
   constructor(payload: any) {
     this.delegations = payload.delegations;
@@ -41,12 +52,8 @@ class UserStaking {
   }
 
   static fromJson(json: any) {
-    console.log('model', json);
     return new UserStaking({
-
-      delegations: R.pathOr([{
-        validatorAddress: 'address',
-      }], ['delegations'], json).map((delegation) => {
+      delegations: R.pathOr([], ['delegations'], json).map((delegation) => {
         return ({
           validatorAddress: delegation?.validator_address,
           amount: {
@@ -58,19 +65,19 @@ class UserStaking {
             amount: delegation?.account?.[0]?.delegation_rewards?.amount.amount,
           },
           selfDelegatedAmount: {
-            denom: delegation?.account?.[0]?.self_delegations?.amount.denom,
-            amount: delegation?.account?.[0]?.self_delegations?.amount.amount,
+            denom: delegation?.account?.self_delegations?.[0]?.amount.denom,
+            amount: delegation?.account?.self_delegations?.[0]?.amount.amount,
           },
-          comission: delegation?.validator?.[0]?.validator_commissions?.[0].commission,
-        });
+          comission: delegation?.validator?.validator_commissions?.[0]?.commission,
+          votingPower: delegation?.validator?.validator_voting_powers?.[0]?.voting_power,
+        }
+        );
       }),
-
-      redelegations: R.pathOr([{
-        srcValidatorAddress: 'address',
-      }], ['redelegations'], json).map((redelegations) => {
+      redelegations: R.pathOr([], ['redelegations'], json).map((redelegations) => {
         return ({
           srcValidatorAddress: redelegations?.src_validator_address,
           dstValidatorAddress: redelegations?.dst_validator_address,
+          delegatorAddress: redelegations?.delegator_address,
           amount: {
             denom: redelegations?.amount?.denom,
             amount: redelegations?.amount?.amount,
@@ -80,9 +87,7 @@ class UserStaking {
         });
       }),
 
-      unbonding: R.pathOr([{
-        validatorAddress: 'address',
-      }], ['unbonding_delegations'], json).map((unbonding) => {
+      unbonding: R.pathOr([], ['unbonding_delegations'], json).map((unbonding) => {
         return ({
           validatorAddress: unbonding?.validator_address,
           amount: {
