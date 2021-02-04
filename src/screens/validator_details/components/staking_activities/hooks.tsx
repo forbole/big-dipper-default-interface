@@ -8,11 +8,11 @@ import {
 } from '@apollo/client';
 import {
   VALIDATOR_STAKING,
-  VALIDATOR_STAKING_LATEST_HEIGHT,
+  LATEST_BLOCK_HEIGHT,
 } from '@graphql/queries';
 import {
   validatorStakingParser,
-  validatorStakingLatestHeightParser,
+  latestBlockHeightParser,
 } from '@src/graphql/parsers/queries';
 import { useGetScreenSizeHook } from '@hooks';
 import { ValidatorStaking } from '@models';
@@ -35,12 +35,9 @@ export const useStakingActivitiesHook = () => {
     },
   });
 
-  useQuery(gql`${VALIDATOR_STAKING_LATEST_HEIGHT}`, {
-    variables: {
-      address: router?.query?.validator ?? null,
-    },
+  useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
     onCompleted: (data) => {
-      const height = validatorStakingLatestHeightParser(data);
+      const height = latestBlockHeightParser(data);
       if (height) {
         getStaking({
           variables: {

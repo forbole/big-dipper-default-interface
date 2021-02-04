@@ -10,9 +10,7 @@ import { VALIDATOR_PROFILE } from './validator_profile';
 import { VALIDATOR_INFO } from './validator_info';
 import { ACTIVITY_DETAILS } from './activity_details';
 import { VALIDATOR_LIST } from './validator_list';
-import {
-  VALIDATOR_STAKING, VALIDATOR_STAKING_LATEST_HEIGHT,
-} from './validator_staking';
+import { VALIDATOR_STAKING } from './validator_staking';
 import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
 import { USER_INFO } from './user_info';
 import { LATEST_BLOCK_HEIGHT } from './latest_block_height';
@@ -35,7 +33,6 @@ export {
   VALIDATOR_STAKING,
   USER_INFO,
   VALIDATOR_LIST,
-  VALIDATOR_STAKING_LATEST_HEIGHT,
   VALIDATOR_LATEST_BLOCKS,
   USER_STAKING,
   LATEST_BLOCK_HEIGHT,

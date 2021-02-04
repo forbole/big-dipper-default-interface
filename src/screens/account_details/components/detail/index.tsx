@@ -75,6 +75,7 @@ const Detail = () => {
         },
       }}
       chart={{
+        baseColor: theme?.palette?.background?.default,
         total: {
           title: `${t('total')} ${denom}`,
           subTitle: `$${numeral(userInfo.price).format('0,0.00')} / ${denom}`,

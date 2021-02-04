@@ -10,7 +10,6 @@ const MissedBlocks = () => {
   const { classes } = useGetStyles();
   const { blockInfo } = useValidatorBlocksHook();
   const labels = getLabels(t);
-
   return (
     <ValidatorBlocks
       className={classes.root}
