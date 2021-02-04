@@ -18,10 +18,12 @@ export const useValidatorListHook = (t:any) => {
     validators: ValidatorList[];
     bonded: number;
     signedBlockWindow: number;
+    inactiveIndex: number; // helper to deal with tab switch lag
   }>({
     validators: [],
     bonded: 0,
     signedBlockWindow: 0,
+    inactiveIndex: 1,
   });
 
   // ===============================
@@ -32,11 +34,12 @@ export const useValidatorListHook = (t:any) => {
       const parsedValidators = validatorListParser(data);
       const parsedStabilities = stabilitiesParser(data);
       const parsedSlashing = slashingParamParser(data);
-      setState({
+      setState((prevState) => ({
+        ...prevState,
         validators: parsedValidators,
         bonded: parsedStabilities.bondedTokens,
         signedBlockWindow: parsedSlashing.signedBlockWindow,
-      });
+      }));
     },
   });
 
@@ -62,13 +65,25 @@ export const useValidatorListHook = (t:any) => {
     }
   };
 
+  const handleLoadMoreInactive = () => {
+    if (state.validators.length) {
+      setState((prevState) => ({
+        ...prevState,
+        inactiveIndex: prevState.inactiveIndex + 1,
+      }));
+    }
+  };
+
   return {
     tabValue,
     handleTabChange,
     handleSearchChange,
     handleSearchSubmit,
+    handleLoadMoreInactive,
     searchValue,
     handleRowClick,
-    validators: parseValidators(t, state),
+    validators: parseValidators(t, state, {
+      inactiveIndex: state.inactiveIndex,
+    }),
   };
 };

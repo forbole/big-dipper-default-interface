@@ -11,12 +11,16 @@ export const parseValidators = (t:any, data: {
   validators: ValidatorList[];
   bonded: number;
   signedBlockWindow: number;
+}, indexes: {
+  inactiveIndex: number;
 }) => {
   const active = {
     mobile: [],
     desktop: [],
   };
   const inactive = {
+    total: 0,
+    currentCount: 0,
     mobile: [],
     desktop: [],
   };
@@ -32,11 +36,12 @@ export const parseValidators = (t:any, data: {
     .filter((x) => x.validatorAddress && x.status.status !== null)
     .sort((a, b) => ((a.moniker.toLowerCase() > b.moniker.toLowerCase()) ? 1 : -1))
     .forEach((x) => {
-    // % of self within your own voting power
-      const self = x.selfDelegations / x.votingPower;
+      // % of self within your own voting power
+      const self = formatDenom(chainConfig.display, x.selfDelegations).raw / x.votingPower;
       // % of voting power over bonded tokens
-      const votingPower = (x.votingPower / data.bonded) * 100;
-      let votingPowerPercentage = `${numeral(votingPower).format('0.00[0000]')}%`;
+      const votingPower = (x.votingPower / formatDenom(chainConfig.display, data.bonded).raw) * 100;
+
+      let votingPowerPercentage = `${numeral(votingPower).format('0.00')}%`;
       // edge case when the number gets too small
       if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0.00%';
 
@@ -59,7 +64,7 @@ export const parseValidators = (t:any, data: {
         },
         votingPower: {
           rawValue: x.votingPower,
-          display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
+          display: numeral(x.votingPower).format('0,0'),
           percentDisplay: votingPowerPercentage,
         },
       };
@@ -170,6 +175,12 @@ export const parseValidators = (t:any, data: {
         });
       }
     });
+  // =====================================
+  // handle pagination for inactive
+  // =====================================
+  inactive.total = inactive.desktop.length;
+  inactive.desktop = inactive.desktop.slice(0, 10 * indexes.inactiveIndex + 1);
+  inactive.currentCount = inactive.desktop.length;
 
   return {
     active,

@@ -30,12 +30,15 @@ export const useGetStyles = () => {
         },
       },
       '& .header__status': {
-        color: theme?.palette?.custom?.fonts?.fontFour,
+        color: 'white',
         '&.active': {
           background: 'rgba(30, 196, 144, 1)',
         },
         '&.jailed': {
           background: 'rgba(255, 177, 42, 1)',
+        },
+        '&.inactive': {
+          color: theme?.palette?.custom?.fonts?.fontFour,
         },
       },
       [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
