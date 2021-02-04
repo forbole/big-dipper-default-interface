@@ -37,10 +37,11 @@ export const parseValidators = (t:any, data: {
     .sort((a, b) => ((a.moniker.toLowerCase() > b.moniker.toLowerCase()) ? 1 : -1))
     .forEach((x) => {
       // % of self within your own voting power
-      const self = x.selfDelegations / x.votingPower;
+      const self = formatDenom(chainConfig.display, x.selfDelegations).raw / x.votingPower;
       // % of voting power over bonded tokens
-      const votingPower = (x.votingPower / data.bonded) * 100;
-      let votingPowerPercentage = `${numeral(votingPower).format('0.00[0000]')}%`;
+      const votingPower = (x.votingPower / formatDenom(chainConfig.display, data.bonded).raw) * 100;
+
+      let votingPowerPercentage = `${numeral(votingPower).format('0.00')}%`;
       // edge case when the number gets too small
       if (votingPowerPercentage === 'NaN%') votingPowerPercentage = '0.00%';
 
@@ -63,7 +64,7 @@ export const parseValidators = (t:any, data: {
         },
         votingPower: {
           rawValue: x.votingPower,
-          display: `${formatDenom(chainConfig.display, numeral(x.votingPower).value(), '0,0.0[000]').format} ${chainConfig.display.toUpperCase()}`,
+          display: numeral(x.votingPower).format('0,0'),
           percentDisplay: votingPowerPercentage,
         },
       };
