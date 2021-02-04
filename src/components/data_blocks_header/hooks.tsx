@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   useQuery,
+  useLazyQuery,
   useSubscription,
   gql,
 } from '@apollo/client';
@@ -8,11 +9,13 @@ import { LATEST_BLOCK_HEIGHT } from '@graphql/subscriptions';
 import {
   TOTAL_ACTIVE_VALIDATORS,
   AVERAGE_BLOCK_TIMES,
+  LATEST_BLOCK_HEIGHT as LATEST_BLOCK_HEIGHT_QUERY,
 } from '@graphql/queries';
 import { latestBlockHeightParser } from '@src/graphql/parsers/subscriptions';
 import {
   averageBlockTimesParser,
   totalActiveValidatorsParser,
+  latestBlockHeightParser as latestBlockHeightParserQuery,
 } from '@src/graphql/parsers/queries';
 import { generalConfig } from '@src/general_config';
 import {
@@ -39,9 +42,22 @@ export const useActiveValidatorsHook = () => {
     TotalActiveValidators.fromJson([]),
   );
 
-  useQuery(gql`${TOTAL_ACTIVE_VALIDATORS}`, {
+  const [getValidators] = useLazyQuery(gql`${TOTAL_ACTIVE_VALIDATORS}`, {
     onCompleted: (data: any) => {
       setValidatorsData(totalActiveValidatorsParser(data));
+    },
+  });
+
+  useQuery(gql`${LATEST_BLOCK_HEIGHT_QUERY}`, {
+    onCompleted: (data) => {
+      const height = latestBlockHeightParserQuery(data);
+      if (height) {
+        getValidators({
+          variables: {
+            height,
+          },
+        });
+      }
     },
   });
 
