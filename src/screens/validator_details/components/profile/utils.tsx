@@ -10,14 +10,14 @@ export const formatProfileData = (
   keybase?:KeybaseProfile,
 ) => {
   const getStatus = (status: number, jailed: boolean) => {
-    if (status === 2 && !jailed) {
+    if (status === 3 && !jailed) {
       return ({
         display: 'active',
         className: 'active',
       });
     }
 
-    if (status === 2 && jailed) {
+    if (status === 3 && jailed) {
       return ({
         display: 'jailed',
         className: 'jailed',
