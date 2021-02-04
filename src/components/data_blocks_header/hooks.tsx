@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   useQuery,
-  useLazyQuery,
   useSubscription,
   gql,
 } from '@apollo/client';
