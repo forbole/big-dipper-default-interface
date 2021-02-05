@@ -9,17 +9,20 @@ describe('CustomToolTip', () => {
       <CustomToolTip
         active
         payload={[{
-          value: '123',
+          payload: {
+            votingPower: '123',
+            height: '1234',
+          },
         }]}
-        label="hello world"
       />,
     );
     expect(wrap).not.toBeNull();
 
-    expect(wrap.find('.custom-tool-tip')).toHaveLength(1);
-    expect(wrap.find('.custom-tool-tip__label')).toHaveLength(1);
-    expect(wrap.find('.custom-tool-tip__label').text()).toEqual('hello world');
-    expect(wrap.find('.custom-tool-tip__value')).toHaveLength(1);
+    expect(wrap.find('.custom-tool-tip')).toHaveLength(0);
+    expect(wrap.find('.custom-tool-tip__label')).toHaveLength(2);
+    expect(wrap.find('.custom-tool-tip__label').first().text()).toEqual('height');
+    expect(wrap.find('.custom-tool-tip__value')).toHaveLength(2);
+    expect(wrap.find('.custom-tool-tip__value').first().text()).toEqual('1,234');
   });
 
   it('Works hidden', () => {

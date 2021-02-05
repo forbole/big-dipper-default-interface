@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+
 } from 'recharts';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
@@ -49,7 +50,6 @@ const OnlineVotingPower = () => {
             </defs>
             <CartesianGrid stroke={cartesianGridStroke} />
             <XAxis
-              // tick={false}
               dataKey="height"
               tickSize={0}
               dy={20}
