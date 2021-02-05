@@ -24,6 +24,7 @@ import {
   STABILITIES_MOCK_DATA,
   LATEST_BLOCKS_MOCK_DATA,
   LATEST_ACTIVITIES_MOCK_DATA,
+  ONLINE_VOTING_POWER_MOCK_DATA,
 } from '@tests/mocks';
 
 describe('Home', () => {
@@ -39,6 +40,7 @@ describe('Home', () => {
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
           ...STABILITIES_MOCK_DATA,
+          ...ONLINE_VOTING_POWER_MOCK_DATA,
           ...LATEST_BLOCKS_MOCK_DATA(),
           ...LATEST_ACTIVITIES_MOCK_DATA({
             offset: 0,
