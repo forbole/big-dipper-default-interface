@@ -4,20 +4,18 @@ import {
 } from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
-import { convertNumber } from '@utils';
 import { useGetStyles } from './styles';
-import { fakeData } from './utils';
 import { useOnlineVotingPowerHook } from './hooks';
 
 const OnlineVotingPower = () => {
   const { t } = useTranslation('home');
   const { classes } = useGetStyles();
-  const { getCartesianGridStroke } = useOnlineVotingPowerHook();
-  const cartesianGridStroke = getCartesianGridStroke();
+  const { onlineVotingPower } = useOnlineVotingPowerHook();
 
   return (
     <div className={classnames(classes.root)}>
-      <SelectTabs
+      <h3>{t('onlineVotingPower')}</h3>
+      {/* <SelectTabs
         selected="onlineVotingPower"
         tabs={[
           {
@@ -39,7 +37,7 @@ const OnlineVotingPower = () => {
             ),
           },
         ]}
-      />
+      /> */}
     </div>
   );
 };
