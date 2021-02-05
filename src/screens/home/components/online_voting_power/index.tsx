@@ -9,7 +9,6 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Legend,
 } from 'recharts';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
@@ -74,6 +73,7 @@ const OnlineVotingPower = () => {
               content={<CustomToolTip />}
             />
             <Line
+              isAnimationActive={false}
               type="monotone"
               dataKey="votingPower"
               stroke="url(#colorUv)"

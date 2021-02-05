@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import {
-  useQuery, gql,
+  gql, useSubscription,
 } from '@apollo/client';
 import { OnlineVotingPower } from '@models';
-import { ONLINE_VOTING_POWER } from '@graphql/queries';
-import { onlineVotingPowerParser } from '@graphql/parsers/queries';
+import { ONLINE_VOTING_POWER } from '@graphql/subscriptions';
+import { onlineVotingPowerParser } from '@graphql/parsers/subscriptions';
 
 export const useOnlineVotingPowerHook = () => {
   const [onlineVotingPower, setOnlineVotingPower] = useState<OnlineVotingPower[]>([]);
@@ -14,8 +14,8 @@ export const useOnlineVotingPowerHook = () => {
   // ===============================
   // get data
   // ===============================
-  useQuery(gql`${ONLINE_VOTING_POWER}`, {
-    onCompleted: (data) => {
+  useSubscription(gql`${ONLINE_VOTING_POWER}`, {
+    onSubscriptionData: (data) => {
       setOnlineVotingPower(onlineVotingPowerParser(data));
     },
   });
