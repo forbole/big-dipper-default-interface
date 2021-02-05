@@ -11,7 +11,7 @@ import { USER_STAKING_MOCK_DATA } from '@tests/mocks';
 import { lightTheme } from '@styles';
 import StakingActivities from '.';
 
-describe('StakingActivitiesTest', () => {
+describe('StakingActivities', () => {
   it('correctly renders component', async () => {
     const wrapper = mount(
       WithMockApolloProvider({
