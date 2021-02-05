@@ -47,5 +47,14 @@ export const getVotingPowerSum = (precommits: PreCommit[], pool: Stabilities) =>
   const votingPowerSum = precommits.reduce((a, b) => {
     return a + b.votingPower;
   }, 0);
-  return (votingPowerSum / pool.bondedTokens) * 100;
+  const bonded = formatDenom(chainConfig.display, pool.bondedTokens).raw;
+  console.log(votingPowerSum, 'sum');
+  console.log(formatDenom(chainConfig.display, pool.bondedTokens).raw, 'bonded');
+  console.log(votingPowerSum / formatDenom(chainConfig.display, pool.bondedTokens).raw, 'the thing');
+  if (!votingPowerSum && !bonded) {
+    return 0;
+  }
+  console.log(0 / 0, 'why are you nana');
+  console.log('------------------');
+  return (votingPowerSum / formatDenom(chainConfig.display, pool.bondedTokens).raw) * 100;
 };

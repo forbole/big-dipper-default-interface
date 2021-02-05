@@ -15,7 +15,6 @@ query BlockDetail($height: bigint) {
       }
     }
     height
-    pre_commits
   }
   pre_commit(where: {height: {_eq: $height}}) {
     voting_power
