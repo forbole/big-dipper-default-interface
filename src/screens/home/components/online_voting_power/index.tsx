@@ -1,14 +1,15 @@
 import React from 'react';
 import numeral from 'numeral';
 import {
-  ScatterChart,
-  Scatter,
+  Line,
+  LineChart,
   XAxis,
   YAxis,
   ZAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Legend,
 } from 'recharts';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
@@ -30,9 +31,10 @@ const OnlineVotingPower = () => {
       <h3>{t('onlineVotingPower')}</h3>
       <div className="chart">
         <ResponsiveContainer>
-          <ScatterChart
+          <LineChart
+            data={onlineVotingPower}
             margin={{
-              top: 20, right: 20, bottom: 20, left: 20,
+              top: 5, right: 30, left: 20, bottom: 5,
             }}
           >
             <defs>
@@ -48,12 +50,13 @@ const OnlineVotingPower = () => {
             </defs>
             <CartesianGrid stroke={cartesianGridStroke} />
             <XAxis
+              // tick={false}
               dataKey="height"
               tickSize={0}
               dy={20}
               height={50}
               tickFormatter={(tick) => {
-                return numeral(tick).format('0,0a');
+                return numeral(tick).format('0,0');
               }}
             />
             <YAxis
@@ -70,16 +73,14 @@ const OnlineVotingPower = () => {
               cursor={false}
               content={<CustomToolTip />}
             />
-            <Scatter
-              name="A school"
-              data={onlineVotingPower}
-              fill="transparent"
-              lineJointType="monotoneX"
-              line={{
-                stroke: 'url(#colorUv)', strokeWidth: 3,
-              }}
+            <Line
+              type="monotone"
+              dataKey="votingPower"
+              stroke="url(#colorUv)"
+              strokeWidth={3}
+              dot={false}
             />
-          </ScatterChart>
+          </LineChart>
         </ResponsiveContainer>
       </div>
     </div>

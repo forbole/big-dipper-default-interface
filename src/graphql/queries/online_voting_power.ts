@@ -1,6 +1,6 @@
 export const ONLINE_VOTING_POWER = `
 query OnlineVotingPower {
-  block(limit: 10, order_by: {height: desc}) {
+  block(limit: 50, order_by: {height: desc}) {
     height
     pre_commits_aggregate {
       aggregate {

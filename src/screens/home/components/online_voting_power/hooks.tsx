@@ -15,12 +15,6 @@ export const useOnlineVotingPowerHook = () => {
   // get data
   // ===============================
   useQuery(gql`${ONLINE_VOTING_POWER}`, {
-    // pollInterval: generalConfig.pollInterval.minute,
-    // notifyOnNetworkStatusChange: true,
-    // variables: {
-    //   limit: 10,
-    //   offset: 0,
-    // },
     onCompleted: (data) => {
       setOnlineVotingPower(onlineVotingPowerParser(data));
     },
