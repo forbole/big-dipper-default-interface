@@ -26,12 +26,8 @@ export const useOnlineVotingPowerHook = () => {
     },
   });
 
-  const getCartesianGridStroke = () => {
-    return theme?.palette?.divider;
-  };
-
   return {
-    getCartesianGridStroke,
     onlineVotingPower,
+    cartesianGridStroke: theme?.palette?.divider,
   };
 };

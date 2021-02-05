@@ -1,43 +1,87 @@
 import React from 'react';
+import numeral from 'numeral';
 import {
-  OnlineVotingPower as OnlineVotingPowerUi, SelectTabs,
-} from '@forbole/big-dipper-default-ui';
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  ZAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { useGetStyles } from './styles';
 import { useOnlineVotingPowerHook } from './hooks';
+import { linearGradient } from './utils';
 
 const OnlineVotingPower = () => {
   const { t } = useTranslation('home');
   const { classes } = useGetStyles();
-  const { onlineVotingPower } = useOnlineVotingPowerHook();
+  const {
+    onlineVotingPower,
+    cartesianGridStroke,
+  } = useOnlineVotingPowerHook();
 
   return (
     <div className={classnames(classes.root)}>
       <h3>{t('onlineVotingPower')}</h3>
-      {/* <SelectTabs
-        selected="onlineVotingPower"
-        tabs={[
-          {
-            key: 'onlineVotingPower',
-            display: t('onlineVotingPower'),
-            component: (
-              <OnlineVotingPowerUi
-                data={fakeData}
-                recharts={{
-                  axis: {
-                    fontSize: 12,
-                  },
-                  cartesianGrid: {
-                    stroke: cartesianGridStroke,
-                  },
-                  toolTipFormatter: (value) => convertNumber(value).display,
-                }}
-              />
-            ),
-          },
-        ]}
-      /> */}
+      <div className="chart">
+        <ResponsiveContainer>
+          <ScatterChart
+            margin={{
+              top: 20, right: 20, bottom: 20, left: 20,
+            }}
+          >
+            <defs>
+              <linearGradient id="colorUv" x1="0%" y1="0%" x2="100%" y2="0%">
+                {
+                linearGradient.map((x) => {
+                  return (
+                    <stop offset={`${x.offset}%`} stopColor={x.color} key={x.offset} />
+                  );
+                })
+              }
+              </linearGradient>
+            </defs>
+            <CartesianGrid stroke={cartesianGridStroke} />
+            <XAxis
+              dataKey="height"
+              tickSize={0}
+              dy={20}
+              height={50}
+              tickFormatter={(tick) => {
+                return numeral(tick).format('0,0a');
+              }}
+            />
+            <YAxis
+              dataKey="votingPower"
+              dx={-10}
+              tickSize={0}
+              width={30}
+              tickFormatter={(tick) => {
+                return numeral(tick).format('0,0a');
+              }}
+            />
+            <ZAxis />
+            <Tooltip
+              cursor={{
+                strokeDasharray: '3 3',
+              }}
+            />
+            <Scatter
+              name="A school"
+              data={onlineVotingPower}
+              fill="transparent"
+              lineJointType="monotoneX"
+              line={{
+                stroke: 'url(#colorUv)', strokeWidth: 3,
+              }}
+            />
+          </ScatterChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

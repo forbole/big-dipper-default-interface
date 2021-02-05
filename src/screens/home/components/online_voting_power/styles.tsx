@@ -17,9 +17,13 @@ export const useGetStyles = () => {
             fontSize: '1.125rem',
             fontWeight: 400,
           },
-
+          '& .chart': {
+            height: '250px',
+          },
           [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
-
+            '& .chart': {
+              height: '350px',
+            },
           },
           [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
             padding: theme?.palette?.custom?.margins?.large,
