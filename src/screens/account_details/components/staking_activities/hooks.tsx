@@ -6,13 +6,13 @@ import {
   gql,
 } from '@apollo/client';
 import {
-  USER_STAKING, LATEST_BLOCK_HEIGHT, TOTAL_VOTING_POWER,
+  USER_STAKING, LATEST_BLOCK_HEIGHT,
 } from '@graphql/queries';
 import {
-  userStakingParser, latestBlockHeightParser, totalVotingPowerParser,
+  userStakingParser, latestBlockHeightParser,
 } from '@src/graphql/parsers/queries';
 import {
-  UserStaking, TotalVotingPower,
+  UserStaking,
 } from '@models';
 import {
   formatStakingDataDesktop, formatStakingDataMobile,
@@ -29,10 +29,10 @@ export const useStakingActivitiesHook = () => {
   const [userStaking, setUserStaking] = useState<UserStaking>(UserStaking.fromJson({
   }));
 
-  const [
-    totalVotingPower, setTotalVotingPower,
-  ] = useState<TotalVotingPower>(TotalVotingPower.fromJson({
-  }));
+  // const [
+  //   totalVotingPower, setTotalVotingPower,
+  // ] = useState<TotalVotingPower>(TotalVotingPower.fromJson({
+  // }));
 
   // ===============================
   // get data
@@ -41,28 +41,28 @@ export const useStakingActivitiesHook = () => {
     onCompleted: (data) => {
       const parsedData = userStakingParser(data);
       setUserStaking(parsedData);
+      console.log('parsedData', parsedData);
+      console.log('userStaking', userStaking);
     },
   });
 
-  const [getTotalVotingPower] = useLazyQuery(gql`${TOTAL_VOTING_POWER}`, {
-    onCompleted: (data) => {
-      const parsedData = totalVotingPowerParser(data);
-      setTotalVotingPower(parsedData);
-    },
-  });
+  // const [getTotalVotingPower] = useLazyQuery(gql`${TOTAL_VOTING_POWER}`, {
+  //   onCompleted: (data) => {
+  //     const parsedData = totalVotingPowerParser(data);
+  //     setTotalVotingPower(parsedData);
+  //   },
+  // });
 
   useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
     onCompleted: (data) => {
       const height = latestBlockHeightParser(data);
+      console.log('height', height);
       if (height) {
         getUserStaking({
           variables: {
             address: router?.query?.address,
-          },
-        });
-        getTotalVotingPower({
-          variables: {
             height,
+            // height: null,
           },
         });
       }
@@ -73,7 +73,7 @@ export const useStakingActivitiesHook = () => {
     tabValue,
     handleTabChange,
     userStakingDesktop:
-    formatStakingDataDesktop(userStaking, totalVotingPower.totalVotingPower),
+    formatStakingDataDesktop(userStaking),
     userStakingMobile:
     formatStakingDataMobile(userStaking),
   };

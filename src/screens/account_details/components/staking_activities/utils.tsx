@@ -20,12 +20,12 @@ export const getDelegationColumns = (t: any) => {
       sort: true,
       align: 'right',
     },
-    {
-      label: 'amtRatio',
-      display: t('amtRatio'),
-      sort: true,
-      align: 'right',
-    },
+    // {
+    //   label: 'amtRatio',
+    //   display: t('amtRatio'),
+    //   sort: true,
+    //   align: 'right',
+    // },
     {
       label: 'reward',
       display: t('reward'),
@@ -39,8 +39,8 @@ export const getDelegationColumns = (t: any) => {
       align: 'right',
     },
     {
-      label: 'vpRatios',
-      display: t('vpRatios'),
+      label: 'votingPower',
+      display: t('votingPower'),
       sort: true,
       align: 'right',
     },
@@ -49,12 +49,6 @@ export const getDelegationColumns = (t: any) => {
 
 export const getRedelegationColumns = (t: any) => {
   return ([
-    {
-      label: 'height',
-      display: t('height'),
-      sort: true,
-      align: 'right',
-    },
     {
       label: 'srcValidator',
       display: t('srcValidator'),
@@ -88,12 +82,12 @@ export const getUnbondingColumns = (t: any) => {
       display: t('validator'),
       sort: true,
     },
-    {
-      label: 'height',
-      display: t('height'),
-      sort: true,
-      align: 'right',
-    },
+    // {
+    //   label: 'height',
+    //   display: t('height'),
+    //   sort: true,
+    //   align: 'right',
+    // },
     {
       label: 'unbondedAmount',
       display: t('unbondedAmount'),
@@ -110,11 +104,10 @@ export const getUnbondingColumns = (t: any) => {
 };
 
 export const formatStakingDataDesktop = (
-  data: UserStaking, totalVotingPower: number,
+  data: UserStaking,
 ) => {
   const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
   const convertRatio = (amount: number) => `${amount ? Math.round((amount * 100) * 100) / 100 : 0} %`;
-
   return {
     delegations: data.delegations.map((x) => {
       return ({
@@ -130,10 +123,10 @@ export const formatStakingDataDesktop = (
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
         },
-        amtRatio: {
-          rawValue: x.selfDelegatedAmount.amount / x.amount.amount,
-          display: convertRatio(x.selfDelegatedAmount.amount / x.amount.amount),
-        },
+        // amtRatio: {
+        //   rawValue: x.selfDelegatedAmount.amount / x.amount.amount,
+        //   display: convertRatio(x.selfDelegatedAmount.amount / x.amount.amount),
+        // },
         reward: {
           rawValue: x.reward.amount,
           display: convertAmount(x.reward.amount),
@@ -142,9 +135,9 @@ export const formatStakingDataDesktop = (
           rawValue: x.comission,
           display: convertRatio(x.comission),
         },
-        vpRatios: {
-          rawValue: x.votingPower / totalVotingPower,
-          display: convertRatio(x.votingPower / totalVotingPower),
+        votingPower: {
+          rawValue: x.votingPower / x.votingPower,
+          display: convertRatio(x.votingPower / data.totalVotingPower),
         },
       });
     }),
@@ -166,10 +159,10 @@ export const formatStakingDataDesktop = (
               address={x.dstValidatorAddress}
             />),
         },
-        height: {
-          rawValue: x.height,
-          display: convertNumber(x.height).display,
-        },
+        // height: {
+        //   rawValue: x.height,
+        //   display: convertNumber(x.height).display,
+        // },
         redelegatedAmount: {
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
@@ -190,10 +183,10 @@ export const formatStakingDataDesktop = (
               address={x.validatorAddress}
             />),
         },
-        height: {
-          rawValue: x.height,
-          display: convertNumber(x.height).display,
-        },
+        // height: {
+        //   rawValue: x.height,
+        //   display: convertNumber(x.height).display,
+        // },
         unbondedAmount: {
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
@@ -217,14 +210,16 @@ export const formatStakingDataMobile = (
       ending: 5,
     });
   };
+  console.log('data.delegations', data.delegations);
 
   return {
-
-    delegations: data.delegations.map((x) => {
+    delegations:
+    data.delegations.map((x) => {
       return ({
         address: (
           <AvatarDisplay
-            display={formatAddress(x.validatorAddress)}
+            // display={formatAddress(x.validatorAddress ? x.validatorAddress : '')}
+            display={x.validatorAddress}
             address={x.validatorAddress}
           />),
         amount: convertAmount(x.amount.amount),
@@ -235,16 +230,18 @@ export const formatStakingDataMobile = (
       return ({
         address: (
           <AvatarDisplay
-            display={formatAddress(x.delegatorAddress)}
+            display={formatAddress(x.delegatorAddress ? x.delegatorAddress : '')}
+            // display={x.delegatorAddress}
             address={x.delegatorAddress}
           />),
         redelegate: {
           from: (<AvatarDisplay
-            display={formatAddress(x.srcValidatorAddress)}
+            // display={formatAddress(x.srcValidatorAddress)}
             address={x.srcValidatorAddress}
           />),
           to: (<AvatarDisplay
-            display={formatAddress(x.dstValidatorAddress)}
+            // display={formatAddress(x.dstValidatorAddress)}
+            display={x.dstValidatorAddress}
             address={x.dstValidatorAddress}
           />),
         },
@@ -256,7 +253,8 @@ export const formatStakingDataMobile = (
       return ({
         address: (
           <AvatarDisplay
-            display={formatAddress(x.validatorAddress)}
+            // display={formatAddress(x.validatorAddress)}
+            display={x.validatorAddress}
             address={x.validatorAddress}
           />),
         amount: convertAmount(x.amount.amount),
