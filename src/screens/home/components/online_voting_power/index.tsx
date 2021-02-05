@@ -15,6 +15,7 @@ import classnames from 'classnames';
 import { useGetStyles } from './styles';
 import { useOnlineVotingPowerHook } from './hooks';
 import { linearGradient } from './utils';
+import { CustomToolTip } from './components';
 
 const OnlineVotingPower = () => {
   const { t } = useTranslation('home');
@@ -66,9 +67,8 @@ const OnlineVotingPower = () => {
             />
             <ZAxis />
             <Tooltip
-              cursor={{
-                strokeDasharray: '3 3',
-              }}
+              cursor={false}
+              content={<CustomToolTip />}
             />
             <Scatter
               name="A school"
