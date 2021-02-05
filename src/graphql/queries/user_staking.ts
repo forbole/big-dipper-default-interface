@@ -1,11 +1,3 @@
-export const LATEST_BLOCK_HEIGHT = `
-query LatestBlockHeight{
-  block (limit: 1, order_by:{height: desc}) {
-    height
-  }
-}
-`;
-
 export const TOTAL_VOTING_POWER = `
 query TotalVotingPower($height: bigint) {
   total_voting_power: validator_voting_power_aggregate(where: {height: {_eq: $height}}) {

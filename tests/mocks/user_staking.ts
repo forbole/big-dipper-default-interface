@@ -44,7 +44,7 @@ export const USER_STAKING_MOCK_DATA = [
     request: {
       query: gql`${TOTAL_VOTING_POWER}`,
       variables: {
-        height: 204592,
+        height: null,
       },
     },
     result: {
