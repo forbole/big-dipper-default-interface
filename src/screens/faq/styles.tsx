@@ -63,6 +63,7 @@ export const useGetStyles = () => {
       margin: '0',
       marginBottom: theme?.palette?.custom?.gutters?.small,
       color: theme.palette.custom.fonts.fontThree,
+      whiteSpace: 'pre-line',
       [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         marginBottom: theme.palette.custom.margins.large,
       },

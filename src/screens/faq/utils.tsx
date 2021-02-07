@@ -1,28 +1,52 @@
 const getFaqDetails = () => {
   const faq = [
     {
-      question: 'question1',
-      ans: 'ans1',
+      question: 'posQuestion',
+      ans: 'posAnswer',
     },
     {
-      question: 'question2',
-      ans: 'ans2',
+      question: 'inflationQuestion',
+      ans: 'inflatinAnswer',
     },
     {
-      question: 'question3',
-      ans: 'ans3',
+      question: 'delegatorsQuestion',
+      ans: 'delegatorsAnswer',
     },
     {
-      question: 'question4',
-      ans: 'ans4',
+      question: 'stakingQuestion',
+      ans: 'stakingAnswer',
     },
     {
-      question: 'question5',
-      ans: 'ans5',
+      question: 'stakingActionsQuestion',
+      ans: 'stakingActionsAnswer',
     },
     {
-      question: 'question6',
-      ans: 'ans6',
+      question: 'bondingQuestion',
+      ans: 'bondingAnswer',
+    },
+    {
+      question: 'validatorsQuestion',
+      ans: 'validatorsAnswer',
+    },
+    {
+      question: 'validatorsEeigibilityQuestion',
+      ans: 'validatorsEeigibilityAnswer',
+    },
+    {
+      question: 'chooseValidatorQuestion',
+      ans: 'chooseValidatorAnswer',
+    },
+    {
+      question: 'proposalsQuestion',
+      ans: 'proposalsAnswer',
+    },
+    {
+      question: 'votingPowerQuestion',
+      ans: 'votingPowerAnswer',
+    },
+    {
+      question: 'votingQuestion',
+      ans: 'votingAnswer',
     },
   ];
 
