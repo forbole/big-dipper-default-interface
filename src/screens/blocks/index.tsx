@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import {
   LatestBlocksMobile,
   LatestBlocksDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import InfiniteScroll from 'react-infinite-scroller';
 import {

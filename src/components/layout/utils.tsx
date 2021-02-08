@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { NavbarItem } from 'big-dipper-internal-ui';
+import { NavbarItem } from '@forbole/big-dipper-internal-ui';
 import Link from 'next/link';
 import { getLanguageValue } from '@utils';
 import { BigDipperNetwork } from '@models';

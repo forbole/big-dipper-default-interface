@@ -4,7 +4,7 @@ import {
   LatestBlocksMobile,
   TablePreviewWrapper,
   LatestBlocksDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { awaitActions } from '@tests/utils/await_actions';
 import { LATEST_BLOCKS_MOCK_DATA } from '@tests/mocks';

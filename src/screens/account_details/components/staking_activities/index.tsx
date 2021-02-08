@@ -10,7 +10,7 @@ import { getAllyProps } from '@utils';
 import {
   TablePaginated,
   UserStakingMobile,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import {
   useMobileOnlyStyles,
   useDesktopOnlyStyles,

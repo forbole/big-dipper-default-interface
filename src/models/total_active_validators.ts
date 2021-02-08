@@ -1,3 +1,5 @@
+import * as R from 'ramda';
+
 class TotalActiveValidators {
   public active: number;
   public inactive: string;
@@ -9,10 +11,21 @@ class TotalActiveValidators {
     this.total = payload.total;
   }
 
-  static fromJson(data: any) {
-    const active = data?.active_validators?.aggregate?.count ?? 0;
-    const inactive = data?.not_active_validators?.aggregate?.count ?? 0;
+  static fromJson(json: any[]) {
+    let active = 0;
+    let inactive = 0;
+    json.forEach((x) => {
+      const status = R.pathOr(null, ['validator_statuses', 0, 'status'], x);
+      const jailed = R.pathOr(null, ['validator_statuses', 0, 'jailed'], x);
+
+      if (status === 3 && !jailed) {
+        active += 1;
+      } else if (status !== null || (status === 3 && jailed)) {
+        inactive += 1;
+      }
+    });
     const total = active + inactive;
+
     return new TotalActiveValidators({
       active,
       inactive,

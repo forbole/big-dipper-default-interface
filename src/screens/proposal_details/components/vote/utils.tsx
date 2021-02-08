@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import {
   AvatarDisplay,
   InfoPopover,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 
 const ValidatorData = () => {
   return (

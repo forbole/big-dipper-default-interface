@@ -66,10 +66,10 @@ export const footerLinks = [
     key: 'faq',
     url: '/faq',
   },
-  {
-    key: 'termsAndConditions',
-    url: '#',
-  },
+  // {
+  //   key: 'termsAndConditions',
+  //   url: '/terms-and-condition',
+  // },
   // {
   //   key: 'downloadWallet',
   //   url: '#',

@@ -18,5 +18,13 @@
   "unbondedAmount": "Unbonded Amount",
   "scanAddress": "Scan for address",
   "buttonDisplay": "Copy Address",
-  "shareTo": "Share to"
+  "rewardAddress": "Reward Address",
+  "accountDetails": "Account Details",
+  "address": "Address",
+  "shareTo": "Share to",
+  "rewardAddressInfo": "This is where your rewards will be deposited to. It does not have to be the same address as your delegation address.",
+  "total": "Total",
+  "available": "Available",
+  "delegate": "Delegate",
+  "unbonding": "Unbonding"
 }

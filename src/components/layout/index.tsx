@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import validator from 'validator';
 import classnames from 'classnames';
@@ -7,7 +6,7 @@ import { useTranslation } from 'i18n';
 import {
   MobileNav,
   DesktopNav,
-} from 'big-dipper-internal-ui';
+} from '@forbole/big-dipper-internal-ui';
 import { Footer } from '@components';
 import { GlobalContext } from '@contexts';
 import { useGetScreenSizeHook } from '@hooks';
@@ -37,9 +36,8 @@ export const Layout = (props: LayoutProps) => {
     type = 'website',
     title = t('bigDipper'),
     imageAlt,
+    image = '/images/icons/favicon-32x32.png',
   } = props;
-
-  let { image = '/images/icons/favicon-32x32.png' } = props;
 
   // ============================
   // Global props
@@ -89,12 +87,16 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Meta Tags
   // ============================
-  const router = useRouter();
-  const baseUrl = process.env.NEXT_PUBLIC_URL;
-  const currentPath = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
-  if (!validator.isURL(image)) {
-    image = `${baseUrl}${image}`;
+  let baseUrl = '';
+  let currentPath = '';
+
+  if (typeof window === 'object') {
+    baseUrl = window?.location?.origin || '';
+    currentPath = window?.location?.href || '';
   }
+
+  const imageUrl = validator.isURL(image) ? image : `${baseUrl}${image}`;
+
   return (
     <>
       {/* ========================================= */}
@@ -111,7 +113,7 @@ export const Layout = (props: LayoutProps) => {
           description,
           images: [
             {
-              url: image,
+              url: imageUrl,
               alt: imageAlt ?? description,
             },
           ],

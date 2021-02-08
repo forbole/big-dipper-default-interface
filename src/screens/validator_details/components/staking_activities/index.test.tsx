@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import {
   ValidatorStakingMobile,
   ValidatorStakingDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { BaseWrapper } from '@tests/utils/base_wrapper';
 import { awaitActions } from '@tests/utils/await_actions';
 import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';

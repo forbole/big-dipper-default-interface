@@ -11,8 +11,14 @@ export const useGetStyles = () => {
     root: {
       padding: theme?.palette?.custom?.margins?.small,
       paddingBottom: theme?.palette?.custom?.gutters?.large,
+      '& .topic__title': {
+        margin: '0 0 0.5rem',
+      },
       [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         padding: theme?.palette?.custom?.margins?.large,
+        '& .topic__title': {
+          marginBottom: '1rem',
+        },
       },
     },
     title: {
@@ -63,6 +69,7 @@ export const useGetStyles = () => {
       margin: '0',
       marginBottom: theme?.palette?.custom?.gutters?.small,
       color: theme.palette.custom.fonts.fontThree,
+      whiteSpace: 'pre-line',
       [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
         marginBottom: theme.palette.custom.margins.large,
       },

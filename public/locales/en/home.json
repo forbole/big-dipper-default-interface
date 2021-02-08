@@ -20,5 +20,6 @@
   "votingPowerTitle": "Voting Power",
   "roundTitle": "Round",
   "stepTitle": "Step",
-  "onlineVotingPower": "Online Voting Power"
+  "onlineVotingPower": "Online Voting Power",
+  "votingPower": "Voting Power"
 }

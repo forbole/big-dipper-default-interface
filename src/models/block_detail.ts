@@ -9,7 +9,6 @@ class BlockDetail {
     identity: string | null;
     validatorAddress: string;
   }
-  public preCommits: number;
   public height: number;
 
   constructor(payload: any) {
@@ -17,7 +16,6 @@ class BlockDetail {
     this.timestamp = payload.timestamp;
     this.tx = payload.tx;
     this.validator = payload.validator;
-    this.preCommits = payload.preCommits;
     this.height = payload.height;
   }
 
@@ -31,7 +29,6 @@ class BlockDetail {
         identity: R.pathOr('', ['validator', 'validator_descriptions', 0, 'identity'], json),
         validatorAddress: R.pathOr('', ['validator', 'validator_descriptions', 0, 'validator_address'], json),
       },
-      preCommits: json?.pre_commits,
       height: json.height,
     });
   }

@@ -11,6 +11,10 @@ import { VALIDATOR_PROFILE_MOCK_DATA } from './validator_profile';
 import { VALIDATOR_INFO_MOCK_DATA } from './validator_info';
 import { ACTIVITY_DETAILS_MOCK_DATA } from './activity_detail';
 import { VALIDATOR_STAKING_MOCK_DATA } from './validator_staking';
+import { VALIDATOR_LATEST_BLOCKS_MOCK_DATA } from './validator_blocks';
+import { VALIDATOR_LIST_MOCK_DATA } from './validator_list';
+import { USERINFO_MOCK_DATA } from './user_info';
+import { ONLINE_VOTING_POWER_MOCK_DATA } from './online_voting_power';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -26,4 +30,8 @@ export {
   VALIDATOR_INFO_MOCK_DATA,
   ACTIVITY_DETAILS_MOCK_DATA,
   VALIDATOR_STAKING_MOCK_DATA,
+  VALIDATOR_LATEST_BLOCKS_MOCK_DATA,
+  VALIDATOR_LIST_MOCK_DATA,
+  USERINFO_MOCK_DATA,
+  ONLINE_VOTING_POWER_MOCK_DATA,
 };

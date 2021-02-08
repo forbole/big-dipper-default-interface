@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'i18n';
-import { Footer } from 'big-dipper-internal-ui';
+import { Footer } from '@forbole/big-dipper-internal-ui';
 import { useGetStyles } from './styles';
 import {
   getSocialMediaComponents, getFooterLinkComponents,

@@ -37,6 +37,17 @@ export const useGetStyles = () => {
                 background: theme?.palette?.background?.paper,
               },
             },
+            '& .condition': {
+              '&.red': {
+                background: 'rgba(250, 58, 57, 1)',
+              },
+              '&.green': {
+                background: 'rgba(30, 196, 144, 1)',
+              },
+              '&.yellow': {
+                background: 'rgba(255, 177, 0, 1)',
+              },
+            },
             '& .rank': {
               background: theme?.palette?.background?.default,
             },

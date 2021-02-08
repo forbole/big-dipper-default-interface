@@ -62,16 +62,24 @@ export const DATA_BLOCKS_HEADER_MOCK = [
     },
     result: {
       data: {
-        active_validators: {
-          aggregate: {
-            count: 81,
+        validator: [
+          {
+            validator_statuses: [
+              {
+                jailed: true,
+                status: 1,
+              },
+            ],
           },
-        },
-        not_active_validators: {
-          aggregate: {
-            count: 0,
+          {
+            validator_statuses: [
+              {
+                jailed: false,
+                status: 3,
+              },
+            ],
           },
-        },
+        ],
       },
     },
   },

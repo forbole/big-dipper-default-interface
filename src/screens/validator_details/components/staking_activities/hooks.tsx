@@ -2,10 +2,19 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import {
-  useQuery, gql,
+  useLazyQuery,
+  useQuery,
+  gql,
 } from '@apollo/client';
-import { VALIDATOR_STAKING } from '@graphql/queries';
-import { validatorStakingParser } from '@src/graphql/parsers/queries';
+import {
+  VALIDATOR_STAKING,
+  LATEST_BLOCK_HEIGHT,
+} from '@graphql/queries';
+import {
+  validatorStakingParser,
+  latestBlockHeightParser,
+} from '@src/graphql/parsers/queries';
+import { useGetScreenSizeHook } from '@hooks';
 import { ValidatorStaking } from '@models';
 import { formatStakingData } from './utils';
 
@@ -14,17 +23,29 @@ export const useStakingActivitiesHook = () => {
   const [tabValue, setTabValue] = useState(0);
   const [staking, setStaking] = useState<ValidatorStaking>(ValidatorStaking.fromJson({
   }));
+  const { isMobile } = useGetScreenSizeHook();
 
   // ===============================
   // get data
   // ===============================
-  useQuery(gql`${VALIDATOR_STAKING}`, {
-    variables: {
-      address: router?.query?.validator ?? null,
-    },
+  const [getStaking] = useLazyQuery(gql`${VALIDATOR_STAKING}`, {
     onCompleted: (data) => {
       const parsedData = validatorStakingParser(data);
       setStaking(parsedData);
+    },
+  });
+
+  useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
+    onCompleted: (data) => {
+      const height = latestBlockHeightParser(data);
+      if (height) {
+        getStaking({
+          variables: {
+            address: router?.query?.validator ?? null,
+            height,
+          },
+        });
+      }
     },
   });
 
@@ -38,6 +59,6 @@ export const useStakingActivitiesHook = () => {
   return {
     tabValue,
     handleTabChange,
-    staking: formatStakingData(staking),
+    staking: formatStakingData(staking, isMobile),
   };
 };

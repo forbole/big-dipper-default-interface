@@ -11,7 +11,8 @@ import {
 } from '@graphql/queries';
 import { latestBlockHeightParser } from '@src/graphql/parsers/subscriptions';
 import {
-  averageBlockTimesParser, totalActiveValidatorsParser,
+  averageBlockTimesParser,
+  totalActiveValidatorsParser,
 } from '@src/graphql/parsers/queries';
 import { generalConfig } from '@src/general_config';
 import {
@@ -35,12 +36,10 @@ export const useLatestBlockHook = () => {
 
 export const useActiveValidatorsHook = () => {
   const [validatorsData, setValidatorsData] = useState<TotalActiveValidators>(
-    TotalActiveValidators.fromJson({
-    }),
+    TotalActiveValidators.fromJson([]),
   );
+
   useQuery(gql`${TOTAL_ACTIVE_VALIDATORS}`, {
-    pollInterval: generalConfig.pollInterval.default,
-    notifyOnNetworkStatusChange: true,
     onCompleted: (data: any) => {
       setValidatorsData(totalActiveValidatorsParser(data));
     },

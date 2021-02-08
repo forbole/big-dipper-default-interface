@@ -13,7 +13,7 @@ import {
   EmailIcon,
 } from 'react-share';
 import { useTranslation } from 'i18n';
-import { InfoDialog } from 'big-dipper-default-ui';
+import { InfoDialog } from '@forbole/big-dipper-default-ui';
 import classnames from 'classnames';
 import { DialogProp } from './types';
 import { useGetStyles } from './styles';
@@ -37,7 +37,7 @@ const Dialog = (props: DialogProp) => {
       copyCallback={handleCopy}
       qrCode={(
         <QRCode
-          value={address}
+          value={address.rawValue}
           size={192}
           bgColor="#ffffff"
           fgColor="#000000"
@@ -51,7 +51,7 @@ const Dialog = (props: DialogProp) => {
             className={classnames('socialMediaContent')}
           >
             <FacebookShareButton
-              url={`https://cosmos.bigdipper.live/account/${address}`}
+              url={`https://cosmos.bigdipper.live/account/${address.rawValue}`}
               quote={address.rawValue}
               hashtag="#forbole"
               className={classnames('buttonDisplay')}
@@ -62,7 +62,7 @@ const Dialog = (props: DialogProp) => {
               />
             </FacebookShareButton>
             <TwitterShareButton
-              url={`https://cosmos.bigdipper.live/account/${address}`}
+              url={`https://cosmos.bigdipper.live/account/${address.rawValue}`}
               title={address.rawValue}
               hashtags={['#forbole']}
               className={classnames('buttonDisplay')}
@@ -74,7 +74,7 @@ const Dialog = (props: DialogProp) => {
             </TwitterShareButton>
 
             <TelegramShareButton
-              url={`https://cosmos.bigdipper.live/account/${address}`}
+              url={`https://cosmos.bigdipper.live/account/${address.rawValue}`}
               title={address.rawValue}
               className={classnames('buttonDisplay')}
             >
@@ -85,7 +85,7 @@ const Dialog = (props: DialogProp) => {
             </TelegramShareButton>
 
             <WhatsappShareButton
-              url={`https://cosmos.bigdipper.live/account/${address}`}
+              url={`https://cosmos.bigdipper.live/account/${address.rawValue}`}
               title={address.rawValue}
               separator=":: "
               className={classnames('buttonDisplay')}
@@ -96,7 +96,7 @@ const Dialog = (props: DialogProp) => {
               />
             </WhatsappShareButton>
             <EmailShareButton
-              url={`https://cosmos.bigdipper.live/account/${address}`}
+              url={`https://cosmos.bigdipper.live/account/${address.rawValue}`}
               subject="address"
               body={address.rawValue}
               separator=":: "

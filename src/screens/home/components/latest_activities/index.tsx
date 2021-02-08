@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { useTranslation } from 'i18n';
-import { TablePreviewWrapper } from 'big-dipper-default-ui';
+import { TablePreviewWrapper } from '@forbole/big-dipper-default-ui';
 import { ActivitiesList } from '@components';
 import { useGetScreenSizeHook } from '@hooks';
 import { useTablePreviewWrapperStyles } from '@styles';

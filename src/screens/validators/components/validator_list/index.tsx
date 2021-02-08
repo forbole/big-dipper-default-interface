@@ -1,18 +1,21 @@
 import React from 'react';
 import classnames from 'classnames';
-import { Search } from '@material-ui/icons';
+// import { Search } from '@material-ui/icons';
+import InfiniteScroll from 'react-infinite-scroller';
 import {
   ValidatorListMobile, ValidatorListDesktop,
-} from 'big-dipper-default-ui';
+} from '@forbole/big-dipper-default-ui';
 import { useTranslation } from 'i18n';
 import {
   Tab,
   Tabs,
-  InputAdornment,
-  OutlinedInput,
+  // InputAdornment,
+  // OutlinedInput,
 } from '@material-ui/core';
 import { useGetScreenSizeHook } from '@hooks';
-import { TabPanel } from '@components';
+import {
+  TabPanel, InfiniteLoader,
+} from '@components';
 import {
   useDesktopOnlyStyles,
   useMobileOnlyStyles,
@@ -20,13 +23,7 @@ import {
 import { getAllyProps } from '@utils';
 import { useValidatorListHook } from './hooks';
 import { useGetStyles } from './styles';
-import {
-  dummyActiveMobileData,
-  dummyActiveDesktopData,
-  dummyInactiveMobileData,
-  dummyInactiveDesktopData,
-  dummyLabels,
-} from './utils';
+import { getLabels } from './utils';
 
 const ValidatorList = () => {
   const { t } = useTranslation('validators');
@@ -34,17 +31,25 @@ const ValidatorList = () => {
   const {
     tabValue,
     handleTabChange,
-    handleSearchChange,
-    handleSearchSubmit,
-    searchValue,
+    // handleSearchChange,
+    // handleSearchSubmit,
+    // searchValue,
+    handleLoadMoreInactive,
     handleRowClick,
-  } = useValidatorListHook();
+    validators,
+  } = useValidatorListHook(t);
+
   const { classes } = useGetStyles();
   const { classes: desktopOnlyStyles } = useDesktopOnlyStyles();
   const { classes: mobileOnlyStyles } = useMobileOnlyStyles();
-  const placeholderValue = tabValue === 0
-    ? t('searchActiveValidator')
-    : t('searchInactiveValidator');
+
+  // ===========================
+  // ui data parse
+  // ===========================
+  const labels = getLabels(t);
+  // const placeholderValue = tabValue === 0
+  //   ? t('searchActiveValidator')
+  //   : t('searchInactiveValidator');
   return (
     <div className={classnames(classes.root)}>
       <div className={classnames('flex')}>
@@ -60,7 +65,7 @@ const ValidatorList = () => {
           <Tab disableRipple label={t('active')} {...getAllyProps(0)} />
           <Tab disableRipple label={t('inactive')} {...getAllyProps(1)} />
         </Tabs>
-        <form
+        {/* <form
           onSubmit={handleSearchSubmit}
           className={classnames(desktopOnlyStyles.root)}
         >
@@ -74,25 +79,24 @@ const ValidatorList = () => {
               </InputAdornment>
               )}
           />
-        </form>
+        </form> */}
       </div>
       {/* =================================== */}
       {/* active */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={0}>
         <div className={classnames('validator-list__data-container', 'validator-list__active')}>
-          {/* <ActiveList /> */}
           <ValidatorListMobile
             className={classnames(mobileOnlyStyles.root)}
-            data={dummyActiveMobileData}
-            labels={dummyLabels}
+            data={validators.active.mobile}
+            labels={labels}
             onClick={handleRowClick}
           />
           <ValidatorListDesktop
             onClick={handleRowClick}
             className={classnames(desktopOnlyStyles.root)}
-            data={dummyActiveDesktopData}
-            labels={dummyLabels}
+            data={validators.active.desktop}
+            labels={labels}
           />
         </div>
       </TabPanel>
@@ -100,21 +104,28 @@ const ValidatorList = () => {
       {/* inactive */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
-        <div className={classnames('validator-list__data-container', 'validator-list__inactive')}>
-          <ValidatorListMobile
-            className={classnames(mobileOnlyStyles.root)}
-            onClick={handleRowClick}
-            labels={dummyLabels}
-            data={dummyInactiveMobileData}
-          />
-          <ValidatorListDesktop
-            inactive
-            onClick={handleRowClick}
-            className={classnames(desktopOnlyStyles.root)}
-            data={dummyInactiveDesktopData}
-            labels={dummyLabels}
-          />
-        </div>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={handleLoadMoreInactive}
+          hasMore={validators.inactive.total > validators.inactive.currentCount}
+          loader={<InfiniteLoader key={0} />}
+        >
+          <div className={classnames('validator-list__data-container', 'validator-list__inactive')}>
+            <ValidatorListMobile
+              className={classnames(mobileOnlyStyles.root)}
+              onClick={handleRowClick}
+              labels={labels}
+              data={validators.inactive.mobile}
+            />
+            <ValidatorListDesktop
+              inactive
+              onClick={handleRowClick}
+              className={classnames(desktopOnlyStyles.root)}
+              data={validators.inactive.desktop}
+              labels={labels}
+            />
+          </div>
+        </InfiniteScroll>
       </TabPanel>
     </div>
   );

@@ -5,44 +5,30 @@ import { getMinMediaQuery } from '@styles';
 
 export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => {
-    const headerColor = theme?.palette?.type === 'light' ? theme?.palette?.custom?.fonts?.fontOne : theme?.palette?.custom?.fonts?.fontTwo;
-
     return (
       createStyles({
         root: {
           height: '100%',
-          '& .custom-tool-tip': {
-            background: theme?.palette?.background?.paperLowOpacity,
-            '& p': {
-              color: theme?.palette?.custom?.fonts?.fontTwo,
+          background: theme?.palette?.background?.paper,
+          padding: theme?.palette?.custom?.margins?.small,
+          '& h3': {
+            color: theme?.palette?.custom?.fonts?.fontOneToTwo,
+            marginTop: 0,
+            fontSize: '1.125rem',
+            fontWeight: 400,
+          },
+          '& .chart': {
+            height: '250px',
+          },
+          [getMinMediaQuery(theme.breakpoints.values.tablet)]: {
+            '& .chart': {
+              height: '350px',
             },
           },
-          '& .select-tabs': {
-            background: theme?.palette?.background?.paper,
-            display: 'flex',
-            flexDirection: 'column',
-            '& .selected-component-container': {
-              flex: 1,
-              overflow: 'hidden',
-            },
-            '& .selected-title': {
-              color: headerColor,
-            },
-            '& .online-voting-power': {
-              height: '200px',
-            },
-            [getMinMediaQuery(theme?.breakpoints?.values?.tablet)]: {
-              '& .online-voting-power': {
-                height: '300px',
-              },
-            },
-            [getMinMediaQuery(theme?.breakpoints?.values?.desktop)]: {
-              '& .selected-title': {
-                fontSize: '1.5rem',
-              },
-              '& .online-voting-power': {
-                height: '100%',
-              },
+          [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
+            padding: theme?.palette?.custom?.margins?.large,
+            '& h3': {
+              fontSize: '1.5rem',
             },
           },
         },
