@@ -4,3 +4,4 @@
 - Added about page
 - Added faq page
 - Setup consistent styling for reusable components
+

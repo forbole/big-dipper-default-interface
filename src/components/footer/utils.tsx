@@ -101,10 +101,10 @@ export const footerLinks = [
     key: 'faq',
     url: '/faq',
   },
-  // {
-  //   key: 'termsAndConditions',
-  //   url: '/terms-and-condition',
-  // },
+  {
+    key: 'termsAndConditions',
+    url: '/terms_and_conditions',
+  },
   // {
   //   key: 'downloadWallet',
   //   url: '#',
