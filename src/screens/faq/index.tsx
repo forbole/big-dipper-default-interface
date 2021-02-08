@@ -5,6 +5,7 @@ import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
 import { Grid } from '@forbole/big-dipper-internal-ui';
+import { QuestionAnswer } from '@material-ui/icons';
 import { useGetStyles } from './styles';
 import getFaqDetails from './utils';
 
@@ -27,20 +28,27 @@ const Faq = () => {
               {t('email')}
             </a>
           </p>
-          <Grid container spacing={2}>
-            {faqData.map((x) => {
-              return (
-                <Grid key={x.question} item mobile={12} desktop={6}>
-                  <h2 className={classes.subTitle}>
-                    {t(x.question)}
-                  </h2>
-                  <p className={classnames(classes.paragraph, 'details')}>
-                    {t(x.ans)}
-                  </p>
+          {faqData.map((x) => {
+            return (
+              <div>
+                <h2 className="topic__title">{t(x.topic)}</h2>
+                <Grid container spacing={2}>
+                  {x.questions.map((question) => {
+                    return (
+                      <Grid key={question.question} item mobile={12}>
+                        <h2 className={classes.subTitle}>
+                          {t(question.question)}
+                        </h2>
+                        <p className={classnames(classes.paragraph, 'details')}>
+                          {t(question.ans)}
+                        </p>
+                      </Grid>
+                    );
+                  })}
                 </Grid>
-              );
-            })}
-          </Grid>
+              </div>
+            );
+          })}
         </MaxWidthContent>
       </MaxWidthContainer>
     </Layout>

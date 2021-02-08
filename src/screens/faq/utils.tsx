@@ -1,52 +1,72 @@
 const getFaqDetails = () => {
   const faq = [
     {
-      question: 'posQuestion',
-      ans: 'posAnswer',
+      topic: 'blockchain',
+      questions: [
+        {
+          question: 'posQuestion',
+          ans: 'posAnswer',
+        },
+        {
+          question: 'inflationQuestion',
+          ans: 'inflatinAnswer',
+        },
+      ],
     },
     {
-      question: 'inflationQuestion',
-      ans: 'inflatinAnswer',
+      topic: 'delegators',
+      questions: [
+        {
+          question: 'delegatorsQuestion',
+          ans: 'delegatorsAnswer',
+        },
+        {
+          question: 'stakingQuestion',
+          ans: 'stakingAnswer',
+        },
+        {
+          question: 'stakingActionsQuestion',
+          ans: 'stakingActionsAnswer',
+        },
+        {
+          question: 'bondingQuestion',
+          ans: 'bondingAnswer',
+        },
+      ],
     },
     {
-      question: 'delegatorsQuestion',
-      ans: 'delegatorsAnswer',
+      topic: 'validators',
+      questions: [
+        {
+          question: 'validatorsQuestion',
+          ans: 'validatorsAnswer',
+        },
+        {
+          question: 'validatorsEeigibilityQuestion',
+          ans: 'validatorsEeigibilityAnswer',
+        },
+        {
+          question: 'chooseValidatorQuestion',
+          ans: 'chooseValidatorAnswer',
+        },
+      ],
     },
     {
-      question: 'stakingQuestion',
-      ans: 'stakingAnswer',
-    },
-    {
-      question: 'stakingActionsQuestion',
-      ans: 'stakingActionsAnswer',
-    },
-    {
-      question: 'bondingQuestion',
-      ans: 'bondingAnswer',
-    },
-    {
-      question: 'validatorsQuestion',
-      ans: 'validatorsAnswer',
-    },
-    {
-      question: 'validatorsEeigibilityQuestion',
-      ans: 'validatorsEeigibilityAnswer',
-    },
-    {
-      question: 'chooseValidatorQuestion',
-      ans: 'chooseValidatorAnswer',
-    },
-    {
-      question: 'proposalsQuestion',
-      ans: 'proposalsAnswer',
-    },
-    {
-      question: 'votingPowerQuestion',
-      ans: 'votingPowerAnswer',
-    },
-    {
-      question: 'votingQuestion',
-      ans: 'votingAnswer',
+      topic: 'governance',
+      questions: [
+        {
+          question: 'proposalsQuestion',
+          ans: 'proposalsAnswer',
+        },
+        {
+          question: 'votingPowerQuestion',
+          ans: 'votingPowerAnswer',
+        },
+        {
+          question: 'votingQuestion',
+          ans: 'votingAnswer',
+        },
+      ],
     },
   ];
 

@@ -24,5 +24,9 @@
     "votingPowerQuestion": "What is voting power and how to obtain them?",
     "votingPowerAnswer": "When staking tokens are bonded, a proportional amount of voting power is obtained. This voting power is delegated to the validators you stake your tokens to. A validator’s voting power is proportional to the staked tokens to them, including self-bonded and those from delegators.\n\nUsually, validators will vote on behalf of the delegators, however, if a delegator varies in opinions with his validator, he then can overwrite the votes corresponding to his own voting power.",
     "votingQuestion": "How to vote on a governance proposal?",
-    "votingAnswer": "Any delegator can vote on governance proposals of the blockchains that issued their bonded tokens. For example, ATOM delegators can vote on Cosmos Hub proposals, KAVA delegators can vote on Kava proposals, etc. The easiest way to vote is go to the proposal page on Big Dipper, sign in with your wallet, and vote accordingly. Here is a video guide on proposal voting via Big Dipper."
+    "votingAnswer": "Any delegator can vote on governance proposals of the blockchains that issued their bonded tokens. For example, ATOM delegators can vote on Cosmos Hub proposals, KAVA delegators can vote on Kava proposals, etc. The easiest way to vote is go to the proposal page on Big Dipper, sign in with your wallet, and vote accordingly. Here is a video guide on proposal voting via Big Dipper.",
+    "blockchain": "Blockchain",
+    "delegators": "Delegators",
+    "validators": "Validators",
+    "governance": "Governance on chain"
 }
