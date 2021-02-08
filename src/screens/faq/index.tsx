@@ -5,7 +5,6 @@ import {
   Layout, MaxWidthContainer, MaxWidthContent,
 } from '@components';
 import { Grid } from '@forbole/big-dipper-internal-ui';
-import { QuestionAnswer } from '@material-ui/icons';
 import { useGetStyles } from './styles';
 import getFaqDetails from './utils';
 
