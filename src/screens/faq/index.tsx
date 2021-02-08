@@ -29,7 +29,7 @@ const Faq = () => {
           </p>
           {faqData.map((x) => {
             return (
-              <div>
+              <div key={x.topic}>
                 <h2 className="topic__title">{t(x.topic)}</h2>
                 <Grid container spacing={2}>
                   {x.questions.map((question) => {
