@@ -6,6 +6,7 @@ import {
 import { OnlineVotingPower } from '@models';
 import { ONLINE_VOTING_POWER } from '@graphql/subscriptions';
 import { onlineVotingPowerParser } from '@graphql/parsers/subscriptions';
+import { gradientLineHelper } from './utils';
 
 export const useOnlineVotingPowerHook = () => {
   const [onlineVotingPower, setOnlineVotingPower] = useState<OnlineVotingPower[]>([]);
@@ -21,7 +22,7 @@ export const useOnlineVotingPowerHook = () => {
   });
 
   return {
-    onlineVotingPower,
+    onlineVotingPower: gradientLineHelper(onlineVotingPower),
     cartesianGridStroke: theme?.palette?.divider,
   };
 };
