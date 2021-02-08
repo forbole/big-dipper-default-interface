@@ -22,7 +22,7 @@
   "accountDetails": "Account Details",
   "address": "Address",
   "shareTo": "Share to",
-  "rewardAddressInfo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu tristique lorem, id commodo lectus. In faucibus sem eu tellus gravida, id blandit ex tincidunt. Nam tincidunt dolor eros, eget porttitor metus co",
+  "rewardAddressInfo": "This is where your rewards will be deposited to. It does not have to be the same address as your delegation address.",
   "total": "Total",
   "available": "Available",
   "delegate": "Delegate",
