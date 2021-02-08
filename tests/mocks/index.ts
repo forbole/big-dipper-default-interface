@@ -15,6 +15,7 @@ import { VALIDATOR_LATEST_BLOCKS_MOCK_DATA } from './validator_blocks';
 import { VALIDATOR_LIST_MOCK_DATA } from './validator_list';
 import { USERINFO_MOCK_DATA } from './user_info';
 import { ONLINE_VOTING_POWER_MOCK_DATA } from './online_voting_power';
+import { CHAIN_ID_MOCK_DATA } from './chain_id';
 
 export {
   STABILITIES_MOCK_DATA,
@@ -34,4 +35,5 @@ export {
   VALIDATOR_LIST_MOCK_DATA,
   USERINFO_MOCK_DATA,
   ONLINE_VOTING_POWER_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 };

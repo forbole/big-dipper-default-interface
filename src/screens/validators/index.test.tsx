@@ -15,6 +15,7 @@ import {
   HEADER_BAR_MOCK,
   DATA_BLOCKS_HEADER_MOCK,
   VALIDATOR_LIST_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 } from '@tests/mocks';
 
 describe('Validators', () => {
@@ -30,6 +31,7 @@ describe('Validators', () => {
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
           ...VALIDATOR_LIST_MOCK_DATA,
+          ...CHAIN_ID_MOCK_DATA,
         ],
       }),
     );

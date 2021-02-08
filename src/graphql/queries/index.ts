@@ -14,6 +14,7 @@ import { VALIDATOR_STAKING } from './validator_staking';
 import { VALIDATOR_LATEST_BLOCKS } from './validator_latest_blocks';
 import { USER_INFO } from './user_info';
 import { LATEST_BLOCK_HEIGHT } from './latest_block_height';
+import { CHAIN_ID } from './chain_id';
 
 export {
   TOTAL_ACTIVE_VALIDATORS,
@@ -32,4 +33,5 @@ export {
   VALIDATOR_LIST,
   VALIDATOR_LATEST_BLOCKS,
   LATEST_BLOCK_HEIGHT,
+  CHAIN_ID,
 };

@@ -28,7 +28,6 @@ export const linearGradientData: {
  * @param data
  */
 export const gradientLineHelper = (data: OnlineVotingPower[]): boolean => {
-  console.log(data, 'data');
   const cloneData = R.clone(data);
   const parsed = cloneData.reduce((a, b) => {
     a.add(b.votingPower);

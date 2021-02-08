@@ -73,11 +73,13 @@ export const Layout = (props: LayoutProps) => {
   // ============================
   // Network
   // ============================
-  const { networks } = useNetworkHook();
+  const {
+    networks, chainId,
+  } = useNetworkHook();
   const networkItems = getNetworksComponent(networks);
   const selectedNetwork = {
     online: true,
-    value: chainConfig.network,
+    value: chainId,
     iconSrc: chainConfig.icon,
   };
   // ============================

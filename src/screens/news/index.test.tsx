@@ -9,32 +9,21 @@ import {
   Layout,
   DataBlocksHeader,
 } from '@components';
-import { LAYOUT_MOCK_DATA } from '@tests/mocks';
+import { WithMockApolloProvider } from '@tests/utils/mock_apollo_provider';
+import {
+  LAYOUT_MOCK_DATA, CHAIN_ID_MOCK_DATA,
+} from '@tests/mocks';
 
 describe('News', () => {
-  it('it renders', async () => {
-    mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
-    expect(News).toBeTruthy();
-    const wrapper = mount(
-      BaseWrapper({
-        component: <News />,
-        theme: lightTheme,
-      }),
-    );
-
-    await awaitActions({
-      wrapper,
-      time: 10,
-    });
-    expect(wrapper).not.toBeNull();
-  });
-
   it('correctly renders Home component with hooks', async () => {
     mockedAxios?.get?.mockImplementationOnce(() => Promise.resolve(LAYOUT_MOCK_DATA));
     const wrapper = mount(
-      BaseWrapper({
-        component: <News />,
-        theme: lightTheme,
+      WithMockApolloProvider({
+        component: BaseWrapper({
+          component: <News />,
+          theme: lightTheme,
+        }),
+        mocks: CHAIN_ID_MOCK_DATA,
       }),
     );
     await awaitActions({
