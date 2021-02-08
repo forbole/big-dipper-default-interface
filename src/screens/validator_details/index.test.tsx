@@ -14,6 +14,7 @@ import {
   VALIDATOR_INFO_MOCK_DATA,
   VALIDATOR_STAKING_MOCK_DATA,
   VALIDATOR_LATEST_BLOCKS_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 } from '@tests/mocks';
 import {
   Info, MissedBlocks, PowerActivities, StakingActivities,
@@ -36,6 +37,7 @@ describe('ValidatorDetails', () => {
           ...VALIDATOR_INFO_MOCK_DATA,
           ...VALIDATOR_STAKING_MOCK_DATA,
           ...VALIDATOR_LATEST_BLOCKS_MOCK_DATA,
+          ...CHAIN_ID_MOCK_DATA,
         ],
       }),
     );

@@ -20,6 +20,7 @@ import ValidatorLatestBlock from './validator_latest_block';
 import ValidatorList from './validator_list';
 import SlashingParam from './slashing_param';
 import OnlineVotingPower from './online_voting_power';
+import ChainId from './chain_id';
 
 // ================================
 // Transaction Message Types
@@ -88,4 +89,5 @@ export {
   ValidatorLatestBlock,
   SlashingParam,
   OnlineVotingPower,
+  ChainId,
 };

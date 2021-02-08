@@ -1,9 +1,9 @@
 import SocialMedia from './social_media';
-import StoreBadge from './store_badge';
 import FooterLink from './footer_link';
+import DonateDialogue from './donate_dialogue';
 
 export {
   SocialMedia,
-  StoreBadge,
   FooterLink,
+  DonateDialogue,
 };
