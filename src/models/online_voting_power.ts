@@ -3,10 +3,12 @@ import * as R from 'ramda';
 class OnlineVotingPower {
   public votingPower: number;
   public height: number;
+  public votingPowerUiValue: number;
 
   constructor(payload: any) {
     this.height = payload.height;
     this.votingPower = payload.votingPower;
+    this.votingPowerUiValue = payload.votingPower;
   }
 
   static fromJson(json: any) {

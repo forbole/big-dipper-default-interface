@@ -5,17 +5,15 @@ import {
   LineChart,
   XAxis,
   YAxis,
-  ZAxis,
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-
 } from 'recharts';
 import { useTranslation } from 'i18n';
 import classnames from 'classnames';
 import { useGetStyles } from './styles';
 import { useOnlineVotingPowerHook } from './hooks';
-import { linearGradient } from './utils';
+import { linearGradientData } from './utils';
 import { CustomToolTip } from './components';
 
 const OnlineVotingPower = () => {
@@ -30,24 +28,13 @@ const OnlineVotingPower = () => {
     <div className={classnames(classes.root)}>
       <h3>{t('onlineVotingPower')}</h3>
       <div className="chart">
-        <ResponsiveContainer>
+        <ResponsiveContainer width="99%">
           <LineChart
             data={onlineVotingPower}
             margin={{
               top: 5, right: 30, left: 20, bottom: 5,
             }}
           >
-            <defs>
-              <linearGradient id="colorUv" x1="0%" y1="0%" x2="100%" y2="0%">
-                {
-                linearGradient.map((x) => {
-                  return (
-                    <stop offset={`${x.offset}%`} stopColor={x.color} key={x.offset} />
-                  );
-                })
-              }
-              </linearGradient>
-            </defs>
             <CartesianGrid stroke={cartesianGridStroke} />
             <XAxis
               dataKey="height"
@@ -67,15 +54,26 @@ const OnlineVotingPower = () => {
                 return numeral(tick).format('0,0a');
               }}
             />
-            <ZAxis />
             <Tooltip
               cursor={false}
               content={<CustomToolTip />}
             />
+            <defs>
+              <linearGradient id="colorUv" x1="0%" y1="0%" x2="100%" y2="0%">
+                {
+                  linearGradientData.map((x) => {
+                    return (
+                      <stop offset={`${x.offset}%`} stopColor={x.color} key={x.offset} />
+                    );
+                  })
+                }
+              </linearGradient>
+            </defs>
             <Line
               isAnimationActive={false}
               type="monotone"
-              dataKey="votingPower"
+              dataKey="votingPowerUiValue"
+
               stroke="url(#colorUv)"
               strokeWidth={3}
               dot={false}
