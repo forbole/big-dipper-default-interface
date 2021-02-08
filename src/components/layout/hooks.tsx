@@ -3,9 +3,7 @@ import {
 } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-import {
-  BigDipperNetwork, ChainId,
-} from '@models';
+import { BigDipperNetwork } from '@models';
 import {
   useQuery, gql,
 } from '@apollo/client';

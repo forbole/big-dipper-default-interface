@@ -18,6 +18,7 @@ import {
   DATA_BLOCKS_HEADER_MOCK,
   LATEST_BLOCK_MOCK_DATA,
   LATEST_BLOCKS_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 } from '@tests/mocks';
 
 describe('Blocks', () => {
@@ -46,6 +47,7 @@ describe('Blocks', () => {
         mocks: [
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
+          ...CHAIN_ID_MOCK_DATA,
           ...LATEST_BLOCK_MOCK_DATA,
           ...LATEST_BLOCKS_MOCK_DATA({
             limit: 10,

@@ -14,6 +14,7 @@ import {
   HEADER_BAR_MOCK,
   DATA_BLOCKS_HEADER_MOCK,
   ACTIVITY_DETAILS_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 } from '@tests/mocks';
 import ActivityDetails from '.';
 
@@ -30,6 +31,7 @@ describe('ActivityDetails', () => {
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
           ...ACTIVITY_DETAILS_MOCK_DATA,
+          ...CHAIN_ID_MOCK_DATA,
         ],
       }),
     );
