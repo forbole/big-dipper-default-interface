@@ -15,7 +15,7 @@
   "dependencies": {
     "@apollo/client": "^3.1.5",
     "@forbole/big-dipper-default-ui": "^0.1.6-alpha",
-    "@forbole/big-dipper-internal-ui": "^0.1.2-alpha",
+    "@forbole/big-dipper-internal-ui": "^0.1.3-alpha",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
