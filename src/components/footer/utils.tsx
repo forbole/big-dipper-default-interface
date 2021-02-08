@@ -103,7 +103,7 @@ export const footerLinks = [
   },
   {
     key: 'termsAndConditions',
-    url: '/terms_and_conditions',
+    url: '/terms-and-conditions',
   },
   // {
   //   key: 'downloadWallet',

@@ -22,13 +22,13 @@ const TermsAndConditions = () => {
           <h1 className={classes.title}>
             {t('termsAndConditions')}
           </h1>
-          <p className={classnames(classes.text, 'details')}>
+          <p className={classnames(classes.text, 'intro')}>
             {intro}
           </p>
           {items.map((x, i) => {
             return (
-              <div key={i} className={classnames(classes.text, 'topic__title')}>
-                <div className={classnames(classes.text, 'container')}>
+              <div key={i} className={classnames(classes.text, 'container')}>
+                <div className={classnames(classes.text, 'topic__title')}>
                   {i + 1}
                   .
                   <p className={classnames(classes.text, 'text')}>{t(x.topic)}</p>
@@ -36,10 +36,10 @@ const TermsAndConditions = () => {
                 <div>
                   {x.details.map((details, index) => {
                     return (
-                      <div key={index} className={classnames(classes.text, 'detailsContainer')}>
+                      <div key={index} className={classnames(classes.text, 'details_container')}>
                         {index + 1}
                         .
-                        <p className={classnames(classes.text, 'text')}>{t(details.content)}</p>
+                        <p className={classnames(classes.text, 'text')}>{(details.content)}</p>
                       </div>
                     );
                   })}

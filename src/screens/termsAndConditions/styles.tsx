@@ -7,12 +7,16 @@ export const useGetStyles = () => {
   const useStyles = makeStyles({
     layout: {
       background: theme?.palette?.type === 'light' ? theme?.palette?.background?.paper : theme?.palette?.background?.default,
+      color: theme?.palette?.custom?.fonts?.fontTwo,
     },
     root: {
       padding: theme?.palette?.custom?.margins?.small,
       paddingBottom: theme?.palette?.custom?.gutters?.large,
       [getMinMediaQuery(theme.breakpoints.values.desktop)]: {
         padding: theme?.palette?.custom?.margins?.large,
+      },
+      '& h1': {
+        color: theme?.palette?.custom?.fonts?.fontOne,
       },
     },
     title: {
@@ -31,11 +35,11 @@ export const useGetStyles = () => {
       fontSize: '1rem',
       margin: '0',
       whiteSpace: 'pre-wrap',
-      '&.container': {
+      '&.topic__title': {
         margin: '0.5rem 0 0.5rem 2rem',
         display: 'flex',
       },
-      '&.detailsContainer': {
+      '&.details_container': {
         marginLeft: '4rem',
         display: 'flex',
       },

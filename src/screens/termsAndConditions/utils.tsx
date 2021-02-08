@@ -1,4 +1,4 @@
-export const intro = 'Do you use Cookie? Should we have a Cookie Policy ? \n\nWe use cookies to improve user experience, and analyze website traffic. For these reasons, we may share your site usage data with our analytics partners. By clicking “Accept Cookies,” you consent to store on your device all the technologies described in our Cookie Policy. You can change your cookie settings at any time by clicking “Cookie Preferences. \n\n\n\nOption 1: Using Termly to generate \n\nOption 2: Copying from Keplr:\n\n';
+export const intro = 'We use cookies to improve user experience, and analyze website traffic. For these reasons, we may share your site usage data with our analytics partners. By clicking “Accept Cookies,” you consent to store on your device all the technologies described in our Cookie Policy. You can change your cookie settings at any time by clicking “Cookie Preferences. \n\n\nOption 1: Using Termly to generate \n\nOption 2: Copying from Keplr:\n\n';
 export const items = [
   {
     topic: 'Important information regarding your rights and obligations while using the Services',
@@ -60,7 +60,7 @@ export const items = [
         content: '[NOTICE FOR EU DATA SUBJECTS] Data transfers to legal entities in countries outside the European Union (known as third countries) takes place as long as:\n(i) it is necessary for the purpose of carrying out your orders (e.g., payment and securities orders);\n(ii) it is required by law (e.g., reporting obligations under financial regulation);\n(iii) or you have granted us your consent.',
       },
       {
-        content: '[NOTICE FOR EU DATA SUBJECTS] The Company has offices outside of the EU and has affiliates and service providers in Hong Kong, and in other countries. Your personal information may be transferred to or from Hong Kong, or other locations outside of your state, province, country or other governmental jurisdiction where privacy laws may not be as protective as those in your jurisdiction.',
+        content: '[NOTICE FOR EU DATA SUBJECTS] The Company has offices outside of the EU and has affiliates and service providers in Hong Kong, and in other countries. Your personal information may be transferred to or from Hong Kong, or other locations outside of your state, province, country or other governmental jurisdiction where privacy laws may not be as protective as those in your jurisdiction.\n\n\n',
       },
     ],
   },
