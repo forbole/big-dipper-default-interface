@@ -11,7 +11,11 @@ import {
   HEADER_BAR_MOCK,
   DATA_BLOCKS_HEADER_MOCK,
   USERINFO_MOCK_DATA,
+<<<<<<< HEAD
   USER_STAKING_MOCK_DATA,
+=======
+  CHAIN_ID_MOCK_DATA,
+>>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 } from '@tests/mocks';
 import AccountDetails from '.';
 import {
@@ -29,9 +33,16 @@ describe('AccountDetails', () => {
           theme: lightTheme,
         }),
         mocks: [
+<<<<<<< HEAD
           ...HEADER_BAR_MOCK, ...DATA_BLOCKS_HEADER_MOCK,
           ...USERINFO_MOCK_DATA, ...USER_STAKING_MOCK_DATA,
         ],
+=======
+          ...HEADER_BAR_MOCK,
+          ...DATA_BLOCKS_HEADER_MOCK,
+          ...USERINFO_MOCK_DATA,
+          ...CHAIN_ID_MOCK_DATA],
+>>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
       }),
     );
     await awaitActions({

@@ -22,7 +22,11 @@ import { validatorLatestBlockParser } from './validator_latest_block_parser';
 import { slashingParamParser } from './slashing_param_parser';
 import { validatorListParser } from './validator_list_parser';
 import { latestBlockHeightParser } from './latest_block_height_parser';
+<<<<<<< HEAD
 import { userStakingParser } from './user_staking_parser';
+=======
+import { chainIdParser } from './chain_id_parser';
+>>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 
 export {
   averageBlockTimesParser,
@@ -45,5 +49,9 @@ export {
   slashingParamParser,
   validatorListParser,
   latestBlockHeightParser,
+<<<<<<< HEAD
   userStakingParser,
+=======
+  chainIdParser,
+>>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 };

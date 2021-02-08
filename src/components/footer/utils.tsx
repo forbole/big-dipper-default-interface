@@ -7,7 +7,6 @@ import {
 } from '@icons';
 import {
   SocialMedia,
-  StoreBadge,
   FooterLink,
 } from './components';
 import { SocialMediaProps } from './components/social_media/types';
@@ -58,40 +57,6 @@ export const getSocialMediaComponents = () => {
   });
 };
 
-/**
- * Store Badge links config
- */
-export const storeBadges = [
-  // {
-  //   image: 'images/apple-badge.svg',
-  //   url: '#',
-  //   className: 'apple',
-  //   alt: 'app store',
-  // },
-  // {
-  //   image: 'images/google-play-badge.svg',
-  //   url: '#',
-  //   className: 'google',
-  //   alt: 'play store',
-  // },
-];
-
-/**
- * Helper function to get all store badge links in to a component
- */
-export const getStoreBadgeComponents = () => {
-  return storeBadges.map((x) => {
-    return (
-      <StoreBadge
-        url={x.url}
-        alt={x.alt}
-        className={x.className}
-        image={x.image}
-      />
-    );
-  });
-};
-
 export const footerLinks = [
   {
     key: 'aboutBigDipper',
@@ -101,10 +66,10 @@ export const footerLinks = [
     key: 'faq',
     url: '/faq',
   },
-  {
-    key: 'termsAndConditions',
-    url: '#',
-  },
+  // {
+  //   key: 'termsAndConditions',
+  //   url: '/terms-and-condition',
+  // },
   // {
   //   key: 'downloadWallet',
   //   url: '#',

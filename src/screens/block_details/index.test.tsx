@@ -12,6 +12,7 @@ import {
   DATA_BLOCKS_HEADER_MOCK,
   LATEST_ACTIVITIES_MOCK_DATA,
   BLOCK_DETAILS_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 } from '@tests/mocks';
 import BlockDetails from '.';
 import { Activities } from './components';
@@ -29,6 +30,7 @@ describe('BlockDetails', () => {
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
           ...BLOCK_DETAILS_MOCK_DATA,
+          ...CHAIN_ID_MOCK_DATA,
           ...LATEST_ACTIVITIES_MOCK_DATA({
             height: null,
           }),

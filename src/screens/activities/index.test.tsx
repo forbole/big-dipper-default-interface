@@ -12,6 +12,7 @@ import {
   DATA_BLOCKS_HEADER_MOCK,
   LATEST_ACTIVITIES_MOCK_DATA,
   LATEST_ACTIVITY_MOCK_DATA,
+  CHAIN_ID_MOCK_DATA,
 } from '@tests/mocks';
 import { lightTheme } from '@styles';
 import {
@@ -32,6 +33,7 @@ describe('Activities', () => {
           ...HEADER_BAR_MOCK,
           ...DATA_BLOCKS_HEADER_MOCK,
           ...LATEST_ACTIVITY_MOCK_DATA,
+          ...CHAIN_ID_MOCK_DATA,
           ...LATEST_ACTIVITIES_MOCK_DATA({
             limit: 10,
             offset: 1,

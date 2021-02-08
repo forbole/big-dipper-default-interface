@@ -4,11 +4,11 @@
   "operatorAddress": "Operator Address",
   "selfDelegateAddress": "Self-Delegate Address",
   "commissionRate": "Commission Rate",
-  "commissionRateDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, nulla et consequat vulputate, augue neque maximus ligula, ac pretium augue velit a metus.",
+  "commissionRateDescription": "The commission this validator charges for providing its staking service.",
   "maxChangeRate": "Max Change Rate",
-  "maxChangeRateDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, nulla et consequat vulputate, augue neque maximus ligula, ac pretium augue velit a metus.",
+  "maxChangeRateDescription": "The maximum daily increase of the validator’s commission.",
   "maxRate": "Max Rate",
-  "maxRateDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc euismod, nulla et consequat vulputate, augue neque maximus ligula, ac pretium augue velit a metus.",
+  "maxRateDescription": "The maximum commission rate this validator candidate can charge.",
   "active": "Active",
   "inactive": "Inactive",
   "searchActiveValidator": "Search active validator",
@@ -38,7 +38,7 @@
   "commission": "Commission",
   "status": "Status",
   "condition": "Condition",
-  "conditionDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ornare interdum purus, et tincidunt metus tempor bibendum.",
+  "conditionDescription": "The overall health of a validator within the current signed block window",
   "unbonded": "Unbonded",
   "unbonding": "Unbonding"
 }

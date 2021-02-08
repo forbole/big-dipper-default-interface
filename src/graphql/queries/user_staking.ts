@@ -10,7 +10,7 @@
 // }`;
 
 export const USER_STAKING = `
-query UserStaking($address: String, $height: bigint) {
+query UserStaking($address: String, $height: bigint, $utc: numeric) {
   total_voting_power: validator_voting_power_aggregate(where: {height: {_eq: $height}}) {
     aggregate {
       sum {
@@ -18,9 +18,10 @@ query UserStaking($address: String, $height: bigint) {
       }
     }
   }
-  delegations: account(where: {address: {_eq: $address}}) {
+  account: account(where: {address: {_eq: $address}}) {
     delegation_rewards(where: {height: {_eq: $height}}) {
       amount
+      validator_address
     }
     delegations(where: {height: {_eq: $height}}) {
       amount
@@ -34,18 +35,15 @@ query UserStaking($address: String, $height: bigint) {
         }
       }
     }
-  }
-  redelegations: account(where: {address: {_eq: $address}}) {
-    redelegations(where: {height: {_eq: $height}}) {
+    redelegations: redelegations(where: {completion_time: {_gt: $utc}}) {
       delegator_address
       amount
       src_validator_address
       dst_validator_address
       completion_time
     }
-  }
-  unbondings: account(where: {address: {_eq: $address}}) {
-    unbonding_delegations(where: {height: {_eq: $height}}) {
+
+    unbonding_delegations: unbonding_delegations(where: {completion_time: {_gt: $utc}}) {
       validator_address
       amount
       completion_timestamp

@@ -50,11 +50,6 @@ export const useBlockDetailsTableHook = (t:any): {
     variables: {
       height: router?.query?.block ? numeral(router?.query?.block).value() : null,
     },
-    onError: () => {
-      handleSetState({
-        loading: false,
-      });
-    },
     onCompleted: (data) => {
       const parsedBlockData = blockDetailsParser(data);
       const parsedPoolData = stabilitiesParser(data);
@@ -81,7 +76,7 @@ export const useBlockDetailsTableHook = (t:any): {
 
   return {
     loading: state.loading,
-    votingPowerSum: numeral(getVotingPowerSum(state.precommits, state.pool)).format('0.00[0000]%'),
+    votingPowerSum: `${numeral(getVotingPowerSum(state.precommits, state.pool)).format('0,0.00')}%`,
     block: state.block,
     precommits: formatPreCommitData(state.precommits, state.pool, t),
   };

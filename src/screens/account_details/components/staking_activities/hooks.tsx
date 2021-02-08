@@ -18,6 +18,8 @@ import {
   formatStakingDataDesktop, formatStakingDataMobile,
 } from './utils';
 
+console.log('utc', Math.floor((new Date()).getTime() / 1000));
+
 export const useStakingActivitiesHook = () => {
   const [tabValue, setTabValue] = useState(0);
 

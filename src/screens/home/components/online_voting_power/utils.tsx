@@ -1,23 +1,44 @@
-export const fakeData = [
+import * as R from 'ramda';
+import { OnlineVotingPower } from '@models';
+
+export const linearGradientData: {
+  offset: number;
+  color: string;
+}[] = [
   {
-    date: 'JAN 1', value: 1500,
+    offset: 0,
+    color: '#FD9526',
   },
   {
-    date: 'JAN 2', value: 3000,
+    offset: 25,
+    color: '#f5d442',
   },
   {
-    date: 'JAN 3', value: 2000,
+    offset: 50,
+    color: '#f03a85',
   },
   {
-    date: 'JAN 4', value: 2780,
-  },
-  {
-    date: 'JAN 5', value: 1890,
-  },
-  {
-    date: 'JAN 6', value: 2390,
-  },
-  {
-    date: 'JAN 7', value: 2490,
+    offset: 75,
+    color: '#b641fa',
   },
 ];
+
+/**
+ * Helper function to check if values need to be changed in order to display a linear gradient
+ * @param data
+ */
+export const gradientLineHelper = (data: OnlineVotingPower[]): boolean => {
+  const cloneData = R.clone(data);
+  const parsed = cloneData.reduce((a, b) => {
+    a.add(b.votingPower);
+    return a;
+  }, new Set());
+
+  // linear gradient will not show unless there is a different value
+  if (parsed.size <= 1 && cloneData.length) {
+    cloneData[cloneData.length - 1]
+      .votingPowerUiValue = cloneData[cloneData.length - 1].votingPowerUiValue + 1;
+  }
+
+  return cloneData;
+};
