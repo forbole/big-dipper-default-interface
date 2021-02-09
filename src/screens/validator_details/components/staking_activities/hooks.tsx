@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
-
+import moment from 'moment';
 import {
   useLazyQuery,
   useQuery,
@@ -30,6 +30,7 @@ export const useStakingActivitiesHook = () => {
   // ===============================
   const [getStaking] = useLazyQuery(gql`${VALIDATOR_STAKING}`, {
     onCompleted: (data) => {
+      console.log(data, 'data');
       const parsedData = validatorStakingParser(data);
       setStaking(parsedData);
     },
@@ -39,10 +40,12 @@ export const useStakingActivitiesHook = () => {
     onCompleted: (data) => {
       const height = latestBlockHeightParser(data);
       if (height) {
+        const time = moment.utc().format('YYYY-MM-DDTHH:mm:ss');
         getStaking({
           variables: {
-            address: router?.query?.validator ?? null,
+            time,
             height,
+            address: router?.query?.validator ?? null,
           },
         });
       }
