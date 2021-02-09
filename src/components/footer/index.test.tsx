@@ -16,6 +16,6 @@ describe('Footer', () => {
     }));
 
     expect(wrap.find(Button)).toHaveLength(2);
-    expect(wrap.find(ListItem)).toHaveLength(2);
+    expect(wrap.find(ListItem)).toHaveLength(3);
   });
 });
