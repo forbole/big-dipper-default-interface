@@ -49,7 +49,7 @@ const Detail = () => {
           diameter={40}
         />),
         address: {
-          title: t('rewardAddress'),
+          title: t('address'),
           display: formatAddress(userInfo.address),
           dialog: (
             <Dialog
