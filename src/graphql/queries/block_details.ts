@@ -1,6 +1,6 @@
 export const BLOCK_DETAILS = `
 query BlockDetail($height: bigint) {
-  pool: staking_pool(order_by: {height: desc}, limit: 1) {
+  pool: staking_pool(limit: 1, where: {height: {_eq: $height}}) {
     bonded_tokens
   }
   block(limit: 1, where: {height: {_eq: $height}}) {
@@ -15,7 +15,6 @@ query BlockDetail($height: bigint) {
       }
     }
     height
-    pre_commits
   }
   pre_commit(where: {height: {_eq: $height}}) {
     voting_power

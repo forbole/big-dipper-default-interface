@@ -10,9 +10,9 @@ import { PreCommitsProps } from './types';
 
 export const formatPreCommitData = (data:PreCommit[], pool: Stabilities, t): PreCommitsProps[] => {
   return data.map((x) => {
-    const votingPower = formatDenom(chainConfig.display, x.votingPower, '0,0.00[0000]');
-    const votingPercentage = (x.votingPower / pool.bondedTokens) * 100;
-    let votingPercentageParsed = numeral(votingPercentage).format('0.00[0000]%');
+    const bonded = formatDenom(chainConfig.display, pool.bondedTokens).raw;
+    const votingPercentage = (x.votingPower / bonded) * 100;
+    let votingPercentageParsed = numeral(votingPercentage).format('0,0.00[0000]%');
     // edge case when the voting power is too small to calculate
     if (votingPercentageParsed === 'NaN%') {
       votingPercentageParsed = '0%';
@@ -28,8 +28,8 @@ export const formatPreCommitData = (data:PreCommit[], pool: Stabilities, t): Pre
         />,
       },
       votingPower: {
-        rawValue: votingPower.raw,
-        display: `${votingPower.format} ${chainConfig.display.toUpperCase()}`,
+        rawValue: x.votingPower,
+        display: numeral(x.votingPower).format('0,0'),
       },
       votingPowerPercentage: {
         rawValue: votingPercentage,
@@ -47,5 +47,10 @@ export const getVotingPowerSum = (precommits: PreCommit[], pool: Stabilities) =>
   const votingPowerSum = precommits.reduce((a, b) => {
     return a + b.votingPower;
   }, 0);
-  return (votingPowerSum / pool.bondedTokens) * 100;
+  const bonded = formatDenom(chainConfig.display, pool.bondedTokens).raw;
+  if (!votingPowerSum && !bonded) {
+    return 0;
+  }
+
+  return (votingPowerSum / bonded) * 100;
 };

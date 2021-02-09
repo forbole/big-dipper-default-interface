@@ -4,6 +4,11 @@ import {
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { BigDipperNetwork } from '@models';
+import {
+  useQuery, gql,
+} from '@apollo/client';
+import { CHAIN_ID } from '@graphql/queries';
+import { chainIdParser } from '@src/graphql/parsers/queries';
 
 /**
  * Handles mobile nav states
@@ -121,6 +126,8 @@ export const useDesktopNavHook = (isDesktop:boolean) => {
 export const useNetworkHook = () => {
   const NETWORK_LIST_API = 'https://gist.githubusercontent.com/kwunyeung/8be4598c77c61e497dfc7220a678b3ee/raw/7564611ee896b698eeb9657e981d414dbacf5efe/bd-networks.json';
   const [networks, setNetworks] = useState([]);
+  const [chainId, setChainId] = useState<string>('');
+
   useEffect(() => {
     const getNetworkList = async () => {
       let data = [];
@@ -137,7 +144,14 @@ export const useNetworkHook = () => {
     getNetworkList();
   }, []);
 
+  useQuery(gql`${CHAIN_ID}`, {
+    onCompleted: (data) => {
+      setChainId(chainIdParser(data).id);
+    },
+  });
+
   return {
     networks,
+    chainId,
   };
 };

@@ -7,7 +7,6 @@ import {
 } from '@icons';
 import {
   SocialMedia,
-  StoreBadge,
   FooterLink,
 } from './components';
 import { SocialMediaProps } from './components/social_media/types';
@@ -19,7 +18,7 @@ export const socialMediaLinks:SocialMediaProps[] = [
   {
     component: TelegramIcon,
     className: 'telegram',
-    url: 'https://t.me/desmosnetwork',
+    url: 'https://t.me/forbole',
   },
   // {
   //   component: FacebookIcon,
@@ -29,17 +28,17 @@ export const socialMediaLinks:SocialMediaProps[] = [
   {
     component: MediumIcon,
     className: 'medium',
-    url: 'https://medium.com/desmosnetwork',
+    url: 'https://medium.com/bigdipperlive',
   },
   {
     component: TwitterIcon,
     className: 'twitter',
-    url: 'https://twitter.com/desmosnetwork',
+    url: 'https://twitter.com/bigdipperlive',
   },
   {
     component: GithubIcon,
     className: 'github',
-    url: 'https://github.com/desmos-labs',
+    url: 'https://github.com/forbole/big-dipper-default-interface',
   },
 ];
 
@@ -58,40 +57,6 @@ export const getSocialMediaComponents = () => {
   });
 };
 
-/**
- * Store Badge links config
- */
-export const storeBadges = [
-  // {
-  //   image: 'images/apple-badge.svg',
-  //   url: '#',
-  //   className: 'apple',
-  //   alt: 'app store',
-  // },
-  // {
-  //   image: 'images/google-play-badge.svg',
-  //   url: '#',
-  //   className: 'google',
-  //   alt: 'play store',
-  // },
-];
-
-/**
- * Helper function to get all store badge links in to a component
- */
-export const getStoreBadgeComponents = () => {
-  return storeBadges.map((x) => {
-    return (
-      <StoreBadge
-        url={x.url}
-        alt={x.alt}
-        className={x.className}
-        image={x.image}
-      />
-    );
-  });
-};
-
 export const footerLinks = [
   {
     key: 'aboutBigDipper',
@@ -103,7 +68,7 @@ export const footerLinks = [
   },
   {
     key: 'termsAndConditions',
-    url: '#',
+    url: '/terms-and-conditions',
   },
   // {
   //   key: 'downloadWallet',

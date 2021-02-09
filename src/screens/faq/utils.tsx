@@ -1,28 +1,72 @@
 const getFaqDetails = () => {
   const faq = [
     {
-      question: 'question1',
-      ans: 'ans1',
+      topic: 'blockchain',
+      questions: [
+        {
+          question: 'posQuestion',
+          ans: 'posAnswer',
+        },
+        {
+          question: 'inflationQuestion',
+          ans: 'inflatinAnswer',
+        },
+      ],
     },
     {
-      question: 'question2',
-      ans: 'ans2',
+      topic: 'delegators',
+      questions: [
+        {
+          question: 'delegatorsQuestion',
+          ans: 'delegatorsAnswer',
+        },
+        {
+          question: 'stakingQuestion',
+          ans: 'stakingAnswer',
+        },
+        {
+          question: 'stakingActionsQuestion',
+          ans: 'stakingActionsAnswer',
+        },
+        {
+          question: 'bondingQuestion',
+          ans: 'bondingAnswer',
+        },
+      ],
     },
     {
-      question: 'question3',
-      ans: 'ans3',
+      topic: 'validators',
+      questions: [
+        {
+          question: 'validatorsQuestion',
+          ans: 'validatorsAnswer',
+        },
+        {
+          question: 'validatorsEeigibilityQuestion',
+          ans: 'validatorsEeigibilityAnswer',
+        },
+        {
+          question: 'chooseValidatorQuestion',
+          ans: 'chooseValidatorAnswer',
+        },
+      ],
     },
     {
-      question: 'question4',
-      ans: 'ans4',
-    },
-    {
-      question: 'question5',
-      ans: 'ans5',
-    },
-    {
-      question: 'question6',
-      ans: 'ans6',
+      topic: 'governance',
+      questions: [
+        {
+          question: 'proposalsQuestion',
+          ans: 'proposalsAnswer',
+        },
+        {
+          question: 'votingPowerQuestion',
+          ans: 'votingPowerAnswer',
+        },
+        {
+          question: 'votingQuestion',
+          ans: 'votingAnswer',
+        },
+      ],
     },
   ];
 

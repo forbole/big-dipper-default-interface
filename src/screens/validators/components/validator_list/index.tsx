@@ -1,6 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 // import { Search } from '@material-ui/icons';
+import InfiniteScroll from 'react-infinite-scroller';
 import {
   ValidatorListMobile, ValidatorListDesktop,
 } from '@forbole/big-dipper-default-ui';
@@ -12,7 +13,9 @@ import {
   // OutlinedInput,
 } from '@material-ui/core';
 import { useGetScreenSizeHook } from '@hooks';
-import { TabPanel } from '@components';
+import {
+  TabPanel, InfiniteLoader,
+} from '@components';
 import {
   useDesktopOnlyStyles,
   useMobileOnlyStyles,
@@ -31,6 +34,7 @@ const ValidatorList = () => {
     // handleSearchChange,
     // handleSearchSubmit,
     // searchValue,
+    handleLoadMoreInactive,
     handleRowClick,
     validators,
   } = useValidatorListHook(t);
@@ -100,21 +104,28 @@ const ValidatorList = () => {
       {/* inactive */}
       {/* =================================== */}
       <TabPanel value={tabValue} index={1}>
-        <div className={classnames('validator-list__data-container', 'validator-list__inactive')}>
-          <ValidatorListMobile
-            className={classnames(mobileOnlyStyles.root)}
-            onClick={handleRowClick}
-            labels={labels}
-            data={validators.inactive.mobile}
-          />
-          <ValidatorListDesktop
-            inactive
-            onClick={handleRowClick}
-            className={classnames(desktopOnlyStyles.root)}
-            data={validators.inactive.desktop}
-            labels={labels}
-          />
-        </div>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={handleLoadMoreInactive}
+          hasMore={validators.inactive.total > validators.inactive.currentCount}
+          loader={<InfiniteLoader key={0} />}
+        >
+          <div className={classnames('validator-list__data-container', 'validator-list__inactive')}>
+            <ValidatorListMobile
+              className={classnames(mobileOnlyStyles.root)}
+              onClick={handleRowClick}
+              labels={labels}
+              data={validators.inactive.mobile}
+            />
+            <ValidatorListDesktop
+              inactive
+              onClick={handleRowClick}
+              className={classnames(desktopOnlyStyles.root)}
+              data={validators.inactive.desktop}
+              labels={labels}
+            />
+          </div>
+        </InfiniteScroll>
       </TabPanel>
     </div>
   );
