@@ -1,14 +1,3 @@
-// export const TOTAL_VOTING_POWER = `
-// query TotalVotingPower($height: bigint) {
-//   total_voting_power: validator_voting_power_aggregate(where: {height: {_eq: $height}}) {
-//     aggregate {
-//       sum {
-//         voting_power
-//       }
-//     }
-//   }
-// }`;
-
 export const USER_STAKING = `
 query UserStaking($address: String, $height: bigint, $utc: timestamp) {
   total_voting_power: validator_voting_power_aggregate(where: {height: {_eq: $height}}) {
@@ -17,6 +6,11 @@ query UserStaking($address: String, $height: bigint, $utc: timestamp) {
         voting_power
       }
     }
+  }
+  delegation_reward(where: {height: {_eq: $height}, delegator_address: {_eq: $address}}) {
+    delegator_address
+    validator_address
+    amount
   }
   account: account(where: {address: {_eq: $address}}) {
     delegation_rewards(where: {height: {_eq: $height}}) {
@@ -27,6 +21,10 @@ query UserStaking($address: String, $height: bigint, $utc: timestamp) {
       amount
       validator_address
       validator {
+        validator_descriptions{
+          moniker
+          identity
+        }
         validator_voting_powers(limit: 1, where: {height: {_eq: $height}}) {
           voting_power
         }

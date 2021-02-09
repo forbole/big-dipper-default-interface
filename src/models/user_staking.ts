@@ -2,18 +2,12 @@ import * as R from 'ramda';
 
 type DefaultDelegationType = {
   validatorAddress: string;
+  validatorIdenty: string;
+  validatorMoniker: string;
   amount: {
       denom: string;
       amount: number;
   }
-  selfDelegatedAmount?: {
-    denom: string;
-    amount: number;
-  };
-  reward?: {
-    denom: string;
-    amount: number;
-  };
   commission: number;
   votingPower: number;
 }
@@ -42,12 +36,20 @@ type DefaultRedelegationType = {
 
 class UserStaking {
   public delegations: DefaultDelegationType[];
+  public rewards?: {
+    validatorAddress: string;
+    delegatorAddress: string;
+    amount: {
+      denom: string;
+      amount: number;
+    }}[];
   public redelegations: DefaultRedelegationType[];
   public unbonding: DefaultUnbondingType[];
   public totalVotingPower: number;
 
   constructor(payload: any) {
     this.delegations = payload.delegations;
+    this.rewards = payload.rewards;
     this.redelegations = payload.redelegations;
     this.unbonding = payload.unbonding;
     this.totalVotingPower = payload.totalVotingPower;
@@ -55,25 +57,35 @@ class UserStaking {
 
   static fromJson(json: any) {
     console.log('json', json);
+
     return new UserStaking({
       delegations: R.pathOr([], ['account', 0, 'delegations'], json).map((delegation) => {
         return ({
           validatorAddress: delegation?.validator_address,
+          validatorIdenty: delegation?.validator_descriptions?.identity,
+          validatorMoniker: delegation?.validator_descriptions?.moniker,
           amount: {
             denom: delegation?.amount?.denom,
             amount: delegation?.amount?.amount,
           },
-          // reward: {
-          //   denom: delegation?.delegation_rewards?.[0]?.amount?.denom,
-          //   amount: delegation?.delegation_rewards?.[0]?.amount?.amount,
-          // },
           commission:
             R.pathOr(0, ['validator', 'validator_commissions', 0, 'commission'], delegation),
-          // delegation?.validator?.validator_commissions?.[0]?.commission,
           votingPower:
-          R.pathOr(0, ['validator', 'validator_voting_powers', 0, 'voting_power'], delegation),
+            R.pathOr(0, ['validator', 'validator_voting_powers', 0, 'voting_power'], delegation),
         }
         );
+      }),
+      rewards: R.pathOr([], ['delegation_reward'], json).map((reward) => {
+        return ({
+          validatorAddress: reward?.validator_address,
+          delegatorAddress: reward?.delegator_address,
+          amount: {
+            denom:
+            R.pathOr('', ['amount', 0, 'denom'], reward),
+            amount:
+            R.pathOr(0, ['amount', 0, 'amount'], reward),
+          },
+        });
       }),
       redelegations: R.pathOr([], ['account', 0, 'redelegations'], json).map((redelegation) => {
         return ({

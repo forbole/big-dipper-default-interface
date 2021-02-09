@@ -35,6 +35,8 @@ export const useStakingActivitiesHook = () => {
     onCompleted: (data) => {
       const parsedData = userStakingParser(data);
 
+      console.log('parsedData', parsedData);
+
       setUserStaking(parsedData);
       console.log('userStaking', userStaking);
     },
@@ -44,6 +46,7 @@ export const useStakingActivitiesHook = () => {
     onCompleted: (data) => {
       const height = latestBlockHeightParser(data);
       if (height) {
+        console.log('height', height);
         getUserStaking({
           variables: {
             address: router?.query?.address,

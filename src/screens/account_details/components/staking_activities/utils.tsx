@@ -92,29 +92,80 @@ export const getUnbondingColumns = (t: any) => {
   ]);
 };
 
-export const formatStakingDataDesktop = (
-  data: UserStaking,
-) => {
+export const formatStakingDataDesktop = (data: UserStaking) => {
+  // const delegationsSummedUp = [];
+  // data.delegations.reduce((res, value) => {
+  //   if (!res[value.validatorAddress]) {
+  //     res[value.validatorAddress] = {
+  //       validatorAddress: value.validatorAddress,
+  //       validatorMoniker: value.validatorMoniker,
+  //       validatorIdenty: value.validatorIdenty,
+  //       commission: value.commission,
+  //       votingPower: value.votingPower,
+  //       amount: value.amount.amount,
+  //     };
+  //     delegationsSummedUp.push(res[value.validatorAddress]);
+  //   }
+  //   res[value.validatorAddress].amount += value.amount.amount;
+  //   return res;
+  // }, {
+  // });
+  // console.log('delegationsSummedUp', delegationsSummedUp);
+
+
+
+
+
+  // let list = [];
+  // const summedUpDelegations = data.delegations.filter((i) =>
+  //   i?.amount?.denom === chainConfig.base).reduce((a, b) => {
+  //     return {
+  //     list.push({
+  //     validatorAddress: b.validatorAddress,
+  //     validatorMoniker: b.validatorMoniker,
+  //     validatorIdenty: b.validatorIdenty,
+  //     amount: {
+  //       denom: '',
+  //       amount: a.amount.amount + b.amount.amount,
+  //     },
+  //     commission: b.commission,
+  //     votingPower: b.votingPower,
+  //   });
+      // validatorAddress: 1,
+      // validatorMoniker: 1,
+      // validatorIdenty: 1,
+      // amount: a.amount.amount + b.amount.amount,
+      // };
+    // });
+  // console.log('summedUpDelegations', summedUpDelegations);
+
   const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
+
   return {
     delegations: data.delegations.map((x) => {
+      const reward = data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)
+        .reduce((a, b) => {
+          return a + b?.amount?.amount;
+        }, 0);
+      console.log('reward', reward);
       return ({
         validator: {
           rawValue: x.validatorAddress,
           display: (
             <AvatarDisplay
-              display={x.validatorAddress}
+              display={x.validatorMoniker}
               address={x.validatorAddress}
+              identity={x.validatorIdenty}
             />),
         },
         delegatedAmount: {
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
         },
-        // reward: {
-        //   rawValue: x.reward.amount,
-        //   display: convertAmount(x.reward.amount),
-        // },
+        reward: {
+          rawValue: reward,
+          display: convertAmount(reward),
+        },
         commission: {
           rawValue: x.commission,
           display: numeral(x.commission).format('0.00%'),
@@ -189,16 +240,16 @@ export const formatStakingDataMobile = (
 
   return {
     delegations:
-    data.delegations.map((x) => {
-      return ({
-        address: (
-          <AvatarDisplay
-            display={x.validatorAddress}
-            address={x.validatorAddress}
-          />),
-        amount: convertAmount(x.amount.amount),
-      });
-    }),
+      data.delegations.map((x) => {
+        return ({
+          address: (
+            <AvatarDisplay
+              display={x.validatorAddress}
+              address={x.validatorAddress}
+            />),
+          amount: convertAmount(x.amount.amount),
+        });
+      }),
 
     redelegations: data.redelegations.map((x) => {
       return ({
