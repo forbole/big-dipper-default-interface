@@ -30,7 +30,6 @@ export const useStakingActivitiesHook = () => {
   // ===============================
   const [getStaking] = useLazyQuery(gql`${VALIDATOR_STAKING}`, {
     onCompleted: (data) => {
-      console.log(data, 'data');
       const parsedData = validatorStakingParser(data);
       setStaking(parsedData);
     },
@@ -40,7 +39,7 @@ export const useStakingActivitiesHook = () => {
     onCompleted: (data) => {
       const height = latestBlockHeightParser(data);
       if (height) {
-        const time = moment.utc().format('YYYY-MM-DDTHH:mm:ss');
+        const time = moment().utc().format('YYYY-MM-DDTHH:mm:ss');
         getStaking({
           variables: {
             time,

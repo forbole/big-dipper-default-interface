@@ -55,13 +55,13 @@ export const useGetStyles = () => {
           // gridColumn: '1 / 3', // change back later
           gridColumn: '6 / 8', // new
           gridRow: '2 / span 1', // new
-          height: '600px',
+          height: '650px',
         },
         '& .staking': {
           // gridColumn: '3 / 8', // change back later
           gridColumn: '1 / 6', // new
           gridRow: '2 / span 1', // new
-          height: '600px',
+          height: '650px',
         },
         '& .events-and-activities': {
           gridColumn: '1 / 8',
