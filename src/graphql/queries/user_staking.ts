@@ -10,7 +10,7 @@
 // }`;
 
 export const USER_STAKING = `
-query UserStaking($address: String, $height: bigint, $utc: numeric) {
+query UserStaking($address: String, $height: bigint, $utc: timestamp) {
   total_voting_power: validator_voting_power_aggregate(where: {height: {_eq: $height}}) {
     aggregate {
       sum {
@@ -42,8 +42,7 @@ query UserStaking($address: String, $height: bigint, $utc: numeric) {
       dst_validator_address
       completion_time
     }
-
-    unbonding_delegations: unbonding_delegations(where: {completion_time: {_gt: $utc}}) {
+    unbondings: unbonding_delegations(where: {completion_timestamp: {_gt: $utc}}) {
       validator_address
       amount
       completion_timestamp

@@ -3,8 +3,9 @@ import { AvatarDisplay } from '@components';
 import moment from 'moment';
 import { UserStaking } from '@models';
 import {
-  formatDenom, formatMiddleEllipse, convertNumber,
+  formatDenom, formatMiddleEllipse,
 } from '@utils';
+import numeral from 'numeral';
 import { chainConfig } from '@src/chain_config';
 
 export const getDelegationColumns = (t: any) => {
@@ -20,12 +21,6 @@ export const getDelegationColumns = (t: any) => {
       sort: true,
       align: 'right',
     },
-    // {
-    //   label: 'amtRatio',
-    //   display: t('amtRatio'),
-    //   sort: true,
-    //   align: 'right',
-    // },
     {
       label: 'reward',
       display: t('reward'),
@@ -82,12 +77,6 @@ export const getUnbondingColumns = (t: any) => {
       display: t('validator'),
       sort: true,
     },
-    // {
-    //   label: 'height',
-    //   display: t('height'),
-    //   sort: true,
-    //   align: 'right',
-    // },
     {
       label: 'unbondedAmount',
       display: t('unbondedAmount'),
@@ -107,7 +96,6 @@ export const formatStakingDataDesktop = (
   data: UserStaking,
 ) => {
   const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
-  const convertRatio = (amount: number) => `${amount ? Math.round((amount * 100) * 100) / 100 : 0} %`;
   return {
     delegations: data.delegations.map((x) => {
       return ({
@@ -123,21 +111,17 @@ export const formatStakingDataDesktop = (
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
         },
-        // amtRatio: {
-        //   rawValue: x.selfDelegatedAmount.amount / x.amount.amount,
-        //   display: convertRatio(x.selfDelegatedAmount.amount / x.amount.amount),
+        // reward: {
+        //   rawValue: x.reward.amount,
+        //   display: convertAmount(x.reward.amount),
         // },
-        reward: {
-          rawValue: x.reward.amount,
-          display: convertAmount(x.reward.amount),
-        },
         commission: {
-          rawValue: x.comission,
-          display: convertRatio(x.comission),
+          rawValue: x.commission,
+          display: numeral(x.commission).format('0.00%'),
         },
         votingPower: {
-          rawValue: x.votingPower / x.votingPower,
-          display: convertRatio(x.votingPower / data.totalVotingPower),
+          rawValue: x.votingPower / data.totalVotingPower,
+          display: numeral(x.votingPower / data.totalVotingPower).format('0.00%'),
         },
       });
     }),
@@ -159,10 +143,6 @@ export const formatStakingDataDesktop = (
               address={x.dstValidatorAddress}
             />),
         },
-        // height: {
-        //   rawValue: x.height,
-        //   display: convertNumber(x.height).display,
-        // },
         redelegatedAmount: {
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
@@ -183,10 +163,6 @@ export const formatStakingDataDesktop = (
               address={x.validatorAddress}
             />),
         },
-        // height: {
-        //   rawValue: x.height,
-        //   display: convertNumber(x.height).display,
-        // },
         unbondedAmount: {
           rawValue: x.amount.amount,
           display: convertAmount(x.amount.amount),
@@ -210,7 +186,6 @@ export const formatStakingDataMobile = (
       ending: 5,
     });
   };
-  console.log('data.delegations', data.delegations);
 
   return {
     delegations:
@@ -218,7 +193,6 @@ export const formatStakingDataMobile = (
       return ({
         address: (
           <AvatarDisplay
-            // display={formatAddress(x.validatorAddress ? x.validatorAddress : '')}
             display={x.validatorAddress}
             address={x.validatorAddress}
           />),
@@ -231,16 +205,13 @@ export const formatStakingDataMobile = (
         address: (
           <AvatarDisplay
             display={formatAddress(x.delegatorAddress ? x.delegatorAddress : '')}
-            // display={x.delegatorAddress}
             address={x.delegatorAddress}
           />),
         redelegate: {
           from: (<AvatarDisplay
-            // display={formatAddress(x.srcValidatorAddress)}
             address={x.srcValidatorAddress}
           />),
           to: (<AvatarDisplay
-            // display={formatAddress(x.dstValidatorAddress)}
             display={x.dstValidatorAddress}
             address={x.dstValidatorAddress}
           />),
@@ -253,7 +224,6 @@ export const formatStakingDataMobile = (
       return ({
         address: (
           <AvatarDisplay
-            // display={formatAddress(x.validatorAddress)}
             display={x.validatorAddress}
             address={x.validatorAddress}
           />),

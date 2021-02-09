@@ -1,6 +1,5 @@
 import {
   USER_STAKING,
-  TOTAL_VOTING_POWER,
   LATEST_BLOCK_HEIGHT,
 } from '@graphql/queries';
 import { gql } from '@apollo/client';
@@ -11,6 +10,8 @@ export const USER_STAKING_MOCK_DATA = [
       query: gql`${USER_STAKING}`,
       variables: {
         address: null,
+        height: null,
+        utc: null,
       },
     },
     result: {
@@ -37,18 +38,6 @@ export const USER_STAKING_MOCK_DATA = [
             unbonding_delegations: [],
           },
         ],
-      },
-    },
-  },
-  {
-    request: {
-      query: gql`${TOTAL_VOTING_POWER}`,
-      variables: {
-        height: null,
-      },
-    },
-    result: {
-      data: {
         total_voting_power: [
           {
             aggregate: {

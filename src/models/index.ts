@@ -19,13 +19,10 @@ import UserInfo from './user_info';
 import ValidatorLatestBlock from './validator_latest_block';
 import ValidatorList from './validator_list';
 import SlashingParam from './slashing_param';
-<<<<<<< HEAD
 import UserStaking from './user_staking';
 import TotalVotingPower from './total_voting_power';
-=======
 import OnlineVotingPower from './online_voting_power';
 import ChainId from './chain_id';
->>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 
 // ================================
 // Transaction Message Types
@@ -93,11 +90,8 @@ export {
   ValidatorList,
   ValidatorLatestBlock,
   SlashingParam,
-<<<<<<< HEAD
   UserStaking,
   TotalVotingPower,
-=======
   OnlineVotingPower,
   ChainId,
->>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 };

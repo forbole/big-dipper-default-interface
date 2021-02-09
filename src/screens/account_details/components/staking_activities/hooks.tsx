@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import moment from 'moment';
 import {
   useLazyQuery,
   useQuery,
@@ -11,14 +12,10 @@ import {
 import {
   userStakingParser, latestBlockHeightParser,
 } from '@src/graphql/parsers/queries';
-import {
-  UserStaking,
-} from '@models';
+import { UserStaking } from '@models';
 import {
   formatStakingDataDesktop, formatStakingDataMobile,
 } from './utils';
-
-console.log('utc', Math.floor((new Date()).getTime() / 1000));
 
 export const useStakingActivitiesHook = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -31,40 +28,27 @@ export const useStakingActivitiesHook = () => {
   const [userStaking, setUserStaking] = useState<UserStaking>(UserStaking.fromJson({
   }));
 
-  // const [
-  //   totalVotingPower, setTotalVotingPower,
-  // ] = useState<TotalVotingPower>(TotalVotingPower.fromJson({
-  // }));
-
   // ===============================
   // get data
   // ===============================
   const [getUserStaking] = useLazyQuery(gql`${USER_STAKING}`, {
     onCompleted: (data) => {
       const parsedData = userStakingParser(data);
+
       setUserStaking(parsedData);
-      console.log('parsedData', parsedData);
       console.log('userStaking', userStaking);
     },
   });
 
-  // const [getTotalVotingPower] = useLazyQuery(gql`${TOTAL_VOTING_POWER}`, {
-  //   onCompleted: (data) => {
-  //     const parsedData = totalVotingPowerParser(data);
-  //     setTotalVotingPower(parsedData);
-  //   },
-  // });
-
   useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
     onCompleted: (data) => {
       const height = latestBlockHeightParser(data);
-      console.log('height', height);
       if (height) {
         getUserStaking({
           variables: {
             address: router?.query?.address,
             height,
-            // height: null,
+            utc: moment,
           },
         });
       }

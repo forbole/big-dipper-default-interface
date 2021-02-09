@@ -14,12 +14,9 @@ import { VALIDATOR_STAKING_MOCK_DATA } from './validator_staking';
 import { VALIDATOR_LATEST_BLOCKS_MOCK_DATA } from './validator_blocks';
 import { VALIDATOR_LIST_MOCK_DATA } from './validator_list';
 import { USERINFO_MOCK_DATA } from './user_info';
-<<<<<<< HEAD
 import { USER_STAKING_MOCK_DATA } from './user_staking';
-=======
 import { ONLINE_VOTING_POWER_MOCK_DATA } from './online_voting_power';
 import { CHAIN_ID_MOCK_DATA } from './chain_id';
->>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 
 export {
   STABILITIES_MOCK_DATA,
@@ -38,10 +35,7 @@ export {
   VALIDATOR_LATEST_BLOCKS_MOCK_DATA,
   VALIDATOR_LIST_MOCK_DATA,
   USERINFO_MOCK_DATA,
-<<<<<<< HEAD
   USER_STAKING_MOCK_DATA,
-=======
   ONLINE_VOTING_POWER_MOCK_DATA,
   CHAIN_ID_MOCK_DATA,
->>>>>>> 04de169635b4c8cb2ee60d7d80c0e06fada74039
 };
