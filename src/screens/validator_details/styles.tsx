@@ -7,9 +7,6 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       '& .validator-voting-power': {
-        height: '500px',
-        background: 'lime',
-        border: 'solid 1px black',
       },
       '& .potential': {
         height: '400px',
