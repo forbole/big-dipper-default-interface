@@ -9,9 +9,6 @@ export const useGetStyles = () => {
       '& .validator-voting-power': {
       },
       '& .potential': {
-        height: '400px',
-        background: 'skyblue',
-        border: 'solid 1px black',
       },
       '& .missed-blocks': {
         height: '550px',
@@ -39,12 +36,12 @@ export const useGetStyles = () => {
         },
 
         '& .validator-voting-power': {
-          gridColumn: '1 / 6',
+          gridColumn: '1 / 5',
         },
 
         '& .potential': {
           height: '100%',
-          gridColumn: '6 / 8',
+          gridColumn: '5 / 8',
           gridRow: '2 / span 1',
         },
 
