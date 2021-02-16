@@ -49,15 +49,15 @@ const ValidatorDetails = () => {
         <div className={classnames('validator-info')}>
           <Info />
         </div>
-        {/* <div className={classnames('validator-voting-power')}>
+        <div className={classnames('validator-voting-power')}>
           validators voting power
-        </div> */}
+        </div>
         <div className={classnames('missed-blocks')}>
           <MissedBlocks />
         </div>
-        {/* <div className={classnames('potential')}>
+        <div className={classnames('potential')}>
           potential
-        </div> */}
+        </div>
         <div className={classnames('staking')}>
           <StakingActivities />
         </div>

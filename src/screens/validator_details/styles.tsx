@@ -42,7 +42,7 @@ export const useGetStyles = () => {
         },
 
         '& .validator-voting-power': {
-          gridColumn: '1 / 6', // change back after
+          gridColumn: '1 / 6',
         },
 
         '& .potential': {
@@ -52,15 +52,11 @@ export const useGetStyles = () => {
         },
 
         '& .missed-blocks': {
-          // gridColumn: '1 / 3', // change back later
-          gridColumn: '6 / 8', // new
-          gridRow: '2 / span 1', // new
+          gridColumn: '1 / 3',
           height: '650px',
         },
         '& .staking': {
-          // gridColumn: '3 / 8', // change back later
-          gridColumn: '1 / 6', // new
-          gridRow: '2 / span 1', // new
+          gridColumn: '3 / 8',
           height: '650px',
         },
         '& .events-and-activities': {
