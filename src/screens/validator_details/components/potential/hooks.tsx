@@ -1,15 +1,14 @@
-/* eslint-disable */
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useTheme } from '@material-ui/core/styles';
 // import {
 //   gql, useSubscription,
 // } from '@apollo/client';
-import { OnlineVotingPower } from '@models';
+// import { OnlineVotingPower } from '@models';
 // import { ONLINE_VOTING_POWER } from '@graphql/subscriptions';
 // import { onlineVotingPowerParser } from '@graphql/parsers/subscriptions';
 
-export const useVotingPowerHook = () => {
-  const [votingPower, setVotingPower] = useState<OnlineVotingPower[]>([]);
+export const usePotentialHook = () => {
+  // const [votingPower, setVotingPower] = useState<OnlineVotingPower[]>([]);
   const theme:any = useTheme();
 
   // ===============================
@@ -22,7 +21,7 @@ export const useVotingPowerHook = () => {
   // });
 
   return {
-    votingPower,
-    cartesianGridStroke: theme?.palette?.divider,
+
+    gridStroke: theme?.palette?.divider,
   };
 };
