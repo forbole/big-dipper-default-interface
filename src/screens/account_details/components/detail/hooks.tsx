@@ -45,8 +45,7 @@ export const useDetailHook = (t: any) => {
         getUserInfo({
           variables: {
             address: router?.query?.address ?? null,
-            // height,
-            height: 381618, // wingman
+            height,
           },
         });
       }
