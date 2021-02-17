@@ -17,6 +17,8 @@ import {
   StakingActivities,
   MissedBlocks,
   Profile,
+  VotingPower,
+  Potential,
 } from './components';
 
 const ValidatorDetails = () => {
@@ -49,15 +51,15 @@ const ValidatorDetails = () => {
         <div className={classnames('validator-info')}>
           <Info />
         </div>
-        {/* <div className={classnames('validator-voting-power')}>
-          validators voting power
-        </div> */}
+        <div className={classnames('validator-voting-power')}>
+          <VotingPower />
+        </div>
         <div className={classnames('missed-blocks')}>
           <MissedBlocks />
         </div>
-        {/* <div className={classnames('potential')}>
-          potential
-        </div> */}
+        <div className={classnames('potential')}>
+          <Potential />
+        </div>
         <div className={classnames('staking')}>
           <StakingActivities />
         </div>

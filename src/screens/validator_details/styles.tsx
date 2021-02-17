@@ -7,14 +7,8 @@ export const useGetStyles = () => {
   const useStyles = makeStyles((theme: any) => createStyles({
     root: {
       '& .validator-voting-power': {
-        height: '500px',
-        background: 'lime',
-        border: 'solid 1px black',
       },
       '& .potential': {
-        height: '400px',
-        background: 'skyblue',
-        border: 'solid 1px black',
       },
       '& .missed-blocks': {
         height: '550px',
@@ -42,25 +36,21 @@ export const useGetStyles = () => {
         },
 
         '& .validator-voting-power': {
-          gridColumn: '1 / 6', // change back after
+          gridColumn: '1 / 5',
         },
 
         '& .potential': {
           height: '100%',
-          gridColumn: '6 / 8',
+          gridColumn: '5 / 8',
           gridRow: '2 / span 1',
         },
 
         '& .missed-blocks': {
-          // gridColumn: '1 / 3', // change back later
-          gridColumn: '6 / 8', // new
-          gridRow: '2 / span 1', // new
+          gridColumn: '1 / 3',
           height: '650px',
         },
         '& .staking': {
-          // gridColumn: '3 / 8', // change back later
-          gridColumn: '1 / 6', // new
-          gridRow: '2 / span 1', // new
+          gridColumn: '3 / 8',
           height: '650px',
         },
         '& .events-and-activities': {
