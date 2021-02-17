@@ -5,7 +5,13 @@ query ValidatorStaking($address: String, $height: bigint, $time: timestamp) {
       amount
       delegator_address
     }
-    redelegations(where: { completion_time: {_gt: $time}}, order_by: {completion_time: desc}) {
+    redelegationsByDstValidatorAddress(where: { completion_time: {_gt: $time}}, order_by: {completion_time: desc}) {
+      src_validator_address
+      dst_validator_address
+      delegator_address
+      amount
+    }
+    redelegationsBySrcValidatorAddress(where: { completion_time: {_gt: $time}}, order_by: {completion_time: desc}) {
       src_validator_address
       dst_validator_address
       delegator_address
