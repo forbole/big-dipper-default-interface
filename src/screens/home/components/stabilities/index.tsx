@@ -30,7 +30,7 @@ const StabilitiesItem = () => {
     <Stabilities
       className={classnames(classes.root)}
       title={t('stabilitiesTitle')}
-      coin={chainConfig.display}
+      coin={chainConfig.display.toUpperCase()}
       price={{
         title: t('priceTitle'),
         display: '$0.00',

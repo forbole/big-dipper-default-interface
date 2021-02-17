@@ -27,7 +27,7 @@ const HeaderBarDesktop = (props:HeaderBarDesktopProps) => {
         },
         {
           key: t('marketCap'),
-          value: '-',
+          value: '$0.00',
         },
         {
           key: t('inflation'),
@@ -35,7 +35,7 @@ const HeaderBarDesktop = (props:HeaderBarDesktopProps) => {
         },
         {
           key: t('communityPool'),
-          value: `${communityPoolValue.format} ${communityPoolValue.denom}`,
+          value: `${communityPoolValue.format} ${communityPoolValue.denom.toUpperCase()}`,
         },
       ]}
     />
