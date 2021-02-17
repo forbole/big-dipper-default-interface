@@ -24,7 +24,7 @@ const HeaderBarMobile = (props:HeaderBarMobileProps) => {
         },
         {
           key: t('marketCap'),
-          value: '-',
+          value: '$0.00',
         },
         {
           key: t('inflation'),
@@ -32,7 +32,7 @@ const HeaderBarMobile = (props:HeaderBarMobileProps) => {
         },
         {
           key: t('communityPool'),
-          value: `${communityPoolValue.format} ${communityPoolValue.denom}`,
+          value: `${communityPoolValue.format} ${communityPoolValue.denom.toUpperCase()}`,
         },
       ]}
     />
