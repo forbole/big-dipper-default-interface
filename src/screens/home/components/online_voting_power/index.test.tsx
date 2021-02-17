@@ -22,7 +22,6 @@ describe('OnlineVotingPower', () => {
 
     await awaitActions({
       wrapper,
-      time: 10,
     });
 
     expect(wrapper).not.toBeNull();

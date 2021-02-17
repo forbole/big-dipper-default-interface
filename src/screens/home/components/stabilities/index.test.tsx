@@ -21,7 +21,6 @@ describe('Stabilities', () => {
 
     await awaitActions({
       wrapper,
-      time: 10,
     });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find('.amount').last().text()).toEqual('2,060.04daric');

@@ -25,7 +25,6 @@ describe('StakingActivities', () => {
 
     await awaitActions({
       wrapper,
-      time: 10,
     });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(ValidatorStakingDesktop)).toHaveLength(1);
