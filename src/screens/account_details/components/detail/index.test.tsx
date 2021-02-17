@@ -24,7 +24,6 @@ describe('Detail', () => {
     );
     await awaitActions({
       wrapper,
-      time: 10,
     });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(UserInfo)).toHaveLength(1);

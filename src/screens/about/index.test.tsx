@@ -26,7 +26,6 @@ describe('About', () => {
 
     await awaitActions({
       wrapper,
-      time: 10,
     });
     expect(
       wrapper.find('h1').first().text(),

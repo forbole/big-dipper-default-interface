@@ -27,7 +27,6 @@ describe('NotFound', () => {
 
     await awaitActions({
       wrapper,
-      time: 10,
     });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(LatestActivities)).toHaveLength(1);

@@ -26,7 +26,6 @@ describe('Faq', () => {
 
     await awaitActions({
       wrapper,
-      time: 10,
     });
 
     expect(

@@ -23,7 +23,6 @@ describe('AvatarDisplayHelper', () => {
 
     await awaitActions({
       wrapper,
-      time: 5,
     });
 
     expect(wrapper).not.toBeNull();
@@ -44,7 +43,6 @@ describe('AvatarDisplayHelper', () => {
 
     await awaitActions({
       wrapper,
-      time: 5,
     });
 
     expect(wrapper).not.toBeNull();

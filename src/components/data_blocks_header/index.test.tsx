@@ -24,7 +24,6 @@ describe('DataBlocksHeader', () => {
 
     await awaitActions({
       wrapper: wrap,
-      time: 10,
     });
 
     expect(wrap).not.toBeNull();

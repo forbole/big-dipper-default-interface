@@ -43,7 +43,6 @@ describe('Activities', () => {
     );
     await awaitActions({
       wrapper,
-      time: 10,
     });
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(Layout)).toHaveLength(1);
