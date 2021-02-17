@@ -41,7 +41,11 @@ export const USER_STAKING_MOCK_DATA = [
                 },
                 validator_address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xnnfs6f9sg8d',
                 validator: {
-                  validator_voting_powers: [],
+                  validator_voting_powers: [
+                    {
+                      voting_power: 5000000,
+                    },
+                  ],
                   validator_commissions: [
                     {
                       commission: 0.1,

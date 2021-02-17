@@ -32,5 +32,6 @@ describe('StakingActivities', () => {
     expect(wrapper.find(TablePaginated)).toHaveLength(1);
     expect(wrapper.find('.table-default')).toHaveLength(1);
     expect(wrapper.find('.commission').first().text()).toEqual('10.00%');
+    expect(wrapper.find('.votingPower').first().text()).toEqual('2.44%');
   });
 });
