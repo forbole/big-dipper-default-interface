@@ -38,16 +38,15 @@ export const useStakingActivitiesHook = () => {
       setUserStaking(parsedData);
     },
   });
-
   useQuery(gql`${LATEST_BLOCK_HEIGHT}`, {
     onCompleted: (data) => {
       const height = latestBlockHeightParser(data);
       if (height) {
         getUserStaking({
           variables: {
-            address: router?.query?.address,
+            address: router?.query?.address ?? null,
             height,
-            utc: moment,
+            utc: moment().utc().format('YYYY-MM-DDTHH:mm:ss'),
           },
         });
       }
