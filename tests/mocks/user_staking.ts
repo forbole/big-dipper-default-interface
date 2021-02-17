@@ -16,6 +16,7 @@ export const USER_STAKING_MOCK_DATA = [
     },
     result: {
       data: {
+        delegation_reward: [],
         account: [
           {
             delegations: [

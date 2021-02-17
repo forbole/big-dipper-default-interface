@@ -95,7 +95,6 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
 
   return {
     delegations: data.delegations.map((x) => {
-      // const reward = data.rewards.filter((i) => i.validatorAddress === x.validatorAddress);
       return ({
         validator: {
           rawValue: x.validatorAddress,

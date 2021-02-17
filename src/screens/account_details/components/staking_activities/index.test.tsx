@@ -31,7 +31,7 @@ describe('StakingActivities', () => {
     expect(wrapper.find(UserStakingMobile)).toHaveLength(1);
     expect(wrapper.find(TablePaginated)).toHaveLength(1);
     expect(wrapper.find('.table-default')).toHaveLength(1);
+    expect(wrapper.find('.table-default').find('.commission').first().text()).toEqual('10%');
     expect(wrapper.find('.table__row')).toHaveLength(1);
-    expect(wrapper.find('.commission').first().text()).toEqual('10%');
   });
 });

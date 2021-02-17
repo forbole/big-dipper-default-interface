@@ -19,7 +19,7 @@ const AddressDisplay = (props: AddressDisplayProps) => {
   } = props;
   const globalState = useContext(GlobalContext);
   const validators: {[key:string]:ValidatorAddressList} = R.pathOr({
-  }, ['validator'], globalState);
+  }, ['validators'], globalState);
 
   const validator = validators[address];
 
