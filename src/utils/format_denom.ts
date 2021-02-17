@@ -25,6 +25,9 @@ export const formatDenom = (denom: string, value: number, format = '0,0.00') => 
 
   results.raw = value / ratio;
   results.format = numeral(value / ratio).format(format);
+  if (results.format === 'NaN') {
+    results.format = numeral(0).format(format);
+  }
 
   return results;
 };
