@@ -2,8 +2,6 @@ import * as R from 'ramda';
 
 type DefaultDelegationType = {
   validatorAddress: string;
-  validatorIdenty: string;
-  validatorMoniker: string;
   amount: {
       denom: string;
       amount: number;
@@ -56,14 +54,10 @@ class UserStaking {
   }
 
   static fromJson(json: any) {
-    console.log('json', json);
-
     return new UserStaking({
       delegations: R.pathOr([], ['account', 0, 'delegations'], json).map((delegation) => {
         return ({
           validatorAddress: delegation?.validator_address,
-          validatorIdenty: delegation?.validator_descriptions?.identity,
-          validatorMoniker: delegation?.validator_descriptions?.moniker,
           amount: {
             denom: delegation?.amount?.denom,
             amount: delegation?.amount?.amount,

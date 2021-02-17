@@ -25,12 +25,12 @@ export const USER_STAKING_MOCK_DATA = [
                   denom: 'udaric',
                   amount: 139363933,
                 },
-              },
-              {
-                delegator_address: 'desmos1qpm8wutycha3ncd0u3w9g42v89xndiwj284ufk',
-                amount: {
-                  denom: 'udaric',
-                  amount: 1004503453,
+                validator: {
+                  validator_commissions: [
+                    {
+                      commission: 0.1,
+                    },
+                  ],
                 },
               },
             ],

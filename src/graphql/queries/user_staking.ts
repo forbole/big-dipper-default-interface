@@ -13,18 +13,10 @@ query UserStaking($address: String, $height: bigint, $utc: timestamp) {
     amount
   }
   account: account(where: {address: {_eq: $address}}) {
-    delegation_rewards(where: {height: {_eq: $height}}) {
-      amount
-      validator_address
-    }
     delegations(where: {height: {_eq: $height}}) {
       amount
       validator_address
       validator {
-        validator_descriptions{
-          moniker
-          identity
-        }
         validator_voting_powers(limit: 1, where: {height: {_eq: $height}}) {
           voting_power
         }

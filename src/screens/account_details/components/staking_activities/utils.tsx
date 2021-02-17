@@ -2,9 +2,7 @@ import React from 'react';
 import { AvatarDisplay } from '@components';
 import moment from 'moment';
 import { UserStaking } from '@models';
-import {
-  formatDenom, formatMiddleEllipse,
-} from '@utils';
+import { formatDenom } from '@utils';
 import numeral from 'numeral';
 import { chainConfig } from '@src/chain_config';
 
@@ -93,69 +91,17 @@ export const getUnbondingColumns = (t: any) => {
 };
 
 export const formatStakingDataDesktop = (data: UserStaking) => {
-  // const delegationsSummedUp = [];
-  // data.delegations.reduce((res, value) => {
-  //   if (!res[value.validatorAddress]) {
-  //     res[value.validatorAddress] = {
-  //       validatorAddress: value.validatorAddress,
-  //       validatorMoniker: value.validatorMoniker,
-  //       validatorIdenty: value.validatorIdenty,
-  //       commission: value.commission,
-  //       votingPower: value.votingPower,
-  //       amount: value.amount.amount,
-  //     };
-  //     delegationsSummedUp.push(res[value.validatorAddress]);
-  //   }
-  //   res[value.validatorAddress].amount += value.amount.amount;
-  //   return res;
-  // }, {
-  // });
-  // console.log('delegationsSummedUp', delegationsSummedUp);
-
-
-
-
-
-  // let list = [];
-  // const summedUpDelegations = data.delegations.filter((i) =>
-  //   i?.amount?.denom === chainConfig.base).reduce((a, b) => {
-  //     return {
-  //     list.push({
-  //     validatorAddress: b.validatorAddress,
-  //     validatorMoniker: b.validatorMoniker,
-  //     validatorIdenty: b.validatorIdenty,
-  //     amount: {
-  //       denom: '',
-  //       amount: a.amount.amount + b.amount.amount,
-  //     },
-  //     commission: b.commission,
-  //     votingPower: b.votingPower,
-  //   });
-      // validatorAddress: 1,
-      // validatorMoniker: 1,
-      // validatorIdenty: 1,
-      // amount: a.amount.amount + b.amount.amount,
-      // };
-    // });
-  // console.log('summedUpDelegations', summedUpDelegations);
-
   const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
 
   return {
     delegations: data.delegations.map((x) => {
-      const reward = data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)
-        .reduce((a, b) => {
-          return a + b?.amount?.amount;
-        }, 0);
-      console.log('reward', reward);
+      // const reward = data.rewards.filter((i) => i.validatorAddress === x.validatorAddress);
       return ({
         validator: {
           rawValue: x.validatorAddress,
           display: (
             <AvatarDisplay
-              display={x.validatorMoniker}
               address={x.validatorAddress}
-              identity={x.validatorIdenty}
             />),
         },
         delegatedAmount: {
@@ -163,14 +109,19 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
           display: convertAmount(x.amount.amount),
         },
         reward: {
-          rawValue: reward,
-          display: convertAmount(reward),
+          rawValue:
+           data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)[0]?.amount?.amount,
+          display:
+           convertAmount(data.rewards.filter((i) => i.validatorAddress
+           === x.validatorAddress)[0]?.amount?.amount),
         },
         commission: {
+          className: 'commission',
           rawValue: x.commission,
           display: numeral(x.commission).format('0.00%'),
         },
         votingPower: {
+          className: 'votingPower',
           rawValue: x.votingPower / data.totalVotingPower,
           display: numeral(x.votingPower / data.totalVotingPower).format('0.00%'),
         },
@@ -182,7 +133,6 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
           rawValue: x.srcValidatorAddress,
           display: (
             <AvatarDisplay
-              display={x.srcValidatorAddress}
               address={x.srcValidatorAddress}
             />),
         },
@@ -190,7 +140,6 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
           rawValue: x.dstValidatorAddress,
           display: (
             <AvatarDisplay
-              display={x.dstValidatorAddress}
               address={x.dstValidatorAddress}
             />),
         },
@@ -210,7 +159,6 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
           rawValue: x.validatorAddress,
           display: (
             <AvatarDisplay
-              display={x.validatorAddress}
               address={x.validatorAddress}
             />),
         },
@@ -231,12 +179,6 @@ export const formatStakingDataMobile = (
   data: UserStaking,
 ) => {
   const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
-  const formatAddress = (address: string) => {
-    return formatMiddleEllipse(address, {
-      beginning: 3,
-      ending: 5,
-    });
-  };
 
   return {
     delegations:
@@ -244,7 +186,6 @@ export const formatStakingDataMobile = (
         return ({
           address: (
             <AvatarDisplay
-              display={x.validatorAddress}
               address={x.validatorAddress}
             />),
           amount: convertAmount(x.amount.amount),
@@ -255,7 +196,6 @@ export const formatStakingDataMobile = (
       return ({
         address: (
           <AvatarDisplay
-            display={formatAddress(x.delegatorAddress ? x.delegatorAddress : '')}
             address={x.delegatorAddress}
           />),
         redelegate: {
@@ -263,7 +203,6 @@ export const formatStakingDataMobile = (
             address={x.srcValidatorAddress}
           />),
           to: (<AvatarDisplay
-            display={x.dstValidatorAddress}
             address={x.dstValidatorAddress}
           />),
         },
@@ -275,7 +214,6 @@ export const formatStakingDataMobile = (
       return ({
         address: (
           <AvatarDisplay
-            display={x.validatorAddress}
             address={x.validatorAddress}
           />),
         amount: convertAmount(x.amount.amount),

@@ -18,6 +18,7 @@ const AvatarDisplayHelper = (props:AvatarDisplayProps) => {
     identity,
   } = props;
   const globalState = useContext(GlobalContext);
+
   const validators: {[key:string]:ValidatorAddressList} = R.pathOr({
   }, ['validators'], globalState);
   const validator = validators[address];
