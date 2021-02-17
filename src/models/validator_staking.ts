@@ -28,6 +28,8 @@ class ValidatorStaking {
   }
 
   static fromJson(json: any) {
+    const redelegations = [...R.pathOr([], ['redelegationsByDstValidatorAddress'], json), ...R.pathOr([], ['redelegationsBySrcValidatorAddress'], json)];
+
     return new ValidatorStaking({
       delegations: R.pathOr([], ['delegations'], json).map((delegation) => {
         return ({
@@ -47,7 +49,7 @@ class ValidatorStaking {
           },
         });
       }),
-      redelegations: R.pathOr([], ['redelegations'], json).map((redelegation) => {
+      redelegations: redelegations.map((redelegation) => {
         return ({
           delegatorAddress: redelegation?.delegator_address,
           srcValidatorAddress: redelegation?.src_validator_address,
