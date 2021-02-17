@@ -10,6 +10,8 @@ export const VALIDATOR_STAKING_MOCK_DATA = [
       query: gql`${VALIDATOR_STAKING}`,
       variables: {
         address: null,
+        height: 204592,
+        time: '2018–01–30T12:12:12',
       },
     },
     result: {

@@ -31,7 +31,6 @@ describe('Layout', () => {
 
     await awaitActions({
       wrapper: wrap,
-      time: 10,
     });
     expect(wrap).not.toBeNull();
     expect(wrap.find('h1')).toHaveLength(1);
