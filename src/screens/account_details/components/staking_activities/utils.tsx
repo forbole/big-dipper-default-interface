@@ -104,15 +104,15 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         delegatedAmount: {
-          rawValue: x.amount.amount,
-          display: convertAmount(x.amount.amount),
+          rawValue: x.amount,
+          display: convertAmount(x.amount),
         },
         reward: {
           rawValue:
-           data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)[0]?.amount?.amount,
+           data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)[0]?.amount,
           display:
            convertAmount(data.rewards.filter((i) => i.validatorAddress
-           === x.validatorAddress)[0]?.amount?.amount),
+           === x.validatorAddress)[0]?.amount),
         },
         commission: {
           className: 'commission',
@@ -143,8 +143,8 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         redelegatedAmount: {
-          rawValue: x.amount.amount,
-          display: convertAmount(x.amount.amount),
+          rawValue: x.amount,
+          display: convertAmount(x.amount),
         },
         expectedDelivery: {
           rawValue: x.expectedTime,
@@ -162,8 +162,8 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         unbondedAmount: {
-          rawValue: x.amount.amount,
-          display: convertAmount(x.amount.amount),
+          rawValue: x.amount,
+          display: convertAmount(x.amount),
         },
         expectedDelivery: {
           rawValue: x.expectedTime,
@@ -187,7 +187,7 @@ export const formatStakingDataMobile = (
             <AvatarDisplay
               address={x.validatorAddress}
             />),
-          amount: convertAmount(x.amount.amount),
+          amount: convertAmount(x.amount),
         });
       }),
 
@@ -205,7 +205,7 @@ export const formatStakingDataMobile = (
             address={x.dstValidatorAddress}
           />),
         },
-        amount: convertAmount(x.amount.amount),
+        amount: convertAmount(x.amount),
       });
     }),
 
@@ -215,7 +215,7 @@ export const formatStakingDataMobile = (
           <AvatarDisplay
             address={x.validatorAddress}
           />),
-        amount: convertAmount(x.amount.amount),
+        amount: convertAmount(x.amount),
       });
     }),
   };

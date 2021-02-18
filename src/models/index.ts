@@ -20,7 +20,6 @@ import ValidatorLatestBlock from './validator_latest_block';
 import ValidatorList from './validator_list';
 import SlashingParam from './slashing_param';
 import UserStaking from './user_staking';
-import TotalVotingPower from './total_voting_power';
 import OnlineVotingPower from './online_voting_power';
 import ChainId from './chain_id';
 
@@ -91,7 +90,6 @@ export {
   ValidatorLatestBlock,
   SlashingParam,
   UserStaking,
-  TotalVotingPower,
   OnlineVotingPower,
   ChainId,
 };
