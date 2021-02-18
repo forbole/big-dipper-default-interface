@@ -33,5 +33,6 @@ describe('StakingActivities', () => {
     expect(wrapper.find('.table-default')).toHaveLength(1);
     expect(wrapper.find('.commission').first().text()).toEqual('10.00%');
     expect(wrapper.find('.votingPower').first().text()).toEqual('2.44%');
+    expect(wrapper.find('.reward').first().text()).toEqual('0.123333 DARIC');
   });
 });

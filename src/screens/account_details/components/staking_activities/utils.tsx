@@ -108,6 +108,7 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
           display: convertAmount(x.amount),
         },
         reward: {
+          className: 'reward',
           rawValue:
            data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)[0]?.amount,
           display:

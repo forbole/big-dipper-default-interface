@@ -54,8 +54,9 @@ class UserStaking {
         return ({
           validatorAddress: reward?.validator_address,
           delegatorAddress: reward?.delegator_address,
-          amount: R.pathOr(0, ['amount'],
+          amount: R.pathOr(0, [0, 'amount'],
             R.pathOr([], ['amount'], reward).filter((x) => x.denom === chainConfig.base)),
+
         });
       }),
       redelegations: R.pathOr([], ['account', 0, 'redelegations'], json).map((redelegation) => {
