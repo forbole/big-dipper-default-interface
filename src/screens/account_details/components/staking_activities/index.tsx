@@ -31,7 +31,6 @@ const StakingActivities = () => {
     handleTabChange,
   } = useStakingActivitiesHook();
   const { t } = useTranslation('accounts');
-
   // ==================================
   // styles
   // ==================================
@@ -57,8 +56,8 @@ const StakingActivities = () => {
         aria-label="staking list tabs"
       >
         <Tab disableRipple label={t('delegations')} {...getAllyProps(0)} />
-        <Tab disableRipple label={t('redelegations')} {...getAllyProps(1)} />
-        <Tab disableRipple label={t('unbondings')} {...getAllyProps(2)} />
+        <Tab disableRipple label={t('redelegations')} {...getAllyProps(1)} className={classnames(classes.root, 'redelegationsTab')} />
+        <Tab disableRipple label={t('unbondings')} {...getAllyProps(2)} className={classnames(classes.root, 'unbondingsTab')} />
       </Tabs>
       {/* =================================== */}
       {/* delegation */}

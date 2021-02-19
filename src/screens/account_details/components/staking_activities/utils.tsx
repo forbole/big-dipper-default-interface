@@ -92,11 +92,11 @@ export const getUnbondingColumns = (t: any) => {
 
 export const formatStakingDataDesktop = (data: UserStaking) => {
   const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
-
   return {
     delegations: data.delegations.map((x) => {
       return ({
         validator: {
+          className: 'delegationsValidator',
           rawValue: x.validatorAddress,
           display: (
             <AvatarDisplay
@@ -104,6 +104,7 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         delegatedAmount: {
+          className: 'delegatedAmount',
           rawValue: x.amount,
           display: convertAmount(x.amount),
         },
@@ -122,14 +123,16 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
         },
         votingPower: {
           className: 'votingPower',
-          rawValue: x.votingPower / data.totalVotingPower,
-          display: numeral(x.votingPower / data.totalVotingPower).format('0.00%'),
+          rawValue: data.totalVotingPower && data.totalVotingPower > 0
+            ? x.votingPower / data.totalVotingPower : 0,
+          display: numeral(data.totalVotingPower && data.totalVotingPower > 0 ? x.votingPower / data.totalVotingPower : 0).format('0.00%'),
         },
       });
     }),
     redelegations: data.redelegations.map((x) => {
       return ({
         srcValidator: {
+          className: 'srcValidator',
           rawValue: x.srcValidatorAddress,
           display: (
             <AvatarDisplay
@@ -137,6 +140,7 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         dstValidator: {
+          className: 'dstValidator',
           rawValue: x.dstValidatorAddress,
           display: (
             <AvatarDisplay
@@ -144,10 +148,12 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         redelegatedAmount: {
+          className: 'redelegatedAmount',
           rawValue: x.amount,
           display: convertAmount(x.amount),
         },
         expectedDelivery: {
+          className: 'redelegationsExpectedDelivery',
           rawValue: x.expectedTime,
           display: moment(x.expectedTime).format('DD MMM YYYY, HH:mm'),
         },
@@ -156,6 +162,7 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
     unbonding: data.unbonding.map((x) => {
       return ({
         validator: {
+          className: 'unbondingValidator',
           rawValue: x.validatorAddress,
           display: (
             <AvatarDisplay
@@ -163,10 +170,12 @@ export const formatStakingDataDesktop = (data: UserStaking) => {
             />),
         },
         unbondedAmount: {
+          className: 'unbondedAmount',
           rawValue: x.amount,
           display: convertAmount(x.amount),
         },
         expectedDelivery: {
+          className: 'unbondingExpectedDelivery',
           rawValue: x.expectedTime,
           display: moment(x.expectedTime).format('DD MMM YYYY, HH:mm'),
         },

@@ -56,7 +56,6 @@ class UserStaking {
           delegatorAddress: reward?.delegator_address,
           amount: R.pathOr(0, [0, 'amount'],
             R.pathOr([], ['amount'], reward).filter((x) => x.denom === chainConfig.base)),
-
         });
       }),
       redelegations: R.pathOr([], ['account', 0, 'redelegations'], json).map((redelegation) => {
@@ -68,7 +67,6 @@ class UserStaking {
           expectedTime: redelegation?.completion_time,
         });
       }),
-
       unbonding: R.pathOr([], ['account', 0, 'unbondings'], json).map((unbonding) => {
         return ({
           validatorAddress: unbonding?.validator_address,

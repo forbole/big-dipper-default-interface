@@ -27,6 +27,7 @@ describe('StakingActivities', () => {
       wrapper,
       time: 500,
     });
+
     expect(wrapper).not.toBeNull();
     expect(wrapper.find(UserStakingMobile)).toHaveLength(1);
     expect(wrapper.find(TablePaginated)).toHaveLength(1);
@@ -34,5 +35,10 @@ describe('StakingActivities', () => {
     expect(wrapper.find('.commission').first().text()).toEqual('10.00%');
     expect(wrapper.find('.votingPower').first().text()).toEqual('2.44%');
     expect(wrapper.find('.reward').first().text()).toEqual('0.123333 DARIC');
+    expect(wrapper.find('.delegatedAmount').first().text()).toEqual('139.363933 DARIC');
+    wrapper.find('.redelegationsTab').first().simulate('click');
+    expect(wrapper.find('.redelegatedAmount').first().text()).toEqual('139.363933 DARIC');
+    wrapper.find('.unbondingsTab').first().simulate('click');
+    expect(wrapper.find('.unbondedAmount').first().text()).toEqual('139.363933 DARIC');
   });
 });
