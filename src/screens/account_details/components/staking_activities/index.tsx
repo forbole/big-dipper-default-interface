@@ -21,19 +21,16 @@ import {
   getDelegationColumns,
   getRedelegationColumns,
   getUnbondingColumns,
-  dummyMobileData,
-  dummyDesktopDelegation,
-  dummyDesktopRedelegation,
-  dummyDesktopUnbonding,
 } from './utils';
 
 const StakingActivities = () => {
   const {
+    userStakingDesktop,
+    userStakingMobile,
     tabValue,
     handleTabChange,
   } = useStakingActivitiesHook();
   const { t } = useTranslation('accounts');
-
   // ==================================
   // styles
   // ==================================
@@ -59,8 +56,8 @@ const StakingActivities = () => {
         aria-label="staking list tabs"
       >
         <Tab disableRipple label={t('delegations')} {...getAllyProps(0)} />
-        <Tab disableRipple label={t('redelegations')} {...getAllyProps(1)} />
-        <Tab disableRipple label={t('unbondings')} {...getAllyProps(2)} />
+        <Tab disableRipple label={t('redelegations')} {...getAllyProps(1)} className={classnames(classes.root, 'redelegationsTab')} />
+        <Tab disableRipple label={t('unbondings')} {...getAllyProps(2)} className={classnames(classes.root, 'unbondingsTab')} />
       </Tabs>
       {/* =================================== */}
       {/* delegation */}
@@ -72,7 +69,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={dummyMobileData}
+            data={userStakingMobile.delegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -80,7 +77,7 @@ const StakingActivities = () => {
           <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
             columns={delegationColumns}
-            data={dummyDesktopDelegation}
+            data={userStakingDesktop.delegations}
             initialActiveSort="validator"
           />
         </div>
@@ -95,7 +92,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={dummyMobileData}
+            data={userStakingMobile.redelegations}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -103,7 +100,7 @@ const StakingActivities = () => {
           <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
             columns={redelegationColumns}
-            data={dummyDesktopRedelegation}
+            data={userStakingDesktop.redelegations}
             initialActiveSort="validator"
           />
         </div>
@@ -118,7 +115,7 @@ const StakingActivities = () => {
           {/* ================================ */}
           <UserStakingMobile
             className={classnames('user-staking', mobileOnlyStyles.root)}
-            data={dummyMobileData}
+            data={userStakingMobile.unbonding}
           />
           {/* ================================ */}
           {/* desktop */}
@@ -126,7 +123,7 @@ const StakingActivities = () => {
           <TablePaginated
             className={classnames('user-staking', desktopOnlyStyles.root)}
             columns={unbondingColumns}
-            data={dummyDesktopUnbonding}
+            data={userStakingDesktop.unbonding}
             initialActiveSort="validator"
           />
         </div>

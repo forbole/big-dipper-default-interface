@@ -1,110 +1,12 @@
 import React from 'react';
-import { AvatarDisplay } from '@forbole/big-dipper-default-ui';
+import { AvatarDisplay } from '@components';
+import moment from 'moment';
+import { UserStaking } from '@models';
+import { formatDenom } from '@utils';
+import numeral from 'numeral';
+import { chainConfig } from '@src/chain_config';
 
-// =================================
-// dummy start
-// =================================
-const Address = () => {
-  return (
-    <AvatarDisplay
-      imageUrl="https://s3.amazonaws.com/keybase_processed_uploads/f5b0771af36b2e3d6a196a29751e1f05_360_360.jpeg"
-      alt="avatar image"
-      title="Forbole"
-    />
-  );
-};
-
-export const singleMobileDummy = {
-  address: <Address />,
-  amount: '1,000 ATOM',
-};
-
-export const dummyMobileData = new Array(20).fill(singleMobileDummy);
-
-const singleDesktopDelegationData = {
-  validator: {
-    rawValue: 'forbole',
-    display: <Address />,
-  },
-  delegatedAmount: {
-    rawValue: 1000,
-    display: '1,000 ATOM',
-  },
-  amtRatio: {
-    rawValue: 77,
-    display: '0.77%',
-  },
-  reward: {
-    rawValue: 77,
-    display: '0.77%',
-  },
-  commission: {
-    rawValue: 77,
-    display: '0.77%',
-  },
-  vpRatios: {
-    rawValue: 77,
-    display: '0.77%',
-  },
-};
-
-export const dummyDesktopDelegation = Array(20).fill(singleDesktopDelegationData);
-
-const singleDesktopRedelegationData = {
-  validator: {
-    rawValue: 'forbole',
-    display: <Address />,
-  },
-  height: {
-    rawValue: 1000,
-    display: '1,000',
-  },
-  redelegatedAmount: {
-    rawValue: 77,
-    display: '77 DSM',
-  },
-  remainingAmount: {
-    rawValue: 77,
-    display: '77 DSM',
-  },
-  expectedDelivery: {
-    rawValue: 77,
-    display: '20 Jan 2020, 19:27:20',
-  },
-};
-
-export const dummyDesktopRedelegation = Array(20).fill(singleDesktopRedelegationData);
-
-const singleDesktopUnbondingData = {
-  validator: {
-    rawValue: 'forbole',
-    display: <Address />,
-  },
-  height: {
-    rawValue: 1000,
-    display: '1,000',
-  },
-  unbondedAmount: {
-    rawValue: 77,
-    display: '77 DSM',
-  },
-  remainingAmount: {
-    rawValue: 77,
-    display: '77 DSM',
-  },
-  expectedDelivery: {
-    rawValue: 77,
-    display: '20 Jan 2020, 19:27:20',
-  },
-};
-
-export const dummyDesktopUnbonding = Array(20).fill(singleDesktopUnbondingData);
-
-// =================================
-// dummy end
-// =================================
-
-export const getDelegationColumns = (t:any) => {
+export const getDelegationColumns = (t: any) => {
   return ([
     {
       label: 'validator',
@@ -114,12 +16,6 @@ export const getDelegationColumns = (t:any) => {
     {
       label: 'delegatedAmount',
       display: t('delegatedAmount'),
-      sort: true,
-      align: 'right',
-    },
-    {
-      label: 'amtRatio',
-      display: t('amtRatio'),
       sort: true,
       align: 'right',
     },
@@ -136,36 +32,30 @@ export const getDelegationColumns = (t:any) => {
       align: 'right',
     },
     {
-      label: 'vpRatios',
-      display: t('vpRatios'),
+      label: 'votingPower',
+      display: t('votingPower'),
       sort: true,
       align: 'right',
     },
   ]);
 };
 
-export const getRedelegationColumns = (t:any) => {
+export const getRedelegationColumns = (t: any) => {
   return ([
     {
-      label: 'validator',
-      display: t('validator'),
+      label: 'srcValidator',
+      display: t('srcValidator'),
       sort: true,
     },
     {
-      label: 'height',
-      display: t('height'),
+      label: 'dstValidator',
+      display: t('dstValidator'),
       sort: true,
-      align: 'right',
     },
+
     {
       label: 'redelegatedAmount',
       display: t('redelegatedAmount'),
-      sort: true,
-      align: 'right',
-    },
-    {
-      label: 'remainingAmount',
-      display: t('remainingAmount'),
       sort: true,
       align: 'right',
     },
@@ -178,18 +68,12 @@ export const getRedelegationColumns = (t:any) => {
   ]);
 };
 
-export const getUnbondingColumns = (t:any) => {
+export const getUnbondingColumns = (t: any) => {
   return ([
     {
       label: 'validator',
       display: t('validator'),
       sort: true,
-    },
-    {
-      label: 'height',
-      display: t('height'),
-      sort: true,
-      align: 'right',
     },
     {
       label: 'unbondedAmount',
@@ -198,16 +82,151 @@ export const getUnbondingColumns = (t:any) => {
       align: 'right',
     },
     {
-      label: 'remainingAmount',
-      display: t('remainingAmount'),
-      sort: true,
-      align: 'right',
-    },
-    {
       label: 'expectedDelivery',
       display: t('expectedDelivery'),
       sort: true,
       align: 'right',
     },
   ]);
+};
+
+export const formatStakingDataDesktop = (data: UserStaking) => {
+  const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
+  return {
+    delegations: data.delegations.map((x) => {
+      return ({
+        validator: {
+          className: 'delegationsValidator',
+          rawValue: x.validatorAddress,
+          display: (
+            <AvatarDisplay
+              address={x.validatorAddress}
+            />),
+        },
+        delegatedAmount: {
+          className: 'delegatedAmount',
+          rawValue: x.amount,
+          display: convertAmount(x.amount),
+        },
+        reward: {
+          className: 'reward',
+          rawValue:
+           data.rewards.filter((i) => i.validatorAddress === x.validatorAddress)[0]?.amount,
+          display:
+           convertAmount(data.rewards.filter((i) => i.validatorAddress
+           === x.validatorAddress)[0]?.amount),
+        },
+        commission: {
+          className: 'commission',
+          rawValue: x.commission,
+          display: numeral(x.commission).format('0.00%'),
+        },
+        votingPower: {
+          className: 'votingPower',
+          rawValue: data.totalVotingPower && data.totalVotingPower > 0
+            ? x.votingPower / data.totalVotingPower : 0,
+          display: numeral(data.totalVotingPower && data.totalVotingPower > 0 ? x.votingPower / data.totalVotingPower : 0).format('0.00%'),
+        },
+      });
+    }),
+    redelegations: data.redelegations.map((x) => {
+      return ({
+        srcValidator: {
+          className: 'srcValidator',
+          rawValue: x.srcValidatorAddress,
+          display: (
+            <AvatarDisplay
+              address={x.srcValidatorAddress}
+            />),
+        },
+        dstValidator: {
+          className: 'dstValidator',
+          rawValue: x.dstValidatorAddress,
+          display: (
+            <AvatarDisplay
+              address={x.dstValidatorAddress}
+            />),
+        },
+        redelegatedAmount: {
+          className: 'redelegatedAmount',
+          rawValue: x.amount,
+          display: convertAmount(x.amount),
+        },
+        expectedDelivery: {
+          className: 'redelegationsExpectedDelivery',
+          rawValue: x.expectedTime,
+          display: moment(x.expectedTime).format('DD MMM YYYY, HH:mm'),
+        },
+      });
+    }),
+    unbonding: data.unbonding.map((x) => {
+      return ({
+        validator: {
+          className: 'unbondingValidator',
+          rawValue: x.validatorAddress,
+          display: (
+            <AvatarDisplay
+              address={x.validatorAddress}
+            />),
+        },
+        unbondedAmount: {
+          className: 'unbondedAmount',
+          rawValue: x.amount,
+          display: convertAmount(x.amount),
+        },
+        expectedDelivery: {
+          className: 'unbondingExpectedDelivery',
+          rawValue: x.expectedTime,
+          display: moment(x.expectedTime).format('DD MMM YYYY, HH:mm'),
+        },
+      });
+    }),
+  };
+};
+
+export const formatStakingDataMobile = (
+  data: UserStaking,
+) => {
+  const convertAmount = (amount: number) => `${formatDenom(chainConfig.display, amount, '0.00[0000]').format} ${chainConfig.display.toUpperCase()}`;
+
+  return {
+    delegations:
+      data.delegations.map((x) => {
+        return ({
+          address: (
+            <AvatarDisplay
+              address={x.validatorAddress}
+            />),
+          amount: convertAmount(x.amount),
+        });
+      }),
+
+    redelegations: data.redelegations.map((x) => {
+      return ({
+        address: (
+          <AvatarDisplay
+            address={x.delegatorAddress}
+          />),
+        redelegate: {
+          from: (<AvatarDisplay
+            address={x.srcValidatorAddress}
+          />),
+          to: (<AvatarDisplay
+            address={x.dstValidatorAddress}
+          />),
+        },
+        amount: convertAmount(x.amount),
+      });
+    }),
+
+    unbonding: data.unbonding.map((x) => {
+      return ({
+        address: (
+          <AvatarDisplay
+            address={x.validatorAddress}
+          />),
+        amount: convertAmount(x.amount),
+      });
+    }),
+  };
 };
