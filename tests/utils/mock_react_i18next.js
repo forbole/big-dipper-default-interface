@@ -1,6 +1,6 @@
 /* eslint-disable */
 const React = require('react');
-const reactI18next = require('react-i18next');
+const reactI18next = require('next-i18next');
 
 const hasChildren = (node) => node && (node.children || (node.props && node.props.children));
 

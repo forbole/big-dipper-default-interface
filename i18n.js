@@ -9,6 +9,7 @@ module.exports = new NextI18Next({
   otherLanguages: [],
   defaultLanguage: 'en',
   localeSubpaths,
+  fallbackLng: 'en',
   localePath: path.resolve('./public/locales'),
   strictMode: false,
   use,
