@@ -1,6 +1,8 @@
-/* eslint-disable */
+/* eslint-disable no-console */
 import 'dotenv-defaults/config';
-import express, { Request, Response } from 'express';
+import express, {
+  Request, Response,
+} from 'express';
 import next from 'next';
 import cors from 'cors';
 

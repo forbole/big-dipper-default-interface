@@ -53,7 +53,8 @@
     {
       "files": [
         "src/**/*.test.tsx",
-        "src/**/*.test.ts"
+        "src/**/*.test.ts",
+        "**/*.spec.ts"
       ],
       "rules": {
         "no-undef": "off",
@@ -116,16 +117,8 @@
     "object-curly-newline": [
       "error",
       {
-        "ObjectExpression": "always",
-        "ObjectPattern": {
-          "multiline": true,
-          "minProperties": 2
-        },
-        "ImportDeclaration": {
-          "multiline": true,
-          "minProperties": 2
-        },
-        "ExportDeclaration": "always"
+        "consistent": true,
+        "minProperties": 2
       }
     ]
   }
