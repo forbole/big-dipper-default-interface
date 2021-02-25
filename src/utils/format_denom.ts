@@ -1,3 +1,4 @@
+/* eslint-disable */
 import numeral from 'numeral';
 import { chainConfig } from '@src/chain_config';
 
